@@ -86,7 +86,7 @@ async function renderAudio() {
   const list = document.getElementById("audio-list");
 
   try {
-    const response = await fetch("/data/audio.json", { cache: "no-cache" });
+    const response = await fetch("data/audio.json", { cache: "no-cache" });
     if (!response.ok) throw new Error("Cannot load /data/audio.json");
     const tracks = await response.json();
 
@@ -124,7 +124,7 @@ async function renderVisuals() {
   const gallery = document.getElementById("visual-gallery");
 
   try {
-    const response = await fetch("/data/visuals.json", { cache: "no-cache" });
+    const response = await fetch("data/visuals.json", { cache: "no-cache" });
     if (!response.ok) throw new Error("Cannot load /data/visuals.json");
     const images = await response.json();
 
