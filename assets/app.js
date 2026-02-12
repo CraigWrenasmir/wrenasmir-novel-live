@@ -42,30 +42,43 @@ function renderTopLevelLinks() {
 function renderDraftMap() {
   const map = document.getElementById("draft-map");
 
-  draftFolders.forEach((chapter) => {
-    const block = document.createElement("section");
-    block.className = "draft-block";
+  draftFolders.forEach((chapter, index) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = `dropdown-wrapper dropdown-${index + 1}`;
 
-    const title = document.createElement("h3");
-    title.className = "draft-title";
-    title.textContent = chapter;
+    const label = document.createElement("label");
+    label.className = "dropdown-label";
+    label.textContent = chapter;
+    label.htmlFor = `draft-${index}`;
 
-    const grid = document.createElement("div");
-    grid.className = "scene-grid";
+    const select = document.createElement("select");
+    select.className = "scene-dropdown";
+    select.id = `draft-${index}`;
+
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "Choose a scene...";
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    select.appendChild(placeholder);
 
     scenes.forEach((scene) => {
-      const link = document.createElement("a");
-      link.className = "scene-link";
-      link.textContent = scene;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.href = repoTreeLink(`drafts/${chapter}/${scene}`);
-      grid.appendChild(link);
+      const option = document.createElement("option");
+      option.value = repoTreeLink(`drafts/${chapter}/${scene}`);
+      option.textContent = scene;
+      select.appendChild(option);
     });
 
-    block.appendChild(title);
-    block.appendChild(grid);
-    map.appendChild(block);
+    select.addEventListener("change", (e) => {
+      if (e.target.value) {
+        window.open(e.target.value, "_blank", "noopener,noreferrer");
+        e.target.value = "";
+      }
+    });
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(select);
+    map.appendChild(wrapper);
   });
 }
 
