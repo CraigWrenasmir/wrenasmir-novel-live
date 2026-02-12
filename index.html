@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Their Most August Public Organ | Writing Log</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <header class="hero">
+    <p class="eyebrow">WRITING SIGNAL</p>
+    <h1>Their Most August Public Organ</h1>
+    <p class="subtitle">
+      A live writing log: real-time drafts, scene progression, visual experiments, and short audio dispatches.
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="top-level-title">
+      <h2 id="top-level-title">Repository Areas</h2>
+      <div class="chip-row" id="top-level-links"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="draft-map-title">
+      <h2 id="draft-map-title">Draft Scene Map</h2>
+      <p class="note">Each scene tile links to that exact folder in your GitHub repository.</p>
+      <div id="draft-map"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="audio-title">
+      <h2 id="audio-title">Audio Blog</h2>
+      <p class="note">Drop `.mp3` files into <code>/blog/audio/</code>, then update <code>/data/audio.json</code>.</p>
+      <div id="audio-list" class="audio-list"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="visuals-title">
+      <h2 id="visuals-title">Visuals</h2>
+      <p class="note">Use <code>/visuals/</code> for concept maps and progress graphics.</p>
+      <p>When you are ready, we can add interactive visualizations to this page.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Manual updates only. Publish cadence: your pace.</p>
+  </footer>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>
