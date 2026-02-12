@@ -1,4 +1,4 @@
-const REPO_URL = "https://github.com/YOUR_USERNAME/their-most-august-public-organ";
+const REPO_URL = "https://github.com/CraigWrenasmir/wrenasmir-novel-live";
 
 const topLevel = ["blog", "drafts", "ideas", "research", "visuals", "final"];
 
