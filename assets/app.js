@@ -120,6 +120,46 @@ async function renderAudio() {
   }
 }
 
+async function renderVisuals() {
+  const gallery = document.getElementById("visual-gallery");
+
+  try {
+    const response = await fetch("/data/visuals.json", { cache: "no-cache" });
+    if (!response.ok) throw new Error("Cannot load /data/visuals.json");
+    const images = await response.json();
+
+    if (!Array.isArray(images) || images.length === 0) {
+      gallery.innerHTML = "<p>No images yet.</p>";
+      return;
+    }
+
+    gallery.innerHTML = images
+      .map((img) => {
+        const title = img.title || "Untitled";
+        const caption = img.caption || "";
+        const date = img.date || "";
+        const src = img.file || "";
+
+        return `
+          <div class="gallery-item">
+            <a href="${src}" target="_blank" rel="noopener noreferrer">
+              <img src="${src}" alt="${title}" loading="lazy">
+            </a>
+            <div class="gallery-info">
+              <h3>${title}</h3>
+              ${date ? `<p class="gallery-date">${date}</p>` : ""}
+              ${caption ? `<p class="gallery-caption">${caption}</p>` : ""}
+            </div>
+          </div>
+        `;
+      })
+      .join("");
+  } catch (error) {
+    gallery.innerHTML = `<p>Gallery unavailable: ${error.message}</p>`;
+  }
+}
+
 renderTopLevelLinks();
 renderDraftMap();
 renderAudio();
+renderVisuals();
