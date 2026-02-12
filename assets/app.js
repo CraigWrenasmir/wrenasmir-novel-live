@@ -1,6 +1,6 @@
 const REPO_URL = "https://github.com/CraigWrenasmir/wrenasmir-novel-live";
 
-const topLevel = ["blog", "drafts", "ideas", "research", "visuals", "final"];
+const topLevel = ["blog", "ideas", "drafts", "research", "visuals", "final"];
 
 const draftFolders = [
   "1 Train",
@@ -159,7 +159,43 @@ async function renderVisuals() {
   }
 }
 
+async function renderIdeas() {
+  const container = document.getElementById("ideas-list");
+
+  try {
+    const response = await fetch("data/ideas.json", { cache: "no-cache" });
+    if (!response.ok) throw new Error("Cannot load data/ideas.json");
+    const ideas = await response.json();
+
+    if (!Array.isArray(ideas) || ideas.length === 0) {
+      container.innerHTML = "<p>No ideas yet.</p>";
+      return;
+    }
+
+    container.innerHTML = ideas
+      .map((idea) => {
+        const title = idea.title || "Untitled";
+        const preview = idea.preview || "";
+        const date = idea.date || "";
+        const file = idea.file || "";
+
+        return `
+          <div class="idea-item">
+            <h3>${title}</h3>
+            ${date ? `<p class="idea-date">${date}</p>` : ""}
+            <p class="idea-preview">${preview}</p>
+            ${file ? `<a href="${repoTreeLink(file)}" class="idea-link" target="_blank" rel="noopener noreferrer">Read full note →</a>` : ""}
+          </div>
+        `;
+      })
+      .join("");
+  } catch (error) {
+    container.innerHTML = `<p>Ideas unavailable: ${error.message}</p>`;
+  }
+}
+
 renderTopLevelLinks();
+renderIdeas();
 renderDraftMap();
 renderAudio();
 renderVisuals();
