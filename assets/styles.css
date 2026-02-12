@@ -95,6 +95,25 @@ h1 {
   margin-top: 0;
 }
 
+.intro-note {
+  background: linear-gradient(135deg, #0f1623 0%, #0a0f1a 100%);
+  border-color: var(--accent);
+}
+
+.intro-note p {
+  margin: 0 0 0.8rem;
+  line-height: 1.6;
+}
+
+.intro-note p:last-child {
+  margin-bottom: 0;
+}
+
+.intro-note em {
+  color: var(--accent);
+  font-style: italic;
+}
+
 .note {
   color: var(--muted);
   margin-top: -0.2rem;
