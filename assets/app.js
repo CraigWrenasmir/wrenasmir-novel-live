@@ -30,6 +30,15 @@ function repoTreeLink(path) {
   return `${REPO_URL}/tree/main/${safePath}`;
 }
 
+function repoBlobLink(path) {
+  const safePath = path.split("/").map(encodeURIComponent).join("/");
+  return `${REPO_URL}/blob/main/${safePath}`;
+}
+
+function sceneFileName(scene) {
+  return scene.toLowerCase().replace(" ", "-") + ".md";
+}
+
 function renderTopLevelLinks() {
   const wrap = document.getElementById("top-level-links");
   wrap.innerHTML = topLevel
@@ -64,7 +73,7 @@ function renderDraftMap() {
 
     scenes.forEach((scene) => {
       const option = document.createElement("option");
-      option.value = repoTreeLink(`drafts/${chapter}/${scene}`);
+      option.value = repoBlobLink(`drafts/${chapter}/${scene}/${sceneFileName(scene)}`);
       option.textContent = scene;
       select.appendChild(option);
     });
