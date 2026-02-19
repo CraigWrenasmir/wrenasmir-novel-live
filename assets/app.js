@@ -48,8 +48,22 @@ function renderTopLevelLinks() {
     .join("");
 }
 
-function renderDraftMap() {
+async function fetchExistingFiles() {
+  try {
+    const response = await fetch(
+      "https://api.github.com/repos/CraigWrenasmir/wrenasmir-novel-live/git/trees/main?recursive=1"
+    );
+    if (!response.ok) return new Set();
+    const data = await response.json();
+    return new Set(data.tree.filter(f => f.type === "blob").map(f => f.path));
+  } catch {
+    return new Set();
+  }
+}
+
+async function renderDraftMap() {
   const map = document.getElementById("draft-map");
+  const existingFiles = await fetchExistingFiles();
 
   draftFolders.forEach((chapter, index) => {
     const wrapper = document.createElement("div");
@@ -73,8 +87,10 @@ function renderDraftMap() {
 
     scenes.forEach((scene) => {
       const option = document.createElement("option");
-      option.value = repoBlobLink(`drafts/${chapter}/${scene}/${sceneFileName(scene)}`);
-      option.textContent = scene;
+      const filePath = `drafts/${chapter}/${scene}/${sceneFileName(scene)}`;
+      const exists = existingFiles.has(filePath);
+      option.value = repoBlobLink(filePath);
+      option.textContent = `${exists ? "✅" : "❌"} ${scene}`;
       select.appendChild(option);
     });
 
