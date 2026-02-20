@@ -1,1 +1,1 @@
-At meaning's edge the imagination still flickers. It is jigsaw daylight between shy evergreen canopies. I am on my way to see my friend. The train is steady and the sky is both very far above us and also lying flat against these knife grazed windows. It is a Saturday. Good morning.
+At meaning's edge the imagination still flickers. It is jigsaw daylight between shy evergreen canopies. I am on my way to see my friend. The train is steady and the sky is both very far above us and lying flat against these knife grazed windows. It is a Saturday. Good morning.
