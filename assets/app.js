@@ -96,8 +96,10 @@ async function renderDraftMap() {
 
     select.addEventListener("change", (e) => {
       if (e.target.value) {
-        window.open(e.target.value, "_blank", "noopener,noreferrer");
+        const url = e.target.value;
         e.target.value = "";
+        const newTab = window.open(url, "_blank", "noopener,noreferrer");
+        if (!newTab) window.location.href = url;
       }
     });
 
