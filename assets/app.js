@@ -221,7 +221,43 @@ async function renderIdeas() {
   }
 }
 
+async function renderPosts() {
+  const container = document.getElementById("posts-list");
+
+  try {
+    const response = await fetch("data/posts.json", { cache: "no-cache" });
+    if (!response.ok) throw new Error("Cannot load data/posts.json");
+    const posts = await response.json();
+
+    if (!Array.isArray(posts) || posts.length === 0) {
+      container.innerHTML = "<p>No posts yet.</p>";
+      return;
+    }
+
+    container.innerHTML = posts
+      .map((post) => {
+        const title = post.title || "Untitled";
+        const preview = post.preview || "";
+        const date = post.date || "";
+        const file = post.file || "";
+
+        return `
+          <div class="post-item">
+            <h3>${title}</h3>
+            ${date ? `<p class="post-date">${date}</p>` : ""}
+            <p class="post-preview">${preview}</p>
+            ${file ? `<a href="${repoBlobLink(file)}" class="post-link" target="_blank" rel="noopener noreferrer">Read full post →</a>` : ""}
+          </div>
+        `;
+      })
+      .join("");
+  } catch (error) {
+    container.innerHTML = `<p>Blog unavailable: ${error.message}</p>`;
+  }
+}
+
 renderTopLevelLinks();
+renderPosts();
 renderIdeas();
 renderDraftMap();
 renderAudio();
