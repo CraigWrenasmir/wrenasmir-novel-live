@@ -123,6 +123,7 @@ async function renderAudio() {
     }
 
     list.innerHTML = tracks
+      .slice().sort((a, b) => new Date(b.date) - new Date(a.date))
       .map((track) => {
         const title = track.title || "Untitled audio post";
         const date = track.date || "No date";
@@ -200,6 +201,7 @@ async function renderIdeas() {
     }
 
     container.innerHTML = ideas
+      .slice().sort((a, b) => new Date(b.date) - new Date(a.date))
       .map((idea) => {
         const title = idea.title || "Untitled";
         const preview = idea.preview || "";
