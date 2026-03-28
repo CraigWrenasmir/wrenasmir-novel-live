@@ -37,6 +37,45 @@ body {
   );
 }
 
+.site-nav {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1rem 0 0;
+}
+
+.site-nav-brand {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-right: 0.8rem;
+  opacity: 0.7;
+}
+
+.site-nav-link {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.site-nav-link:hover {
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+
+.site-nav-link.active {
+  color: var(--accent);
+}
+
 .hero,
 .layout,
 .footer {
