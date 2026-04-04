@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Their Most August Public Organ — Preview</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: Georgia, 'Times New Roman', serif;
+            color: #ccc;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: #888;
+        }
+
+        .book-container {
+            position: relative;
+            perspective: 2500px;
+        }
+
+        .book {
+            position: relative;
+            width: 1140px;
+            height: 920px;
+            transform-style: preserve-3d;
+        }
+
+        /* Base spread (the one underneath, revealed by the flip) */
+        .spread-base {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            width: 1140px;
+            height: 920px;
+        }
+
+        /* The flipping page layer */
+        .flip-layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 570px;
+            height: 920px;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            z-index: 20;
+        }
+
+        .flip-layer.flipping-forward {
+            transform: rotateY(-180deg);
+        }
+
+        .flip-layer.flipping-back {
+            transform: rotateY(0deg);
+        }
+
+        /* Front face of flipping page (right page of current spread) */
+        .flip-front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 570px;
+            height: 920px;
+            backface-visibility: hidden;
+            background: #f5f1eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 20px 0 30px -15px rgba(0,0,0,0.08);
+        }
+
+        /* Back face of flipping page (left page of next spread) */
+        .flip-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 570px;
+            height: 920px;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            background: #f5f1eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid #d4cfc6;
+            box-shadow: inset -20px 0 30px -15px rgba(0,0,0,0.08);
+        }
+
+        .page {
+            width: 570px;
+            height: 920px;
+            background: #f5f1eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .page img, .flip-front img, .flip-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        /* Spine shadow */
+        .page.left-page {
+            border-right: 1px solid #d4cfc6;
+            box-shadow: inset -20px 0 30px -15px rgba(0,0,0,0.08);
+        }
+
+        .page.right-page {
+            box-shadow: inset 20px 0 30px -15px rgba(0,0,0,0.08);
+        }
+
+        /* Shadow that appears during flip */
+        .flip-shadow {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 570px;
+            height: 920px;
+            background: rgba(0,0,0,0);
+            transition: background 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            z-index: 15;
+            pointer-events: none;
+        }
+
+        .flip-shadow.active {
+            background: rgba(0,0,0,0.08);
+        }
+
+        /* Book shadow */
+        .book-shadow {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1100px;
+            height: 40px;
+            background: radial-gradient(ellipse, rgba(0,0,0,0.4) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        /* Static spread (no animation) */
+        .spread-static {
+            display: flex;
+            width: 1140px;
+            height: 920px;
+            box-shadow: 0 10px 60px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .nav button {
+            background: none;
+            border: 1px solid #444;
+            color: #999;
+            padding: 0.5rem 1.2rem;
+            font-family: Georgia, serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 0.05em;
+        }
+
+        .nav button:hover:not(:disabled) {
+            border-color: #888;
+            color: #ddd;
+        }
+
+        .nav button:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        .page-indicator {
+            font-size: 0.8rem;
+            color: #666;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .hint {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: #555;
+            letter-spacing: 0.05em;
+            transition: opacity 0.5s;
+        }
+
+        /* Click zones over static spread */
+        .click-zone {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .click-zone.left { left: 0; }
+        .click-zone.right { right: 0; }
+
+        /* Scale for smaller screens */
+        @media (max-width: 1200px) {
+            .book { transform: scale(0.65); transform-origin: top center; }
+            body { justify-content: flex-start; padding-top: 2rem; }
+        }
+
+        @media (max-width: 900px) {
+            .book { transform: scale(0.45); transform-origin: top center; }
+        }
+
+        @media (max-width: 600px) {
+            .book { transform: scale(0.3); transform-origin: top center; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Their Most August Public Organ</h1>
+
+    <div class="book-container">
+        <div id="book" class="book">
+            <div class="book-shadow"></div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <button id="prev" onclick="turnPage(-1)">&larr; Back</button>
+        <span id="pageIndicator" class="page-indicator"></span>
+        <button id="next" onclick="turnPage(1)">Turn &rarr;</button>
+    </div>
+
+    <div class="hint" id="hint">Click the page or use arrow keys</div>
+
+    <script>
+        // Page images — add new pages here as they're created
+        const pages = [
+            'pages/Page%201.png',
+            'pages/Page%202.png',
+            'pages/Page%203.png',
+            'pages/Page%204.png',
+        ];
+
+        // Build spreads: [blank, page1], [page2, page3], [page4, page5], ...
+        const spreads = [];
+        spreads.push([null, pages[0]]);
+        for (let i = 1; i < pages.length; i += 2) {
+            spreads.push([pages[i], pages[i + 1] || null]);
+        }
+
+        let currentSpread = 0;
+        let isAnimating = false;
+        const book = document.getElementById('book');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        const indicator = document.getElementById('pageIndicator');
+        const hint = document.getElementById('hint');
+
+        function makePage(src, extraClass) {
+            const div = document.createElement('div');
+            div.className = 'page ' + (extraClass || '');
+            if (src) {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Page';
+                img.draggable = false;
+                div.appendChild(img);
+            }
+            return div;
+        }
+
+        function makeImg(src) {
+            if (!src) return null;
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = 'Page';
+            img.draggable = false;
+            return img;
+        }
+
+        function renderStatic(index) {
+            // Clear everything except shadow
+            const shadow = book.querySelector('.book-shadow');
+            book.innerHTML = '';
+            book.appendChild(shadow);
+
+            const spread = document.createElement('div');
+            spread.className = 'spread-static';
+
+            const [left, right] = spreads[index];
+            spread.appendChild(makePage(left, 'left-page'));
+            spread.appendChild(makePage(right, 'right-page'));
+
+            // Click zones
+            const leftZone = document.createElement('div');
+            leftZone.className = 'click-zone left';
+            leftZone.onclick = () => turnPage(-1);
+            spread.appendChild(leftZone);
+
+            const rightZone = document.createElement('div');
+            rightZone.className = 'click-zone right';
+            rightZone.onclick = () => turnPage(1);
+            spread.appendChild(rightZone);
+
+            book.appendChild(spread);
+            updateControls(index);
+        }
+
+        function updateControls(index) {
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === spreads.length - 1;
+
+            if (index === 0) {
+                indicator.textContent = 'Page 1';
+            } else {
+                const leftNum = index * 2;
+                const rightNum = leftNum + 1;
+                if (rightNum <= pages.length) {
+                    indicator.textContent = `Pages ${leftNum}\u2013${rightNum}`;
+                } else {
+                    indicator.textContent = `Page ${leftNum}`;
+                }
+            }
+
+            if (index > 0) hint.style.opacity = '0';
+        }
+
+        function turnPageForward() {
+            const nextIndex = currentSpread + 1;
+            if (nextIndex >= spreads.length || isAnimating) return;
+            isAnimating = true;
+
+            const shadow = book.querySelector('.book-shadow');
+            book.innerHTML = '';
+            book.appendChild(shadow);
+
+            const [curLeft, curRight] = spreads[currentSpread];
+            const [nextLeft, nextRight] = spreads[nextIndex];
+
+            // Base layer: left page of current spread + right page of NEXT spread
+            const base = document.createElement('div');
+            base.className = 'spread-base';
+            base.appendChild(makePage(curLeft, 'left-page'));
+            base.appendChild(makePage(nextRight, 'right-page'));
+            book.appendChild(base);
+
+            // Shadow overlay on the right page underneath
+            const flipShadow = document.createElement('div');
+            flipShadow.className = 'flip-shadow';
+            book.appendChild(flipShadow);
+
+            // Flipping page: front = current right page, back = next left page
+            const flipLayer = document.createElement('div');
+            flipLayer.className = 'flip-layer';
+
+            const front = document.createElement('div');
+            front.className = 'flip-front';
+            const frontImg = makeImg(curRight);
+            if (frontImg) front.appendChild(frontImg);
+            flipLayer.appendChild(front);
+
+            const back = document.createElement('div');
+            back.className = 'flip-back';
+            const backImg = makeImg(nextLeft);
+            if (backImg) back.appendChild(backImg);
+            flipLayer.appendChild(back);
+
+            book.appendChild(flipLayer);
+
+            // Trigger animation
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    flipLayer.classList.add('flipping-forward');
+                    flipShadow.classList.add('active');
+                });
+            });
+
+            flipLayer.addEventListener('transitionend', () => {
+                currentSpread = nextIndex;
+                isAnimating = false;
+                renderStatic(currentSpread);
+            }, { once: true });
+
+            updateControls(nextIndex);
+        }
+
+        function turnPageBack() {
+            const prevIndex = currentSpread - 1;
+            if (prevIndex < 0 || isAnimating) return;
+            isAnimating = true;
+
+            const shadow = book.querySelector('.book-shadow');
+            book.innerHTML = '';
+            book.appendChild(shadow);
+
+            const [curLeft, curRight] = spreads[currentSpread];
+            const [prevLeft, prevRight] = spreads[prevIndex];
+
+            // Base layer: left page of PREVIOUS spread + right page of current spread
+            const base = document.createElement('div');
+            base.className = 'spread-base';
+            base.appendChild(makePage(prevLeft, 'left-page'));
+            base.appendChild(makePage(curRight, 'right-page'));
+            book.appendChild(base);
+
+            // Shadow overlay
+            const flipShadow = document.createElement('div');
+            flipShadow.className = 'flip-shadow';
+            flipShadow.classList.add('active');
+            book.appendChild(flipShadow);
+
+            // Flipping page starts flipped (showing current left = back face)
+            // front = previous right page, back = current left page
+            const flipLayer = document.createElement('div');
+            flipLayer.className = 'flip-layer';
+            flipLayer.style.transform = 'rotateY(-180deg)';
+
+            const front = document.createElement('div');
+            front.className = 'flip-front';
+            const frontImg = makeImg(prevRight);
+            if (frontImg) front.appendChild(frontImg);
+            flipLayer.appendChild(front);
+
+            const back = document.createElement('div');
+            back.className = 'flip-back';
+            const backImg = makeImg(curLeft);
+            if (backImg) back.appendChild(backImg);
+            flipLayer.appendChild(back);
+
+            book.appendChild(flipLayer);
+
+            // Animate back open
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    flipLayer.style.transform = 'rotateY(0deg)';
+                    flipShadow.classList.remove('active');
+                });
+            });
+
+            flipLayer.addEventListener('transitionend', () => {
+                currentSpread = prevIndex;
+                isAnimating = false;
+                renderStatic(currentSpread);
+            }, { once: true });
+
+            updateControls(prevIndex);
+        }
+
+        function turnPage(dir) {
+            if (dir > 0) turnPageForward();
+            else turnPageBack();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                turnPage(1);
+            }
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                turnPage(-1);
+            }
+        });
+
+        // Preload images
+        pages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // Initial render
+        renderStatic(0);
+    </script>
+</body>
+</html>

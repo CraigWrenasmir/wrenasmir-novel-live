@@ -1,6 +1,6 @@
 const REPO_URL = "https://github.com/CraigWrenasmir/wrenasmir-novel-live";
 
-const topLevel = ["blog", "ideas", "drafts", "research", "visuals", "final"];
+const topLevel = ["blog", "ideas", "drafts", "research", "visuals", "progress"];
 
 const draftFolders = [
   "1 Train",
@@ -43,6 +43,9 @@ function renderTopLevelLinks() {
   const wrap = document.getElementById("top-level-links");
   wrap.innerHTML = topLevel
     .map((folder) => {
+      if (folder === "progress") {
+        return `<a class="chip" href="/progress">/${folder}</a>`;
+      }
       return `<a class="chip" href="${repoTreeLink(folder)}" target="_blank" rel="noopener noreferrer">/${folder}</a>`;
     })
     .join("");
