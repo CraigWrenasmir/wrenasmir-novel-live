@@ -239,9 +239,25 @@
         @media (max-width: 600px) {
             .book { transform: scale(0.3); transform-origin: top center; }
         }
+        .back-link {
+            position: absolute;
+            top: 1.2rem;
+            left: 1.5rem;
+            font-family: Georgia, serif;
+            font-size: 0.8rem;
+            color: #666;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
+    <a href="/" class="back-link">&larr; Writing Log</a>
     <h1>Their Most August Public Organ</h1>
 
     <div class="book-container">
