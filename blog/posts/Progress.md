@@ -1,0 +1,5 @@
+A few days of leave over Easter have done my writing mind well. A balmy night here, an early morning there, and I'm up to nine pages of solid prose that I'm content with. As part of this push forward I have built some writing tools that have been helping me, including a text editor called Signal (https://craigwrenasmir.github.io/TMAPO-Planning/signal.html) that is helping keep track of my shifting vignettes, as well as a planning document that I put together verbally on a long solitary weekend drive (https://craigwrenasmir.github.io/TMAPO-Planning/index.html). Both of these assisted me immensely in progressing my writing.
+
+Because the framing of each page is so particular, given the ASCII illustrations that appear throughout, I have developed a way of showing the book pages in real-time at the following 'progress' link: https://novel.wrenasmir.com/progress/
+
+Hopefully this provides a good sense of how the book is taking shape. I'm sitting down for another session tonight, so there will be more to add soon.
