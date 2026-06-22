@@ -2,41 +2,9 @@ const REPO_URL = "https://github.com/CraigWrenasmir/wrenasmir-novel-live";
 
 const topLevel = ["blog", "ideas", "drafts", "research", "visuals", "progress"];
 
-const draftFolders = [
-  "1 Train",
-  "2 Bushwalk",
-  "3 Root",
-  "4 Paperbacks",
-  "5 Boxer",
-  "6 Bushranger",
-  "7 Misc"
-];
-
-const scenes = [
-  "Scene A",
-  "Scene B",
-  "Scene C",
-  "Scene D",
-  "Scene E",
-  "Scene F",
-  "Scene G",
-  "Scene H",
-  "Scene I",
-  "Scene J"
-];
-
 function repoTreeLink(path) {
   const safePath = path.split("/").map(encodeURIComponent).join("/");
   return `${REPO_URL}/tree/main/${safePath}`;
-}
-
-function repoBlobLink(path) {
-  const safePath = path.split("/").map(encodeURIComponent).join("/");
-  return `${REPO_URL}/blob/main/${safePath}`;
-}
-
-function sceneFileName(scene) {
-  return scene.toLowerCase().replace(" ", "-") + ".md";
 }
 
 function renderTopLevelLinks() {
@@ -64,52 +32,33 @@ async function fetchExistingFiles() {
   }
 }
 
-async function renderDraftMap() {
-  const map = document.getElementById("draft-map");
+async function renderLatestPages() {
+  const container = document.getElementById("latest-pages");
   const existingFiles = await fetchExistingFiles();
 
-  draftFolders.forEach((chapter, index) => {
-    const wrapper = document.createElement("div");
-    wrapper.className = `dropdown-wrapper dropdown-${index + 1}`;
-
-    const label = document.createElement("label");
-    label.className = "dropdown-label";
-    label.textContent = chapter;
-    label.htmlFor = `draft-${index}`;
-
-    const select = document.createElement("select");
-    select.className = "scene-dropdown";
-    select.id = `draft-${index}`;
-
-    const placeholder = document.createElement("option");
-    placeholder.value = "";
-    placeholder.textContent = "Choose a scene...";
-    placeholder.disabled = true;
-    placeholder.selected = true;
-    select.appendChild(placeholder);
-
-    scenes.forEach((scene) => {
-      const option = document.createElement("option");
-      const filePath = `drafts/${chapter}/${scene}/${sceneFileName(scene)}`;
-      const exists = existingFiles.has(filePath);
-      option.value = repoBlobLink(filePath);
-      option.textContent = `${exists ? "✅" : "❌"} ${scene}`;
-      select.appendChild(option);
-    });
-
-    select.addEventListener("change", (e) => {
-      if (e.target.value) {
-        const url = e.target.value;
-        e.target.value = "";
-        const newTab = window.open(url, "_blank", "noopener,noreferrer");
-        if (!newTab) window.location.href = url;
-      }
-    });
-
-    wrapper.appendChild(label);
-    wrapper.appendChild(select);
-    map.appendChild(wrapper);
+  // Collect drafted page numbers from progress/pages/Page N.png
+  const pageNums = [];
+  existingFiles.forEach((path) => {
+    const match = path.match(/^progress\/pages\/Page (\d+)\.png$/);
+    if (match) pageNums.push(parseInt(match[1], 10));
   });
+  pageNums.sort((a, b) => a - b);
+
+  if (pageNums.length === 0) {
+    container.innerHTML = "<p>No pages drafted yet.</p>";
+    return;
+  }
+
+  const latest = pageNums.slice(-4);
+  container.innerHTML = latest
+    .map((n) => {
+      const src = `progress/pages/Page%20${n}.png`;
+      return `<a class="latest-page" href="/progress/?page=${n}" aria-label="Open page ${n} in the Progress reader">
+        <img src="${src}" alt="Page ${n}" loading="lazy">
+        <span class="latest-page-num">${n}</span>
+      </a>`;
+    })
+    .join("");
 }
 
 async function renderAudio() {
@@ -228,6 +177,6 @@ async function renderIdeas() {
 
 renderTopLevelLinks();
 renderIdeas();
-renderDraftMap();
+renderLatestPages();
 renderAudio();
 renderVisuals();

@@ -743,14 +743,27 @@
 
         // --- RESPONSIVE MODE SWITCHING ---
 
+        let firstInit = true;
+
+        // Optional deep link: /progress/?page=N (1-based). Returns 0-based index or null.
+        function getDeepLinkPageIndex() {
+            const param = new URLSearchParams(window.location.search).get('page');
+            if (!param) return null;
+            const n = parseInt(param, 10);
+            if (!Number.isFinite(n) || n < 1) return null;
+            return Math.min(n - 1, pages.length - 1);
+        }
+
         function init() {
             const wasMobile = isMobile;
             isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
             book.className = 'book ' + (isMobile ? 'mode-single' : 'mode-spread');
             setMobileScale();
 
-            // Rebuild views and try to preserve position
-            const oldPageIndex = getApproxPageIndex();
+            // On first load, honour a ?page= deep link; otherwise preserve position
+            const deepLink = firstInit ? getDeepLinkPageIndex() : null;
+            const oldPageIndex = deepLink !== null ? deepLink : getApproxPageIndex();
+            firstInit = false;
             buildViews();
             currentIndex = findViewForPage(oldPageIndex);
             renderStatic(currentIndex);
