@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Frequencies | Their Most August Public Organ</title>
+  <meta name="description" content="A live ledger of ideas for Their Most August Public Organ — each transmission logged, tuned, and folded into the Bible.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>
+    /* ---------- Open Frequencies page styles ---------- */
+
+    .freq-hero {
+      padding: 3.2rem 0 1.4rem;
+    }
+
+    .freq-hero .subtitle {
+      max-width: 46rem;
+    }
+
+    /* ----- The receiver dial (band filter) ----- */
+
+    .dial {
+      width: min(1100px, 92vw);
+      margin: 0 auto 1.6rem;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1rem 1.1rem 1.2rem;
+    }
+
+    .dial-legend {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .dial-legend h2 {
+      margin: 0;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .dial-legend .dial-count {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .dial-ruler {
+      position: relative;
+      height: 10px;
+      margin: 0 2px 0.9rem;
+      background: repeating-linear-gradient(
+        to right,
+        var(--line) 0,
+        var(--line) 1px,
+        transparent 1px,
+        transparent 9px
+      );
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dial-ruler .dial-mark {
+      position: absolute;
+      bottom: 0;
+      width: 2px;
+      height: 10px;
+      transition: height 0.25s ease;
+    }
+
+    .dial-bands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .band-btn {
+      font-family: "Space Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(26, 40, 64, 0.45);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 0.38rem 0.65rem 0.38rem 0.5rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .band-btn .band-tick {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--band, var(--muted));
+      opacity: 0.55;
+      transition: opacity 0.2s, box-shadow 0.2s;
+    }
+
+    .band-btn:hover {
+      color: var(--ink);
+      border-color: var(--band, var(--ink));
+    }
+
+    .band-btn[aria-pressed="true"] {
+      color: var(--ink);
+      border-color: var(--band, var(--accent));
+      background: rgba(26, 40, 64, 0.9);
+    }
+
+    .band-btn[aria-pressed="true"] .band-tick {
+      opacity: 1;
+      box-shadow: 0 0 8px var(--band, var(--accent));
+    }
+
+    .band-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ----- The ledger ----- */
+
+    .ledger-wrap {
+      width: min(1100px, 92vw);
+      margin: 0 auto 4rem;
+    }
+
+    table.ledger {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .ledger caption {
+      caption-side: bottom;
+      text-align: left;
+      padding: 0.8rem 0.2rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .ledger th {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-align: left;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--line);
+      background: rgba(26, 40, 64, 0.5);
+    }
+
+    .ledger td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .ledger tr:last-child td {
+      border-bottom: none;
+    }
+
+    .ledger tbody tr {
+      transition: background 0.2s;
+    }
+
+    .ledger tbody tr:hover {
+      background: rgba(26, 40, 64, 0.35);
+    }
+
+    td.cell-date {
+      white-space: nowrap;
+      color: var(--muted);
+      font-size: 0.72rem;
+      padding-top: 1.15rem;
+    }
+
+    td.cell-bands {
+      width: 5.2rem;
+    }
+
+    .band-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding-top: 0.25rem;
+    }
+
+    .band-strip .band-seg {
+      height: 6px;
+      width: 100%;
+      max-width: 3.6rem;
+      border-radius: 2px;
+      background: var(--band);
+      opacity: 0.85;
+    }
+
+    td.cell-idea .idea-title {
+      font-family: "Chakra Petch", sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--ink);
+      margin: 0 0 0.35rem;
+    }
+
+    td.cell-idea .idea-signal {
+      margin: 0;
+      color: var(--ink);
+      opacity: 0.88;
+    }
+
+    td.cell-interference {
+      color: var(--muted);
+      font-size: 0.76rem;
+      max-width: 18rem;
+    }
+
+    td.cell-status {
+      white-space: nowrap;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 0.5rem;
+    }
+
+    .status .bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 14px;
+    }
+
+    .status .bar {
+      width: 4px;
+      border-radius: 1px;
+      background: var(--line);
+    }
+
+    .status .bar:nth-child(1) { height: 5px; }
+    .status .bar:nth-child(2) { height: 9px; }
+    .status .bar:nth-child(3) { height: 14px; }
+
+    .status.s-received .bar:nth-child(1) { background: var(--muted); }
+    .status.s-tuning .bar:nth-child(-n+2) { background: var(--ink); }
+    .status.s-folded .bar { background: var(--accent); }
+
+    .status .status-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .status.s-folded .status-label { color: var(--accent); }
+
+    .ledger .row-hidden { display: none; }
+
+    .ledger-empty {
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* Row arrival */
+    @media (prefers-reduced-motion: no-preference) {
+      .ledger tbody tr {
+        animation: rowIn 0.45s ease both;
+      }
+      @keyframes rowIn {
+        from { opacity: 0; transform: translateY(4px); }
+        to { opacity: 1; transform: none; }
+      }
+    }
+
+    /* ----- Mobile: table becomes stacked cards ----- */
+    @media (max-width: 760px) {
+      table.ledger, .ledger tbody, .ledger tr, .ledger td {
+        display: block;
+        width: 100%;
+      }
+      .ledger thead { display: none; }
+      .ledger caption {
+        display: block;
+        width: 100%;
+        padding: 0.8rem;
+        border-bottom: 1px solid var(--line);
+      }
+      .ledger tr {
+        border-bottom: 1px solid var(--line);
+        padding: 0.9rem 0.2rem;
+      }
+      .ledger td {
+        border: none;
+        padding: 0.25rem 0.8rem;
+      }
+      td.cell-date { padding-top: 0.4rem; }
+      td.cell-bands { width: auto; }
+      .band-strip {
+        flex-direction: row;
+        padding: 0.2rem 0 0.1rem;
+      }
+      .band-strip .band-seg { width: 2.2rem; }
+      td.cell-interference { max-width: none; }
+      td.cell-interference:empty { display: none; }
+      td.cell-status { padding-bottom: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link active">Frequencies</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero freq-hero">
+    <p class="eyebrow">OPEN FREQUENCIES</p>
+    <h1>The Ideas Ledger</h1>
+    <p class="subtitle">
+      Every idea for the novel, logged as it arrives. Each transmission is tuned against
+      the book's existing thinking, then folded into the Bible — or kept humming here until it settles.
+      Six vignettes, one dial, no privileged layer.
+    </p>
+  </header>
+
+  <section class="dial" aria-labelledby="dial-title">
+    <div class="dial-legend">
+      <h2 id="dial-title">Receiver</h2>
+      <span class="dial-count" id="dial-count"></span>
+    </div>
+    <div class="dial-ruler" id="dial-ruler" aria-hidden="true"></div>
+    <div class="dial-bands" id="dial-bands" role="group" aria-label="Filter transmissions by band"></div>
+  </section>
+
+  <div class="ledger-wrap">
+    <table class="ledger" aria-describedby="dial-count">
+      <caption>
+        Signal strength: one bar — received; two bars — tuning; three gold bars — folded into the Bible.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col" style="width:9.5rem">Received</th>
+          <th scope="col" style="width:5.5rem">Bands</th>
+          <th scope="col">Transmission</th>
+          <th scope="col" style="width:24%">Interference</th>
+          <th scope="col" style="width:11.5rem">Signal</th>
+        </tr>
+      </thead>
+      <tbody id="ledger-body"></tbody>
+    </table>
+  </div>
+
+  <footer class="footer"></footer>
+
+  <script>
+    const BANDS = {
+      train:     { label: "Train",      color: "#ffd54f" },
+      bushwalk:  { label: "Bushwalk",   color: "#7ddba3" },
+      root:      { label: "Root",       color: "#5fd3c4" },
+      paperback: { label: "Paperback",  color: "#ffb27a" },
+      boxer:     { label: "Boxer",      color: "#ff8585" },
+      vaporwave: { label: "Vaporwave",  color: "#c99aff" },
+      form:      { label: "Form",       color: "#8ab8ff" },
+      theme:     { label: "Theme",      color: "#a5b8d6" }
+    };
+
+    const STATUS = {
+      received: "signal received",
+      tuning:   "tuning",
+      folded:   "folded into Bible"
+    };
+
+    let entries = [];
+    let activeBand = null;
+
+    const fmtDate = iso => {
+      const [y, m, d] = iso.split("-").map(Number);
+      return new Date(y, m - 1, d).toLocaleDateString("en-AU", {
+        day: "numeric", month: "short", year: "numeric"
+      });
+    };
+
+    function buildDial() {
+      const ruler = document.getElementById("dial-ruler");
+      const keys = Object.keys(BANDS);
+      keys.forEach((key, i) => {
+        const mark = document.createElement("span");
+        mark.className = "dial-mark";
+        mark.style.background = BANDS[key].color;
+        mark.style.left = (6 + (i / (keys.length - 1)) * 88) + "%";
+        ruler.appendChild(mark);
+      });
+
+      const bar = document.getElementById("dial-bands");
+      const allBtn = bandButton(null, "All bands", null);
+      allBtn.setAttribute("aria-pressed", "true");
+      bar.appendChild(allBtn);
+      keys.forEach(key => bar.appendChild(bandButton(key, BANDS[key].label, BANDS[key].color)));
+    }
+
+    function bandButton(key, label, color) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "band-btn";
+      btn.dataset.band = key || "";
+      btn.setAttribute("aria-pressed", "false");
+      if (color) btn.style.setProperty("--band", color);
+      const tick = document.createElement("span");
+      tick.className = "band-tick";
+      tick.setAttribute("aria-hidden", "true");
+      btn.appendChild(tick);
+      btn.appendChild(document.createTextNode(label));
+      btn.addEventListener("click", () => {
+        activeBand = key;
+        document.querySelectorAll(".band-btn").forEach(b =>
+          b.setAttribute("aria-pressed", String((b.dataset.band || null) === activeBand))
+        );
+        render();
+      });
+      return btn;
+    }
+
+    function render() {
+      const body = document.getElementById("ledger-body");
+      body.innerHTML = "";
+      const visible = entries.filter(e => !activeBand || e.bands.includes(activeBand));
+
+      document.getElementById("dial-count").textContent =
+        visible.length + " of " + entries.length + " transmissions" +
+        (activeBand ? " on the " + BANDS[activeBand].label + " band" : "");
+
+      if (!visible.length) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = '<td colspan="5" class="ledger-empty">Nothing on this band yet. The receiver stays open.</td>';
+        body.appendChild(tr);
+        return;
+      }
+
+      visible.forEach((e, i) => {
+        const tr = document.createElement("tr");
+        tr.style.animationDelay = (i * 0.04) + "s";
+
+        const strip = e.bands
+          .map(b => BANDS[b])
+          .filter(Boolean)
+          .map(b => '<span class="band-seg" style="--band:' + b.color + '" title="' + b.label + '"></span>')
+          .join("");
+        const bandNames = e.bands.map(b => BANDS[b] ? BANDS[b].label : b).join(", ");
+        const st = STATUS[e.status] ? e.status : "received";
+
+        tr.innerHTML =
+          '<td class="cell-date">' + fmtDate(e.date) + '</td>' +
+          '<td class="cell-bands"><span class="band-strip" role="img" aria-label="Bands: ' + bandNames + '">' + strip + '</span></td>' +
+          '<td class="cell-idea"><p class="idea-title">' + e.title + '</p><p class="idea-signal">' + e.signal + '</p></td>' +
+          '<td class="cell-interference">' + (e.interference || "") + '</td>' +
+          '<td class="cell-status"><span class="status s-' + st + '">' +
+            '<span class="bars" aria-hidden="true"><span class="bar"></span><span class="bar"></span><span class="bar"></span></span>' +
+            '<span class="status-label">' + STATUS[st] + '</span>' +
+          '</span></td>';
+        body.appendChild(tr);
+      });
+    }
+
+    async function init() {
+      buildDial();
+      try {
+        const res = await fetch("../data/frequencies.json", { cache: "no-cache" });
+        if (!res.ok) throw new Error("Cannot load frequencies.json");
+        const data = await res.json();
+        entries = (data.entries || []).slice().sort((a, b) => b.date.localeCompare(a.date));
+        render();
+      } catch (err) {
+        document.getElementById("ledger-body").innerHTML =
+          '<tr><td colspan="5" class="ledger-empty">The ledger could not be loaded. If you are viewing this locally, serve the site with a local web server.</td></tr>';
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

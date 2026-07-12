@@ -1,0 +1,105 @@
+{
+  "updated": "2026-07-12",
+  "entries": [
+    {
+      "id": "boxer-letter",
+      "date": "2026-07-10",
+      "title": "The Boxer's Letter",
+      "signal": "The \"What Good Have I Got from Books?\" monologue enters the novel as a letter from the Boxer, recounted aloud on the bushwalk. Reading reframed: not a mirror but a meeting; not chasing a chemical but maintaining the channel.",
+      "bands": ["bushwalk", "boxer", "paperback"],
+      "status": "tuning",
+      "interference": "Must stay recounted speech under exertion, not an essay — the friend is the receiver. Feeds Endgame Movement 2. Trial passage drafted (Bushwalk, Scene A).",
+      "note": "TMAPO-Writing/notes + drafts/2 Bushwalk/Scene A/The Boxers Letter.md"
+    },
+    {
+      "id": "endgame-plan",
+      "date": "2026-07-08",
+      "title": "The Endgame Plan",
+      "signal": "Twelve movements to the end, hung on four chronological pressure-points: rooftop (wound/spark), bedroom (conceptual frame), bushwalk (relation/transmission), ROOT fracture (consequence/rupture). The Boxer dissipates into a distributed archive of unresolved male histories; the courtesan dissolves into composite girlfriends; the book closes where the walk begins.",
+      "bands": ["train", "bushwalk", "root", "paperback", "boxer"],
+      "status": "folded",
+      "interference": "Introduces Elias Shore and the father; the Australian replacement thread (ocean, white centre, harbour). Guardrails logged in the Bible.",
+      "note": "TMAPO-Bible.md ✦ The Endgame Plan"
+    },
+    {
+      "id": "the-wound",
+      "date": "2026-06-22",
+      "title": "The Wound",
+      "signal": "The ROOT corruption is the spine: the archive begins rewriting itself by resemblance. This is the hidden AI ghost story. Katita leaves over philosophy, not romance — a divergence about what the rewriting means.",
+      "bands": ["root", "vaporwave"],
+      "status": "folded",
+      "interference": "Reframes Vaporwave as ROOT's own diagnostic render — Katita appears misrendered inside it. The title gains a beating heart.",
+      "note": "TMAPO-Bible.md ✦ The Wound"
+    },
+    {
+      "id": "revelation",
+      "date": "2026-06-22",
+      "title": "Revelation",
+      "signal": "The public log of the Wound: how an idea hidden deep in memory takes months of writing to excavate — the plan you never knew you had.",
+      "bands": ["root"],
+      "status": "folded",
+      "interference": "Companion piece to The Wound, written for the public ideas log.",
+      "note": "ideas/Revelation.md"
+    },
+    {
+      "id": "first-page",
+      "date": "2026-03-15",
+      "title": "First Page & the Text as Medium",
+      "signal": "The text moves through constant modulation — letter text, ASCII, diagrammatic text, shifting-format poem text — a stream-of-text flow where the page itself is a medium under pressure.",
+      "bands": ["form"],
+      "status": "folded",
+      "interference": "The progress-page PNGs remain authoritative for exact ASCII layout.",
+      "note": "ideas/First Page.md"
+    },
+    {
+      "id": "cartoon",
+      "date": "2026-03-06",
+      "title": "Cartoon Maximalism",
+      "signal": "Cartoon maximalism colliding with daydream consciousness and the ontology gap — the register where the book lets fantasy overload the frame.",
+      "bands": ["vaporwave", "theme"],
+      "status": "folded",
+      "interference": "Feeds the Vaporwave Bushranger's aesthetic overflow.",
+      "note": "ideas/Cartoon.md"
+    },
+    {
+      "id": "master-plan",
+      "date": "2026-02-22",
+      "title": "The Master Plan",
+      "signal": "A man takes a train from Newcastle to Lake Macquarie to meet his friend for a bushwalk. Everything else is what happens inside his mind on the way: memory, reverie, daydream, fantasy, projection, psychic absorption of the times.",
+      "bands": ["train"],
+      "status": "folded",
+      "interference": "The physical line of the book; the first frequency tuned, not the foundation.",
+      "note": "ideas/Master Plan.md"
+    },
+    {
+      "id": "ontology",
+      "date": "2026-02-21",
+      "title": "Nested Ontology",
+      "signal": "Six stories, no privileged layer. No single vignette contains the foundation of reality — the reader keeps re-deciding which layer is real, and none of them settle.",
+      "bands": ["train", "bushwalk", "root", "paperback", "boxer", "vaporwave"],
+      "status": "folded",
+      "interference": "The full spectrum: every band lit at once. The dial above is this idea, drawn.",
+      "note": "ideas/Ontology.md"
+    },
+    {
+      "id": "weight",
+      "date": "2026-02-12",
+      "title": "Weight",
+      "signal": "Has the weight of the world shifted to the virtual? The book wrestles with where significance now physically lives — the central thesis.",
+      "bands": ["theme"],
+      "status": "folded",
+      "interference": "Runs with the crisis of narration (Byung-Chul Han).",
+      "note": "ideas/Weight.md"
+    },
+    {
+      "id": "meaning",
+      "date": "2026-02-12",
+      "title": "Meaning",
+      "signal": "At meaning's edge, the imagination still flickers.",
+      "bands": ["theme"],
+      "status": "folded",
+      "interference": "",
+      "note": "ideas/Meaning.md"
+    }
+  ]
+}
