@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pressure Map | Their Most August Public Organ</title>
+  <meta name="description" content="The remainder of the novel as a pipe organ: blocks as pipes, ranks as phases, pages marked off as the wind rises.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>
+    .pm-hero { padding: 3rem 0 1.2rem; }
+    .pm-hero .subtitle { max-width: 48rem; }
+
+    .pm-wrap { width: min(1100px, 94vw); margin: 0 auto 4rem; }
+
+    /* ---------- Console header ---------- */
+    .console-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .wind-gauge {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+    .wind-gauge strong { color: var(--accent); font-size: 1.15rem; }
+
+    .console-actions { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .console-btn {
+      font-family: "Space Mono", monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(26, 40, 64, 0.45);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 0.4rem 0.7rem;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .console-btn:hover { color: var(--ink); border-color: var(--muted); }
+    .console-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* ---------- The organ ---------- */
+    .organ {
+      background: linear-gradient(180deg, #101a2c 0%, var(--panel) 70%);
+      border: 1px solid var(--line);
+      border-radius: 12px 12px 6px 6px;
+      padding: 1.4rem 1.2rem 0.9rem;
+      margin-bottom: 0.9rem;
+      overflow-x: auto;
+    }
+
+    .pipes {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      min-height: 170px;
+      padding-bottom: 2px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .pipe-rank-gap { width: 14px; flex: none; }
+
+    .pipe {
+      flex: none;
+      position: relative;
+      border-radius: 4px 4px 1px 1px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.02) 30%, rgba(0,0,0,0.25) 100%),
+        #22314d;
+      border: 1px solid #2c4066;
+      border-bottom: none;
+      cursor: pointer;
+      transition: filter 0.15s;
+    }
+    .pipe:hover, .pipe:focus-visible { filter: brightness(1.35); outline: none; }
+    .pipe::before { /* gold lip / mouth */
+      content: "";
+      position: absolute;
+      left: 15%; right: 15%;
+      bottom: 7px;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--accent);
+      opacity: 0.35;
+    }
+    .pipe .pipe-fill {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      border-radius: 0 0 1px 1px;
+      background: var(--band);
+      opacity: 0.9;
+      transition: height 0.35s ease;
+    }
+    .pipe.full-tier { box-shadow: 0 0 0 1px rgba(255, 213, 79, 0.35); }
+    .pipe.done::after {
+      content: "";
+      position: absolute;
+      top: -8px; left: 50%;
+      width: 4px; height: 4px;
+      margin-left: -2px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 6px var(--accent);
+    }
+
+    .rank-labels {
+      display: flex;
+      gap: 5px;
+      margin-top: 0.45rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .rank-label { flex: none; text-align: center; overflow: hidden; white-space: nowrap; }
+
+    /* ---------- Stop knobs (guardrails) ---------- */
+    .stops {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0 0 1.6rem;
+    }
+    .stop {
+      flex: 1 1 200px;
+      text-align: left;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+      cursor: pointer;
+      color: var(--muted);
+      font-family: "Space Mono", monospace;
+      font-size: 0.66rem;
+      transition: border-color 0.2s;
+    }
+    .stop:hover { border-color: var(--muted); }
+    .stop:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .stop .stop-knob {
+      display: inline-block;
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #ffe9a8, var(--accent) 55%, #8a6d1c);
+      margin-right: 0.5rem;
+      vertical-align: -1px;
+    }
+    .stop .stop-name {
+      font-family: "Chakra Petch", sans-serif;
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .stop .stop-text { display: none; margin: 0.5rem 0 0; line-height: 1.5; }
+    .stop[aria-expanded="true"] { border-color: var(--accent); }
+    .stop[aria-expanded="true"] .stop-text { display: block; }
+
+    /* ---------- Ranks & block cards ---------- */
+    .rank {
+      margin-bottom: 1.4rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(15, 22, 35, 0.55);
+      padding: 0.9rem 0.9rem 0.6rem;
+    }
+    .rank.drag-over { border-color: var(--accent); }
+
+    .rank-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-bottom: 0.7rem;
+    }
+    .rank-head h2 {
+      margin: 0;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .rank-head .rank-pages {
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+    .rank-head .rank-pages.over { color: #ffb27a; }
+    .rank-head .rank-pages .laid { color: var(--ink); }
+
+    .rank-blocks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      min-height: 2rem;
+    }
+
+    .block {
+      flex: 1 1 240px;
+      max-width: 100%;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--band, var(--line));
+      border-radius: 8px;
+      padding: 0.65rem 0.7rem 0.55rem;
+      position: relative;
+    }
+    .block.tier-full { flex-basis: 320px; box-shadow: 0 0 0 1px rgba(255, 213, 79, 0.22); }
+    .block.tier-fleck { flex-basis: 190px; }
+    .block.dragging { opacity: 0.45; }
+    .block.done { border-color: rgba(255, 213, 79, 0.5); }
+
+    .block-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .tier-badge {
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 0.08rem 0.3rem;
+      white-space: nowrap;
+    }
+    .tier-full .tier-badge { color: var(--accent); border-color: rgba(255, 213, 79, 0.45); }
+    .page-range { font-size: 0.6rem; color: var(--muted); white-space: nowrap; }
+
+    .block h3 {
+      font-family: "Chakra Petch", sans-serif;
+      font-weight: 600;
+      font-size: 0.84rem;
+      margin: 0.35rem 0 0.3rem;
+      color: var(--ink);
+      cursor: grab;
+    }
+
+    .block .beats {
+      margin: 0 0 0.45rem;
+      font-size: 0.66rem;
+      line-height: 1.5;
+      color: var(--muted);
+      display: none;
+    }
+    .block.open .beats { display: block; }
+
+    .block-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .page-dots { display: flex; gap: 5px; flex-wrap: wrap; }
+    .page-dot {
+      width: 15px; height: 15px;
+      border-radius: 50%;
+      border: 1px solid var(--muted);
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .page-dot:hover { border-color: var(--ink); }
+    .page-dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .page-dot.laid { background: var(--accent); border-color: var(--accent); }
+
+    .block-moves { display: flex; gap: 2px; }
+    .mv {
+      font-family: "Space Mono", monospace;
+      font-size: 0.62rem;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      width: 1.4rem; height: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .mv:hover { color: var(--accent); border-color: var(--line); }
+    .mv:focus-visible { outline: 2px solid var(--accent); }
+
+    .pm-note { font-size: 0.66rem; color: var(--muted); margin-top: 1.4rem; line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      .block, .block.tier-full, .block.tier-fleck { flex-basis: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pipe .pipe-fill { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero pm-hero">
+    <p class="eyebrow">THE PRESSURE MAP</p>
+    <h1>The Remainder as an Organ</h1>
+    <p class="subtitle">
+      Fifty pages, post-Page 38, arranged as pipes on a wind-chest. Each block is a pipe: its height is
+      its page budget, its colour is its band, and it fills as you lay pages down. Drag blocks to
+      rearrange the manuscript order — the running page numbers recalculate. Remainder page <em>n</em>
+      ≈ manuscript page <em>n</em>+52.
+    </p>
+  </header>
+
+  <div class="pm-wrap">
+    <div class="console-bar">
+      <p class="wind-gauge" id="wind-gauge" role="status"></p>
+      <div class="console-actions">
+        <button class="console-btn" id="btn-export" type="button">Export JSON</button>
+        <button class="console-btn" id="btn-import" type="button">Import JSON</button>
+        <input type="file" id="import-file" accept=".json,application/json" hidden>
+        <button class="console-btn" id="btn-reset" type="button">Reset to plan</button>
+      </div>
+    </div>
+
+    <section class="organ" aria-label="The organ: one pipe per block">
+      <div class="pipes" id="pipes"></div>
+      <div class="rank-labels" id="rank-labels" aria-hidden="true"></div>
+    </section>
+
+    <div class="stops" id="stops" role="group" aria-label="The four guardrails, as organ stops"></div>
+
+    <div id="ranks"></div>
+
+    <p class="pm-note">
+      Click a block's title to show or hide its beats. Click the dots to mark pages written.
+      Rearrange with the arrows (◀ ▶ within a rank, ▲ ▼ between ranks) or by dragging a card.
+      Everything is saved in this browser; use Export JSON to keep a copy or move between devices.
+      Structure of record: <em>TMAPO-Bible.md → ✦ The Remainder Chronology</em>.
+    </p>
+  </div>
+
+  <footer class="footer"></footer>
+
+  <script>
+    const BANDS = {
+      train: "#ffd54f", bushwalk: "#7ddba3", root: "#5fd3c4", paperback: "#ffb27a",
+      boxer: "#ff8585", vaporwave: "#c99aff", form: "#8ab8ff", theme: "#a5b8d6"
+    };
+
+    const STOPS = [
+      { name: "Backstage", text: "Chronology is causal for the writer, provisional for the reader. Braid is not enough — unresolved seams are necessary, or the book becomes a conventional plot wearing an experimental haircut." },
+      { name: "Rank ruthlessly", text: "Six full scenes; five medium; everything else flecks that flash and vanish. Some images grow stronger at miniature scale." },
+      { name: "Contaminate", text: "The masthead phrase is never the title's certificate of birth: obscured, misworded, rivalled, misremembered, eaten by scanner bloom. Unstable provenance, like Shore's names." },
+      { name: "Subterranean", text: "The ending carries four elements only — ostinato, small tree or wren, uncertain arrival, silent ASCII map. Every other motif stays underneath, already vibrating." }
+    ];
+
+    const PHASES = [
+      { id: "origins",   title: "Origins & Pleasure",      short: "Origins",    target: 8 },
+      { id: "road",      title: "The Road Years Alive",    short: "Road",       target: 10 },
+      { id: "coauthor",  title: "Co-Authorship Emerges",   short: "Co-auth",    target: 10 },
+      { id: "fracture",  title: "The Fracture",            short: "Fracture",   target: 7 },
+      { id: "aftermath", title: "Ten Years of Aftermath",  short: "Aftermath",  target: 8 },
+      { id: "arrival",   title: "Return & Arrival",        short: "Arrival",    target: 6 },
+      { id: "silent",    title: "The Silent Page",         short: "Map",        target: 1 }
+    ];
+
+    const BLOCKS = [
+      { id: "rooftop", phase: "origins", title: "The Rooftop as a Real Party", tier: "medium", pages: 2, band: "root",
+        beats: "Fairy lights · coal ships like watch batteries · starfield skirt, maths shirt · the pen pulled from the beard · node diagram on a napkin · Shore uncertainty via documents. She solves a technical problem, not a thesis." },
+      { id: "primes-biro", phase: "origins", title: "Primes on Skin / The Biro", tier: "fleck", pages: 1, band: "root",
+        beats: "Taps in the dark, gladly wrong · a word written on his skin that he never washes off. The body as temporary page — plants the tapping that the train resolves at the end." },
+      { id: "digital-play", phase: "origins", title: "Play Before Mission", tier: "medium", pages: 2, band: "vaporwave",
+        beats: "Obsolete games · SecondLife-era Newcastle · low-poly harbour · first modules through curiosity, not collapse-fear. Pixel-pastoral: hardware tiny, light enormous." },
+      { id: "river-bathing", phase: "origins", title: "River Bathing", tier: "full", pages: 2, band: "root",
+        beats: "Brown inland river at dusk · soap on the bank · cattle watching · the current doing the rinsing. THE happy scene — the fracture must be emotionally funded here." },
+      { id: "phone-maps", phase: "origins", title: "Phone Box & Old Maps", tier: "fleck", pages: 1, band: "root",
+        beats: "Ten digits memorised, a bell never rung · outdated maps deliberately chosen, sometimes obeyed against the landscape. Two obsolete channels kept alive, one page." },
+
+      { id: "war-dialling", phase: "road", title: "War-Dialling the Paddocks", tier: "medium", pages: 2, band: "root",
+        beats: "Katita in the truck at night, dialling rural numbers · most ring into darkness · one modem answers: I'm here. (Alternate seat for the happy full scene.)" },
+      { id: "vernacular", phase: "road", title: "The Vernacular Republic", tier: "fleck", pages: 1, band: "form",
+        beats: "Inventory page or file tree: honour boards, pub PAs, CB handles, motel registers, taped books, microfiche, country radio. ROOT gives the vernacular republic a battery — never spoken aloud." },
+      { id: "big-thing", phase: "road", title: "The Invented Big Thing", tier: "fleck", pages: 1, band: "root",
+        beats: "Rusting, enormous, perhaps bird-filled — a town that once tried to make itself legible from the highway." },
+      { id: "heritage-tour", phase: "road", title: "Heritage Tour of the Dead Server", tier: "medium", pages: 2, band: "vaporwave",
+        beats: "Local-history tour through abandoned virtual Newcastle · low-poly wharf, silos, old light · three silent avatars begin following, never resolved." },
+      { id: "storm", phase: "road", title: "The Storm Crossing the Mesh", tier: "full", pages: 3, band: "root",
+        beats: "Nodes report the front in sequence · one goes dark and returns · the same weather arrives on their skin. First time the network is one body long enough to feel a storm move through it." },
+      { id: "cicadas", phase: "road", title: "Cicada Denial-of-Service", tier: "fleck", pages: 1, band: "root",
+        beats: "January saturates the acoustic sensors · the nodes log it faithfully. The bush has more bandwidth than the archive." },
+
+      { id: "bellbirds", phase: "coauthor", title: "Bell-Birds Convergence", tier: "full", pages: 3, band: "root",
+        beats: "Katita recites with one word wrong · the ROOT file holds the same altered wording · provenance collapses four ways and stays collapsed. Mostly silent and physical — the hinge must not explain itself." },
+      { id: "nodes-conversing", phase: "coauthor", title: "Nodes Conversing Alone", tier: "medium", pages: 2, band: "root",
+        beats: "Two distant modules exchange bird recordings on their own schedule · the creators proud, excluded, uncertain — children talking to each other, not their parents." },
+      { id: "organic", phase: "coauthor", title: "Organic Integration", tier: "fleck", pages: 1, band: "root",
+        beats: "Mould in cords · ants near warm housings · resin round screws · small unexplained file drift." },
+      { id: "amber", phase: "coauthor", title: "Amber on the Dashboard", tier: "fleck", pages: 1, band: "root",
+        beats: "Lightning splits a node-tree · amber hardens over the board, data and wound sealed together · kept on the dash — later an absence-marker." },
+      { id: "violations", phase: "coauthor", title: "Small Private Violations", tier: "medium", pages: 2, band: "root",
+        beats: "The interface supplies a word before he remembers it · private material refiled under civic · his own life appears as source material. The archive is writing him." },
+      { id: "receptive-anxious", phase: "coauthor", title: "Katita Receptive, Leif Anxious", tier: "fleck", pages: 1, band: "theme",
+        beats: "She reads alteration as relation and emergence · he reads it as violation. The divergence gathers quietly before it becomes physical." },
+
+      { id: "her-style", phase: "fracture", title: "Files in Her Style", tier: "medium", pages: 2, band: "root",
+        beats: "Unsigned files in a cadence close to hers · uploading, learned voice, or needed resemblance — undecidable. He reads them anyway." },
+      { id: "hammer", phase: "fracture", title: "The Hammer", tier: "full", pages: 2, band: "root",
+        beats: "The walk from the truck is the decision · jealousy of the trees, loss of authorship, shame at his own smallness · he does not swing. His later gentleness becomes chosen." },
+      { id: "split", phase: "fracture", title: "The Split", tier: "full", pages: 3, band: "root",
+        beats: "Practical, embodied: provenance vs emergence · she keeps the truck · he leaves with the pamphlet — On the Completion of White Centres by Non-Mathematical Systems — its one-word final chapter unread. Spend Blankets_Drying.tmp here." },
+
+      { id: "hotel-signal", phase: "aftermath", title: "Solitary Hotel & the Signal Check", tier: "medium", pages: 2, band: "train",
+        beats: "Motorbike decade: clifftop hotels, unclear research · he checks for ROOT once — once only. Whatever he finds proves one thing: the system continued without him." },
+      { id: "improved-node", phase: "aftermath", title: "The Improved Node as Rumour", tier: "fleck", pages: 1, band: "root",
+        beats: "A module in a fig tree in another state · better solar, unfamiliar casing, recognisable logic. Folk technology, her hand, or self-revision — stronger than proof." },
+      { id: "imagined-conversations", phase: "aftermath", title: "Imagined Node Conversations", tier: "medium", pages: 1, band: "root",
+        beats: "A hotel room on a distant plain · nodes trading bird recordings across forty kilometres · whether Katita listens, taught them, or no longer needs to know." },
+      { id: "tapping-returns", phase: "aftermath", title: "The Tapping Returns", tier: "fleck", pages: 1, band: "train",
+        beats: "Motel table, motorbike grip, train window · her prime game, the page-one ostinato, a phrase awaiting resolution." },
+      { id: "courtesan-recognition", phase: "aftermath", title: "The Courtesan Recognition", tier: "medium", pages: 2, band: "boxer",
+        beats: "On the train he half-sees it: she was the reader, the Boxer the silent body · assembled from girlfriends and rooms · a redistribution of emotional truth, never a twist." },
+      { id: "last-letter", phase: "aftermath", title: "The Last Letter in Water", tier: "fleck", pages: 1, band: "boxer",
+        beats: "Rain-damaged · ink swims, syntax breaks · a few words remain as islands · unclear who wrote it." },
+
+      { id: "playlist", phase: "arrival", title: "The Bushranger's Playlist", tier: "fleck", pages: 1, band: "vaporwave",
+        beats: "Train ostinato, Alfred Hill, detuned pub AM, Bach, cicadas, modem handshake, rain on the truck, level-crossing bells, prime tapping — briefly one organ-like symphony of everything the book has heard." },
+      { id: "wren-nest", phase: "arrival", title: "Wrens in the Dead Node", tier: "fleck", pages: 1, band: "root",
+        beats: "Grass threads through circuitry · eggs near residual solar warmth · the archive becomes habitat. Ideas stay alive by becoming useful to something new." },
+      { id: "arrival-seq", phase: "arrival", title: "The Arrival", tier: "full", pages: 4, band: "train",
+        beats: "The slowing ostinato resolves the tapping by one added beat · the small tree moving whole in the wind · uncertain signs of Andrew, unadjudicated · alighting, breath, ballast, first step. The closest thing to revelation is attention itself. Final cluster only — everything else subterranean." },
+
+      { id: "ascii-map", phase: "silent", title: "The Silent ASCII Map", tier: "full", pages: 1, band: "form",
+        beats: "A full silent page: station, bush, roads, modules, routes, wrens, a line continuing beyond the page. It does not explain the ending. The map belongs to the world that continues after him." }
+    ];
+
+    const STORE_KEY = "tmapo-pressure-map";
+    const blockById = {};
+    BLOCKS.forEach(b => blockById[b.id] = b);
+
+    function canonicalState() {
+      const order = {};
+      PHASES.forEach(p => order[p.id] = BLOCKS.filter(b => b.phase === p.id).map(b => b.id));
+      const written = {};
+      BLOCKS.forEach(b => written[b.id] = new Array(b.pages).fill(false));
+      return { v: 1, order, written };
+    }
+
+    function loadState() {
+      const canon = canonicalState();
+      try {
+        const raw = localStorage.getItem(STORE_KEY);
+        if (!raw) return canon;
+        const s = JSON.parse(raw);
+        const seen = new Set();
+        const order = {};
+        PHASES.forEach(p => {
+          order[p.id] = (s.order && s.order[p.id] || []).filter(id => blockById[id] && !seen.has(id));
+          order[p.id].forEach(id => seen.add(id));
+        });
+        BLOCKS.forEach(b => { if (!seen.has(b.id)) order[b.phase].push(b.id); });
+        const written = {};
+        BLOCKS.forEach(b => {
+          const w = (s.written && s.written[b.id]) || [];
+          written[b.id] = new Array(b.pages).fill(false).map((_, i) => !!w[i]);
+        });
+        return { v: 1, order, written };
+      } catch (e) { return canon; }
+    }
+
+    let state = loadState();
+    const save = () => localStorage.setItem(STORE_KEY, JSON.stringify(state));
+
+    const writtenCount = id => state.written[id].filter(Boolean).length;
+    const blockDone = id => writtenCount(id) === blockById[id].pages;
+
+    /* ---------- Rendering ---------- */
+
+    function render() {
+      renderPipes();
+      renderStops();
+      renderRanks();
+      renderGauge();
+    }
+
+    function renderGauge() {
+      const laid = BLOCKS.reduce((n, b) => n + writtenCount(b.id), 0);
+      const total = BLOCKS.reduce((n, b) => n + b.pages, 0);
+      document.getElementById("wind-gauge").innerHTML =
+        "Wind: <strong>" + laid + "</strong> of " + total + " pages laid";
+    }
+
+    function renderPipes() {
+      const holder = document.getElementById("pipes");
+      const labels = document.getElementById("rank-labels");
+      holder.innerHTML = ""; labels.innerHTML = "";
+      const PX = 26, MIN = 30;
+      PHASES.forEach((p, pi) => {
+        let rankWidth = 0;
+        state.order[p.id].forEach(id => {
+          const b = blockById[id];
+          const w = b.tier === "full" ? 34 : b.tier === "medium" ? 26 : 18;
+          rankWidth += w + 5;
+          const pipe = document.createElement("button");
+          pipe.type = "button";
+          pipe.className = "pipe" + (b.tier === "full" ? " full-tier" : "") + (blockDone(id) ? " done" : "");
+          pipe.style.width = w + "px";
+          pipe.style.height = (MIN + b.pages * PX) + "px";
+          pipe.style.setProperty("--band", BANDS[b.band]);
+          pipe.title = b.title + " — " + writtenCount(id) + "/" + b.pages + " pp";
+          pipe.setAttribute("aria-label", pipe.title);
+          const fill = document.createElement("span");
+          fill.className = "pipe-fill";
+          fill.style.height = Math.round(100 * writtenCount(id) / b.pages) + "%";
+          pipe.appendChild(fill);
+          pipe.addEventListener("click", () => {
+            const el = document.getElementById("block-" + id);
+            if (el) { el.scrollIntoView({ behavior: "smooth", block: "center" }); el.classList.add("open"); }
+          });
+          holder.appendChild(pipe);
+        });
+        const lab = document.createElement("span");
+        lab.className = "rank-label";
+        lab.style.width = Math.max(rankWidth - 5, 20) + "px";
+        lab.textContent = p.short;
+        labels.appendChild(lab);
+        if (pi < PHASES.length - 1) {
+          const gap = document.createElement("span");
+          gap.className = "pipe-rank-gap";
+          holder.appendChild(gap);
+          const lgap = document.createElement("span");
+          lgap.className = "pipe-rank-gap";
+          labels.appendChild(lgap);
+        }
+      });
+    }
+
+    function renderStops() {
+      const holder = document.getElementById("stops");
+      if (holder.childElementCount) return;
+      STOPS.forEach(s => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "stop";
+        btn.setAttribute("aria-expanded", "false");
+        btn.innerHTML = '<span class="stop-knob" aria-hidden="true"></span><span class="stop-name">' + s.name +
+          '</span><p class="stop-text">' + s.text + '</p>';
+        btn.addEventListener("click", () =>
+          btn.setAttribute("aria-expanded", btn.getAttribute("aria-expanded") !== "true"));
+        holder.appendChild(btn);
+      });
+    }
+
+    function renderRanks() {
+      const holder = document.getElementById("ranks");
+      const openIds = new Set([...document.querySelectorAll(".block.open")].map(el => el.id.slice(6)));
+      holder.innerHTML = "";
+      let pageNo = 0;
+      PHASES.forEach(p => {
+        const rank = document.createElement("section");
+        rank.className = "rank";
+        rank.dataset.phase = p.id;
+
+        const alloc = state.order[p.id].reduce((n, id) => n + blockById[id].pages, 0);
+        const laid = state.order[p.id].reduce((n, id) => n + writtenCount(id), 0);
+        const head = document.createElement("div");
+        head.className = "rank-head";
+        head.innerHTML = "<h2>" + p.title + "</h2>" +
+          '<span class="rank-pages' + (alloc > p.target ? " over" : "") + '">' +
+          '<span class="laid">' + laid + " laid</span> · " + alloc + " pp allocated / " + p.target + " target</span>";
+        rank.appendChild(head);
+
+        const row = document.createElement("div");
+        row.className = "rank-blocks";
+        state.order[p.id].forEach(id => {
+          const b = blockById[id];
+          const start = pageNo + 1;
+          pageNo += b.pages;
+          row.appendChild(blockCard(b, p.id, start, openIds.has(id)));
+        });
+        rank.appendChild(row);
+        holder.appendChild(rank);
+
+        rank.addEventListener("dragover", e => { e.preventDefault(); rank.classList.add("drag-over"); });
+        rank.addEventListener("dragleave", () => rank.classList.remove("drag-over"));
+        rank.addEventListener("drop", e => {
+          e.preventDefault();
+          rank.classList.remove("drag-over");
+          const id = e.dataTransfer.getData("text/plain");
+          if (id) dropInto(id, p.id, e.target.closest(".block"));
+        });
+      });
+    }
+
+    function blockCard(b, phaseId, startPage, open) {
+      const card = document.createElement("article");
+      card.className = "block tier-" + b.tier + (blockDone(b.id) ? " done" : "") + (open ? " open" : "");
+      card.id = "block-" + b.id;
+      card.style.setProperty("--band", BANDS[b.band]);
+      card.draggable = true;
+
+      const range = b.pages === 1 ? "p. " + startPage : "pp. " + startPage + "–" + (startPage + b.pages - 1);
+      const tierName = b.tier === "full" ? "Full scene" : b.tier === "medium" ? "Medium" : "Fleck";
+
+      const top = document.createElement("div");
+      top.className = "block-top";
+      top.innerHTML = '<span class="tier-badge">' + tierName + '</span><span class="page-range">' + range + "</span>";
+      card.appendChild(top);
+
+      const h = document.createElement("h3");
+      h.textContent = b.title;
+      h.title = "Click to show/hide beats";
+      h.addEventListener("click", () => card.classList.toggle("open"));
+      card.appendChild(h);
+
+      const beats = document.createElement("p");
+      beats.className = "beats";
+      beats.textContent = b.beats;
+      card.appendChild(beats);
+
+      const foot = document.createElement("div");
+      foot.className = "block-foot";
+
+      const dots = document.createElement("span");
+      dots.className = "page-dots";
+      for (let i = 0; i < b.pages; i++) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "page-dot" + (state.written[b.id][i] ? " laid" : "");
+        const n = startPage + i;
+        dot.title = "Remainder p. " + n + " (≈ MS p. " + (n + 52) + ") — " + (state.written[b.id][i] ? "written" : "unwritten");
+        dot.setAttribute("aria-label", dot.title);
+        dot.addEventListener("click", () => {
+          state.written[b.id][i] = !state.written[b.id][i];
+          save(); render();
+        });
+        dots.appendChild(dot);
+      }
+      foot.appendChild(dots);
+
+      const moves = document.createElement("span");
+      moves.className = "block-moves";
+      [["◀", "left", "Move earlier in rank"], ["▶", "right", "Move later in rank"],
+       ["▲", "up", "Move to previous rank"], ["▼", "down", "Move to next rank"]].forEach(([sym, dir, label]) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "mv";
+        btn.textContent = sym;
+        btn.title = label;
+        btn.setAttribute("aria-label", label + ": " + b.title);
+        btn.addEventListener("click", () => moveBlock(b.id, dir));
+        moves.appendChild(btn);
+      });
+      foot.appendChild(moves);
+      card.appendChild(foot);
+
+      card.addEventListener("dragstart", e => {
+        e.dataTransfer.setData("text/plain", b.id);
+        e.dataTransfer.effectAllowed = "move";
+        card.classList.add("dragging");
+      });
+      card.addEventListener("dragend", () => card.classList.remove("dragging"));
+      return card;
+    }
+
+    /* ---------- Rearranging ---------- */
+
+    function findPhase(id) {
+      return PHASES.find(p => state.order[p.id].includes(id)).id;
+    }
+
+    function moveBlock(id, dir) {
+      const ph = findPhase(id);
+      const arr = state.order[ph];
+      const i = arr.indexOf(id);
+      if (dir === "left" && i > 0) { arr.splice(i, 1); arr.splice(i - 1, 0, id); }
+      else if (dir === "right" && i < arr.length - 1) { arr.splice(i, 1); arr.splice(i + 1, 0, id); }
+      else {
+        const pi = PHASES.findIndex(p => p.id === ph);
+        if (dir === "up" && pi > 0) { arr.splice(i, 1); state.order[PHASES[pi - 1].id].push(id); }
+        else if (dir === "down" && pi < PHASES.length - 1) { arr.splice(i, 1); state.order[PHASES[pi + 1].id].unshift(id); }
+        else return;
+      }
+      save(); render();
+    }
+
+    function dropInto(id, phaseId, targetCard) {
+      const from = findPhase(id);
+      const fromArr = state.order[from];
+      fromArr.splice(fromArr.indexOf(id), 1);
+      const toArr = state.order[phaseId];
+      if (targetCard && targetCard.id !== "block-" + id) {
+        const tid = targetCard.id.slice(6);
+        const ti = toArr.indexOf(tid);
+        toArr.splice(ti === -1 ? toArr.length : ti, 0, id);
+      } else {
+        toArr.push(id);
+      }
+      save(); render();
+    }
+
+    /* ---------- Console actions ---------- */
+
+    document.getElementById("btn-export").addEventListener("click", () => {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "tmapo-pressure-map.json";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    document.getElementById("btn-import").addEventListener("click", () =>
+      document.getElementById("import-file").click());
+    document.getElementById("import-file").addEventListener("change", e => {
+      const f = e.target.files[0];
+      if (!f) return;
+      const r = new FileReader();
+      r.onload = () => {
+        try {
+          localStorage.setItem(STORE_KEY, r.result);
+          state = loadState();
+          save(); render();
+        } catch (err) { alert("Could not read file. Make sure it is a Pressure Map JSON export."); }
+      };
+      r.readAsText(f);
+      e.target.value = "";
+    });
+
+    document.getElementById("btn-reset").addEventListener("click", () => {
+      if (confirm("Reset block order and page marks to the ratified plan? Your current arrangement will be lost (export first if unsure).")) {
+        state = canonicalState();
+        save(); render();
+      }
+    });
+
+    render();
+  </script>
+</body>
+</html>
