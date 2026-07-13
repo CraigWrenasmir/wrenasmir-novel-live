@@ -2,12 +2,28 @@
   "updated": "2026-07-13",
   "entries": [
     {
+      "id": "four-warnings",
+      "date": "2026-07-13",
+      "title": "The Four Warnings & the Scene Ranking",
+      "signal": "Ratified guardrails for the remainder. Chronology is causal for the writer, provisional for the reader — unresolved seams required; the Boxer and courtesan keep a different ontological texture, the drains stay uncertified, vaporwave contaminates rather than being labelled. Six full scenes: one genuinely happy road-years scene, the storm, Bell-Birds, the hammer, the split, the arrival. Five medium scenes; everything else flecks that flash and vanish. The masthead's provenance contaminated — never the title's certificate of birth.",
+      "bands": [
+        "theme",
+        "form"
+      ],
+      "status": "folded",
+      "interference": "Craig's own fourth warning: the ending suite must not become a basket carrying every remaining motif. Final cluster — ostinato, small tree or wren, uncertain arrival, silent ASCII map. The rest stays subterranean, already vibrating underneath.",
+      "note": "TMAPO-Bible.md ✦ The Remainder Chronology"
+    },
+    {
       "id": "borrowed-places",
       "date": "2026-07-13",
       "title": "Borrowed Places & the Couch-Surfing Map",
       "signal": "Young Leif lives through temporary shelters: girlfriends' couches, rooftops, drains, bookshops, cheap rooms. Establishes his habit of turning places into interior worlds and making companions from books. Formal object: an ASCII map of the unstable social geography — couches, the Cooks Hill bookstore, the Elias Shore gym, Sans Courte, beaches, drains, pubs.",
-      "bands": ["paperback", "form"],
-      "status": "received",
+      "bands": [
+        "paperback",
+        "form"
+      ],
+      "status": "folded",
       "interference": "Rhymes with the closing full-page ASCII map — the remainder opens and closes on maps of intimacy. Watch: literalising Paperback as biography presses on the nested ontology.",
       "note": "notes/remainder-chronology.md §1"
     },
@@ -16,8 +32,11 @@
       "date": "2026-07-13",
       "title": "The Drain Walk",
       "signal": "Teenage Leif descends into Newcastle's stormwater channels with a torch and thongs: echoes, graffiti, oil sheen, roots, daylight at the far end. The hidden civic circulation met bodily, decades before ROOT.",
-      "bands": ["paperback", "theme"],
-      "status": "received",
+      "bands": [
+        "paperback",
+        "theme"
+      ],
+      "status": "folded",
       "interference": "Passes the silent-philosophy test as written — 'no explicit connection to ROOT is required' is the right instinct. A quiet plant for the boy who will hide archives inside trees.",
       "note": "notes/remainder-chronology.md §2"
     },
@@ -26,8 +45,11 @@
       "date": "2026-07-13",
       "title": "The Shed, the Father & Tape as Bookbinding",
       "signal": "Through his parents' garden work Leif enters the boxing historian's shed: Fighters of the North, Elias Shore under conflicting names, the star on the shorts. The Boxer's taped hands and the taped paperback are bound for the same reason — to endure more work.",
-      "bands": ["boxer", "paperback"],
-      "status": "received",
+      "bands": [
+        "boxer",
+        "paperback"
+      ],
+      "status": "folded",
       "interference": "Extends the Endgame's Elias Shore thread cleanly. The microfiche 'masthead ancestor' ('this most august public organ' as inherited civic rhetoric) must stay one contested provenance among several — an etymology would deflate the title's recurrence.",
       "note": "notes/remainder-chronology.md §3"
     },
@@ -36,8 +58,12 @@
       "date": "2026-07-13",
       "title": "The Split Receiver: Boxer & Courtesan",
       "signal": "One imagined correspondent divides in two: the Boxer receives through the body (tape, stance, defeat); the courtesan receives through language (paperbacks, letters, bathwater). She reads the same novels he excerpts — the readership of one. The final letter is rain-damaged, authorship unresolvable. Plus the Boxer anti-game: a vaporwave fighter whose objective is to avoid fights, travel with her, and lose correctly.",
-      "bands": ["boxer", "paperback", "vaporwave"],
-      "status": "received",
+      "bands": [
+        "boxer",
+        "paperback",
+        "vaporwave"
+      ],
+      "status": "folded",
       "interference": "Deepens Endgame Movements 2–4 without contradiction; the anti-game is pure Total Refusal. The revelation lands later on the train — keep it a redistribution of emotional truth, never a twist.",
       "note": "notes/remainder-chronology.md §4, §22"
     },
@@ -46,8 +72,10 @@
       "date": "2026-07-13",
       "title": "The Rooftop as a Real Party",
       "signal": "The rooftop expands into a sensory world before it turns philosophical: fairy lights, coal ships like watch batteries, the starfield skirt, the maths shirt, the pen pulled from Leif's beard, the node diagram on a napkin. Katita's insight arrives as engineering: enough routes that the message survives losing one.",
-      "bands": ["root"],
-      "status": "tuning",
+      "bands": [
+        "root"
+      ],
+      "status": "folded",
       "interference": "Directly executes Endgame Movement 5 and the field-guide rule: she solves a technical problem instead of declaring a thesis. The Shore conversation reveals uncertainty through documents, not position statements.",
       "note": "notes/remainder-chronology.md §5"
     },
@@ -56,8 +84,11 @@
       "date": "2026-07-13",
       "title": "Primes on Skin / The Biro Annotation",
       "signal": "Katita taps sequences on Leif's forearm in the dark; he guesses prime or not prime, gladly wrong. She writes a word or tiny image on his skin and he doesn't wash it off. The body becomes a temporary page.",
-      "bands": ["root", "theme"],
-      "status": "received",
+      "bands": [
+        "root",
+        "theme"
+      ],
+      "status": "folded",
       "interference": "Threads to Andrew's faded tattoo, the bathwater text, bark and file — and returns ten years later as the unconscious tapping the slowing train resolves by one added beat. Strongest new motif system in the batch.",
       "note": "notes/remainder-chronology.md §6, §21"
     },
@@ -66,8 +97,11 @@
       "date": "2026-07-13",
       "title": "Shared Digital Worlds & the Dead-Server Tour",
       "signal": "Before ROOT is a mission it's pleasure: obsolete games, SecondLife-era Newcastle, low-poly harbour renders, abandoned servers. Leif gives a local-history tour through an abandoned virtual Newcastle; three silent avatars begin following him, never resolved.",
-      "bands": ["root", "vaporwave"],
-      "status": "received",
+      "bands": [
+        "root",
+        "vaporwave"
+      ],
+      "status": "folded",
       "interference": "Gives ROOT the origin the Wound needs — curiosity and play, not collapse-fear. Pixel-pastoral register: hardware tiny, light enormous.",
       "note": "notes/remainder-chronology.md §7"
     },
@@ -76,8 +110,10 @@
       "date": "2026-07-13",
       "title": "The Road Years as Lived Pleasure",
       "signal": "The truck years feel like actual life: river bathing at dusk with cattle watching; the working payphone whose ten digits Leif still knows years later; deliberately outdated road maps he sometimes obeys against the landscape; the invented Big Thing, rusting and bird-filled; Katita war-dialling the paddocks at night until one modem answers — I'm here.",
-      "bands": ["root"],
-      "status": "received",
+      "bands": [
+        "root"
+      ],
+      "status": "folded",
       "interference": "The After Page 38 correction applied at scale: scene-time, bodies, humour. Also the page-budget pressure point — pick three or four of these for full scenes; the rest are single sentences.",
       "note": "notes/remainder-chronology.md §8"
     },
@@ -86,8 +122,12 @@
       "date": "2026-07-13",
       "title": "The Vernacular Republic",
       "signal": "Australia already contains public memory-organs: honour boards, pub PA systems, CB handles, motel registers, handwritten menus, taped books, microfiche, country radio. ROOT does not invent public memory — it tries to give the vernacular republic a battery.",
-      "bands": ["root", "form", "theme"],
-      "status": "received",
+      "bands": [
+        "root",
+        "form",
+        "theme"
+      ],
+      "status": "folded",
       "interference": "One inventory page or file tree, once. The thesis in that last sentence must never be spoken by a character.",
       "note": "notes/remainder-chronology.md §9"
     },
@@ -96,8 +136,10 @@
       "date": "2026-07-13",
       "title": "The Network Becomes a Body",
       "signal": "A storm crosses the valley and the nodes report it in sequence — one goes dark, another receives the front minutes later — while Leif and Katita feel the same weather on their skin. Cicadas saturate the acoustic sensors: the bush has more bandwidth than the archive. Mould, ants, resin; lightning splits a node-tree and amber hardens over the board, data and wound sealed together.",
-      "bands": ["root"],
-      "status": "received",
+      "bands": [
+        "root"
+      ],
+      "status": "folded",
       "interference": "The storm is the establishing event the corruption arc has been missing; cicada DoS is its comic counterweight. The amber survives on the dashboard to become an absence-marker after the split.",
       "note": "notes/remainder-chronology.md §10, §13"
     },
@@ -106,8 +148,10 @@
       "date": "2026-07-13",
       "title": "Bell-Birds Convergence & Nodes Conversing",
       "signal": "Katita recites Bell-Birds with one word wrong; the ROOT file holds the same altered wording. Provenance collapses four ways and stays collapsed. Later, two distant nodes exchange bird recordings on their own schedule — the children talking to each other instead of their parents.",
-      "bands": ["root"],
-      "status": "tuning",
+      "bands": [
+        "root"
+      ],
+      "status": "folded",
       "interference": "№31, the Open Frequencies atlas's top bet, now placed as a central turning point. Keep it mostly silent and physical as specified — this is the book's hinge and it must not explain itself.",
       "note": "notes/remainder-chronology.md §11, §12"
     },
@@ -116,8 +160,10 @@
       "date": "2026-07-13",
       "title": "The Hammer, the Split & the Pamphlet",
       "signal": "The archive starts writing him: the interface supplies a word before he remembers it; files appear in Katita's style; his own life is refiled as source material. Leif walks toward a node with a hammer — the walk is the decision — and does not swing. The split stays practical: he wants provenance, she accepts emergence. She keeps the truck. He leaves with her pamphlet, On the Completion of White Centres by Non-Mathematical Systems, ending in a one-word chapter he cannot read.",
-      "bands": ["root"],
-      "status": "received",
+      "bands": [
+        "root"
+      ],
+      "status": "folded",
       "interference": "The unswung hammer makes his later gentleness chosen rather than automatic — the strongest single addition. The pamphlet carries the white-centre pressure-point into his luggage. Field guide: spend Blankets_Drying.tmp here.",
       "note": "notes/remainder-chronology.md §14–16"
     },
@@ -126,8 +172,11 @@
       "date": "2026-07-13",
       "title": "Ten Years Inside Co-Authorship",
       "signal": "Motorbike, clifftop hotels, 'research' whose object is unclear — he is looking for the shape her choice has taken in the world. Unsigned files in her cadence that he reads anyway; an improved node found in a fig tree in another state — her hand, folk technology, or ROOT redesigning itself; one signal check that proves only that the system continued without him; imagined node conversations across forty kilometres at dusk.",
-      "bands": ["root", "train"],
-      "status": "received",
+      "bands": [
+        "root",
+        "train"
+      ],
+      "status": "folded",
       "interference": "The once-only discipline on the signal check is right — guard it. The improved-node rumour is stronger than any proof of Katita; resist resolving it.",
       "note": "notes/remainder-chronology.md §17–20"
     },
@@ -136,8 +185,13 @@
       "date": "2026-07-13",
       "title": "Erring Together & the Arrival",
       "signal": "Truth stays alive through contested relation, dramatised never stated: Katita and the tree sharing the altered poem, Andrew and Leif misremembering together, maps disagreeing with roads. Wrens nest in a dead module, eggs near residual solar warmth. The jetpack bushranger's playlist gathers everything the book has heard into one organ-like symphony. A small tree moves whole in the wind at the station; uncertain signs of Andrew; the closest thing to revelation is attention itself — then a silent full-page ASCII map belonging to the world that continues after him.",
-      "bands": ["train", "bushwalk", "theme", "form"],
-      "status": "received",
+      "bands": [
+        "train",
+        "bushwalk",
+        "theme",
+        "form"
+      ],
+      "status": "folded",
       "interference": "Adlestrop delivered, and the wren-nest earns the title's 'organ' one last time. Risk is density — six closing images in six pages; let the tree and the map do the most work.",
       "note": "notes/remainder-chronology.md §23–29"
     }
