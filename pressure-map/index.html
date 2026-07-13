@@ -296,6 +296,20 @@
 
     .pm-note { font-size: 0.66rem; color: var(--muted); margin-top: 1.4rem; line-height: 1.6; }
 
+    .brief-link {
+      display: inline-block;
+      margin-top: 0.4rem;
+      font-size: 0.66rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid rgba(255, 213, 79, 0.35);
+      border-radius: 4px;
+      padding: 0.2rem 0.45rem;
+    }
+    .brief-link:hover { background: rgba(255, 213, 79, 0.1); }
+
     @media (max-width: 600px) {
       .block, .block.tier-full, .block.tier-fleck { flex-basis: 100%; }
     }
@@ -383,6 +397,7 @@
 
     const BLOCKS = [
       { id: "rooftop", phase: "origins", title: "The Rooftop as a Real Party", tier: "medium", pages: 2, band: "root",
+        brief: "briefs/rooftop.html",
         beats: "Fairy lights · coal ships like watch batteries · starfield skirt, maths shirt · the pen pulled from the beard · node diagram on a napkin · Shore uncertainty via documents. She solves a technical problem, not a thesis." },
       { id: "primes-biro", phase: "origins", title: "Primes on Skin / The Biro", tier: "fleck", pages: 1, band: "root",
         beats: "Taps in the dark, gladly wrong · a word written on his skin that he never washes off. The body as temporary page — plants the tapping that the train resolves at the end." },
@@ -632,6 +647,14 @@
       const beats = document.createElement("p");
       beats.className = "beats";
       beats.textContent = b.beats;
+      if (b.brief) {
+        const a = document.createElement("a");
+        a.className = "brief-link";
+        a.href = b.brief;
+        a.textContent = "Open the scaffold →";
+        beats.appendChild(document.createElement("br"));
+        beats.appendChild(a);
+      }
       card.appendChild(beats);
 
       const foot = document.createElement("div");

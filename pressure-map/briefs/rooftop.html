@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Rooftop | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for the Rooftop — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Rooftop as a Real Party</h1>
+    <p class="sc-meta">
+      <span>Rank: Origins &amp; Pleasure</span>
+      <span>Tier: Medium · 2 pp</span>
+      <span>Endgame Movement 5</span>
+      <span>Pressure-point 1: the wound / spark</span>
+      <span class="hot">Condition: INSTINCT</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>This is where ROOT is born, and it must be born <strong>sideways</strong> — as the strange
+      consequence of one local truth being made too smooth, at a party, between two people flirting.
+      Three loads, carried lightly:</p>
+      <ul>
+        <li><strong>Katita enters as presence, not thesis.</strong> Body, costume, wit, attention. The reader
+        must want her in the book before the book uses her.</li>
+        <li><strong>The Elias Shore wound sparks.</strong> Not as philosophy — as a young man's over-invested
+        party monologue that one listener recognises as having <em>structure</em>.</li>
+        <li><strong>The vaporwave avatar gets its human origin.</strong> Her naming of his accidental costume
+        — <em>"What are you, a bushranger from the future?"</em> — is the seed the diagnostic render grows
+        from, decades later. It must land as a joke, not an omen.</li>
+      </ul>
+      <p>Ratified guardrail: <em>a real social and sensory world before it becomes philosophical.</em>
+      If a page must be cut, cut philosophy, keep party.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 1–2 (≈ MS pp. 53–54)</strong> — the reader has just left the
+      diagnostic density of pp. 38–52. This scene is the book exhaling: heat, bodies, laughter after
+      machine-space. The contrast is the point; let the first paragraph be almost pure weather and noise.</p>
+      <p><strong>Feeds directly into:</strong> Primes on Skin / the Biro (p. 3 — their first private protocol
+      can begin the same night or soon after), and everything ROOT. <strong>Pays off from:</strong> the shed
+      and <em>Fighters of the North</em> already seeded in the manuscript's suburban backyard; the reader may
+      half-remember the name Shore.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>Scene-world:</strong> Newcastle rooftop, summer night, fancy dress, cheap alcohol, city
+        lights, music, balconies, stairwells, harbour humidity, plastic cups, cigarette smoke.<span class="canon-tag">canon</span></li>
+        <li><strong>Leif's costume:</strong> accidentally coherent — bushranger-ish, future/cyber/jetpack
+        bits, borrowed parts, a <em>grevillea boutonnière</em>, maybe absurd goggles or cardboard hardware.
+        <em>He does not know what he is.</em> Katita names him.<span class="canon-tag">canon</span></li>
+        <li><strong>Katita's costume:</strong> intentional — solar-punk astronomer, mathematical starfield,
+        coordinate-system skirt (<em>wearing the sky</em>; seed of the hologram skirt), the maths shirt.<span class="canon-tag">canon</span></li>
+        <li><strong>Coal ships</strong> at anchor <strong>like watch batteries</strong>.<span class="canon-tag">canon</span></li>
+        <li><strong>The pen pulled from Leif's beard</strong>; <strong>the node diagram on a napkin</strong>.<span class="canon-tag">canon</span></li>
+        <li><strong>The Shore conversation:</strong> someone mentions boxing or old Newcastle → Leif can't let
+        go of Elias Shore → the internet's one smooth answer vs the messier local account in <em>Fighters of
+        the North</em> → he frames it as "getting the facts wrong," troubled that the clean version feels
+        <em>less true</em>. He does not yet understand contradiction as value.<span class="canon-tag">canon</span></li>
+        <li><strong>Katita's questions</strong> (she notices the pattern, never solves the philosophy):
+        <span class="q">"Where did the book come from?" · "How many names did he fight under?" · "Which one
+        did the database choose?" · "Why did it choose that one?" · "What happens to the other names?"</span><span class="canon-tag">canon</span></li>
+        <li><strong>The seed of ROOT</strong>, arriving as engineering, possibly via hacker magazines / BBS
+        lore: <span class="q">"You don't need every node to speak to every other node. You need enough routes
+        that the message can survive losing one."</span><span class="canon-tag">canon</span></li>
+        <li><strong>States:</strong> Leif emotionally correct, philosophically underdeveloped. Katita curious,
+        structurally alert, not yet committed. Philosophical condition: <em>Instinct — something has been
+        lost in the act of making it legible.</em><span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Name his costume before he can. Ask the five structural questions. Tease him about his intensity
+        and mean it as a compliment. Reframe signal as a graph problem. Deliver the routing line as a
+        <em>solution to a technical problem he raised</em> — never as wisdom. Draw.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Over-tell the Shore story with too many specifics (fight dates, the star on the shorts, the
+        misprinted names). Say "the internet gets him wrong" and mean it as loyalty. Be embarrassed at his
+        own heat. Notice her skirt is a coordinate system before he notices anything else.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Say <em>archive, preservation, memory</em> as themes. Say anything resembling "systems flatten
+        local truth." Predict ROOT, name a project, or plan anything. Understand the night as important.
+        The scene's future weight must be invisible to everyone inside it.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>Gravel-and-bitumen roof still radiating the day's heat up through thongs; the tin awning below
+        ticking as it cools.</li>
+        <li>An esky of melted ice, cans standing in the slush like buoys; goon cask on a string tied to the
+        TV aerial (spin-the-cask abandoned two hours ago).</li>
+        <li>Fairy lights run from a bedroom window on an extension lead that also feeds the amp — when the
+        bass hits, the lights dim in rhythm: the party's own load-shedding.</li>
+        <li>Harbour: gantry cranes lit like standing herons; the channel markers pulsing; coal ships at
+        anchor offshore, evenly spaced, patient — <em>watch batteries in their packaging</em>.</li>
+        <li>A mozzie coil in a jar lid; someone's costume shedding sequins into it.</li>
+        <li>Smells: sunscreen not yet worn off, cask wine, hot galvanised iron, cut grass from the yard
+        below, someone frying halloumi in the kitchen two floors down.</li>
+        <li>Sounds: ambient electronica off a laptop, argument about the playlist, a train braking somewhere
+        down the line (one free ostinato echo — <em>don't underline it</em>), cicadas starting and stopping
+        like a dropped connection.</li>
+        <li>Costumes glimpsed once each: a nun with a stubby holder, two Ned Kellys who avoid each other all
+        night, a bedsheet ghost texting through the eyeholes, someone as "the internet" in a shirt of cables.</li>
+        <li>Stairwell physics: the queue for the bathroom as a slow data packet moving through the house;
+        conversations relayed up the stairs, arriving slightly wrong.</li>
+        <li>A gaff-taped costume repair mid-party — tape holding a body together so it can keep working
+        (quiet rhyme with taped hands, taped paperbacks; <em>one image, no comment</em>).</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>"Bushranger from the future"</td><td>The vaporwave bushranger revealed as ROOT rendering
+          Leif's myth of himself — the avatar's human origin, her voice inside the render.</td></tr>
+          <tr><td>Coordinate-system skirt</td><td>The hologram skirt; Katita <em>misrendered</em> in the
+          diagnostic — the sky she wore, corrupted.</td></tr>
+          <tr><td>The napkin node-diagram</td><td>ROOT's topology; possibly resurfacing decades later as a
+          bookmark or a creased square in the pamphlet years.</td></tr>
+          <tr><td>The pen from his beard</td><td>The biro annotation (p. 3): the same pen, or its
+          descendant, writing on skin. First object passed between them.</td></tr>
+          <tr><td>Shore's plural names, the star on the shorts</td><td>The whole ecology of unstable
+          provenance: microfiche, masthead, altered poem, files in her cadence.</td></tr>
+          <tr><td>Coal ships as watch batteries</td><td>Solar cells on the modules; "giving the vernacular
+          republic a battery"; power as care.</td></tr>
+          <tr><td>Grevillea boutonnière</td><td>The botanical intelligence that will one day hold the
+          archive — a native plant pinned to him from the first night. <em>Never remark on it.</em></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The lecture.</strong> If Leif's Shore talk runs more than half a page unbroken, the party
+        has died. Let the party interrupt him at the worst moment (costume-contest cheer, blown fuse) — the
+        obsession is proven alive by surviving interruption.</li>
+        <li><strong>Summary-time drift.</strong> "That night they talked for hours" is the pp. 38–52 disease.
+        Stay inside minutes, not hours; end the scene before the party ends.</li>
+        <li><strong>Katita as concept.</strong> If she only asks smart questions, she's a device. Give her a
+        body: how she sits on the parapet, what she does with her cup, the pen behind her ear where the
+        constellation parting begins.</li>
+        <li><strong>Solving Shore.</strong> Neither of them may reach a conclusion about what the
+        contradiction means. Instinct only. The bedroom scene owns the concept; the bushwalk owns relation.</li>
+        <li><strong>Omen-lighting the plants.</strong> The grevillea, the tape, the train braking — one touch
+        each, zero commentary. If a motif knows it's a motif, cut it.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open mid-costume-contest, judged by strangers on the next roof shouting scores across the gap —
+        the first public organ of the night is two rooftops voting.</li>
+        <li>Katita counts the coal ships aloud, calls them "a battery bank for a city that hasn't decided
+        what it's for," then looks embarrassed at her own aphorism — she distrusts her aphorisms; it's why
+        she'll trust engineering.</li>
+        <li>Leif's jetpack is two goon bladders sprayed silver. All night people ask if there's wine left in
+        them. There is.</li>
+        <li>Her pen dies mid-diagram; she pulls the pen from his beard without asking. The theft is the
+        first intimacy. The napkin diagram is in <em>his</em> pen from the start.</li>
+        <li>The Ned Kellys: Leif watches the two identical outlaws studiously ignore each other and thinks
+        of Shore's names refusing to be the same man. One image; he doesn't articulate it.</li>
+        <li>Someone's phone dies mid-argument-settling ("just Google it") right as Leif starts on Shore —
+        so for one conversation, the smooth answer is unavailable and the local account is the only source
+        on the roof.</li>
+        <li>She asks the five questions across the whole scene, not in a row — one per return, between other
+        conversations, coming back to him like a node retrying.</li>
+        <li>The routing line arrives while she's drawing paths around a wine stain on the napkin — the stain
+        is a dead node; she routes the message around the damage that's already on the table.</li>
+        <li>Heat lightning far up the coast, too far for thunder: the sky exchanging packets silently. Leif
+        notices; says nothing; this is what noticing is for.</li>
+        <li>End on skin, not summary: the napkin folded into his shirt pocket against his chest; or the
+        grevillea transferred, lopsided, to her hair; the ink of the diagram not yet dry, printing a faint
+        wrong-way-round topology onto the cotton over his heart.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Two pages. The scene ends while the party is still going — mid-noise, on a body-detail, with
+      nothing decided. The reader should close the scene thinking they've just watched two people meet at a
+      good party, and only later realise they watched a network being invented, a wound being named, and an
+      avatar being born. If it feels important while it's happening, it isn't finished.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — Movement 5, Pressure-point 1,
+      the Elias Shore thread, ✦ The Remainder Chronology · After Page 38 field guide (dialogue permissions,
+      last-touch-is-skin) · ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>
