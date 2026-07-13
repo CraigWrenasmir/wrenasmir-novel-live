@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Storm Crossing the Mesh | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for The Storm Crossing the Mesh — the network becomes one body long enough to feel weather move through it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Storm Crossing the Mesh</h1>
+    <p class="sc-meta">
+      <span>Rank: The Road Years Alive</span>
+      <span>Tier: FULL SCENE · 3 pp</span>
+      <span>Plan §10</span>
+      <span>Band: Root</span>
+      <span class="hot">One of the six ratified full scenes</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>This is the crucial establishing event of the whole corruption arc, and it must establish it as
+      <strong>wonder, not warning</strong>. Full-scene treatment: room, bodies, weather, silence,
+      consequences. The loads:</p>
+      <ul>
+        <li><strong>The network becomes a body — for the reader.</strong> A storm crosses the valley and
+        the mesh reports it in sequence: the far node feels the front before the truck does. For the
+        first time the network is one body long enough to experience weather moving through it. Leif and
+        Katita must not arrive at this thought on the page; the staging arrives at it for them.</li>
+        <li><strong>The same weather on their skin.</strong> The scene's engine is the gap between report
+        and arrival — the mesh telling them their own next twenty minutes, and then the rain making good
+        on it against the cab. Screen and skin must alternate until they close on each other.</li>
+        <li><strong>One node goes dark and comes back.</strong> A small death and a return inside the
+        big weather. Play it as maintenance jeopardy — a battery, a connector — and let the return be
+        relief nobody dwells on. The corruption arc starts here precisely because nothing corrupt
+        happens: the reader simply learns the mesh can be <em>felt for</em>.</li>
+        <li><strong>Fund the marriage.</strong> Two bodies in a cab for three pages, easy with each
+        other. This is the truck at its warmest — the same cab the hammer walk leaves from and the split
+        divides. Every degree of warmth banked here pays interest there.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 15–17 (≈ MS pp. 67–69)</strong> — the summit of "The Road Years
+      Alive," after the heritage tour, with the cicada fleck (p. 18) ratified as its comic counterweight
+      immediately following. The order can shift on the Pressure Map, but the cicadas should stay
+      adjacent wherever it lands: the deflation is part of the design.</p>
+      <p><strong>Feeds directly into:</strong> organic integration and the whole co-authorship band —
+      mould, ants, resin, file drift all become legible as this body's slow life; the amber fleck
+      (lightning will one day stop counting seconds and hit); Bell-Birds; the hammer; the split.
+      <strong>Pays off from:</strong> the rooftop napkin — <em>enough routes that the message survives
+      losing one</em> — enacted here as weather, when the mesh routes around the dark node. The payoff
+      must not be remarked; it is for the reader who kept the napkin.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The event:</strong> a storm moves across the valley; nodes report it in sequence —
+        humidity rising, pressure changing, packets arriving, one node going dark, another receiving the
+        front minutes later, the dark node returning.<span class="canon-tag">canon</span></li>
+        <li><strong>The bodies:</strong> Leif and Katita sit in the truck and feel the same weather
+        arrive on their skin.<span class="canon-tag">canon</span></li>
+        <li><strong>The recognition:</strong> for the first time the network feels like one body long
+        enough to experience the storm moving through it.<span class="canon-tag">canon</span></li>
+        <li><strong>The arc:</strong> the corruption begins slowly, through maintenance and weather —
+        this is its establishing event.<span class="canon-tag">canon</span></li>
+        <li><strong>The hardware:</strong> solar casings in the burled knots of trees, bark plates
+        shielding antennas, ~300 bits/sec, small resting LCD screens — handmade, weathered,
+        tender.<span class="canon-tag">canon</span></li>
+        <li><strong>Ratified ranking:</strong> one of the six full scenes — room, bodies, weather,
+        silence, consequences.<span class="canon-tag">canon</span></li>
+        <li><strong>Rain on the truck</strong> is a canon track on the bushranger's playlist — this scene
+        records it.<span class="canon-tag">canon</span></li>
+        <li><strong>The four warnings apply:</strong> above all the first and third — nobody states the
+        one-body thesis, and no motif may know it's a motif.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Read timestamps aloud, low, like someone keeping score of a game only she is playing. Count
+        down the front's arrival from the far node's report and be wrong by ninety seconds. Put a flat
+        hand on the dash and wait. Be the first to stop watching the screen and just listen. Say the dark
+        node's name once, the way you say the name of a dog that's out in it.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Worry in pure maintenance vocabulary — battery, connector, water in the housing, whether he
+        seated the bark plate properly last visit. Refresh too often. Do the arithmetic of lightning by
+        seconds and say only the number. Go completely quiet when the node comes back, and top up the
+        thermos lid as if that were the response.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Say <em>body, alive, feels, nervous, breathing, one thing</em> — no anatomy, no animism, no
+        summary. Name the event or toast it. Connect the mesh's routing to the napkin, the night to the
+        project, or the storm to anything. The biggest sentence spoken aloud in the scene should be about
+        something small: the tea, the wipers, whether the window seal will hold.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li><strong>Before:</strong> the green-black anvil standing off the range at four o'clock; the
+        paddock noise stopping all at once — birds first, then insects — the land going quiet in the
+        order of who can hear it coming.</li>
+        <li>Lightning on the AM band before it's visible: the radio crackling under a request show, each
+        crack a strike somewhere over the horizon — the oldest node on the mesh, and nobody's.</li>
+        <li>The LCD's slow arithmetic: humidity climbing by whole digits; the pressure line stepping
+        down like a staircase drawn at 300 bits/sec; reports arriving from trees they can name.</li>
+        <li>The gust front: grass going silver side up in a travelling line, the windmill spinning up and
+        then braking itself, the truck rocking once on its springs like a boat taking a wake.</li>
+        <li>First drops in dust — coins of mud on the windscreen, countable, then not countable. The dirt
+        smell rising off the paddock as if the rain were unwrapping it.</li>
+        <li>The roof: individual drops, then the drum, then — if wanted — hail's different voice for one
+        minute, a harder instrument the cab is inside of. Speech pointless; the thermos lid passed
+        instead.</li>
+        <li>Windows fogging; a porthole wiped with a forearm; the wet-wool-and-tea smell of two people
+        in a sealed cab; her feet in his lap or his coat across her knees — decide by temperature, not
+        by tenderness quota.</li>
+        <li>The dark node: a report that stops mid-line on the screen and stays stopped. The gap where
+        its next timestamp should be, refreshing into the same gap.</li>
+        <li>Strike-count: flash to thunder, four seconds, then two, then a strike near enough to arrive
+        in the chest cavity — and, two seconds ahead of their ears, a pressure spike already logged from
+        the ridge. <em>Do not remark it.</em></li>
+        <li><strong>The return:</strong> the dark node coming back with its backlog in one burst — the
+        screen filling with everything it went on saying while nobody could hear it. It kept logging in
+        the dark.</li>
+        <li><strong>After:</strong> drips on the ten-second interval; frogs starting up as if switched;
+        the creek audible where it wasn't before; steam off the bonnet; the whole valley rinsed and
+        ticking.</li>
+        <li><strong>Consequences, next morning:</strong> one bark plate to re-tie; the resin smell of wet
+        eucalypt; ants already back at the warm housing; the day's job list unchanged.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The mesh routes around the dark node</td><td>The rooftop napkin line made weather —
+          her routing drawn around the wine stain, enacted at valley scale. Never remarked.</td></tr>
+          <tr><td>The dark node's backlog</td><td>Bell-Birds and the whole provenance collapse: the
+          archive goes on writing while unwitnessed. Here it's tender; there it's vertiginous. Same
+          fact.</td></tr>
+          <tr><td>Lightning counted in seconds</td><td>The amber fleck — the day lightning stops keeping
+          its distance and splits a node-tree, fusing data and wound. This scene is the before
+          picture.</td></tr>
+          <tr><td>Rain on the truck roof</td><td>A canon track on the bushranger's playlist, near the
+          arrival — the book's ear was in this cab.</td></tr>
+          <tr><td>The report arriving before the weather</td><td>The body running the protocol (§21):
+          rhythm known before it resolves — the train's ostinato gaining its final beat. Planted as
+          skin-knowledge here.</td></tr>
+          <tr><td>Static under the AM request show</td><td>The Boxer's detuned pub radio; fragments of
+          radio in the playlist's organ-symphony.</td></tr>
+          <tr><td>The cab itself, at its warmest</td><td>The hammer (he walks from this truck) and the
+          split (she keeps it). The room of the marriage, banked before it is contested.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The thesis.</strong> One line of "it's like it's —" from either of them and the scene
+        is dead. The recognition lives entirely in staging: the screen saying rain, then the rain. If a
+        draft needs the thought stated, state it in the draft and cut it in the pass.</li>
+        <li><strong>Disaster pacing.</strong> Nothing is at stake for the hardware except one node's
+        evening. If the storm reads as threat — to the truck, the project, the people — the scene has
+        borrowed the wrong genre. The jeopardy budget is a battery.</li>
+        <li><strong>Omen-lighting the dark node.</strong> It comes back. If the prose lingers in the gap
+        with foreboding, the corruption arc is spoiled at birth. The gap is worry sized for a connector,
+        and the return closes it without ceremony.</li>
+        <li><strong>Log outrunning body.</strong> Three pages of two people in a cab: the screen must
+        never hold the camera for more than a few lines before skin takes it back. Alternate registers
+        until they converge; the converging is the scene.</li>
+        <li><strong>Poeticising the log.</strong> Log lines stay dry — numbers, timestamps, node names.
+        The prose around them carries all feeling. A lyrical log line here bankrupts Bell-Birds, where
+        the file's wrongness must land as impossible.</li>
+        <li><strong>Summary-time.</strong> The storm crosses in scene-time, minute by minute. No "all
+        night the storm..." until the final half-page is ready to dissolve to morning — and morning is
+        maintenance, not meaning.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the radio hearing it first: lightning as static punctuation under a country request
+        show, a dedication going out to a couple celebrating fifty years, interrupted by strikes neither
+        the announcer nor the couple can hear yet.</li>
+        <li>The far node reports rain at 9:41. Katita puts her hand flat on the dash and they sit inside
+        the strange interval of knowing their own weather twelve minutes early — the future arriving at
+        300 bits/sec, slower than the wind that carries it.</li>
+        <li>The countdown game: she calls the front's arrival from the timestamps, sets the thermos lid
+        down as a stopwatch, and is wrong by ninety seconds — and her being <em>delighted</em> by the
+        error, not corrected by it, is the whole of her later philosophy in one beat. No comment.</li>
+        <li>The node goes dark mid-report — the line ends mid-word and the screen holds the half-word on
+        its little grey face. Leif lists causes aloud like a man naming his worries to shrink them:
+        battery, connector, water. Katita says the node's name once and turns the radio down, as if that
+        would help it.</li>
+        <li>Hail for one minute: the cab too loud for speech, the conversation continued in glances, the
+        tea passed at the right moment anyway — the private bodily language doing its work under
+        pressure. One touch of the primes rhythm tapped on her knee, unconscious. <em>One touch.</em></li>
+        <li>The close strike: chest-thump, both of them ducking on reflex and laughing at themselves —
+        then both leaning to the screen without a word to see if the ridge felt it too. It did, two
+        seconds early. Neither says so. The scene's centre of gravity, played as a glance.</li>
+        <li>The return: the screen floods with the dark node's backlog — twenty minutes of faithful
+        reporting into nothing, delivered all at once — and Leif reads it the way you'd listen to
+        someone tell you where they'd been. He says only: "seated the plate wrong." Maintenance
+        vocabulary carrying everything.</li>
+        <li>Katita falls asleep before the storm has fully crossed; Leif watches the tail of the front
+        move node to node off the eastern edge of the mesh alone, and turns the screen brightness down
+        like a man closing a door on a sleeping house.</li>
+        <li>Afterwards they get out into the dripping dark, bare feet in wet grass, and stand where the
+        report said the storm would be, inside the fact of it having been right. Frogs. The creek.
+        Nobody says anything at all for a paragraph the reader can hear.</li>
+        <li>End on consequences at first light: the re-tied bark plate, the resin smell, ants back at
+        the warm housing, the day's list unchanged — the morning written so ordinarily that the size of
+        the night is invisible to everyone who was inside it.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Three pages. The scene ends in ordinary morning maintenance with nothing said and nothing
+      decided. The reader — and only the reader — leaves knowing the network was one body long enough to
+      feel a storm move through it; if Leif or Katita visibly know it too, cut the lines where they show
+      it. The night should read as one of the best of their lives without anyone inside it ranking it.
+      Every later horror of the corruption must be able to point back here and find only wonder,
+      weather, and two people warm in a cab — that innocence is the scene's cargo, and it travels
+      unmarked.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder
+      Chronology (spine §10, scene-time ranking: full), ✦ The Wound (corruption arc, backstage), §10 Root
+      layer · notes/remainder-chronology.md §10 · ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

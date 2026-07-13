@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Hammer | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for The Hammer — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Hammer</h1>
+    <p class="sc-meta">
+      <span>Rank: The Fracture</span>
+      <span>Tier: FULL SCENE · 2 pp</span>
+      <span>Endgame Movements 9→10</span>
+      <span>Pressure-point 4: ROOT fracture</span>
+      <span class="hot">Condition: TRANSFORMATION</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>One of the six ratified full scenes, and the simplest: a man walks from a truck to a tree
+      carrying a hammer, and walks back. Nearly wordless. Three loads:</p>
+      <ul>
+        <li><strong>The walk is the decision.</strong> Not the raised arm, not a trembling
+        last-second reprieve — the decision is made stride by stride across open ground. The scene's
+        drama is a distance, not a gesture.</li>
+        <li><strong>He allows himself to want it.</strong> The wants must be let fully in —
+        jealousy of the trees, humiliation, loss of authorship, fear that Katita loves the emerging
+        system more than their original project, wounded proprietary feeling, shame at his own
+        smallness — but as body-flashes braided into the ground and the tool-weight, never as an
+        inventory or an essay.</li>
+        <li><strong>He does not swing.</strong> This is what makes his later gentleness — the one
+        careful signal check, the decade of attention, the arrival — <em>chosen rather than
+        automatic</em>. The whole aftermath is funded by this renunciation, so the renunciation must
+        cost something on the page.</li>
+      </ul>
+      <p>Full-scene entitlements per the ratified ranking: room, bodies, weather, silence,
+      consequences. Spend them on silence.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 31–32 (≈ MS pp. 83–84)</strong> — the centre of The
+      Fracture rank, directly after Files in Her Style (the escalation that put the hammer within
+      reach) and directly before The Split. Order can shift, but this scene must stay between
+      those two: it needs the files behind it and the division of possessions ahead of it.</p>
+      <p><strong>Feeds directly into:</strong> The Split (pp. 33–35) — the split can be staged
+      without cruelty <em>because</em> this scene happened; his gentleness there is already the
+      chosen kind. <strong>Pays off from:</strong> the whole co-authorship rank — Bell-Birds, the
+      small private violations, the unsigned files — everything the reader has watched him absorb
+      without answer. <strong>Pays into:</strong> the single signal check (§19), the wrens in the
+      dead node (the archive survives to become habitat partly because its most injured author
+      declined to be its destroyer), and the trailhead double-exposure — trees as possible
+      witnesses.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The event:</strong> at the height of his anger, Leif walks from the truck
+        toward a node carrying a hammer.<span class="canon-tag">canon</span></li>
+        <li><strong>The walk is the decision.</strong><span class="canon-tag">canon</span></li>
+        <li><strong>The permitted wants:</strong> jealousy of the trees · humiliation · loss of
+        authorship · fear that Katita loves the emerging system more than their original project ·
+        wounded proprietary feeling · shame at his own smallness.<span class="canon-tag">canon</span></li>
+        <li><strong>He does not swing.</strong><span class="canon-tag">canon</span></li>
+        <li><strong>Consequence:</strong> his later gentleness is chosen rather than
+        automatic.<span class="canon-tag">canon</span></li>
+        <li><strong>Node-world physical canon:</strong> solar-powered memory casings hidden in the
+        burled knots of trees; loose bark plates shielding antennas; small resting LCD screens;
+        weatherproofed, handmade, weathered — never sleek.<span class="canon-tag">canon</span></li>
+        <li><strong>Organic integration by this point:</strong> resin around screws, ants near warm
+        housings, roots pressing casings, moisture in connectors — the hardware already half
+        landscape.<span class="canon-tag">canon</span></li>
+        <li><strong>Register:</strong> the split is philosophical divergence staged practically and
+        bodily — never a fight, never a verdict. This scene is the closest the book comes to
+        violence, which is why the violence must not arrive.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Say nothing — the strong default. Or one flat word at most, to no one, in the plain
+        Australian register ("righto"), landing as the sound of a decision already made. Breathe
+        audibly. Change how he carries the hammer. Touch the tree with his free hand.</p>
+      </div>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Exist only as distance: a shape asleep in the truck, a light left on, or genuinely
+        elsewhere. If she registers anything, it is later and never spoken. Her absence from the
+        scene is a permission, not an oversight — this is between Leif and the tree.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Speak the reasons. Narrate the six wants as a list. Witness the walk and react — no
+        audience, no confrontation, no scene-about-them. And the node may do <em>nothing</em>:
+        no meaningful blink, no file appearing, no uncanny response. The ghost story stays out of
+        this scene entirely; the only haunted thing on the page is the man.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The hammer as fact before symbol: claw cold from the tool tray, handle smooth at the
+        grip and paint-flecked at the neck, the head's pull straightening his arm — how carrying a
+        hammer changes a man's gait, the body knowing what the tool is for.</li>
+        <li>The tool tray itself: the rolled clink as it opens, the hammer lifted from among
+        indistinguishable neighbours — spanners, the soldering iron, cable ties.</li>
+        <li>The ground of the walk: bark litter and gibber underfoot, dry grass seeding against his
+        shins, a fence wire ticking somewhere as it cools, dew starting on the tray's tarp.</li>
+        <li>Light options: last light with the hammer head picking up the west; or full dark with
+        a torch he doesn't bring — moonlight enough, his shadow arriving at the tree before he
+        does.</li>
+        <li>The tree at close range: ironbark or box, the burled knot, the loose bark plate over
+        the antenna, resin smell sweet and medicinal, the casing seam with its ant line still
+        working the warm edge.</li>
+        <li>The LCD's resting glow — small, watch-face faint, the only man-made light for
+        kilometres, faintly warming whatever is held near it.</li>
+        <li>Sound kept low and real: a roo thump once, powerlines if any, his own breath as the
+        loudest instrument. No cicadas — January's joke belongs to another page.</li>
+        <li>Distance as structure: thirty or forty metres of open ground, long enough to hold
+        three changes of mind, each third of the walk a different man.</li>
+        <li>Heat of the day still in the hammer head against his leg; sweat drying at the small of
+        his back; the specific fatigue of anger, which weighs like a tool.</li>
+        <li>The walk back: same ground reversed, looser rhythm, the hammer carried differently —
+        by the head, or hanging, or under his arm like something asleep.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The not-swinging itself</td><td>Every later gentleness revealed as chosen: the
+          one signal check done carefully, the decade of attention instead of grievance, the
+          arrival's quiet.</td></tr>
+          <tr><td>The hammer returned to the tray</td><td>The Split: the tray is opened again two
+          pages later to divide the tools — the hammer sits among them, unremarked, whichever pile
+          it lands in.</td></tr>
+          <tr><td>His free hand on the bark plate</td><td>The trailhead double-exposure: trees as
+          possible witnesses around Andrew. The hand that could have swung is the hand that
+          touched instead — the trees' later charge is built here.</td></tr>
+          <tr><td>The walk itself</td><td>The book's other walks: the bushwalk with Andrew, the
+          first steps from the final station. Walking as decision here; walking as reception
+          there.</td></tr>
+          <tr><td>The intact node</td><td>Wrens nesting in a dead module, years on — the archive
+          lives long enough to become habitat. Never connect these on the page.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The swing tease.</strong> Raised hammer, trembling arm, will-he-won't-he. If
+        the scene reads as suspense it has already failed: the decision is the walk, so the
+        not-swinging should arrive almost as anticlimax. He may never raise it at all.</li>
+        <li><strong>The interior essay.</strong> Six wants in a row is a list wearing a paragraph.
+        One flash per stretch of ground, one sentence each, no commentary — braided into stride
+        and breath.</li>
+        <li><strong>The node performing.</strong> Any uncanny response — a blink, a sound, a file —
+        turns a ghost story into a monster movie. The system's indifference is the humiliation.</li>
+        <li><strong>Katita as audience.</strong> If she sees the walk, the scene becomes about
+        them and the split starts early. No witness. The only reader of this scene is the
+        reader.</li>
+        <li><strong>Redemption on the page.</strong> No lesson learned, no "he understood then,"
+        no softened face. The meaning — gentleness chosen — belongs to the book, not to this
+        paragraph. He just puts the hammer back.</li>
+        <li><strong>Symbol-lighting the tool.</strong> No judgement imagery, nothing mythic. It is
+        a hammer from a tray, and it must still be only a hammer when it goes back in.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open with the hammer already in his hand and no account of picking it up — the
+        decision predates the scene, and the missing moment is the scene's first silence.</li>
+        <li>Write the walk in tool-weight: the head's pull on his shoulder, the handle warming to
+        his grip, the gait it enforces — let the prose carry the hammer before it lets him think
+        anything.</li>
+        <li>The wants as camera-flashes, one per stretch of ground: her face lit by the laptop;
+        an unsigned file; the trees' enormous patience. One sentence each. The ground resumes
+        between them.</li>
+        <li>He stops a body-length short — the length of a swing — and stands inside the only
+        space from which the hammer could reach. Holding that geometry, and holding it, is the
+        entire climax.</li>
+        <li>The ant line crossing the casing seam, still working the resin in the dark. He watches
+        them make the archive domestic. His smallness meets a smaller industry and loses.</li>
+        <li>The LCD's rest-glow lights the hammer head faintly — the tool lit by the thing it came
+        for — and he turns his wrist so the light falls on the claw instead. The scene's only
+        event.</li>
+        <li>His free hand on the loose bark plate, flat, the way you'd steady a horse. Two truths
+        in one body: the hand that strokes and the hand that hangs. Neither wins on the page.</li>
+        <li>The one permitted word — her name, or the node's number, or "righto" — said to the
+        paddock, flat, and swallowed by it. Or keep total silence and give the word's slot to a
+        breath.</li>
+        <li>Equal page-weight for the walk back: same ground, no flashes now, the prose loosening
+        its metre without saying why. He counts nothing on the return.</li>
+        <li>End at the tray: the hammer laid back among the other tools, indistinguishable again,
+        and the tray closed quietly so as not to wake her. The gentleness begins that same
+        minute, unannounced.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Two pages, nearly wordless. The scene ends with the hammer back where tools live and
+      nothing said, and the reader unable to point to the moment the not-swinging was decided —
+      because it was decided at the first step, or before it. No relief on the page, no lesson:
+      just a man returning across the same ground with the same tool and a different weight. If
+      the reader feels suspense, rewrite; they should feel witness. This is the scene the whole
+      aftermath quietly refers to every time Leif is gentle.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder
+      Chronology §15 (the walk is the decision; the permitted wants; he does not swing), ✦ The
+      Endgame Plan Movements 9–10 / Pressure-point 4, §10 Mesh networks &amp; civic tenderness
+      (node hardware) · remainder-chronology.md §15 &amp; scene-time ranking (six full scenes) ·
+      ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

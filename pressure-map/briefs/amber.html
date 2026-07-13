@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Amber on the Dashboard | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for Amber on the Dashboard — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Amber on the Dashboard</h1>
+    <p class="sc-meta">
+      <span>Rank: Co-Authorship Emerges</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Endgame Movement 9</span>
+      <span>Object survives the scene</span>
+      <span class="hot">Condition: TRANSFORMATION</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>One page: lightning splits a node-tree, and the salvage is a single object — cooked resin
+      hardened over the board, data and tree wound sealed together. The fleck must do three things and
+      vanish:</p>
+      <ul>
+        <li><strong>Stage the fusion as fact, not figure.</strong> The circuitry and the tree are now one
+        material. Nobody may say what that means; the object simply exists and is heavy and smells of
+        burnt sugar.</li>
+        <li><strong>Get the piece onto the dashboard.</strong> Katita keeps it — casually, the way people
+        keep a good stone. The keeping is her whole philosophy performed in one pocketing gesture, years
+        before she'd own the philosophy.</li>
+        <li><strong>Make the object durable in the reader's memory.</strong> It survives the scene and must
+        be plantable in later dashboard glimpses at one touch each — because after the split it becomes an
+        absence-marker. A page of prose has to buy an object the book can grieve with.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 25 (≈ MS p. 77)</strong> — after Organic Integration, before Small
+      Private Violations, though the order can shift. The sequencing logic: the resin has been creeping
+      over the screws for a page already; the lightning finishes in one night what the tree was doing by
+      the season. Consummation, not accident.</p>
+      <p><strong>Feeds directly into:</strong> the dashboard's later one-touch appearances across the road
+      and fracture ranks, and — after the split — the absence-marker payoff. (Note: Katita keeps the truck,
+      so where the amber ends up when they part is the split scene's decision — see Plants.)
+      <strong>Pays off from:</strong> Organic Integration (slow resin, now flash-set) and the storm crossing
+      the mesh — the weather that once moved through the network as sensation now writes on it as
+      wound.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The event:</strong> lightning splits a node-tree; they find fused circuitry, cooked
+        resin, amber hardened over the board — data and tree wound sealed together.<span class="canon-tag">canon</span></li>
+        <li><strong>The keeping:</strong> Katita keeps a piece on the truck dashboard.<span class="canon-tag">canon</span></li>
+        <li><strong>The payoff:</strong> it later becomes an absence-marker after the split.<span class="canon-tag">canon</span></li>
+        <li><strong>Timing:</strong> middle or later ROOT years — the network already physically
+        inseparable from the landscape.<span class="canon-tag">canon</span></li>
+        <li><strong>Tier:</strong> fleck — flash and vanish; a stronger miniature, not a compressed
+        scene.<span class="canon-tag">canon</span></li>
+        <li><strong>Register:</strong> handmade, weathered, tender; the fusion must read as botanical and
+        electrical craft-wreckage, never as sci-fi imagery. No motif knows it's a motif — the amber is a
+        keepsake, not a symbol, to everyone inside the page.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Assess the strike practically — what's recoverable, what isn't. Pick the piece up bare-handed
+        before it's quite cool. Answer "what do you want that for" with nothing, or with something under
+        four words. Put it on the dash and adjust it once, so it sits.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Grieve the node in inventory terms — board, cells, three months of recordings. Photograph the
+        split trunk for the log. Suggest, without heat, that the piece is salvage and belongs in the parts
+        box. Lose that exchange without it becoming an argument.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Say what the object is an image of. Use <em>amber</em>'s museum register — preservation,
+        millennia, insects in golden light — aloud. Mourn ceremonially. Connect the strike to any of the
+        rank's other strangeness. It was a storm; storms hit trees; they drive on.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The morning after: ozone gone, wet ash smell staying; the split trunk white and wrenched,
+        heartwood shining like something private shown suddenly in daylight.</li>
+        <li>Burnt sugar and eucalyptus — cooked sap; kino bled and boiled black at the edges, honey-clear
+        at the centre.</li>
+        <li>The board inside the set resin like a leaf in a paperweight: tracks visible, a component's
+        number legible through a centimetre of gold, solder run into little rivulets and frozen.</li>
+        <li>The piece's physical facts: heavier than it looks, faintly tacky on one face for weeks, warm
+        out of the wreck and holding warmth longer than seems right.</li>
+        <li>Salvage choreography: gloves not bothered with, the crowbar's chirp against charred bark,
+        pieces sorted onto a tarp into <em>works</em>, <em>parts</em>, <em>neither</em> — the amber
+        belonging to <em>neither</em> and getting kept anyway.</li>
+        <li>The dashboard as habitat: dust, a dead biro, service dockets folded to coasters, the piece
+        catching low sun on west roads and putting one amber coin of light on the cab ceiling.</li>
+        <li>On corners it slides its few centimetres and knocks the windscreen — a small knuckle-tap the
+        cab learns and stops hearing.</li>
+        <li>Heat: left in the windscreen sun the tacky face softens slightly and the piece sticks — over
+        months it settles into one spot and makes itself a ring.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The amber itself</td><td>The absence-marker after the split. Katita keeps the truck, so
+          the mechanics are the split scene's call: the amber rides away with her (and Leif's memory keeps
+          returning to a dashboard he'll never see again), or it changes hands in the parting. Don't fix it
+          here — just make the object unforgettable.</td></tr>
+          <tr><td>The sticky ring it makes on the dash</td><td>A candidate vehicle for the absence: the
+          ring outlasting the piece, in whichever cab the ring ends up. Offered, not owned — the split
+          scene decides.</td></tr>
+          <tr><td>Data sealed inside unreadable</td><td>The book's whole provenance ecology: storage that
+          survives only by becoming unretrievable — rhymes later with the pamphlet's unread final chapter
+          and the archive's unverifiable copies. Never articulated.</td></tr>
+          <tr><td>The dead node's recordings, lost</td><td>Nodes Conversing Alone / the aftermath: what the
+          network loses stays lost the way local histories are lost — no restore, only route-around.</td></tr>
+          <tr><td>The tree kept, wounded, alive</td><td>The wren nest and the small tree at the station:
+          damage and habitation as the book's late images of continuation. One strike in the middle of
+          the chain.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The symbol speech.</strong> If anyone — character or narration — glosses the amber
+        (memory preserved, wound and data one flesh), the object dies on the page. The fleck's power is
+        that everyone treats it as a knick-knack.</li>
+        <li><strong>Museum amber.</strong> The word carries fossils and gift shops. Keep the material in
+        the tradesman's register — sap, kino, set resin — and let <em>amber</em> land once, plainly, as
+        the colour it is.</li>
+        <li><strong>Ceremony.</strong> No burial for the node, no minute's silence. Salvage is brisk. The
+        tenderness is in the sorting tarp, not in observance.</li>
+        <li><strong>Foreshadowing the split.</strong> The absence-marker payoff belongs downstream. If the
+        keeping is written wistfully — if Katita's pocketing gesture is lit with future loss — the plant
+        is showing. It should read as a woman who likes a good object.</li>
+        <li><strong>Overweight.</strong> A fleck that runs past its page has stolen from a full scene. One
+        strike, one salvage, one object placed. Vanish.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the smell before the sight — burnt sugar on the track in, wrong for the hour, so the
+        body knows before the inventory does.</li>
+        <li>The strike reported first by the network: neighbouring nodes logged the storm's approach the
+        way they logged the crossing years ago, and one entry simply stops mid-column. The blank in the
+        log arrives before the wrecked tree does.</li>
+        <li>Salvage as triage: the tarp's three piles, and the piece that fails all three categories —
+        neither working, nor part, nor rubbish — becoming, by elimination, a possession.</li>
+        <li>Katita holds the piece up to the sun and reads a component number aloud through the resin,
+        once, like reading a fortune she has no intention of believing. Then pockets it.</li>
+        <li>Leif's version of keeping: he photographs the split trunk for the log, twice, from the angles
+        the insurance would want if there were insurance. Two archives of the same wound made in the same
+        minute — nobody compares them.</li>
+        <li>The trunk itself: split but not felled, one green side still working, the node's mounting
+        bracket now holding nothing at head height like a sconce. They leave the bracket. Unscrewing it
+        would be the sentimental act.</li>
+        <li>The piece's first drive: it slides on the first three corners, and Katita, without looking,
+        puts one finger on it each time until it learns its spot. That finger is the scene's whole
+        emotional budget.</li>
+        <li>A week of little uses: paperweight for dockets, sun-catcher, something to turn over during a
+        long fuel stop. The object earns its dashboard tenure through utility, not sentiment.</li>
+        <li>Heat variant: days later, forgotten in windscreen sun, it softens enough to hold a
+        thumbprint. One of them notices the print. The page doesn't say whose thumb, or who noticed.</li>
+        <li>End on the tap: night driving, corrugated road, the small knuckle-knock of resin on glass at
+        each cattle grid — the cab's new sound, unremarked, already part of the truck's vocabulary as the
+        page cuts out.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page, and the object has changed jurisdiction: from tree to dashboard, from wreckage to
+      furniture. Nothing has been said about it that couldn't be said about a good stone. The reader
+      should register the amber as a charming detail and only much later — when the dashboard is glimpsed
+      without comment, and later still when the split empties the cab — understand what the page was
+      doing. If the amber glows with meaning now, it will have nothing left to do then.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder Chronology
+      (§13 amber, flecks ranking, four warnings), §10 Mesh networks &amp; civic tenderness (handmade,
+      weathered, tender), ✦ The Wound (botanical, analogue, never named) · remainder-chronology.md §13 ·
+      ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

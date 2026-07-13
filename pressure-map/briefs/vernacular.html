@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Vernacular Republic | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for The Vernacular Republic — a formal inventory page of Australia's existing public memory-organs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Vernacular Republic</h1>
+    <p class="sc-meta">
+      <span>Rank: The Road Years Alive</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Plan §9</span>
+      <span>Band: Form</span>
+      <span class="hot">The implication is never spoken</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>One page, and it is a <strong>formal page</strong> — a shape in the book's shifting-text
+      tradition, not a scene. Its work:</p>
+      <ul>
+        <li><strong>Show the country already doing it.</strong> Australia's existing public memory-organs
+        laid out as an inventory: the reader sees a republic of chalkboards and honour boards that has
+        been transmitting all along. ROOT's true ancestry, presented without a word of ancestry.</li>
+        <li><strong>Carry the implication silently.</strong> <em>ROOT does not invent public memory; it
+        gives the vernacular republic a battery.</em> That sentence is backstage law. It must arise from
+        the arrangement of the list — from what sits next to what, from a column heading, from an
+        omission — never from prose, never from a character's mouth.</li>
+        <li><strong>Behave like a pressure peak.</strong> In this book, form arrives where language can't
+        quite hold itself. The inventory should feel found or overheard — a register the road produced —
+        not composed. Advise the eye, don't perform for it.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 11 (≈ MS p. 63)</strong> — directly after war-dialling and before
+      the Big Thing. Good placement: the night of live copper flows straight into the daylight census of
+      everything else that carries the district's memory. The order can shift on the Pressure Map; this
+      page is portable, and would also survive sitting after the storm as a cooling page.</p>
+      <p><strong>Feeds directly into:</strong> everything ROOT does from here — every module is now
+      legible (to the reader only) as a battery clipped onto something that already existed. <strong>Pays
+      off from:</strong> taped books (the historian's shed), microfiche (the masthead hunt), payphones
+      (the memorised number), country radio (the Boxer's pub backrooms). The list is half made of things
+      the book has already touched — that's its authority.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The inventory itself:</strong> chalkboards, honour boards, pub PA systems, racing
+        guides read aloud, CB handles, motel registers, handwritten menus, newsletters, payphones,
+        local-history pamphlets, railway announcements, taped books, microfiche, country
+        radio.<span class="canon-tag">canon</span></li>
+        <li><strong>The form options:</strong> "may become an inventory page, file tree or diagnostic
+        list."<span class="canon-tag">canon</span></li>
+        <li><strong>The law:</strong> ROOT does not invent public memory. ROOT tries to give the
+        vernacular republic a battery — <em>never spoken by a character</em>.<span class="canon-tag">canon</span></li>
+        <li><strong>Form on the page:</strong> ASCII/diagrammatic intrusions are pressure peaks, not
+        decoration; some emerge mid-sentence; the page is a climate, not a container.<span class="canon-tag">canon</span></li>
+        <li><strong>They notice this across the road years</strong> — the page belongs to travel, to a
+        noticing accumulated through pubs, motels, platforms and paddocks.<span class="canon-tag">canon</span></li>
+        <li><strong>The four warnings apply</strong> — especially: no motif may know it's a motif. This
+        page is the single most tempted page in the band.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>The page may</h3>
+        <p>Take the shape of a found register: motel-book ruling, a pamphlet's contents page, a field
+        audit in a hand that could be Katita's. Misfile one entry. Abbreviate like a person in a hurry.
+        Break off mid-line and resume. Include a custodian column, a range column, an "updated" column —
+        the battery implication is allowed to live in a column heading, never in a sentence.</p>
+      </div>
+      <div class="permit">
+        <h3>The prose around it may</h3>
+        <p>Enter the list mid-sentence — a paragraph about a counter lunch fracturing into inventory the
+        way this book's language spills into form under pressure — and pick itself up afterwards on a
+        small physical detail, as if nothing happened.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Caption the list. Say <em>memory, archive, organ, republic, battery, network</em> anywhere near
+        it. Have Leif or Katita observe that the country already does what ROOT does. Compare any item to
+        a node. The moment the page explains itself, it becomes an essay wearing a costume.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <p>One concrete instance per organ, so the list can be texture rather than taxonomy:</p>
+      <ul>
+        <li><strong>Chalkboard:</strong> pub specials half-erased under tonight's; "meat tray R. Cowan"
+        from a raffle three weeks won.</li>
+        <li><strong>Honour board:</strong> gold leaf, the same surname four times, one name with a small
+        asterisk nobody living can gloss.</li>
+        <li><strong>Pub PA:</strong> the barmaid calling a phone call for a man by his nickname; the whole
+        room knowing who without turning.</li>
+        <li><strong>Racing guide read aloud:</strong> Saturday arvo, one man reading the fields to another
+        whose eyes are gone, both disagreeing with the weights.</li>
+        <li><strong>CB handles:</strong> channel 40; a man known for three hundred kilometres as a name
+        his mother never used.</li>
+        <li><strong>Motel register:</strong> biro ghosts pressed through from the page above; whole
+        decades of "purpose of visit: passing through."</li>
+        <li><strong>Handwritten menu:</strong> laminated, prices taped over twice, the tape yellower than
+        the laminate.</li>
+        <li><strong>Newsletter:</strong> church or CWA, duplicator-smelling, staples rusted into the
+        fold; births, deaths, working bees.</li>
+        <li><strong>Payphone:</strong> directory on a chain, coin slot polished by thumbs, the booth light
+        the only civic lighting after ten.</li>
+        <li><strong>Local-history pamphlet:</strong> staple-bound, typed one side, sold from an honesty
+        box at the museum that opens Sundays 1–4.</li>
+        <li><strong>Railway announcement:</strong> half-eaten by the PA, the town's name arriving intact
+        and nothing else.</li>
+        <li><strong>Taped books:</strong> the library western bound in figure-eights of masking tape so
+        it can endure more reading. One touch; it already rhymes; no comment.</li>
+        <li><strong>Microfiche:</strong> reels in shoeboxes behind the library counter; the reader's hot
+        lamp; scanner bloom eating a word.</li>
+        <li><strong>Country radio:</strong> funeral notices read on air between the stock report and the
+        weather; the announcer pronouncing every name correctly because he has to face them.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>Taped books</td><td>Already planted in the historian's shed — hands and book bound for
+          the same reason. Here it recurs as civic practice, not private image.</td></tr>
+          <tr><td>Microfiche</td><td>The masthead ancestor: "this most august public organ," partly
+          obscured, provenance contaminated. The inventory quietly holds the machine it happened on.</td></tr>
+          <tr><td>Payphones</td><td>The memorised ten digits; war-dialling's live copper the page
+          before.</td></tr>
+          <tr><td>Railway announcements</td><td>The garbled announcement at the final station — the
+          town's name arriving intact and nothing else, again, at the end of the book.</td></tr>
+          <tr><td>Country radio / racing guides aloud</td><td>The Boxer's detuned pub AM; the bushranger's
+          playlist, where fragments of radio join the one organ-like symphony.</td></tr>
+          <tr><td>Honour boards' repeated names</td><td>The ecology of unstable provenance — Shore / Shaw
+          / del Puerto; names as things districts keep imperfectly and faithfully at once.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The caption.</strong> One sentence of framing ("everywhere they went, the country was
+        already remembering") converts the page from evidence to thesis. The list must be trusted naked.</li>
+        <li><strong>The wink.</strong> A file tree with a directory called <em>/root/</em> or
+        <em>/battery/</em>, an entry annotated "cf. modules" — any joke that shows the page knows what it's
+        for. This is the no-motif-knows-it's-a-motif warning at its most acute.</li>
+        <li><strong>Nostalgia.</strong> These organs are not dying quaintness; they are working
+        infrastructure. Write them in present tense, in use, with users. Elegy turns the republic into a
+        museum and kills the point.</li>
+        <li><strong>Completeness.</strong> Fourteen organs is already generous for one page. Resist adding
+        categories; resist a taxonomy so tidy it resolves what should stay vernacular. Let one entry be
+        misfiled or truncated — the register should err the way its keepers do.</li>
+        <li><strong>Orphaning the form.</strong> A formal page dropped between scenes with no pressure
+        behind it reads as a gimmick. It needs to spill out of prose that was already straining — arrive
+        mid-sentence or out of an accumulating passage of road detail, per the book's own rules.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li><strong>The motel register treatment:</strong> ruled columns — NAME / OF / PURPOSE — with the
+        fourteen organs entered as guests, each with a date and a town. The republic checked in one per
+        line.</li>
+        <li><strong>The field audit:</strong> Katita's hand, three columns — organ, range, custodian. The
+        custodian column does the silent work: <em>publican · the secretary · whoever's on the platform ·
+        anyone with a coin</em>.</li>
+        <li><strong>The file tree:</strong> plain directory listing, no clever names, last-modified dates
+        spanning ninety years — an honour board modified 1953, a chalkboard modified this morning.</li>
+        <li><strong>Mid-sentence fracture:</strong> a paragraph about waiting for a counter lunch loses
+        its grip on syntax and the inventory pours through the gap; prose resumes at "and the schnitzel
+        came out."</li>
+        <li><strong>The contents page:</strong> the whole inventory disguised as the contents of a
+        local-history pamphlet — <em>as if</em> some shire historian had already written the book ROOT
+        thinks it's inventing. (Dangerous and rich; keep the pamphlet fictional and unremarked.)</li>
+        <li><strong>The diagnostic list:</strong> status flags only a maintenance mind would write —
+        OK · INTERMITTENT · CUSTODIAN DECEASED, RECORD CONTINUES. That third flag is the page's whole
+        cargo; use it once.</li>
+        <li><strong>One day's drive:</strong> the organs listed in the order encountered between two
+        towns, with odometer readings — the inventory as a strip of road, not a system.</li>
+        <li><strong>The update column:</strong> each organ with its cadence — <em>hourly · Saturdays ·
+        yearly · when someone dies</em>. Frequency as the quiet common denominator; no unit ever named.</li>
+        <li><strong>The repaired page:</strong> one line of the list broken and resumed with a visible
+        seam, the way the taped western is broken and resumed — form quoting the bindery without
+        footnoting it.</li>
+        <li><strong>The omission:</strong> the list stops at fourteen and leaves one ruled line empty.
+        What belongs on the empty line is never supplied — by the page, by the book, by anyone.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page. The reader turns it having seen a country that was already transmitting — and should
+      not be able to quote a single sentence that told them so, because there isn't one. If a first reader
+      can say what the page "means," it has failed; if they find themselves remembering the honour board
+      or the funeral notices two hundred pages later at the final station, it has worked. Flash and
+      vanish.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder
+      Chronology (spine §9), §8 The text itself as a shifting medium, §10 Root layer ·
+      notes/remainder-chronology.md §9 · ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

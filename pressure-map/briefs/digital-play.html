@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Play Before Mission | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for Play Before Mission — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Play Before Mission</h1>
+    <p class="sc-meta">
+      <span>Rank: Origins &amp; Pleasure</span>
+      <span>Tier: Medium · 2 pp</span>
+      <span>Band: Vaporwave</span>
+      <span>Plan §7: shared digital worlds</span>
+      <span class="hot">ROOT born from play, not fear</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>This block is the ratified correction to ROOT's origin story: before it is a mission it is
+      a <strong>shared appetite</strong>. Two pages of a couple at play in digital worlds, ending
+      with the first module built as a toy. Three loads:</p>
+      <ul>
+        <li><strong>Establish the shared worlds as pleasure.</strong> Obsolete games, a SecondLife-era
+        Newcastle, hacker magazines read for fun, abandoned servers visited like beaches. The
+        pixel-pastoral law: <em>the hardware is tiny and the light is enormous.</em></li>
+        <li><strong>Give the vaporwave register its human origin.</strong> Decades later ROOT's
+        diagnostic space will speak to Leif in low-poly harbour light. That render only devastates
+        if the reader met this aesthetic first as the couple's private dialect of joy.</li>
+        <li><strong>The first module arrives as a joke or a gift</strong> — a dare made physical, a
+        box that does one useless lovely thing. No mission statement, no collapse-talk, no founding.
+        ROOT must be traceable back to an ice-cream container, not a manifesto.</li>
+      </ul>
+      <p>Ratified guardrail: <em>ROOT should arise from pleasure, play and curiosity, not simply
+      fear of collapse.</em> If a paragraph must be cut, cut anything that smells of purpose.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 4–5 (≈ MS pp. 56–57)</strong> — after Primes on Skin, before
+      River Bathing. The order can shift on the Pressure Map, but the logic holds anywhere in the
+      Origins band: the private bodily language extends onto screens, then into hardware, then (two
+      pages later) out onto the road.</p>
+      <p><strong>Feeds directly into:</strong> the road years — the truck is this appetite with
+      wheels — and, in the Road rank, the <em>Heritage Tour of the Dead Server</em> (a separate
+      block: the tour with the three silent avatars is staged THERE, not here; this page may only
+      plant the habit). <strong>Pays off from:</strong> the rooftop's hacker-magazine / BBS lore
+      mention and the napkin diagram — the graph problem now has a playground.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The inventory of shared worlds:</strong> obsolete games, SecondLife-era
+        Newcastle, hacker magazines, vaporwave landscapes, low-poly harbour renders, private
+        playlists, abandoned servers, playful experiments with devices, pixel-pastoral worlds where
+        the hardware is tiny and the light is enormous.<span class="canon-tag">canon</span></li>
+        <li><strong>ROOT's temperament:</strong> it must arise from pleasure, play and curiosity —
+        not collapse-fear. The first modules come through play.<span class="canon-tag">canon</span></li>
+        <li><strong>The heritage tour of the dead server</strong> is its own block in the Road rank:
+        Leif guiding a local-history tour through an abandoned virtual Newcastle, three silent
+        avatars following, never resolved. <em>Do not stage it here.</em><span class="canon-tag">canon</span></li>
+        <li><strong>The long echo:</strong> the Vaporwave layer is later revealed as ROOT's own
+        diagnostic render — barely-3D, low-poly public interiors, Katita misrendered inside it, the
+        jetpack bushranger as diagnostic artifact. This page is the innocent ancestor of that
+        machine-dream.<span class="canon-tag">canon</span></li>
+        <li><strong>Vaporwave contaminates memory</strong> rather than being labelled imagination —
+        even here, the digital worlds may have textures that could be memory or render; the seam
+        stays unresolved.<span class="canon-tag">canon</span></li>
+        <li><strong>Newcastle furniture available:</strong> the harbour, coal ships, silos, cranes,
+        Nobbys, Sega Master System boxes and VHS-era residue in the motif bank; the couple's
+        Newcastle is the render's subject.<span class="canon-tag">canon</span></li>
+        <li><strong>States:</strong> Leif collects and tours; Katita probes and builds. <em>Leif
+        installs, Katita dreams</em> hasn't begun yet — right now they are just two people sharing
+        one keyboard.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Narrate what the renderer is doing wrong with affection. Keep dead servers' addresses the
+        way other people keep phone numbers. Treat a game's physics as a maths problem she refuses
+        to solve because solving it would end the game. Issue the dare that becomes the first
+        module. Name the module something stupid.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Give a guided tour of a place that no longer exists — showing off, not curating. Read the
+        classified ads in a photocopied hacker zine aloud in bed. Prefer the misrendered harbour at
+        one specific in-game hour and arrange their sessions around it. Solder badly. Keep
+        screenshots in a folder he treats like a photo album.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Say <em>collapse, preserve, archive, the future, backup</em> — or pitch anything. Call
+        the aesthetic by any name (the word "vaporwave" does not exist for them). Observe that the
+        light is beautiful <em>because</em> the hardware is small — that's the scaffold's thesis,
+        not theirs. Declare the module "a start" or "version one." The first module is for nothing,
+        and both of them must be allowed to leave it at that.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>A dark flat lit by one CRT and one flat-screen of different colour temperatures; the
+        tower's fan; router lights doing their small civic duty in the corner.</li>
+        <li>Two chairs jammed at one desk; heat off the tower against their shins; one keyboard
+        passed back and forth — or split: WASD his, mouse hers, one body operated between them.</li>
+        <li>The low-poly harbour: water a single repeating tile; the horizon with a visible seam;
+        coal ships as brick-shaped suggestions; draw-distance fog eating Stockton; buildings the
+        real city has since taken down still standing in the render, unremarked.</li>
+        <li>The abandoned server at 2 a.m.: her avatar's default walk (no one bought animations
+        here); a sun jammed at permanent late afternoon by whichever admin last touched the sky and
+        never came back.</li>
+        <li>Sounds: MIDI loops from an old game left running for the music; a winamp playlist off
+        the second machine; rain on the real window while the render offers no weather at all.</li>
+        <li>Hacker magazines: photocopied, mail-ordered, already old when they get them; staple
+        rust; the classifieds better than the exploits.</li>
+        <li>The workbench creep: soldering smell in the kitchen, a $4 op-shop router flashed after
+        midnight, breadboard and stripped wire in a takeaway container, then the ice-cream container
+        that becomes the first casing.</li>
+        <li>Pixel-pastoral light: an enormous square sun, grass in two greens, shadows that move in
+        whole steps — light falling in integers.</li>
+        <li>The real dawn arriving mid-session, embarrassing both screens.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The low-poly harbour</td><td>ROOT's diagnostic render decades later: the system
+          speaks to Leif in the dialect of these nights. Katita misrendered in it — a woman he first
+          loved partly in low resolution, returned to him wrong.</td></tr>
+          <tr><td>Tour-guiding the dead server</td><td>The Heritage Tour block (Road rank): the
+          habit begins as showing off to her; the three silent avatars arrive years later. Plant the
+          habit only — spend the tour there.</td></tr>
+          <tr><td>The first module as toy</td><td>ROOT entire. The mission grows out of the dare;
+          the ice-cream container is the ancestor of the weatherproof casings in the trees.</td></tr>
+          <tr><td>The jammed late-afternoon sun</td><td>The "old light" of the abandoned render on
+          the heritage tour — light preserved by someone who left. Never comment, either time.</td></tr>
+          <tr><td>Private playlists</td><td>The vaporwave bushranger's playlist near the arrival —
+          the organ-like symphony that briefly gathers everything the book has heard.</td></tr>
+          <tr><td>Katita probing worlds for their edges</td><td>War-dialling the paddocks: her
+          night habit of testing infrastructure for signs of life begins as play here.</td></tr>
+          <tr><td>His screenshot album / her keeping nothing</td><td>The split in embryo —
+          provenance versus presence — as a one-line texture difference. Silent; if either of them
+          notices the asymmetry, cut it.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The retro listicle.</strong> If the block becomes an inventory of period
+        technology, it's furniture, not scene. Keep bodies in the room: two chairs, one keyboard,
+        shins against the hot tower, the dawn.</li>
+        <li><strong>Mission creep.</strong> One sentence of purpose kills the block. The module is a
+        dare made physical; nobody may know what it's for, because it isn't for anything.</li>
+        <li><strong>Spending the heritage tour.</strong> Visiting the dead server here is allowed;
+        the guided tour with followers is a separate, later block. Don't burn the three avatars.</li>
+        <li><strong>Omen-lighting the render.</strong> No character may find the low-poly world
+        "like memory" or dwell on its melancholy aloud. Its future weight must be invisible.</li>
+        <li><strong>Era soup.</strong> SecondLife-era is roughly mid-2000s: ADSL, CRTs on the way
+        out, no smartphones yet. The hacker mags are already relics when they read them — that's the
+        point. Keep the modem handshake out entirely; war-dialling owns that sound.</li>
+        <li><strong>Summary-time drift.</strong> "They spent whole winters in there" is the disease.
+        Two sessions at most, minutes inside each; texture the rest by implication.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open inside the render, not the room: two avatars standing on one-polygon water, and
+        only after a paragraph the fan, the shins, the rain on the real window — the book's
+        ontological wobble delivered as pure texture, no comment.</li>
+        <li>She swims her avatar straight out past the draw distance to see what the world does when
+        it runs out. It keeps laying one more tile of water just ahead of her, forever. She is
+        delighted for days and never says why.</li>
+        <li>The dead server's sky: a sun somebody set to late afternoon years ago and never came
+        back for. Leif brings her there the way you'd bring someone to a beach at the right hour.
+        His first tour.</li>
+        <li>The dare: she bets him the router can't be made to say anything. A week later a $4 box
+        in an ice-cream container plays one bird call to the backyard at dusk. They drink to it and
+        name it something stupid.</li>
+        <li>One keyboard, two operators: keys his, mouse hers, an argument conducted entirely in
+        movement — the avatar walking somewhere neither of them chose alone.</li>
+        <li>The zine classifieds read aloud like race results: mail-order antennas, a man in Lismore
+        selling "slightly haunted" hard drives, a PO box in Wauchope that answers in green biro.</li>
+        <li>In the render the coal ships never move. She counts them anyway — four, same as last
+        week — one touch of the rooftop's counting, no comment.</li>
+        <li>Mid-harbour they find another player's abandoned house, furniture arranged for a life,
+        a chair facing a window. They don't touch anything. Both are quiet in the real room
+        afterwards, and neither says why.</li>
+        <li>He screenshots; she never does. One line each, buried in different paragraphs, no
+        adjacency, no gloss.</li>
+        <li>End in the real backyard: the module's single LED visible from the kitchen window,
+        pulsing at whatever rate it pulses, the two of them watching it the way you watch a fire —
+        enormous dark, tiny hardware, the law reversed into the real world.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Two pages. It ends with the toy alive in the backyard and no plans made — no next step, no
+      "what if we," no gaze toward the horizon. The reader should think: a young couple mucking
+      about with old games and junk electronics, sweet and slightly nerdy. Nothing may announce
+      that the church they will spend their lives building is already standing in the yard in an
+      ice-cream container. If the block ends feeling like an origin story, it has failed; it should
+      end feeling like a Tuesday.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder
+      Chronology (spine §7; medium ranking), ✦ The Wound (diagnostic render, low-poly interiors),
+      vignette 6 (Vaporwave Bushranger), §10 (Root layer) · remainder-chronology.md §7 · rooftop
+      scaffold (hacker magazines, napkin diagram) · ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

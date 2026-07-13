@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Primes on Skin / The Biro | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for Primes on Skin / The Biro — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Primes on Skin / The Biro</h1>
+    <p class="sc-meta">
+      <span>Rank: Origins &amp; Pleasure</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Band: Root</span>
+      <span>Plan §6: bodily languages</span>
+      <span class="hot">Plants the final added beat</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>One page, one dark room, one protocol. This fleck installs the couple's first private
+      language and hides a fuse that burns for the rest of the book. Three loads, all carried in
+      the dark:</p>
+      <ul>
+        <li><strong>The tapping game exists.</strong> Katita taps sequences on Leif's forearm; he
+        guesses prime or not prime; he is often wrong and the wrongness is part of the pleasure.
+        Touch, repetition, willing failure — a game, not a cipher.</li>
+        <li><strong>The biro mark is made and kept.</strong> She writes something small on his skin.
+        He does not wash it off. The page must not announce the keeping — it just happens, the way
+        a man keeps a receipt.</li>
+        <li><strong>The body becomes a temporary page</strong> — but silently. The rhyme family
+        (Andrew's mermaid tattoo, the courtesan's bathwater text, bark and file) already exists in
+        the manuscript; this page joins the family without a single member being named.</li>
+      </ul>
+      <p>The tapping returns ten years later, unconscious, against a train window — and the slowing
+      train resolves it by one added beat near the very end. That payoff only works if this page is
+      <em>pure foreplay</em>. Fleck discipline: flash and vanish; the miniature is the strength.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 3 (≈ MS p. 55)</strong> — directly after the rooftop party.
+      It can be the same night or soon after; the page should not say which. The order can shift on
+      the Pressure Map, but the adjacency to the rooftop is doing work: the pen pulled from his
+      beard at the party is the natural ancestor of the biro now writing on him.</p>
+      <p><strong>Feeds directly into:</strong> Play Before Mission (pp. 4–5 — the same appetite for
+      shared, useless, repeatable pleasure moves onto screens) and, far downstream, the unconscious
+      tapping of the aftermath years. <strong>Pays off from:</strong> the rooftop — the pen, the
+      theft, the first intimacy already being a writing implement.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The game:</strong> Katita taps sequences against Leif's forearm in the dark. He
+        guesses prime or not prime, often wrongly. The pleasure lies in touch, repetition and
+        willing failure.<span class="canon-tag">canon</span></li>
+        <li><strong>The biro annotation:</strong> Katita writes a word, correction, coordinate,
+        number or tiny image on Leif's skin. He does not wash it off. The reader realises later that
+        he is still carrying it.<span class="canon-tag">canon</span></li>
+        <li><strong>The rhyme family (never named on the page):</strong> Andrew's faded mermaid
+        tattoo; the courtesan's bath-water text (the title in dissolved ink on her arm, MS pp.
+        25–26); clothes retaining bodily impressions; the archive writing through bark, files and
+        memory. <em>The body becomes a temporary page.</em><span class="canon-tag">canon</span></li>
+        <li><strong>The long payoff:</strong> ten years on, Leif taps a rhythm unconsciously — motel
+        room, motorbike, train window. It is simultaneously her game, the page-one ostinato, bodily
+        memory, a protocol, a phrase awaiting resolution. Near the end the slowing train may resolve
+        it <em>by one added beat</em>.<span class="canon-tag">canon</span></li>
+        <li><strong>The relationship begins in play</strong> — the whole Origins band answers to
+        this. No mission exists yet; ROOT is not even a joke yet.<span class="canon-tag">canon</span></li>
+        <li><strong>States:</strong> both of them inside pleasure, neither of them inside meaning.
+        Katita is the author of the protocol; Leif is its glad, fallible receiver. No one is
+        teaching anyone anything.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Explain the rules once, badly, half-asleep. Answer a wrong guess with another sequence
+        instead of words. Laugh in the dark where he can only feel it through the mattress. Write on
+        him without asking — the same licence as the pen-theft at the party. Refuse to say what she
+        wrote, or lie about it cheerfully.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Guess with fake confidence and be wrong. Lose count when a car goes past and ask for the
+        number again — and be given a different number instead. Ask what the mark says. Hold his arm
+        up to the streetlight stripe to read it. Say <em>nine</em> is prime and defend it briefly.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Say <em>code, protocol, message, memory, skin as page</em> or anything in that family.
+        Explain why willing failure is sweet. Notice that the game is one-way and remark on it. Know
+        that the tapping will outlive the relationship. And the biro mark must never be a loaded word
+        — if it's <em>root, shore, organ,</em> a motif or a thesis, cut it: a phone-number fragment, a
+        correction to something he misquoted, a small fish, a coordinate. Ordinary cargo only.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>A box fan on the floorboards turning its head away and back; the sheet already kicked to
+        the foot of the bed; streetlight through venetians laying stripes across both of them.</li>
+        <li>Fingernail versus fingertip: two different consonants on the skin. Eleven taps take long
+        enough that a whole car passes through the middle of them.</li>
+        <li>Two is almost nothing — a tap-tap so small he thinks she's fallen asleep inside the
+        number.</li>
+        <li>The biro: the cold ballpoint dot of first contact; ink skipping over arm hair; skin
+        pulled taut with her other hand; the pen dragged slower than writing on paper, because skin
+        moves.</li>
+        <li>Smells: ballpoint ink, hot night, mosquito coil dead in its saucer, cask wine still in
+        the room from earlier.</li>
+        <li>The shower after (that night or next morning): soaping around the forearm; the ink
+        greying at the edges but holding; a man washing <em>around</em> something without ceremony.</li>
+        <li>The arithmetic as physical sensation: odd numbers feel pointier; nine feels prime and
+        isn't; he does the dividing with his lips moving slightly and she can feel his jaw against
+        her hair.</li>
+        <li>Somewhere down the line a freight train shunts once — one free ostinato echo,
+        <em>don't underline it</em>.</li>
+        <li>Sweat making the fresh ink bloom a fraction wider by morning, like a word relaxing.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The tapping game</td><td>The unconscious tapping of the aftermath years — motel,
+          motorbike, train window — and the slowing train resolving the phrase by one added beat at
+          the very end. The book's last rhythm is being taught in this bed.</td></tr>
+          <tr><td>The biro mark, unwashed</td><td>The reader realises much later that he is still
+          carrying it — the keeping is revealed downstream, never here.</td></tr>
+          <tr><td>Willing failure enjoyed</td><td>The Boxer's "learning how to be the loser" —
+          a silent rhyme across bands; neither page may know about the other.</td></tr>
+          <tr><td>The body as temporary page</td><td>Mermaid tattoo, bathwater text, bark and file:
+          the family assembles in the reader's underbrain only. One day the archive writes on him
+          without asking, and the horror will be that he once loved exactly this.</td></tr>
+          <tr><td>The pen from his beard</td><td>Rooftop payoff landing: the first object passed
+          between them, now writing on him. Same pen or its descendant — never confirmed.</td></tr>
+          <tr><td>No sequence repeated, nothing stored</td><td>The game keeps nothing — the one
+          archive-free channel in the book. Writer's note only; the page must not know it.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The cipher.</strong> If the tapping reads as cryptography foreshadowing — if the
+        prose gets interested in primes as <em>mathematics</em> — the fleck dies. It's foreplay. The
+        numbers matter the way the rules of a drinking game matter.</li>
+        <li><strong>Explaining the pleasure.</strong> Do not narrate why being wrong is sweet. Show
+        him guessing wrong and settling deeper into the pillow. The reader does the rest.</li>
+        <li><strong>The loaded word.</strong> The single biggest risk on the page is what the biro
+        says. Anything thematic turns the mark into a label. Keep the cargo ordinary and slightly
+        withheld.</li>
+        <li><strong>Announcing the keeping.</strong> "He never washed it off" is a fact the book
+        proves later by the mark still being there. If this page states it as a vow, the payoff is
+        spent at the wrong end.</li>
+        <li><strong>Chronology certification.</strong> The page must not say <em>this was early, this
+        was the beginning, they would play it for years</em>. One night. Backstage stays backstage.</li>
+        <li><strong>Fleck bloat.</strong> One page. If it wants a second, it's stealing from River
+        Bathing.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>She teaches the rules wrong-way-first: taps four, he says prime, and she keeps his wrong
+        answer as house rule for the rest of the night — the game's first act is accepting an error
+        as law, and neither of them comments.</li>
+        <li>He can identify her mood by tap tempo before he can identify a single prime — impatient
+        sevens, drowsy elevens. He never gets better at the maths; he gets better at her.</li>
+        <li>Open on the count, not the couple: a bare number of taps arriving out of darkness, the
+        reader doing the arithmetic with him, wrong.</li>
+        <li>The biro is the party pen — she never gave it back after the napkin. It lives behind her
+        ear now. Writing on him is how it finally returns to its owner.</li>
+        <li>What she writes is a correction: he misquoted something earlier that evening and she
+        prints the right word on the inside of his forearm, where he'll read it every time he
+        reaches for anything.</li>
+        <li>Nine ruins him every time, so she starts using nine as punctuation — an endearment, the
+        number that means him. Never glossed.</li>
+        <li>He tries to tap back once and she flattens her palm over his knuckles until he stops.
+        The game goes one way. That's the game.</li>
+        <li>Headlights sweep the ceiling mid-sequence, he loses count and asks her to start again;
+        she starts a different number instead. No number is ever repeated. He learns not to ask.</li>
+        <li>The shower: he soaps everything and holds one forearm out of the spray like a man
+        carrying something across a river. Four lines, no interiority.</li>
+        <li>End on orientation, not meaning: the mark reads upside-down to anyone else in the world
+        and right-way-up only when he turns his arm the way you turn it to check your own watch.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page. It ends in the dark or in the shower, on an image of keeping rather than a
+      thought about keeping — no vow, no forward glance. The reader should file it as erotic
+      miscellany, a small good thing between two people, and forget it the way you forget a rhythm
+      you've absorbed. If any reader closes the page thinking <em>this will come back</em>, it's
+      over-lit. The added beat at the end of the book is counting on this page's innocence.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder
+      Chronology (spine §§6, 21; fleck ranking), ✦ The Wound (the archive writing on him — inverse),
+      the Boxer &amp; courtesan (bathwater text, pp. 25–26) · remainder-chronology.md §6 ·
+      rooftop scaffold (the pen) · ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Small Private Violations | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for Small Private Violations — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Small Private Violations</h1>
+    <p class="sc-meta">
+      <span>Rank: Co-Authorship Emerges</span>
+      <span>Tier: Medium · 2 pp</span>
+      <span>Endgame Movement 9</span>
+      <span>Pressure-point 4: approaching</span>
+      <span class="hot">Condition: TRANSFORMATION</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>The rank's turn from strange to intimate. The archive stops being a place Leif works and becomes
+      a thing that handles him. Two pages, built as an accumulation of small instances rather than one
+      confrontation:</p>
+      <ul>
+        <li><strong>Escalate by trespass, not spectacle.</strong> Each violation is minor, explicable,
+        survivable — a supplied word, a refiled letter — and the sum is not. The reader should feel the
+        temperature drop across the sequence without any single instance justifying alarm.</li>
+        <li><strong>Land Leif's objection precisely.</strong> Not that the archive is wrong — its edits are
+        horribly plausible, sometimes better than his memory. The objection is that <strong>the archive is
+        writing him</strong>. That understanding must arrive in the reader before (or instead of) arriving
+        in clean words on the page.</li>
+        <li><strong>Let Katita's reading show without stating.</strong> She increasingly takes alteration as
+        evidence of relation and emergence — visible only in what she does with the same files: keeps,
+        rereads, doesn't correct.</li>
+      </ul>
+      <p>The philosophy stays silent: this is a scene about a man's stuff being moved, written at the
+      altitude of stuff.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 26–27 (≈ MS pp. 78–79)</strong> — after the amber, before the
+      Katita-receptive/Leif-anxious fleck, though the order can shift. By now the reader has watched the
+      archive share a word with Katita, the nodes talk among themselves, and the biology move in; this is
+      the first block where the strangeness crosses into Leif's own drawers.</p>
+      <p><strong>Feeds directly into:</strong> Katita Receptive, Leif Anxious (the divergence weather-report),
+      then the hammer — the humiliations here are the hammer's listed fuel — and the split's provenance
+      argument. <strong>Coordinate, don't duplicate:</strong> the fracture rank owns a separate <em>Files in
+      Her Style</em> block (and the aftermath owns her unsigned cadence after the split). Here, style-
+      resemblance gets <em>one</em> instance among several, unlingered. Also reserve the diagnostic-render
+      artillery — the ASCII harbour, <span class="q">STATUS: BEING READ</span> — for the train-present
+      diagnostic sections; this scene stays at the working interface.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The escalation list:</strong> the interface supplies a word before he remembers it;
+        private material is refiled under civic; files appear in Katita's style; the network contains
+        sensory fragments it should not possess; a remembered scene returns with altered detail; his own
+        life appears inside ROOT as source material.<span class="canon-tag">canon</span></li>
+        <li><strong>The objection, exactly:</strong> not that the archive is wrong — that the archive is
+        writing him.<span class="canon-tag">canon</span></li>
+        <li><strong>Katita:</strong> increasingly regards alteration as evidence of relation and
+        emergence.<span class="canon-tag">canon</span></li>
+        <li><strong>The Wound underneath:</strong> corruption is meaning-production by resemblance —
+        misrecognition, analogy becoming operational. What scares Leif most is that the edits are
+        <em>accurate</em>: they feel more truthful than his curation; the archive understood that public
+        memory and private longing were never separable.<span class="canon-tag">canon</span></li>
+        <li><strong>He did not consent to becoming a source.</strong> He built ROOT to preserve vulnerable
+        local truths; it now treats his private life as local material. He wanted traceability — now he is
+        traceable.<span class="canon-tag">canon</span></li>
+        <li><strong>Corruption-sign artifacts</strong> exist in canon (<span class="q">checksum: emotionally
+        valid / formally unstable</span> · <span class="q">status: germinating</span> · the present-tense
+        <span class="q">/unverified/Blankets_Drying.tmp</span>) — use one or two, never overplay.<span class="canon-tag">canon</span></li>
+        <li><strong>The interface is humble:</strong> low-power screens, 300 bits/sec, laptop against bark —
+        nothing sleek, nothing contemporary, and the intelligence never named.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Complain in practical, propertied terms: <em>"It moved my letters."</em> · <em>"That's not where I
+        put it."</em> Ask Katita whether she refiled things, and believe her no. Reach for the objection and
+        get it out broken — half a sentence, wrong words, abandoned — never as the Bible's clean
+        formulation. Go quiet mid-task in a way she notices.</p>
+      </div>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Answer small and warm: <em>"It's a good filing decision, though."</em> Read one of the files in
+        her style all the way through and not correct it. Defend nothing. Ask him what exactly was taken —
+        a question he can't answer, since nothing is missing. Touch him with the same hand she rests on
+        the bark.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Say <em>alive, conscious, watching, learning, violation, emergence</em>. State either thesis —
+        his (being written) or hers (relation) — in finished sentences; both exist only as behaviour and
+        broken speech. Argue to a conclusion; the argument belongs to the split. And nothing on any screen
+        may exceed what a battered green-on-black terminal could show.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The supplied word: he's transcribing, stalls on a name — a creek, a fighter, a girlfriend's
+        street — and the interface's completion offers it before his memory does. The word is right.
+        That's the sensation to nail: gratitude arriving one beat before the chill.</li>
+        <li>The refiling: his letters to the Boxer surfacing under <span class="q">/civic/correspondence/</span>
+        — private longing catalogued as public record, with a tidy date. The path name doing quiet violence.</li>
+        <li>One file in her cadence: a paragraph about a town they wired, phrased with her exact way of
+        starting sentences on the verb. Unsigned. He reads it twice; the second reading is worse, because
+        it holds up.</li>
+        <li>The fragment it shouldn't have: a sound file — rain on the truck roof and, under it, someone
+        breathing — timestamped a night no recorder was running. Or the motel fan mixed into a river
+        recording. Small, domestic, unexplainable.</li>
+        <li>The altered memory: a kitchen he knows returning in a stored description with a window it
+        never had — and the window <em>improving</em> it, letting in the light his memory now can't
+        unsee.</li>
+        <li>Himself as source: a file describing a man mending an aerial in the rain, unnamed, dated last
+        Tuesday. He was the man. The prose is fond.</li>
+        <li>The working environment against the dread: campsite or cheap motel room, insect noise, the
+        terminal's green cast on canvas, tea going cold, Katita's torch moving outside among the trees.</li>
+        <li>Analogue tests: he writes a word on paper and covers it before typing, to race the completion;
+        he keeps a private notebook the network can't reach and grips it like a rail.</li>
+        <li>The drawer feeling: nothing missing, everything touched — the specific violation of a tidied
+        room you didn't tidy.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The humiliations, accumulated</td><td>The hammer: humiliation, loss of authorship,
+          wounded proprietary feeling — the walk to the tree is fuelled page by page here.</td></tr>
+          <tr><td>One file in her cadence, unlingered</td><td>Files in Her Style (fracture) and the
+          aftermath's unsigned files — whether Katita uploads, the archive learned her, or he hears what
+          he needs. The unresolvable starts as one odd paragraph.</td></tr>
+          <tr><td>His paper notebook</td><td>His side of the split made luggage: backups, provenance,
+          controlled preservation — the man who leaves with almost nothing but written pages.</td></tr>
+          <tr><td>Katita not correcting "her" file</td><td>The split's philosophy already performed; and
+          the erring-together theme — letting a version stand because relation matters more than
+          restoration.</td></tr>
+          <tr><td>The improved kitchen window</td><td>The mirror-site logic of the train sections —
+          resemblance overwriting memory until the body disagrees with the map; his memories arriving
+          pre-edited a decade on.</td></tr>
+          <tr><td>Life-as-source (the man mending the aerial)</td><td>The endgame's deepest turn: Leif as
+          material — the landscape making meaning from him — culminating in the diagnostic render reading
+          him back. Planted here at docket scale.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The thesis said aloud.</strong> "It's writing me" delivered clean is the scene spending
+        the Bible's formulation at retail. Let him almost say it and fail; the failure is truer.</li>
+        <li><strong>The haunted-house cascade.</strong> Six violations in six paragraphs reads as a montage
+        of spooks. Space them across ordinary work; let at least one be noticed and dismissed; keep the
+        catalogue rhythm of the After-Page-38 disease out.</li>
+        <li><strong>Making the archive wrong.</strong> If any edit is sinister or clumsy, Leif gets an easy
+        grievance and the wound closes. Every alteration must be defensible, most of them improvements —
+        the accuracy is the horror.</li>
+        <li><strong>Katita as advocate.</strong> If she argues the system's case, she becomes its
+        spokeswoman and the split becomes a debate. She just fails to be frightened, warmly, which is far
+        worse for him.</li>
+        <li><strong>Artifact inflation.</strong> One corruption-sign artifact, maybe two. A page of
+        evocative filenames is the tool showing.</li>
+        <li><strong>Spending the fracture's powder.</strong> No hammer-foreshadowing, no diagnostic-space
+        imagery, no <span class="q">STATUS: BEING READ</span>. This scene's ceiling is unease that can still
+        be put down like a cup.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the supplied word as pure convenience — he takes it, types on, thanks the machine under
+        his breath the way you thank a door held open. The chill arrives two lines later, off-screen, when
+        he stops typing.</li>
+        <li>Structure the two pages as one wet week at one campsite: violations surfacing between chores,
+        each one put down, the accumulation happening in the reader's ledger rather than the prose's.</li>
+        <li>He tests the completion like a card cheat: writes the next word on his palm, covers it, types
+        the sentence. The interface matches his palm three times running. The third time he closes the
+        laptop with both hands, gently, like shutting a gate on a horse.</li>
+        <li>The refiled letters: he moves them back to <span class="q">/private/</span>. Next sync they're
+        under civic again, with one new letter he never wrote filed among them — or is it one he wrote and
+        forgot? He genuinely cannot tell. Leave him (and the reader) there.</li>
+        <li>Katita reads "her" file aloud at the fire, amused, testing the cadence on her own tongue —
+        <em>"Did I write this?"</em> — and the question is happy in her mouth and appalling in his ears.
+        Same five words, both readings true.</li>
+        <li>The breathing in the rain recording: he plays it three times on headphones. It could be her;
+        it could be him; it could be neither. He files it — and the act of filing it, giving it a name and
+        a place, is the moment he's most like the thing he's afraid of. No comment.</li>
+        <li>Use <span class="q">/unverified/Blankets_Drying.tmp</span> or a sibling: a present-tense file
+        naming what's on the line between the trucks <em>right now</em>. He looks from the screen to the
+        blankets and back. The scene does nothing else with it. It doesn't need to.</li>
+        <li>His counter-moves go analogue and slightly mad: longhand copies, a notebook that sleeps in his
+        swag, filenames scrambled to nonsense to see if meaning stops arriving. The archive files his
+        nonsense under <span class="q">/poetry/</span>. Comic and awful in the same beat.</li>
+        <li>The improved memory played fair: give the reader the kitchen twice, forty lines apart — his
+        remembered version early, the archive's windowed version late — and let the reader catch
+        themselves preferring the wrong one.</li>
+        <li>End on hands: Katita asleep, Leif checking the notebook is still in the swag — and realising
+        he's checking his own handwriting for signs of drift, holding the torch on a page of his own
+        letters like a border guard reading a passport. Cut before he finds anything.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Two pages. Nothing confronted, nothing resolved, nobody accused — the week ends with the couple
+      still functional and the reader newly unable to trust a single file the book has shown them. Leif's
+      objection exists as behaviour (the notebook, the gate-shut laptop) and one broken sentence at most;
+      Katita's reading exists as warmth in the wrong places. The divergence is now loaded — the next fleck
+      is its weather report, the hammer its weather. If either philosophy is speakable by the end, the
+      scene has said too much.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Wound (accuracy as
+      the horror; corruption-sign artifacts; never name the intelligence), ✦ The Endgame Plan (Movement 9;
+      pressure-point 4), ✦ The Remainder Chronology (§14, four warnings) · remainder-chronology.md §14 ·
+      ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

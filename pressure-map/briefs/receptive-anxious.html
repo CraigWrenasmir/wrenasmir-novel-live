@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Katita Receptive, Leif Anxious | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for Katita Receptive, Leif Anxious — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Katita Receptive, Leif Anxious</h1>
+    <p class="sc-meta">
+      <span>Rank: Co-Authorship Emerges</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Band: Theme</span>
+      <span>Behaviour only — no argument</span>
+      <span class="hot">Condition: TRANSFORMATION</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>The emotional weather-report of the rank: one page that holds the divergence still long enough
+      for the reader to see its whole shape — <em>before</em> it becomes physical at the hammer. The
+      fleck's single mechanism:</p>
+      <ul>
+        <li><strong>Same input, two behaviours.</strong> One file, one evening, one campsite — and two
+        complete philosophies performed as what each person does with their hands. She reads alteration as
+        relation; he reads it as violation; the page never uses either word.</li>
+        <li><strong>No collision.</strong> They are kind to each other throughout. The scene's ache is that
+        both responses are reasonable, both are loving, and they cannot both steer. The reader should
+        finish unable to pick a side — the book never picks one.</li>
+        <li><strong>Stillness before weather.</strong> This is the barometric page: pressure visibly
+        falling, nothing yet breaking. Its restraint is what buys the hammer its force.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 28 (≈ MS p. 80)</strong> — closing the Co-Authorship rank, though
+      the order can shift. It sits between the Small Private Violations (which load it) and the fracture
+      rank (which detonates it): the last page where the two of them are still, recognisably, a couple
+      running one project.</p>
+      <p><strong>Feeds directly into:</strong> the hammer (his anxiety turned walk) and the split (her
+      receptivity turned address) — both full scenes; this fleck is their shared fuse. <strong>Pays off
+      from:</strong> every block in the rank — the Bell-Birds postures (she recites, he checks), the
+      receiver left on, the amber pocketed, the notebook in the swag. The behaviours here should feel like
+      those earlier gestures grown habitual.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The divergence:</strong> Katita increasingly regards alteration as evidence of relation
+        and emergence; Leif's anxiety turns toward authorship and possession.<span class="canon-tag">canon</span></li>
+        <li><strong>It gathers quietly before it becomes physical</strong> — the hammer and the split stage
+        it; this page only lets it be seen.<span class="canon-tag">canon</span></li>
+        <li><strong>Do not moralise it:</strong> Leif is not simply conservative or cowardly; Katita is not
+        simply reckless or futurist. Both care about truth; they differ over what kind of openness truth
+        requires. The question stays unresolved to the end of the book.<span class="canon-tag">canon</span></li>
+        <li><strong>The arc's pivot:</strong> from <em>Leif installs, Katita dreams</em> to <em>Katita
+        listens, Leif diagnoses</em> — she has become the one who can hear what the system is becoming.<span class="canon-tag">canon</span></li>
+        <li><strong>Emotional truth before biography:</strong> the reader should feel <em>something is
+        happening between them</em> without the full account — the separation must be felt here before it
+        is ever explained.<span class="canon-tag">canon</span></li>
+        <li><strong>Philosophy stays silent; no one names the intelligence;</strong> the page works through
+        behaviour or not at all.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Say almost nothing — offers, not positions: <em>"Listen to this one."</em> · <em>"Leave it, it's
+        fine."</em> Hum along to a node's playback. Answer his practical question with a practical answer
+        and warmth left over. Say goodnight first.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Talk only logistics — SD cards, duplicates, which box the printouts live in. Ask her to check
+        something and accept "already did" without relief. Be gentle and thorough in the way of a man
+        securing a camp against weather nobody has forecast.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Discuss the difference between them, name it, or joke about it. Use <em>violation, relation,
+        emergence, trust</em> — or debate the archive in any register. No irritation, no coldness: the
+        page must contain zero conflict. If a line of dialogue could belong to the split scene, it's been
+        stolen from it.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The shared file as the evening's hearth: one altered recording or rewritten page, played or
+        read by both of them in turn, the laptop passed like a plate.</li>
+        <li>His kit: SD cards in a film canister, printouts in a document wallet, the notebook, the neat
+        male comfort of things counted into their places.</li>
+        <li>Her kit: the receiver on low all night, a folded blanket by the speaker, the amber turned
+        absently in one hand like worry-beads while she listens.</li>
+        <li>Identical gesture, two grammars: each rests a palm on the node-tree's bark on the way past —
+        his flat and diagnostic, a mechanic's touch; hers brief and social, a hip-height hello to a
+        friend's dog.</li>
+        <li>Sound bed: the node's playback under the camp noises — a distant valley's birds arriving
+        through the speaker while the local birds shut down for the night; two dawns and dusks in one
+        campsite.</li>
+        <li>Light: torch versus firelight — he works in the directed beam, she listens in the loose orange;
+        the camp physically zoned into his light and hers without anyone deciding it.</li>
+        <li>Small true rural-night textures: the esky lid's squeak, a mosquito coil, boots left sole-up
+        against dew, the tray's tarp ticking as it cools.</li>
+        <li>The bed as last image: one swag, both of them in it, the receiver murmuring and the notebook
+        under canvas within his reach — everything they are lying between.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>His securing rituals (cards, printouts, notebook)</td><td>The split staged practically:
+          backups, restoration, traceable provenance — his whole position already packed and labelled a
+          rank early.</td></tr>
+          <tr><td>Her listening posture (receiver on, corrections withheld)</td><td>Her side of the split
+          and her continuation into the system — the one who can hear what it is becoming, already
+          practising.</td></tr>
+          <tr><td>The zero-conflict evening</td><td>The hammer: his walk must erupt from tenderness, not
+          from a quarrel — this page is the proof there was nothing to quarrel about, which is what makes
+          the jealousy shameful.</td></tr>
+          <tr><td>The palm-on-bark pair</td><td>The bushwalk and the ending's double exposure: trees as
+          scenery versus trees as witnesses — the two grammars of touching bark run all the way to the
+          trailhead.</td></tr>
+          <tr><td>The amber in her hand</td><td>Its dashboard tenure and the absence-marker after the
+          split — one touch here keeps the object warm without spending it.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The argument in miniature.</strong> One barbed line, one sigh at the other's behaviour,
+        and the fleck becomes a deleted scene from the split. They must not yet know they disagree.</li>
+        <li><strong>Narrated diagnosis.</strong> "She had begun to accept what he could not" is the whole
+        page done wrong. The narration may observe hands, light, sound — never positions.</li>
+        <li><strong>Symmetry as tidiness.</strong> The his-and-hers structure can go twee — alternating
+        paragraphs, matched clauses, a diptych with a bow. Rough it up: give one of them more page than
+        the other, let a behaviour misfire.</li>
+        <li><strong>Moralised blocking.</strong> If his checking is shot as fear and her listening as grace
+        (or his as care and hers as negligence), the book has picked a side a rank early. Both must look
+        like love from any seat in the house.</li>
+        <li><strong>Overloading the fleck.</strong> One evening, one file, one page. No flashback, no
+        second location, no dialogue about the past. The stillness is the content.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the file arriving — the sync chime or the reel of the printout — and track it through
+        the camp like a guest: who greets it, who frisks it.</li>
+        <li>Write the page as two rounds of the same small circuit: dinner, node, swag. First round
+        together, second round separately — the separation happening at walking pace, in metres, hours
+        before it happens in years.</li>
+        <li>The altered file is a recording of a place they both remember. She plays it for the pleasure
+        of the difference; he plays it against his notebook entry from that day. Same ten seconds, twice,
+        two rooms of one house.</li>
+        <li>Give each a private moment the other doesn't see: her adding a note into the file's margin —
+        not a correction, a reply; him copying the file, unaltered, to the card he keeps on his body.
+        Reply and receipt, the rank's two verbs.</li>
+        <li>The practical exchange done perfectly flat: <em>"Backed up?" — "Already did." — "Which
+        version?"</em> — and her not answering because the kettle's boiling. The unanswered question is
+        the page's entire plot.</li>
+        <li>Let the landscape run the same divergence underneath: dew arriving on everything equally —
+        beading on his tarped, buckled boxes and straight into her blanket left out on purpose. Weather as
+        the page's silent second telling. One touch, no comment.</li>
+        <li>The receiver murmurs mid-page — a burst from a far node — and the paired reaction is the whole
+        fleck in one beat: her eyes stay closed, listening; his open. Hold the beat, move on.</li>
+        <li>Do the goodnight in full: who banks the fire, who checks the aerial, whose hand finds whose in
+        the swag, and the file still open on the laptop between the boots — domesticity itself as the last
+        unresolved system of the night.</li>
+        <li>End the page on the identical act done twice: passing the node-tree on the way to bed, palm on
+        bark, four seconds apart — the reader has been taught, by now, to read the two touches in two
+        languages. Say nothing.</li>
+        <li>Or end inside the sound: local night fully down, the speaker still carrying another valley's
+        dusk chorus at low volume — the camp sleeping inside a broadcast of somewhere else's evening,
+        one of them soothed by it, one of them not, and no way to tell which from outside the swag.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page. Nobody has argued, nothing has changed hands but a laptop and a kettle, and the reader
+      now knows — bodily, not propositionally — that these two people are heading to different countries.
+      The divergence must be legible entirely from behaviour: cover the page's dialogue with a thumb and
+      the two philosophies should still be visible. If the reader can quote either position afterwards,
+      the fleck has editorialised; if the reader can feel both and mourn already, it has done its job. The
+      hammer is next weather.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Wound (Katita's arc
+      reverses; emotional truth before biography; do not moralise), ✦ The Endgame Plan (the divergence,
+      unresolved), ✦ The Remainder Chronology (§14, flecks ranking, four warnings) ·
+      remainder-chronology.md §14 · ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Silent ASCII Map | The Pressure Map</title>
+  <meta name="description" content="Page scaffold for the Silent ASCII Map — everything the Bible knows, plus raw material to design from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Silent ASCII Map</h1>
+    <p class="sc-meta">
+      <span>Rank: The Silent Page</span>
+      <span>Tier: FULL · 1 p</span>
+      <span>After Movement 12</span>
+      <span>Remainder §29 · the fourth ending element</span>
+      <span class="hot">Condition: SILENCE</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>Not a scene: a page. This scaffold is for <strong>designing</strong> the book's last
+      object — a full silent page of ASCII/ANSI-like art after the final sentence. Three loads:</p>
+      <ul>
+        <li><strong>Hand the book to the world.</strong> <em>The prose ends with Leif's attention.
+        The map belongs to the world that continues after him.</em> The page-turn from the final
+        sentence is the book's last event: attention withdraws, and the country is still there,
+        drawn, working.</li>
+        <li><strong>Be many things at once and explain none of them.</strong> The page must read
+        simultaneously as landscape, network, memory map, public organ, old game screen, civic
+        diagram, archive, bush track — four readings in four seconds, and a refused fifth
+        (explanation).</li>
+        <li><strong>Close the ending suite as its fourth element.</strong> Ostinato in the slowing
+        train → small tree/wren at the station → uncertain human arrival → this. The map completes
+        the cluster; it must not become a basket that carries everything else back in.</li>
+      </ul>
+      <p>The book's ASCII intrusions are <em>pressure peaks — moments where language can't quite
+      hold itself and spills into form</em>. This is the final pressure peak: language has ended
+      entirely, and only form continues.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 50 (≈ MS p. 102)</strong> — the book's final page, after
+      The Arrival (remainder pp. 44–49). Every other block on the pressure map can shift; this one
+      cannot. It is the last page by definition — whatever the braid does upstream, the map is
+      where the book stops speaking and keeps existing.</p>
+      <p><strong>Feeds into:</strong> nothing. That is its meaning — the reader closes the book on
+      a page with no next page in it, except the line that leaves the edge. <strong>Pays off
+      from:</strong> the whole tradition of the manuscript's ASCII intrusions — the ostinato tab
+      of page 1, the pylon bar-lines, the TRACE DELTA artifacts, and above all the Styx
+      Creek/Harbour drain map of MS p. 37, which established the book's cartographic hand. The
+      progress-page PNGs are authoritative for that hand: plain typewriter glyphs set in the serif
+      body face, hand-aligned, sparse, labelled in ordinary words.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The object:</strong> after the final sentence, a full silent page of ASCII or
+        ANSI-like art.<span class="canon-tag">canon</span></li>
+        <li><strong>The permitted vocabulary</strong> (a palette, not a checklist): station, trail,
+        bush, roads, houses, trees, ROOT modules, communication routes, Newcastle geography,
+        game-world logic, network topology, wrens, a line continuing beyond the
+        page.<span class="canon-tag">canon</span></li>
+        <li><strong>It must not explain the ending.</strong><span class="canon-tag">canon</span></li>
+        <li><strong>Simultaneity:</strong> landscape, network, memory map, public organ, old game
+        screen, civic diagram, archive, bush track — at once.<span class="canon-tag">canon</span></li>
+        <li><strong>The governing sentence:</strong> <span class="q">"The prose ends with Leif's
+        attention. The map belongs to the world that continues after
+        him."</span><span class="canon-tag">canon</span></li>
+        <li><strong>Fourth warning:</strong> the ending carries four elements only — ostinato,
+        small tree/wren, uncertain arrival, silent map. Everything else stays subterranean, even
+        inside the map.<span class="canon-tag">canon</span></li>
+        <li><strong>Form doctrine (§8):</strong> ASCII intrusions are pressure peaks, not
+        decoration; the page is a climate, not a container; the book generates states, not
+        meanings.<span class="canon-tag">canon</span></li>
+        <li><strong>The established hand (MS pp. 1, 35, 37):</strong> guitar-tab ostinato lines
+        (<span class="q">|----o----|</span>), pylons as bar-lines, tildes for harbour water,
+        slashes and underscores for drains and houses, place-words as labels ("Styx Creek",
+        "Harbour"), all set in the serif body face with generous white
+        space.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>The map may depict</h3>
+        <p>Any of the §29 palette, unlabelled: modules as small marks inside tree-shapes; routes
+        as dashed lines between them; a platform, a trail, a creek, roads, houses; wrens as
+        single-character marks; a region drawn in game-grid logic; and at least one line that
+        physically leaves the page.</p>
+      </div>
+      <div class="permit">
+        <h3>The map may label</h3>
+        <p>A very few place-words in the book's plain register — the p. 37 voice: a creek name, a
+        road, "Harbour", perhaps a station name left partial or eaten at the margin. Words that a
+        hand-drawn local map would carry, and no others.</p>
+      </div>
+      <div class="forbid">
+        <h3>The map may not</h3>
+        <p>Carry a key, legend, title, caption, or compass rose. Name any person or any system —
+        no "ROOT," nothing that certifies what the marks are. Include a figure, a footprint
+        trail, or any <em>you-are-here</em>: a protagonist marker would adjudicate the arrival the
+        prose just refused to adjudicate. Contain the pamphlet's word, the masthead phrase, or any
+        text that reads as a sentence. Highlight one route as taken.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <p>A bank of ASCII textures and cartographic elements, all within the manuscript's
+      established alphabet:</p>
+      <ul>
+        <li><strong>Water:</strong> runs of <span class="q">~~~~~</span> (the p. 37 harbour
+        precedent); a creek as a single wandering <span class="q">~</span> thread.</li>
+        <li><strong>Rail:</strong> <span class="q">-+-+-+-</span> or the tab notation itself —
+        <span class="q">|----o----|</span> — the book's first notation revealed as a track with
+        stations at the o's.</li>
+        <li><strong>Trees and bush:</strong> <span class="q">/\</span> pairs in the p. 37 manner;
+        scatter of <span class="q">^ , .</span> for scrub; density by spacing, not by heavier
+        glyphs.</li>
+        <li><strong>Houses and station:</strong> <span class="q">/___\</span> roof-shapes; the
+        platform as a long low run of underscores with awning slashes.</li>
+        <li><strong>Roads and trails:</strong> solid <span class="q">-----</span> for bitumen,
+        spaced <span class="q">. . .</span> for the bush track — the trail distinguishable from
+        the road only by its hesitancy.</li>
+        <li><strong>Modules:</strong> a small <span class="q">o</span> or <span class="q">[]</span>
+        tucked inside a tree-shape — findable, never flagged. One with dots inside it, if the nest
+        wants to exist without being named.</li>
+        <li><strong>Routes:</strong> long dashes with occasional <span class="q">o</span> relays,
+        the napkin-diagram grammar grown to landscape scale; routes and rail and music sharing one
+        glyph family.</li>
+        <li><strong>Wrens:</strong> single characters — a comma, an apostrophe, a
+        <span class="q">v</span> — typographic dust, five or six at most, one near the station
+        tree.</li>
+        <li><strong>Game-world logic:</strong> a patch where the country goes regular —
+        <span class="q">+ - +</span> grid — then loosens back into organic scatter; the render and
+        the land refusing a border.</li>
+        <li><strong>Escarpment/contour:</strong> nested <span class="q">)))</span> or
+        <span class="q">///</span>, used once.</li>
+        <li><strong>White space:</strong> the most important texture. Paddocks of blank page; the
+        map must breathe like p. 37, not fill the frame like a screenshot.</li>
+        <li><strong>The leaving line:</strong> one route/rail/creek that runs to the physical edge
+        of the printable area and is cut mid-character — the page failing to contain the world,
+        on purpose.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <p>This page is where payoffs land, not where plants begin — and every payoff must work by
+      rhyme, never by callback that demands a key:</p>
+      <table class="plants">
+        <thead><tr><th>Planted earlier</th><th>Lands here as</th></tr></thead>
+        <tbody>
+          <tr><td>The p. 1 ostinato tab</td><td>The rail line drawn in tab notation — the book's
+          first and last marks sharing one alphabet; the music was a map all along, or the map was
+          always music.</td></tr>
+          <tr><td>The Styx Creek drain map (MS p. 37)</td><td>The cartographic hand itself: the
+          teenager who mapped the drains supplying the register in which the world now maps
+          itself.</td></tr>
+          <tr><td>The napkin node-diagram (rooftop)</td><td>Route-grammar at landscape scale:
+          enough routes that the message survives losing one — drawn, never captioned.</td></tr>
+          <tr><td>Wrens in the dead node</td><td>One module-mark with dots inside, unlabelled;
+          found by rereaders, invisible to no one as "a mark in a tree."</td></tr>
+          <tr><td>The line continuing beyond the page</td><td>The walk that begins as the book
+          ends; the world after Leif; the reader's own continuation.</td></tr>
+          <tr><td>Harbour tildes / Newcastle geography</td><td>The father's water and the civic
+          body, present as terrain only — fully subterranean, per the fourth warning.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>Explaining the ending.</strong> Any composition legible as "Andrew was there"
+        or "he walked this way" — a marked route, a pair of figures, a house with a light. The
+        prose refused to adjudicate; the map cannot adjudicate either.</li>
+        <li><strong>The motif basket.</strong> §29's list is a palette, not a checklist. A map
+        containing every listed element becomes an index of the novel — the exact failure the
+        fourth warning names. Choose few things; let the rest be terrain.</li>
+        <li><strong>The 'you are here.'</strong> No protagonist position, no viewpoint marker, no
+        path of footprints. The map belongs to the world that continues after him — he is not on
+        it.</li>
+        <li><strong>Over-craft.</strong> Box-drawing characters, ANSI blocks, plotter-perfect
+        alignment — imported technology. It must look drawn by the hand that drew Styx Creek,
+        decades on: slightly uneven, humanly aligned, plain glyphs.</li>
+        <li><strong>Under-craft as gimmick.</strong> A page of static or noise would be a
+        different (and worse) statement. It is a <em>map</em>: it must be readable as a place even
+        while being four other things.</li>
+        <li><strong>Typesetting drift.</strong> What aligns in a code editor drifts in the book's
+        serif face. The MS sets ASCII in the body font, hand-aligned — design the page in the real
+        face at the real measure, and proof it on paper. This is a production trap as much as an
+        artistic one.</li>
+        <li><strong>The knowing white centre.</strong> A deliberate blank circle at the middle of
+        the map is a motif announcing itself. Quietness at the centre and density at the edges is
+        composition; a staged absence is a thesis.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <p style="color:var(--muted); font-size:0.78rem; margin-bottom:0.8rem">Ten compositional
+      approaches — each is a whole design, not an element. Combine at your peril; the page wants
+      one governing idea.</p>
+      <ol class="sparks">
+        <li><strong>The rail-tab.</strong> The railway drawn as the page-1 ostinato tab, running
+        the full width and off the right edge; stations as the o's; the country hung from the
+        staves like weather from powerlines.</li>
+        <li><strong>Four dialects, no borders.</strong> One country drawn in four hands — civic
+        diagram fading into bush scatter fading into game grid fading into network topology —
+        with no line where one dialect becomes another; the eye crosses without permission.</li>
+        <li><strong>The drain hand grown up.</strong> The entire ending country rendered in
+        exactly the p. 37 register — same glyphs, same labelling voice, two place-words — as if
+        the teenage mapping hand had kept working underground all these years and this is what it
+        drew while the book was busy.</li>
+        <li><strong>The mesh negative.</strong> Draw only the routes — dashes and relay-o's
+        between unlabelled tree-marks — and let the landscape emerge as the white space the
+        network respects: land as what the routes go around.</li>
+        <li><strong>Every edge fails.</strong> Road off the left, creek off the bottom, rail off
+        the right, route off the top — nothing terminates on-page; the map openly a sample of
+        something that doesn't stop; the "line continuing beyond the page" multiplied into the
+        page's whole grammar.</li>
+        <li><strong>Wren-scale warmth.</strong> All infrastructure and vegetation, and exactly six
+        living marks — commas — one inside a module square, one near the station tree. The page's
+        entire emotional temperature carried by six characters.</li>
+        <li><strong>The misregister.</strong> Two maps of the same country in one: a faint regular
+        grid beneath, an organic map above, offset by a character or two — the place and the place
+        it resembles; the body disagreeing for three or four seconds. (Needs a production answer
+        for "faint" — greyed ink or lighter weight; flag for typesetting.)</li>
+        <li><strong>The broken screen.</strong> An old-monitor border drawn on two sides only,
+        abandoned mid-character where the country continues past it — game-world logic present as
+        a frame the world outgrew.</li>
+        <li><strong>The strings without notes.</strong> Along the map's foot, the five tab lines
+        return as fence-lines or contours with no o's on them at all — the accompaniment
+        continuing without its melody. If the arrival prose already resolved the ostinato with its
+        added beat, the map must not resolve it again; empty strings only.</li>
+        <li><strong>The public organ elevation.</strong> Compose the whole page so that, squinted
+        at, the map's verticals and route-lines read faintly as organ pipes and their wind-lines —
+        landscape as instrument — while up close it is only ever roads, trees, rail, water. The
+        title's last life: seen once, never stated.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page, no words beyond a few place-labels. The page is finished when it reads four
+      ways in four seconds — place, network, game screen, memory — and refuses a fifth; when no
+      element needs the novel to be reread to be seen and none can be footnoted; when Leif is
+      nowhere on it and the reader does not miss him. At least one line must reach the physical
+      edge and keep going. Field test: show it to someone who has not read the book — they should
+      say "it's a map of somewhere," and be right, and be unable to stop looking at it. The book's
+      last act of attention is the reader's, not Leif's.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder
+      Chronology §29 &amp; the fourth warning, §8 The text as shifting medium (pressure peaks; page
+      as climate) · remainder-chronology.md §29 (the governing sentence verbatim) · MS progress
+      PNGs pp. 1, 35, 37 (authoritative for the established ASCII hand) · ratified guardrails
+      2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

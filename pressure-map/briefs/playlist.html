@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Bushranger's Playlist | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for the Bushranger's Playlist — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Bushranger's Playlist</h1>
+    <p class="sc-meta">
+      <span>Rank: Return &amp; Arrival</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Remainder p. 44 ≈ MS p. 96</span>
+      <span>Plan §25 · Band: Vaporwave</span>
+      <span class="hot">Condition: ASSEMBLY</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>Shortly before the final station, the book's sounds gather — briefly — into <strong>one strange
+      organ-like symphony</strong>: <em>a public instrument assembled from everything the book has heard.</em>
+      One page. Three loads, carried in a single breath:</p>
+      <ul>
+        <li><strong>The title sounds without being said.</strong> The organ the whole book has been building
+        plays once, quietly, in a slowing carriage — and is not remarked on. The task was never to explain
+        the organ; it was to make it sound. This is the sounding.</li>
+        <li><strong>The vaporwave layer files its last render.</strong> The playlist is the jetpack
+        bushranger's — which means it is ROOT's diagnostic voice surfacing through Leif's attention one final
+        time, contaminating memory rather than being labelled imagination. After this page, the render
+        retires; only the silent ASCII map inherits its game-world logic.</li>
+        <li><strong>The soundstage is cleared for the ending.</strong> The symphony must end by subtraction,
+        leaving the ostinato alone and <em>unresolved</em> — one beat short. The arrival pages spend that
+        shortness. If this page resolves anything, it has stolen from the ending.</li>
+      </ul>
+      <p>Ratified guardrail: this is <em>a brief overheard assembly, not a grand finale.</em> The seam where
+      it ends matters more than any crescendo.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 44 (≈ MS p. 96)</strong> — first page of the "Return &amp; Arrival"
+      band, directly after the aftermath cluster (courtesan recognition, the last letter in water) and
+      directly before Wrens in the Dead Node (p. 45) and The Arrival (pp. 46–49). The order upstream can
+      still shift; what cannot shift is that this page comes <em>before</em> the final cluster begins —
+      it is the door the ending walks through, not part of the ending.</p>
+      <p><strong>Feeds directly into:</strong> the arrival sequence — it hands over a narrowed soundstage
+      (ostinato only) and an unresolved phrase. <strong>Pays off from:</strong> every sound the book has
+      planted — page 1's pylon ostinato, the Boxer's detuned pub radio, Bach's church geometry from the
+      bushwalk, the war-dialled modem, cicada overload, rain on the truck, her primes tapped on skin.
+      This page is where the book's audio archive is heard as one instrument, once.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The vaporwave layer is ROOT's diagnostic render</strong> — not a decorative detour. The
+        jetpack bushranger is a diagnostic artifact: ROOT visualising Leif's own myth of himself.<span class="canon-tag">canon</span></li>
+        <li><strong>The avatar's human origin:</strong> Katita naming his accidental rooftop costume —
+        <span class="q">"What are you, a bushranger from the future?"</span> Her voice is inside the render.<span class="canon-tag">canon</span></li>
+        <li><strong>The playlist's contents</strong> (plan §25): train ostinato · Alfred Hill · detuned pub
+        AM · Bach's church geometry · cicadas · modem handshake · rain on the truck · level-crossing bells ·
+        prime tapping · fragments of radio.<span class="canon-tag">canon</span></li>
+        <li><strong>The whole, named backstage only:</strong> <em>"briefly one strange organ-like symphony —
+        a public instrument assembled from everything the book has heard."</em><span class="canon-tag">canon</span></li>
+        <li><strong>Alfred Hill lives in the archive as a file:</strong>
+        <span class="q">AlfredHill_StringQuartet5_Allegro.mp3</span>, in ROOT's audio directory.<span class="canon-tag">canon</span></li>
+        <li><strong>Bach's church geometry</strong> is bushwalk canon: he wrote organ fugues in accordance
+        with the geometry of the church they would be played in; the ruined church-arboretum is "filled with
+        wind and bird holler."<span class="canon-tag">canon</span></li>
+        <li><strong>The detuned radio</strong> is the Boxer's: a table beneath a window, linear midday light,
+        "buzzing with bass resonance, detuned and out of range, broadcasting news."<span class="canon-tag">canon</span></li>
+        <li><strong>The ostinato</strong> is page 1: iron matrices, "long pylons like bar lines," phasing
+        bass notes against the carriage floor, "a known wobbly offbeat."<span class="canon-tag">canon</span></li>
+        <li><strong>Ratified seam-rule:</strong> vaporwave <em>contaminates</em> memory rather than being
+        labelled imagination. Nothing on this page may adjudicate whether the symphony happened.<span class="canon-tag">canon</span></li>
+        <li><strong>State:</strong> present-tense Leif, train slowing toward the last station, tapping still
+        unconscious, phrase still unresolved. Philosophical condition: <em>Assembly — everything the book has
+        heard, gathered once, owned by no one.</em><span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>The page may</h3>
+        <p>Assemble the sounds without sourcing them. Let the bushranger appear as a flicker of render —
+        visor glare, jetpack idle-hum — <em>inside</em> the audio rather than as a scene. Use one small
+        formal shift (a tracklist like a burnt CD's felt-tip index, a file listing) if the prose pressure
+        genuinely spills. Let a real carriage sound and a remembered sound trade places without flagging
+        the exchange.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Notice the moment it stops rather than the moment it starts. Mistake the crossing bells for
+        remembered bells and vice versa. Hear the word <em>organ</em> arrive once as plain description of a
+        sound — never as commentary. Keep tapping without knowing it. Reach for nothing.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Speak. Source a single track ("that was the modem from the paddocks"). Name the playlist as the
+        book's playlist, or the symphony as a summation. Explain the bushranger — as imagination, diagnosis,
+        grief or ghost. Say <em>archive, memory, AI, system, render</em>. Resolve the ostinato — the added
+        beat belongs to the arrival pages and must not be spent here.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The deceleration's own rhythm section: the long air-brake exhale, the under-floor compressor
+        cycling down, couplings taking up slack one carriage at a time.</li>
+        <li>Level-crossing bells doing their Doppler swoop — rising as the train nears, passing, falling —
+        cousin to the wrens' "bell swoop" from the bushwalk pages; <em>don't point at the kinship</em>.</li>
+        <li>Headphone bleed from a sleeping teenager two seats down: tinny synthesiser wash at exactly the
+        fidelity of mall music heard from the next shop.</li>
+        <li>Cicadas through a briefly opened door at a minor platform — January volume, cutting out all at
+        once and restarting.</li>
+        <li>A phone somewhere in the carriage playing talkback at speaker-compression quality: AM's ghost,
+        detuned by codec instead of distance.</li>
+        <li>The pedal note under everything: the pylons' bar-line bass phasing through the carriage floor,
+        the one constant the mix is built on.</li>
+        <li>Rain on the truck's cab roof as remembered texture — a sound the body files under safety —
+        crossfading into rain on <em>this</em> roof that is not falling; dry sky out the window.</li>
+        <li>Alfred Hill's allegro as remembered warmth: strings through a node's small speaker on a river
+        bank at dusk, slightly slowed by cheap playback.</li>
+        <li>A child tapping the window frame down the carriage; Leif's own knuckle answering before he
+        notices it has joined in.</li>
+        <li>One flicker of the diagnostic food court, sound only: the fountain that emits static instead of
+        water — a single second, gone before it can be furniture.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The symphony's brevity</td><td>The final cluster inherits a cleaned soundstage — from here
+          to the last page, sound narrows to ostinato, wind, breath, ballast.</td></tr>
+          <tr><td>The withheld beat</td><td>The Arrival (pp. 46–49): the slowing train resolves the phrase by
+          one added beat. This page must end one beat short, and stay short.</td></tr>
+          <tr><td>The bushranger's last flicker</td><td>The silent ASCII map (p. 50): game-world logic
+          persists in the map's grammar after the render itself has retired.</td></tr>
+          <tr><td>Fragments of radio, unsourced</td><td>Pays off the Boxer's backroom radio and the
+          war-dialled paddocks without naming either — the reader who remembers gets the chord; the reader
+          who doesn't gets a strange broadcast.</td></tr>
+          <tr><td>The organ-like whole, unremarked</td><td>Every recurrence of the title phrase across the
+          book — paid off as sound, not citation. The phrase itself must not appear.</td></tr>
+          <tr><td>Katita's voice inside the render</td><td>Nothing on this page — it stays subterranean. The
+          curatorship is felt as taste, never attributed.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The grand finale.</strong> The named trap. If the symphony swells, builds, or climaxes,
+        cut until it is something half-caught between stations. One page means one page; the assembly is
+        overheard, not staged.</li>
+        <li><strong>The inventory.</strong> Ten sounds listed at equal weight is catalogue pace — the exact
+        After-Page-38 disease. Let three or four be audible in the prose; fold the rest in as undertone.</li>
+        <li><strong>The annotated nostalgia tour.</strong> Sourcing each sound to its scene converts the
+        chord into a quiz. No provenance. The mix is owned by no one.</li>
+        <li><strong>Adjudicating the render.</strong> "He imagined," "the interface," "a memory of the food
+        court" — any label collapses the ratified seam. Vaporwave contaminates; it is never certified.</li>
+        <li><strong>Motif smuggling.</strong> This page is a sound-gate, not a basket. No Katita scene, no
+        Shore, no letters, no amber, no masthead. Sounds only — everything else stays subterranean.</li>
+        <li><strong>Spending the resolution.</strong> If the phrase completes here, the arrival has nothing
+        left to do with the body. End short. Hold the shortness like a breath not taken.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the real: crossing bells rising toward the train. The real bell pulls the remembered
+        bells, which pull the church's wind-and-bird geometry, which pulls Bach, which pulls Hill's strings —
+        until Leif can no longer say which sounds are in the carriage. One sentence per handover.</li>
+        <li>The teenager's headphone bleed is the seed crystal: everything else joins <em>that</em> tiny tin
+        orchestra, the whole book arranging itself around the worst possible speaker — a public instrument
+        with no quality control, which is what public means.</li>
+        <li>The tracklist as form: a brief italic index like felt-tip on a burnt CD, titles misremembered —
+        <em>rain, truck, unknown · handshake (long version) · bells (approach) · bells (church)</em> — in and
+        out in six lines, no commentary.</li>
+        <li>The bushranger never appears; only his taste does. The mix has <em>choices</em> in it — an edit,
+        a crossfade, a preference — and the fact of curatorship is the haunting. Someone assembled this.
+        Leave "someone" alone.</li>
+        <li>One frame of render: visor glare on the window's reflection, and the jetpack's idle-hum tuned —
+        he almost notices — to the ostinato's pedal note. Gone before the sentence ends.</li>
+        <li>Sound-check logic: each sound arrives once, sets its level, steps back — an organist registering
+        stops before a service no one will attend. (Keep the simile or the image, not both.)</li>
+        <li>The garbled platform announcement absorbed into the mix as its vocal track — the civic voice as
+        lead instrument, words never resolving into a station name.</li>
+        <li>He reaches for his phone to record it, and the reaching ends it. Attention could hold the thing;
+        capture couldn't. <em>Use with care — this dramatises the book's compass and sits one step from
+        stating it. If it reads as a lesson, cut the reach and keep the ending.</em></li>
+        <li>The one impossible edit, unflagged: rain on the truck crossfades into rain on this train's roof —
+        and the window shows dry sky. Contamination as a splice the prose declines to notice.</li>
+        <li>End by subtraction: the sounds step out one at a time, the modem handshake's rising question
+        last, leaving the ostinato alone — one beat short of something. The page ends inside that
+        shortness.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page. It ends before the reader can be sure it happened — a paragraph or two, then ordinary
+      carriage sound returns, minus nothing, plus nothing nameable. The ostinato must leave unresolved, the
+      render must leave retired, and no sentence may survive that explains what was assembled or by whom.
+      If it feels like a finale, halve it. If it feels like something half-heard through a wall as the train
+      slows, it's done.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Wound (diagnostic
+      render, Vaporwave reframe), ✦ The Remainder Chronology · remainder-chronology.md §25, ratified
+      decisions &amp; fourth warning 2026-07-13 · manuscript canon: p. 1 ostinato, Bach's church geometry,
+      the Boxer's detuned radio · ROOT file tree (AlfredHill_StringQuartet5_Allegro.mp3).</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

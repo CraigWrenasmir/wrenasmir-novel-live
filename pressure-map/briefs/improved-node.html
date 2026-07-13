@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Improved Node as Rumour | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for the Improved Node as Rumour — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Improved Node as Rumour</h1>
+    <p class="sc-meta">
+      <span>Rank: Ten Years of Aftermath</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Plan §17</span>
+      <span>Band: root</span>
+      <span class="hot">Law: RUMOUR &gt; PROOF</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>A fleck — flash and vanish. The strongest evidence of continuation in the whole book arrives
+      <strong>secondhand, degraded in transmission, told by someone who cares about something else.</strong>
+      Three loads:</p>
+      <ul>
+        <li><strong>Deliver the rumour, never the object.</strong> A module in a fig tree in another state —
+        better solar, unfamiliar casing, recognisable logic. Leif hears it; he does not see it; the reader
+        never will.</li>
+        <li><strong>Hold five possibilities open at once, ranked by no one:</strong> Katita built it ·
+        someone copied their work · the project became folk technology · ROOT altered its own design ·
+        civilisation continuing through anonymous uptake and revision.</li>
+        <li><strong>Protect the law of the block:</strong> this rumour is <em>stronger than definitive proof
+        that Katita is still on the road</em> would be. The scene must be built so the reader feels the
+        superiority of the unresolved version without being told why hearsay outweighs an instrument.</li>
+      </ul>
+      <p>The signal check (pp. 36–37) gave him a reading and it settled nothing. A stranger's mangled story
+      gives him more than the reading did. That asymmetry is the fleck's whole argument — made by placement,
+      never by commentary.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 38 (≈ MS p. 90)</strong> — second block of the Aftermath rank,
+      directly after the signal check. The order can shift, but the strong sequence is
+      instrument-first, rumour-second: the device answers in timestamps, then a pub anecdote answers in
+      kind. It should not open the rank.</p>
+      <p><strong>Feeds directly into:</strong> Imagined Node Conversations (p. 39) — the rumour hands his
+      imagination its raw material. <strong>Pays off from:</strong> the napkin topology (the recognisable
+      logic is hers and his, decades on, in a stranger's mouth) and the vernacular republic (public memory
+      travelling by anecdote, misquoted and alive).</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The object of the rumour:</strong> a module found in a fig tree in another
+        state.<span class="canon-tag">canon</span></li>
+        <li><strong>Its three attributes:</strong> better solar, unfamiliar casing, recognisable
+        logic.<span class="canon-tag">canon</span></li>
+        <li><strong>The five open possibilities, held simultaneously:</strong> Katita built it · someone
+        copied their work · the project became folk technology · ROOT altered its own design · civilisation
+        continues through anonymous uptake and revision.<span class="canon-tag">canon</span></li>
+        <li><strong>The law:</strong> this is <em>stronger than definitive proof that Katita is still on
+        the road</em>.<span class="canon-tag">canon</span></li>
+        <li><strong>Improvement, not decay:</strong> whatever is happening out there, the design got
+        <em>better</em>. The archive is not surviving; it is being revised.<span class="canon-tag">canon</span></li>
+        <li><strong>Rumour is the form:</strong> the block's ratified title is "the improved node as
+        rumour" — hearsay is not a delivery mechanism for the fact; it <em>is</em> the
+        fact.<span class="canon-tag">canon</span></li>
+        <li><strong>Katita's continuation stays unresolvable</strong> — no proof either way, ever, here or
+        anywhere.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>The teller may</h3>
+        <p>Get every word wrong while keeping the structure right — "solar whatsit," "weather station,"
+        "bat box with delusions." Care more about the fig, the council, or their own part in the story than
+        about the thing itself. Contradict themselves on details that don't matter and hold firm on the one
+        that does: the workmanship.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Recognise the logic through the mangling — from the detail the teller found pointless. Ask one
+        question too many, hear himself, and stop. Buy the next round to keep the teller on the fig and off
+        the module. Say "huh." Not ask which state.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Use ROOT vocabulary correctly. Say or think Katita's name within a page of this block. Rank the
+        five possibilities — no "probably," no "surely not," no adverbs of likelihood. Propose going to see
+        it, note the town's name, or keep the story for later use. Understand, on the page, what has been
+        said.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The fig, offstage but vivid in the telling: a Moreton Bay fig at a showground or school edge in
+        another state — buttress roots like walls, a canopy that owns its own weather, flying foxes at
+        dusk.</li>
+        <li>The teller: a powerline-clearance contractor, tree lopper or travelling fencer at the bar —
+        someone paid to be up trees, with sawdust in the sock line and a dog tied outside.</li>
+        <li>Pub texture: meat-raffle tickets in a beer jug, a fan turning slower than the flies, the till
+        drawer's bell, Sunday session light through tinted glass.</li>
+        <li>The story's surviving details, weathered by retelling: a panel "too good for the bush," a casing
+        colour nothing comes in, screws where screws shouldn't be, the whole thing "wired to nothing but
+        looking like it was expecting company."</li>
+        <li>Provenance already degraded: the contractor got it from a brother-in-law, or from another crew,
+        or saw it himself two seasons back — the story unsure of its own custody.</li>
+        <li>The beer sweating between them; the teller's hands drawing the fig's size in the air —
+        generous, then more generous.</li>
+        <li>What the teller did with it: nothing. Left it where it was. "Wasn't hurting anyone." Respect
+        for workmanship as bush ethics.</li>
+        <li>Afterwards: the ride out of town, paddocks, a windbreak on a far rise looked at slightly too
+        long.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>Recognisable logic in a stranger's mouth</td><td>The napkin topology from the rooftop —
+          "enough routes that the message can survive losing one" — now running in country neither of them
+          ever drove. <em>Never quoted, never traced aloud.</em></td></tr>
+          <tr><td>Folk-technology possibility</td><td>The vernacular republic: ROOT joining the honour
+          boards, chalkboards and pub PAs it was built to give a battery to. The archive becoming
+          anonymous civic furniture.</td></tr>
+          <tr><td>The rumour's superiority to proof</td><td>The small tree at the station; the wrens in the
+          dead node — continuation through mutation, never certified, everywhere implied.</td></tr>
+          <tr><td>"Another state," never named</td><td>The shape her choice has taken in the world — the
+          research's real object, glimpsed once at maximum distance and left there.</td></tr>
+          <tr><td>The teller's degraded provenance</td><td>The ecology of unstable provenance: Shore's
+          names, the masthead ancestor, files in her cadence. <em>Do not point at the rhyme.</em></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>Scene-jumping to the fig.</strong> If the module appears in scene-time — even one
+        rendered image of it in place — the rumour is dead and the law is broken. It exists only inside the
+        teller's syntax.</li>
+        <li><strong>The verification itch.</strong> Leif noting the town, planning a detour, asking which
+        state: any of these turns a fleck into a plot. The not-asking is the scene's spine.</li>
+        <li><strong>Ranking the five.</strong> The possibilities may pass through as images, but the moment
+        one is likelier than another, the superposition collapses. No adjudication, no order of appeal.</li>
+        <li><strong>The knowing messenger.</strong> If the teller understands what they found, rumour
+        becomes report. Their attention must keep sliding off the module toward the fig, the council, the
+        brother-in-law.</li>
+        <li><strong>Proof-shaped detail.</strong> No serial numbers, no initials in the casing, no
+        handwriting, nothing dateable. Any detail a reader could file as evidence must be blunted in
+        retelling.</li>
+        <li><strong>Underlining the law.</strong> "Somehow this meant more than proof would have" — the
+        exact sentence the scene must never contain. The asymmetry is built, not stated.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>The story arrives as a complaint: the council wanted the fig lopped, the contractor found
+        "some hobbyist's gear" in the crown, and the grievance is about the paperwork, not the machine.</li>
+        <li>Wrong words carrying right structure — the teller's best sentence is an accident:
+        <span class="q">"Wired to nothing, but set up like it was expecting company."</span></li>
+        <li>The detail that hooks Leif is the solar: "panel on it better than the one on me caravan." The
+        improvement lands as a tradesman's envy, which is the most credible witness there is.</li>
+        <li>Leif recognises the design from the part the teller found pointless — why would you want one,
+        out there, talking to nothing? The pointless bit is the routing. He says nothing.</li>
+        <li>Provenance squared: the contractor half-admits he got the story from his brother-in-law's crew.
+        Two removes. The rumour arrives already revised — like everything else that survives.</li>
+        <li>Leif shouts the round to keep the teller talking about the fig — steering <em>away</em> from
+        the module, because asking after it directly would spend it.</li>
+        <li>The five possibilities pass through him as images, half a sentence each, unranked: her hands at
+        a bench somewhere; a stranger's copy; a shire full of them; a design revising itself like
+        handwriting loosening. Then the raffle is drawn.</li>
+        <li>He doesn't ask which state. The teller says "up north" or "over the border" and the sentence is
+        allowed to end there, forever.</li>
+        <li>That night, the comfort is the improvement itself — that whatever made it had gotten better at
+        it. The sentence stops before it can audition builders.</li>
+        <li>End on the fig, not the node: buttress roots, flying foxes, a tree large enough to hide
+        anything it chooses, in a state that goes unnamed for the rest of the book.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page, most of it the teller's voice and pub texture; the module itself gets a handful of
+      sentences and no adjectives it didn't earn in transmission. End with the story finished and nothing
+      done about it — no note, no plan, no name. The reader should feel this fleck land harder than the
+      signal check that preceded it, and should not be able to say why the hearsay outweighed the
+      instrument. If the scene explains the asymmetry, or if anyone could mark one of the five
+      possibilities as favourite, it has failed.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder Chronology,
+      ✦ The Wound (Katita's continuation), §10 mesh/civic tenderness · notes/remainder-chronology.md §§9,
+      17 (ratified 2026-07-13) · the four warnings.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

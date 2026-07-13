@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Organic Integration | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for Organic Integration — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Organic Integration</h1>
+    <p class="sc-meta">
+      <span>Rank: Co-Authorship Emerges</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Endgame Movement 9</span>
+      <span>Maintenance-time texture</span>
+      <span class="hot">Condition: TRANSFORMATION</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>One page: the corruption arriving as <strong>weather and biology, not event</strong>. A fleck —
+      flash and vanish — that does two things:</p>
+      <ul>
+        <li><strong>Normalise the invasion.</strong> Mould, ants, resin, roots, moisture: maintenance-round
+        facts, logged and wiped down and lived with. By the time the archive is altering poems, the reader
+        should feel the trees have been moving in for seasons — quietly, at housekeeping tempo.</li>
+        <li><strong>Slip the one wrong item into the honest list.</strong> Among the biological entries sits
+        <em>small unexplained file drift</em> — logged in the same column, met with the same rag-in-hand
+        shrug. The prose must not privilege it; the reader's neck-prickle does the work alone.</li>
+      </ul>
+      <p>The fleck's discipline: this is a page of chores. If it becomes an omen, it has failed; if it
+      stays merely a list, it has also failed — it needs a body kneeling at an enclosure, and one beat of
+      time passing.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 24 (≈ MS p. 76)</strong> — between Nodes Conversing Alone and Amber
+      on the Dashboard, though the order can shift; as pure texture it is the rank's most movable block.
+      It cools the reader after the autonomous traffic and loads the ground for the lightning strike:
+      biology has been annexing the hardware all along, so the amber will read as consummation, not
+      accident.</p>
+      <p><strong>Feeds directly into:</strong> Amber on the Dashboard (resin is already creeping here; the
+      lightning only finishes the job) and Small Private Violations (file drift, still ignorable here,
+      stops being ignorable there). <strong>Pays off from:</strong> the road-years maintenance rhythm and
+      the cicada overload — the bush has already out-shouted the archive; now it moves in.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The inventory:</strong> mould blooming in cords, ants near warm housings, resin around
+        screws, roots pressing casings, fungi, moisture in connectors, birds and insects using the
+        hardware, small unexplained file drift.<span class="canon-tag">canon</span></li>
+        <li><strong>Tempo:</strong> the corruption begins slowly, through maintenance and weather — texture,
+        not event.<span class="canon-tag">canon</span></li>
+        <li><strong>The hardware:</strong> handmade, weathered, tender — solar modules in burled knots, bark
+        plates over antennas, weatherproof casings, small resting LCDs. Never sleek.<span class="canon-tag">canon</span></li>
+        <li><strong>Later in the same drift:</strong> fungal growth, animal use, weather damage, marginal
+        file alterations — communication no longer attributable to human intention. This fleck is the first
+        column of that ledger.<span class="canon-tag">canon</span></li>
+        <li><strong>The intelligence stays unnamed</strong> — botanical, analogue, older than software. Here
+        it isn't even an intelligence yet; it's damp.<span class="canon-tag">canon</span></li>
+        <li><strong>No motif knows it's a motif:</strong> the drift entry gets no italics, no lingering, no
+        second glance from the narration.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Name the organisms — properly or affectionately wrongly. Relocate an ant nest with a paint
+        scraper and an apology. Log the file drift in the same breath as the mould, unbothered. Decline
+        to caulk something.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Grumble at the biology in tradesman's terms — warranty talk, seal talk. Clean with a toothbrush
+        and rag. Read the drift line twice in the logbook and decide, visibly, that it's a checksum thing,
+        a heat thing, a something thing. Move on.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Wonder aloud what the drift is. Connect the biology to the files. Use the words <em>corruption,
+        invasion, alive</em> — or any register above pest control and paperwork. The page has no
+        conversation about meaning in it at all.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The smell inside an opened enclosure: warm electronics, humus, something faintly bready — the
+        silica gel sachets gone soft as marshmallow.</li>
+        <li>Mould tracking the cord's spiral like a vine trained up wire; green corrosion and green moss
+        within an inch of each other, needing a second look to tell apart.</li>
+        <li>Ants garrisoned along the warm side of the housing; the queen's chambers packed against the
+        battery like units around a heater in June.</li>
+        <li>Sap crept over the stainless screw heads and set — slow solder; the casing being soldered to
+        the tree by the tree.</li>
+        <li>A root gone under the mounting plate and thickened, the plate's corner lifted a patient
+        centimetre a year — the tree's timescale disagreeing with the bracket's.</li>
+        <li>Tenants: a skink behind the battery, spider egg sacs in the cable gland, a huntsman under the
+        lid every single visit like a superstition, wren droppings whitening the solar glass.</li>
+        <li>Termite mudding run along the conduit — the insects using their cable route as a cable
+        route.</li>
+        <li>The maintenance kit: toothbrush, rag, O-rings, zip ties, a film canister of desiccant, the
+        logbook with its column for CAUSE going blank more often.</li>
+        <li>File drift at logbook altitude: a file three bytes longer than the ledger says; a modification
+        date earlier than a creation date; a checksum that fails once and passes on retry. Entered, dated,
+        initialled.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>Resin creeping over screws</td><td>Amber on the Dashboard — the lightning strike fuses
+          what has been slowly joining for seasons; the amber is this page at a different voltage.</td></tr>
+          <tr><td>Small unexplained file drift, shrugged at</td><td>Small Private Violations — the same
+          column of the ledger, no longer shruggable; then the full Movement 9 corruption.</td></tr>
+          <tr><td>Birds using the hardware</td><td>The wren nest in the dead module — habitation begun
+          here as nuisance, ending as the book's image of ideas staying alive by changing purpose.</td></tr>
+          <tr><td>The blank CAUSE column</td><td>The four-way causality collapse of Bell-Birds and, at full
+          scale, the book's refusal to certify provenance anywhere.</td></tr>
+          <tr><td>Root lifting the mounting plate</td><td>The network becoming physically inseparable from
+          the landscape — by the fracture rank, removal would mean surgery on the tree.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The omen tour.</strong> If the narration pauses meaningfully on any item — especially the
+        file drift — the fleck curdles. Every entry gets the same flat maintenance attention; the reader
+        supplies the dread unassisted.</li>
+        <li><strong>The bare list.</strong> The canon inventory is already a list; prose that just recites it
+        is scaffolding left showing. Put it through a body: one visit, one kneeling person, one rag.</li>
+        <li><strong>Horror lighting.</strong> No throbbing, no wrongness, no music. It's a nice day. That's
+        the point.</li>
+        <li><strong>Cuteness.</strong> The skink is not a mascot and nobody names the huntsman. Affection,
+        yes — whimsy, no.</li>
+        <li><strong>Explaining the drift.</strong> No theory may be offered, not even a wrong one held with
+        conviction. Leif's shrug must be genuine — this is the last block where it can be.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Structure the page as one service visit, opening on knees in leaf litter and closing on the
+        latch clicking shut — the whole invasion framed by a single chore done properly.</li>
+        <li>Write it as the logbook itself for three or four entries — date, node, action taken — with the
+        drift entry sitting mid-list in the same handwriting, then return to prose. One formal touch, not
+        a set piece.</li>
+        <li>The toothbrush: Leif cleaning contacts with the same figure-eight strokes as bootblack or
+        wound-care — maintenance as tenderness; the archive being groomed like a body.</li>
+        <li>Katita refuses to evict the ants — reroutes a cable instead, adds a washer, gives them the warm
+        side. The first accommodation. Nobody calls it that.</li>
+        <li>The huntsman under the lid every visit, in every node, until it's procedure: open the lid,
+        wait, let it leave. The hardware has habits now; some of them have legs.</li>
+        <li>A connector unplugged for cleaning comes apart with a kiss of moisture — condensation where no
+        water should get; the seal is good; the damp is being made inside. Logged. Next item.</li>
+        <li>The file three bytes longer: Leif diffs it against the ledger copy by eye, gets bored at line
+        forty, decides it's whitespace. Give the reader his boredom honestly — it must feel like the
+        correct response at the time.</li>
+        <li>Sap over a screw head catches the sun for one clause — honey-coloured, a lens — and the prose
+        moves on before the image can settle into foreshadowing. (The amber fleck will collect it.)</li>
+        <li>The season told in materials: last visit's zip ties gone brittle, this visit's O-rings softer,
+        UV chalking on the casing — time passing measured entirely in polymer, never in feelings.</li>
+        <li>End on the CAUSE column: three entries this visit, two causes written, one dash. The dash gets
+        no sentence of its own — it's just the last thing the page happens to show.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page, flash and vanish. The visit ends, the latch clicks, the truck leaves — nothing
+      concluded, nothing feared, one dash in a column. The reader should experience it as a pleasant,
+      slightly funny page about upkeep, and only downstream — at the amber, at the violations — feel it
+      turn over in memory and reveal itself as the annexation notice. If any sentence on the page knows
+      that now, cut the sentence.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder Chronology
+      (§10 organic integration, §13 continuation; flecks ranking), §10 Mesh networks &amp; civic tenderness
+      (handmade, weathered, tender), ✦ The Wound (corruption arrives as misrecognition, never named) ·
+      remainder-chronology.md §§10, 13 · ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

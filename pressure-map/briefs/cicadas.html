@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Cicada Denial-of-Service | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for Cicada Denial-of-Service — January saturates the acoustic sensors and the nodes log it faithfully.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Cicada Denial-of-Service</h1>
+    <p class="sc-meta">
+      <span>Rank: The Road Years Alive</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Plan §10</span>
+      <span>Band: Root</span>
+      <span class="hot">Comic counterweight to the storm</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>One page of dry, physical comedy that lands directly after the storm's three pages of wonder
+      and deflates the grandeur without undoing it. The loads:</p>
+      <ul>
+        <li><strong>The landscape overwhelms the network by sheer volume.</strong> Summer cicadas
+        saturate the acoustic sensors: every channel pinned, storage filling with one enormous note.
+        January simply out-transmits the archive, and the archive's only answer is to keep writing it
+        down.</li>
+        <li><strong>The nodes log the event faithfully.</strong> That fidelity is the joke and the
+        tenderness at once — a machine dutifully archiving fourteen hours of scream because nobody told
+        it screaming wasn't culture. The backstage aphorism — <em>the bush has more bandwidth than the
+        archive</em> — is the writer's law; the page never says it, and no character thinks it.</li>
+        <li><strong>Keep the humour dry and bodily.</strong> Heat, noise with a physical push, a
+        maintenance job conducted in mime. Never whimsical, never cute, no twinkle. The comedy is the
+        comedy of two competent people defeated by an insect, and taking it well.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 18 (≈ MS p. 70)</strong> — the last page of "The Road Years
+      Alive," immediately after the storm (pp. 15–17). The adjacency is the design: the mesh that was one
+      body in the rain is, three days or three weeks later, a set of overwhelmed microphones in the heat.
+      The order can shift on the Pressure Map, but this fleck should travel with the storm — it is that
+      scene's pressure-release valve.</p>
+      <p><strong>Feeds directly into:</strong> the co-authorship band — organic integration (ants, resin,
+      fungi) is this page's logic slowed down: the landscape getting into the archive, first by volume,
+      later by meaning. <strong>Pays off from:</strong> the rooftop's cicadas "starting and stopping like
+      a dropped connection" — the same insects, now on the other end of the line.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The event:</strong> summer cicadas saturate the acoustic sensors; the landscape
+        overwhelms the network through sheer January volume.<span class="canon-tag">canon</span></li>
+        <li><strong>The response:</strong> the nodes log the event faithfully.<span class="canon-tag">canon</span></li>
+        <li><strong>The law (backstage only):</strong> <em>the bush has more bandwidth than the
+        archive.</em> Never spoken, never thought on the page.<span class="canon-tag">canon</span></li>
+        <li><strong>The function:</strong> comic counterpoint to the storm, ratified in the scene-time
+        ranking as a fleck — flash and vanish.<span class="canon-tag">canon</span></li>
+        <li><strong>The hardware:</strong> acoustic sensors on handmade, weathered nodes; small LCDs;
+        low-power logging. Tender, never sleek.<span class="canon-tag">canon</span></li>
+        <li><strong>The four warnings apply:</strong> the road years are actual life — this is a hot
+        January in it, not a fable about signal and noise.<span class="canon-tag">canon</span></li>
+      </ul>
+      <p>Note on the title: "Cicada Denial-of-Service" is Pressure-Map shorthand. Nobody in the scene
+      may coin it, think it, or reach for any network-attack vocabulary.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Shout single words at arm's length and give up on sentences entirely. Conduct her half of the
+        maintenance job in gesture. Write one deadpan annotation in the log — one, and it must be dry as
+        a stick, an entry a stranger could mistake for procedure. Line the shed cicada moults up along
+        the dash.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Attempt the sensor check anyway, mouthing the instructions. Do the storage arithmetic in his
+        head — at this rate the node archives nothing but January until March — and decide, visibly, not
+        to stop it. Know the insect by a different name than the last town used. Sit in the truck
+        afterwards with his ears ringing, not talking, because talking is finally possible and not worth
+        it.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Say <em>bandwidth, signal, noise, attack, drowned out, overload</em> — no engineering metaphor
+        may reach for the event, because the event is the metaphor and doesn't know it. Nobody finds it
+        meaningful, poignant, or symbolic. Nobody compares it to the storm. The insects get no
+        adjectives of intent.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The wall of it at 40 degrees: sound with an actual push, a pressure on the sternum; walking
+        into the tree line like walking into shallow surf.</li>
+        <li>The level meters pinned since 9:40 a.m. — a graph that is one flat line along the top of its
+        own range, the shape of an instrument with nowhere left to go.</li>
+        <li>Conversation at a shout from half a metre, then by mouthing, then by hand — screwdriver
+        mimed, cable traced in the air, thumbs up delivered like semaphore.</li>
+        <li>Moulted shells everywhere: on bark, on the guy-wire, a perfect split-backed one clinging to
+        the node casing itself as if the archive had hatched something.</li>
+        <li>A live one on the antenna — green, immovable, singing the mast like it owns the
+        infrastructure. Which, by volume, it does.</li>
+        <li>The folk taxonomy: Green Grocer, Yellow Monday, Black Prince, Double Drummer, Floury Baker —
+        playground names, traded like currency; the same insect answering to different names one town
+        back.</li>
+        <li>The all-stop: mid-afternoon the bush switches off all at once, one second to the next, and
+        the silence has edges; a shouted word lands whole in it, enormous and domestic.</li>
+        <li>Heat props: bore-water taste, cordial gone warm, the vinyl seat branding the backs of legs,
+        sweat in the eyes during the fine-motor part of the job.</li>
+        <li>Dusk: the graph steps down three decibels and no further; crickets take the channel without
+        a handover ceremony.</li>
+        <li>In the cab after: ears ringing in two different keys, the ringing discussed with one look
+        and dismissed.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>Cicadas at full January volume</td><td>A canon track on the bushranger's playlist —
+          the organ-symphony near the arrival has this page in its lungs.</td></tr>
+          <tr><td>One insect, several town-names</td><td>Shore / Shaw / del Puerto and the whole erring-
+          together ecology: districts keeping the same truth under different names. One touch, zero
+          comment.</td></tr>
+          <tr><td>The landscape getting into the archive by volume</td><td>Organic integration and the
+          corruption itself — the landscape will get in again, by meaning next time. The comedy is the
+          overture nobody recognises.</td></tr>
+          <tr><td>The nodes' perfect fidelity</td><td>Bell-Birds and the file drift — the later shock
+          runs on the reader having seen the archive be incapable of embellishment. This page is that
+          witness.</td></tr>
+          <tr><td>Moults lined up on the dash</td><td>The amber on the dashboard — the dash as the
+          truck's little reliquary, established here in shell instead of resin.</td></tr>
+          <tr><td>The job done in mime</td><td>The private bodily languages — primes on skin, glances in
+          hail — the marriage's non-verbal channel proving load-bearing under 110 decibels.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>Whimsy.</strong> The instant the cicadas are charming, plucky, or conspiratorial, the
+        page dies. They are a fact of January, as indifferent as the heat. Dry and physical, every
+        line.</li>
+        <li><strong>Importing the title.</strong> No character reaches for attack vocabulary, network
+        metaphor, or the shorthand joke. The wit on the page must be smaller than the wit of the
+        premise, or it reads as the author laughing first.</li>
+        <li><strong>Meaning creep.</strong> One sentence tilting toward "the bush was trying to say —"
+        and the fleck becomes a parable. The nodes log; the people sweat; nobody concludes.</li>
+        <li><strong>Undoing the storm.</strong> The counterweight deflates the grandeur, not the truth.
+        If the comedy mocks the mesh or the project, the storm's wonder is retroactively cheapened. The
+        two pages must be able to be true at once.</li>
+        <li><strong>Overstaying.</strong> One page. No second location, no evening scene, no reflection
+        in the cab beyond the ringing ears. Flash and vanish is the tier and the punchline's
+        survival.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open at the meter, not the noise: every acoustic channel pinned since 9:40 a.m., the graph a
+        plateau at the ceiling of its range — January rendered as an instrument's helplessness before a
+        single word about sound.</li>
+        <li>The maintenance visit as full mime: an entire sensor check conducted in gesture and
+        eyebrow, flawlessly, both of them discovering the size of the vocabulary they didn't know
+        they'd built.</li>
+        <li>A Double Drummer takes up residence on the antenna for the whole job and cannot be argued
+        with. Leif relocates it twice with the gentleness of a man moving a sleeping child. It returns
+        both times. The node records all three conversations.</li>
+        <li>The all-stop lands mid-shout: the bush switches off between one syllable and the next and
+        Katita's yelled "—LUNCH" arrives whole into perfect silence, the loudest civic announcement the
+        valley has heard all week.</li>
+        <li>Leif's storage arithmetic: at current volume the node will hold nothing but January until
+        March. He watches the counter a moment, and lets it run. The decision made with a face, not a
+        sentence.</li>
+        <li>Katita's one log annotation, dry as procedure — <span class="q">"input: summer. no
+        fault."</span> — entered, capped, done. (If it reads as wit, dry it further or cut it; the log
+        must stay the straight man.)</li>
+        <li>The species argument settled on paper because speech is gone: he writes GREEN GROCER on the
+        pad; the servo two towns back called the same insect a Yellow Monday; both names stand,
+        unadjudicated, next to the torque figures.</li>
+        <li>The moult on the casing: she frees it with one fingernail and stands it on the dash beside
+        the others — a row of split-backed sentries facing the windscreen. One touch, no inventory of
+        what it means.</li>
+        <li>Playback weeks later as the closing beat: checking an unrelated file they get January at
+        full gain through the truck speakers and both flinch like scalded cats — archived summer arriving
+        with its push intact. One line of laughter, then the volume knob.</li>
+        <li>End on scale, delivered flat: the node's whole job this month is to hold one note the bush
+        is holding louder. Render that as image — the little LCD steady under the roar — and stop the
+        page before anyone can be wise about it.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page. The reader laughs somewhere in the middle of it — a dry laugh, the kind the heat
+      permits — and turns the page with the storm's awe intact and newly proportioned: the mesh that was
+      one body is also a thing an insect can out-shout, and both facts hold. Nothing is concluded,
+      nothing is mourned, nobody is wise. If the last line explains the joke, cut the last line. The
+      nodes are still logging as the page ends; that's the whole report.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder
+      Chronology (spine §10, scene-time ranking: fleck), §10 Root layer ·
+      notes/remainder-chronology.md §10 · ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

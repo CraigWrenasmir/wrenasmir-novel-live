@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Tapping Returns | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for the Tapping Returns — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Tapping Returns</h1>
+    <p class="sc-meta">
+      <span>Rank: Ten Years of Aftermath</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Plan §21</span>
+      <span>Band: train</span>
+      <span class="hot">Law: PLANT — RESOLUTION BELONGS TO THE ARRIVAL</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>A fleck: a hand doing something the man hasn't asked it to do. Three loads:</p>
+      <ul>
+        <li><strong>Return the tapping as bodily memory.</strong> Leif taps a rhythm unconsciously — on a
+        motel table, on the tank of the motorbike, against the train window. Her protocol is still running
+        in him, a decade after the last game.</li>
+        <li><strong>Let it be five things at once, none of them named:</strong> Katita's prime-number game ·
+        the train ostinato from page one · bodily memory · a communication protocol · a musical phrase
+        awaiting resolution. The writer holds all five; the page holds only a hand and a rhythm.</li>
+        <li><strong>Plant, and refuse to pay off.</strong> The resolution — the slowing train aligning with
+        the tapping and resolving it by <em>one added beat</em> — belongs to the Arrival (pp. 44–49). This
+        fleck's entire discipline is ending on the unstressed beat.</li>
+      </ul>
+      <p>Flash and vanish: one paragraph-cluster, in and out before the reader can be sure what they
+      heard.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 40 (≈ MS p. 92)</strong> — fourth block of the Aftermath rank,
+      after the imagined node conversations (the mind ran the protocol on p. 39; here the body picks it
+      up). The plan offers three stagings — motel room, motorbike, train window — and the train option
+      stitches the aftermath rank back into the reverie frame just before the courtesan recognition
+      (pp. 41–42), which is also train-set. The order can shift; wherever it lands, it must sit far enough
+      from the Arrival that the payoff doesn't feel adjacent.</p>
+      <p><strong>Feeds directly into:</strong> The Arrival — the ostinato's return and the added beat.
+      <strong>Pays off from:</strong> Primes on Skin / the Biro (remainder p. 3) and the page-one ostinato
+      itself.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The event:</strong> in a motel room, on the motorbike, or against the train window,
+        Leif taps a rhythm unconsciously.<span class="canon-tag">canon</span></li>
+        <li><strong>Its simultaneous identities:</strong> Katita's prime-number game · the train ostinato
+        from page one · bodily memory · a communication protocol · a musical phrase awaiting
+        resolution.<span class="canon-tag">canon</span></li>
+        <li><strong>The origin (remainder p. 3):</strong> Katita tapped sequences on his forearm in the
+        dark; he guessed prime or not prime, often wrongly; the pleasure was in touch, repetition and
+        willing failure.<span class="canon-tag">canon</span></li>
+        <li><strong>The page-one ostinato:</strong> pylons like bar lines, bass notes phasing against the
+        carriage floor, "a known wobbly offbeat."<span class="canon-tag">canon</span></li>
+        <li><strong>The reserved resolution:</strong> near the end, the train's slowing rhythm aligns with
+        the tapping and resolves it by one added beat — Arrival property, not
+        available here.<span class="canon-tag">canon</span></li>
+        <li><strong>Adjacent:</strong> the biro annotation he never washed off — the body as a page she
+        wrote on once and the writing still faintly running.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>The prose may</h3>
+        <p>Notate the rhythm physically — knuckle, fingerpad, glass, formica, gloved leather — and
+        temporally: gap, gap, longer gap. Let a reader who wants to count, count; give them nothing that
+        counts for them. Move the rhythm across surfaces and let each surface change its voice while the
+        phrase stays the same.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Notice the sound before he notices the hand — look for its source and find himself. Stop the
+        hand with the other hand. Have it resume a sentence later. Mistake the rhythm for the start of a
+        song he can't place, and fail to find the melody that would finish it.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Say <em>prime</em>. Put numbers on the page — no 2, 3, 5, 7, no counting in the narration.
+        Attribute the rhythm to Katita by name or by unambiguous memory. Hear the train in it aloud. Resolve
+        the phrase, complete it, or let any external rhythm lock with it. Call it a habit, a symptom, or a
+        message — no motif knows it's a motif.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>Motel staging: a formica table with a cigarette burn like a full stop; the glass ashtray that
+        rings faintly on the third tap and not the others; the wall-mounted heater's off-cycle click
+        keeping different time.</li>
+        <li>Motorbike staging: waiting at a level crossing, engine idling, gloved fingers on the tank —
+        the crossing bells at their fixed tempo, his fingers at theirs, the two phasing (the bells are
+        Arrival-playlist material; <em>one touch here, no comment</em>).</li>
+        <li>Train staging: the window cold against the knuckle; the bogies' rhythm arriving through the
+        glass; fingerpad and fingernail giving two different notes on the same pane.</li>
+        <li>The hand itself: older than he thinks of it as being; the small muscles moving with the economy
+        of long practice at something he doesn't remember practising.</li>
+        <li>The gap in the phrase — the rest, the wait — as the part his finger is most insistent about.</li>
+        <li>Ambient timekeepers to phase against (choose one): dripping tap, indicator stalk, keno draw
+        chime through a wall, windscreen wipers of a parked car, the heater's thermostat.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The unresolved phrase</td><td>The Arrival: the slowing train's ostinato aligns and
+          resolves it by one added beat — the book's final cluster, ratified. <em>Do not touch it
+          here.</em></td></tr>
+          <tr><td>The gap / the missing beat, felt not counted</td><td>The added beat lands at the station
+          as an arrival rather than a trick — the reader's ear was taught to wait without knowing
+          it.</td></tr>
+          <tr><td>Level-crossing bells (if the bike staging is used)</td><td>The bushranger's playlist;
+          the arrival cluster's soundscape.</td></tr>
+          <tr><td>Willing failure (the origin game's pleasure)</td><td>Erring together — getting it wrong
+          as a form of intimacy, dramatised never stated.</td></tr>
+          <tr><td>The hand running her protocol unbidden</td><td>The body as the last node still faithfully
+          transmitting — <em>the writer's knowledge only; the page never says it.</em></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>Cashing the resolution early.</strong> The single worst failure available in this rank:
+        any alignment that "clicks" — with bells, bogies, wipers, anything — spends the Arrival's one
+        irreplaceable payoff. Here, rhythms may approach, phase, and <em>miss</em>. Always miss.</li>
+        <li><strong>Arithmetic on the page.</strong> The moment a number appears, the motif becomes a
+        puzzle and the reader starts solving instead of hearing. No counts, no sequences, no "he tapped
+        five times."</li>
+        <li><strong>Attribution.</strong> "Katita's game" in any wording is the motif reading its own name
+        tag. The memory of the forearm in the dark may shadow the passage; it may not enter it.</li>
+        <li><strong>The five identities listed.</strong> Prime game, ostinato, memory, protocol, phrase —
+        that inventory is scaffold material. If the prose enumerates what the tapping "is," cut the
+        paragraph.</li>
+        <li><strong>Overstaying.</strong> This is a fleck. At a page it is already at maximum length; at a
+        page and a half it has become a scene and the vanish is lost.</li>
+        <li><strong>Meaningful witnesses.</strong> No stranger may hear the rhythm and react significantly.
+        (A wrong, friendly, oblivious tap-back is permitted — see spark 6 — but nobody understands
+        anything.)</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the sound, not the hand: a small knocking somewhere in the room, and the paragraph
+        looking for its source before finding it at the end of his own arm.</li>
+        <li>The level crossing: bells at their fixed tempo, fingers at theirs, the two beating against each
+        other toward a meeting point — and the boom gates lift and he rides on before the rhythms can
+        agree.</li>
+        <li>Against the train window: the bogies propose a count through the glass and his fingers answer
+        with a different one — call and response that keeps politely declining to become a duet.</li>
+        <li>He stops the hand by holding it with the other hand, the way you'd quiet a small animal —
+        and the sentence moves on without looking back. Two paragraphs later, unremarked, it is going
+        again.</li>
+        <li>The same phrase on three surfaces across the fleck — formica, glass, denim — each surface
+        changing the timbre, the phrase itself never varying. An instrument being carried from room to
+        room.</li>
+        <li>A stranger across the aisle taps back — cheerful, wrong, meaningless — and the reply lands as
+        the loneliest sound in the rank: the protocol reaching a node that doesn't run it. Wordless; no
+        one understands anything.</li>
+        <li>He decides it is the start of a song he can't place and spends a sentence reaching for the
+        melody that would resolve it. There isn't one. He files it under songs, which is wrong, which is
+        fine.</li>
+        <li>Make the rest the protagonist: the gap in the phrase, the wait his finger insists on — the
+        space where something is owed. Let the reader lean into that silence without being told it's a
+        debt.</li>
+        <li>He wakes with the hand already going — it kept the night shift — and the day's first feeling
+        is of having interrupted something that was managing perfectly well without him.</li>
+        <li>End mid-phrase, on the unstressed beat: the paragraph stops where the rhythm doesn't, and
+        whatever sentence follows the fleck begins very slightly off the count.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Under a page — one paragraph-cluster, flash and vanish. It ends unresolved <em>by construction</em>:
+      the phrase still open, no rhythm locked, no name attached, the hand either stilled mid-beat or left
+      going as the prose looks away. The test: a reader who taps the passage out on their own table should
+      feel a beat missing and not know they've been taught to wait for it. If anything in the fleck clicks,
+      aligns, or completes, the Arrival has been robbed — cut until it misses.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder Chronology
+      (§21; fourth warning — the final cluster owns the resolution), §6 private bodily languages ·
+      manuscript p. 1 (the ostinato, "a known wobbly offbeat") · notes/remainder-chronology.md (ratified
+      2026-07-13).</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

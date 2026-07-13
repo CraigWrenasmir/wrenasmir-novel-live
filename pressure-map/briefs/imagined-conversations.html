@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Imagined Node Conversations | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for the Imagined Node Conversations — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Imagined Node Conversations</h1>
+    <p class="sc-meta">
+      <span>Rank: Ten Years of Aftermath</span>
+      <span>Tier: Medium · 1 p</span>
+      <span>Plan §§12, 20</span>
+      <span>Band: root</span>
+      <span class="hot">Condition: UNCERTIFIED</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>A hotel room on a distant plain, late afternoon turning to night, and a conversation between two
+      trees forty kilometres apart that may exist nowhere but in the man imagining it. Three loads:</p>
+      <ul>
+        <li><strong>Show what ten years have done to his perception.</strong> He now instinctively imagines
+        hidden systems speaking through the landscape — not as a decision, but as the default grammar of
+        his attention. The scene must <em>enact</em> the habit, never diagnose it.</li>
+        <li><strong>Stage the node conversation with full sensory conviction and zero certification.</strong>
+        Bird recordings exchanged across forty kilometres, rendered so concretely the reader briefly forgets
+        the frame — while the scene never once claims transmission actually occurred.</li>
+        <li><strong>Carry the wonderings about Katita as one open chord:</strong> whether she listens,
+        whether she understands them, whether she taught them, whether they taught her, whether she has
+        stopped needing to know, whether the conversation exists only in his imagination. Six notes, no
+        resolution.</li>
+      </ul>
+      <p>The emotional logic underneath (never spoken): the creators built the language, and the nodes now
+      speak it to one another — children talking to each other rather than to their parents. Pride,
+      exclusion, uncertainty, in that order and all at once.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 39 (≈ MS p. 91)</strong> — third block of the Aftermath rank. The
+      strong sequence: the signal check gave an instrument's non-answer (pp. 36–37), the rumour gave
+      hearsay's rich answer (p. 38), and now imagination — the third and most generous receiver — takes
+      the material and runs. The order can shift, but this block wants the rumour somewhere behind it.</p>
+      <p><strong>Feeds directly into:</strong> The Tapping Returns (p. 40 — the body picking up the protocol
+      the mind has just been running). <strong>Pays off from:</strong> Nodes Conversing Alone in the road
+      years (the plan allows the exchange to be shown then, imagined now — if both survive drafting, this
+      scene is the memory of that one with ten years of longing added).</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>Scene-world:</strong> a hotel room on a distant plain, late afternoon turning to
+        night.<span class="canon-tag">canon</span></li>
+        <li><strong>The imagined exchange:</strong> nodes trading bird recordings across forty
+        kilometres.<span class="canon-tag">canon</span></li>
+        <li><strong>The six wonderings:</strong> whether Katita listens · whether she understands them ·
+        whether she taught them · whether they taught her · whether she has stopped needing to know ·
+        whether the conversation exists only in his imagination.<span class="canon-tag">canon</span></li>
+        <li><strong>The decade's mark:</strong> ten years have made him instinctively imagine hidden systems
+        speaking through the landscape.<span class="canon-tag">canon</span></li>
+        <li><strong>The emotional logic (from the road years):</strong> the creators become proud, excluded,
+        uncertain — children talking to each other rather than to their parents.<span class="canon-tag">canon</span></li>
+        <li><strong>Uncertified:</strong> whether the nodes still converse, whether they ever did on this
+        schedule, whether any of it reaches this plain — never established. The signal check is already
+        spent; no device appears in this scene.<span class="canon-tag">canon</span></li>
+        <li><strong>Katita's continuation stays unresolvable</strong> — the wonderings must not lean toward
+        an answer.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Furnish the exchange with technical tenderness — retry schedules, quiet bands, dawn chorus
+        compressed and forwarded — in Katita's engineering manner, without her name attached. Choose the
+        birds at one end and admit he can't name the birds at the other. Fall asleep before the exchange
+        finishes.</p>
+      </div>
+      <div class="permit">
+        <h3>The prose may</h3>
+        <p>Let the imagining thicken until the frame recedes — then surface the frame again with the room
+        (the fan, the blind, a road train) rather than with a disclaimer. Give the nodes patience, manners,
+        turn-taking. Let the six wonderings arrive dispersed, as images and postures, one or two clauses
+        each.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Confirm a signal, or deflate one — no evidence the conversation is real, no "of course it was
+        only in his head." Give the nodes words: they exchange recordings, weather, time — never remarks,
+        never anything about people. Open the pannier. Judge Katita's choice. Say <em>network, archive,
+        emergence, co-author</em>. Philosophy stays silent.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The plain: treeless to the curve of the earth, mirage-line dissolving as the heat lets go, a
+        two-storey hotel visible for twenty minutes of riding before it grows any larger.</li>
+        <li>The room: western light through a holland blind, bricks giving back the day's heat, a ceiling
+        fan with one speed, lace curtain breathing, the pub below going quiet on a weeknight.</li>
+        <li>Sounds: crested pigeons' wing-whistle, galahs working themselves up at dusk, corrugated iron
+        ticking as it cools, a road train passing at long intervals — each one a held breath of pressure
+        against the windows.</li>
+        <li>The imagined geography: one node in a travelling-stock-reserve red gum, one in a homestead
+        windbreak forty kilometres east — the distance held as riding time, not as a number on a map.</li>
+        <li>The imagined exchange: dawn chorus recorded at one end, sent in the cool of night when the band
+        is quiet; a retry after interference; an acknowledgment the length of a wren's note.</li>
+        <li>Beer sweating on the windowsill; moths against the flyscreen; the plain going navy, then black;
+        stars arriving in ones and twos.</li>
+        <li>The blind's pull-cord tapping the sill in the fan's draught — an almost-rhythm the room runs on
+        its own (a hair's-breadth pre-echo of p. 40; <em>one touch, no comment</em>).</li>
+        <li>Bird options he might cast: white-plumed honeyeaters, a butcherbird's morning phrase, corellas
+        in the reserve — and at the far end, something he has never learned the name of.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>Bird recordings crossing dark country</td><td>The wren at the station; the bushranger's
+          playlist gathering the book's sounds into one organ. <em>Never flag the connection.</em></td></tr>
+          <tr><td>Forty kilometres of manners between trees</td><td>The napkin line from the rooftop —
+          survivable routes — now imagined as courtesy rather than engineering. The same idea, aged
+          twenty years.</td></tr>
+          <tr><td>Children talking to each other, not their parents</td><td>The Arrival: being received by
+          a person, after a decade of overhearing systems. The friend answers what the nodes
+          cannot.</td></tr>
+          <tr><td>The six wonderings, dispersed and unresolved</td><td>Katita's continuation staying open
+          through the final page — this scene is where the book practises never answering.</td></tr>
+          <tr><td>The imagining outrunning its author (if used)</td><td>The Wound in miniature — his own
+          faculty producing more than he supplied — rhyming with the archive that made meaning from him.
+          <em>A feeling, never an argument.</em></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>Certification, either direction.</strong> A flicker at the window, a coincidence of
+        birdsong "answering" — anything that suggests the exchange is really happening breaks the block.
+        Equally fatal: labelling it fantasy. The scene lives in the unmarked middle.</li>
+        <li><strong>Nodes as people.</strong> No dialogue attributed to modules, no personalities, no
+        intentions beyond schedule and patience. They exchange recordings, not remarks. The moment a node
+        "wants," the tenderness collapses into whimsy.</li>
+        <li><strong>The question list.</strong> Six wonderings typed as six consecutive interrogatives is
+        an essay. Disperse them across the passage as images, postures, half-clauses; two may sit together,
+        never more.</li>
+        <li><strong>The Katita cameo.</strong> She must not appear in imagined scene-time — no picture of
+        her kneeling at a node with an ear to the bark. The wonderings gesture at her; the imagery keeps
+        its distance.</li>
+        <li><strong>Diagnosing the habit.</strong> "Ten years had taught him to hear systems everywhere" —
+        the sentence the scene exists to avoid. Show the habit misfiring once (a live bird heard as a
+        recording) and trust it.</li>
+        <li><strong>Vocabulary leak.</strong> This is the root band at its most exposed: <em>network,
+        mesh, protocol, archive</em> must be rationed to near zero; the engineering arrives as manners,
+        schedules, courtesy to the band.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open with a live crested pigeon heard as a recording — one beat of miscategorisation before he
+        corrects himself. The habit shown misfiring is the habit proven, without a word of diagnosis.</li>
+        <li>He gives the far node the courtesy of waiting for full dark before it replies — politeness to
+        the quiet band, an engineering manner borrowed from someone the sentence doesn't name.</li>
+        <li>The exchange imagined as a mail schedule: dawn collected like letters, held through the heat,
+        sent when the air cools — the postal fantasy of the Boxer years running on new infrastructure.
+        <em>Don't note the rhyme.</em></li>
+        <li>He casts the birds honestly: honeyeaters at the near end, and at the far end something he never
+        learned — his imagination admitting its gaps, which is what makes the rest of it credible.</li>
+        <li>The wonderings arrive as postures, not questions: an ear against bark somewhere; a lit kitchen
+        with the radio off; a woman not needing to check. Half a sentence each, unattributed, dropped.</li>
+        <li>A road train passes and shakes the room; he folds the interruption into the schedule — the
+        exchange pausing until the noise floor drops — the real world conscripted into the imagined one's
+        etiquette.</li>
+        <li>The fan's one speed becomes the passage's carrier wave: every imagined transmission rides its
+        rhythm, and when he finally switches it off the silence is enormous and full.</li>
+        <li>Somewhere in the imagining, details he doesn't remember supplying: a third participant, an
+        unfamiliar pause-length. It stays inside imagination — but his own faculty has begun exceeding his
+        instructions, and he notices the feeling, not the meaning.</li>
+        <li>He falls asleep mid-exchange and the birds continue without him — the exclusion enacted so
+        gently it reads as lullaby. The children keep talking; the parent sleeps.</li>
+        <li>End at full dark, window open: the plain silent, or not silent — and let the sentence decline
+        to say which. The refusal is the block's signature.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page. It ends in the dark — before sleep or just inside it — with nothing confirmed in either
+      direction. The reader should come away having <em>enjoyed the conversation as though it happened</em>
+      while being aware, on reflection, that they were never told it did. If the scene proves the nodes are
+      talking, it has failed; if it dismisses them as fantasy, it has failed identically. The six wonderings
+      must all be present and none answered — and Leif should seem less lonely during the imagining than
+      after it, without the prose saying so.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder Chronology,
+      ✦ The Wound (Katita's continuation; the archive's exclusions) · notes/remainder-chronology.md §§12, 18,
+      20 (ratified 2026-07-13) · the four warnings.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Courtesan Recognition | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for the Courtesan Recognition — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Courtesan Recognition</h1>
+    <p class="sc-meta">
+      <span>Rank: Ten Years of Aftermath</span>
+      <span>Tier: Medium · 2 pp</span>
+      <span>Plan §22 + §4</span>
+      <span>Band: boxer</span>
+      <span class="hot">Law: REDISTRIBUTION, NEVER TWIST</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>During the train reverie, Leif half-recognises that <strong>the courtesan, not the Boxer, was the
+      imagined reader and correspondent</strong> — and the recognition must move like light shifting across
+      furniture, not like a lock opening. Three loads:</p>
+      <ul>
+        <li><strong>Redistribute the correspondence.</strong> The Boxer received through the body — tape,
+        stance, defeat, silence, physical instruction. She received through language — paperbacks, letters,
+        bathwater, response. He was always too mute to be the literary correspondent; she may have been the
+        one actually writing back. Leif half-sees this now, decades late.</li>
+        <li><strong>Recompose her honestly.</strong> She may have been assembled from former girlfriends and
+        rooms — hair from one, laugh from another, posture from a balcony, sand in sheets, paperbacks beside
+        a mattress. A surrogate for the intimacy of being read; a receiving presence he needed to imagine.
+        Sensuous, unmoralised, unapologised.</li>
+        <li><strong>Keep the insight incomplete.</strong> This is a redistribution of emotional truth, never
+        a twist. Seen, lost, half-seen again, released. If a reader could state the insight in one clean
+        sentence afterwards, the scene has overdelivered.</li>
+      </ul>
+      <p>Ratified guardrail: the Boxer and courtesan keep <em>a different ontological texture</em> from the
+      ROOT memories — warmer, more conjured, narrated on the "say…" register, never diagnostic.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 41–42 (≈ MS pp. 93–94)</strong> — fifth block of the Aftermath
+      rank, inside the train reverie frame (the plan places it "toward the end," during the ride). It
+      follows the tapping (p. 40), which returns the book to the window, and it primes the Last Letter in
+      Water (p. 43) — the object that holds this scene's question in paper form. The order can shift, but
+      recognition-then-letter is the strong sequence: the feeling first, then its artefact.</p>
+      <p><strong>Pays off from:</strong> the bath scene (MS pp. 25–26), the Paperback summer's letters, the
+      Boxer's dissipation (Movements 2–3), the courtesan's dissolution into girlfriends (Movement 4).
+      <strong>Feeds:</strong> the last letter; and, at maximum distance, the Arrival — the book's final
+      receiving presence being a real, ordinary friend.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The two channels:</strong> the Boxer received through the body — tape, stance, defeat,
+        silence, physical instruction; the courtesan received through language — paperbacks, letters,
+        bathwater, response.<span class="canon-tag">canon</span></li>
+        <li><strong>The half-realisation:</strong> the Boxer was too mute to be the true literary
+        correspondent; the courtesan may have been the one actually writing back; Leif only half-realises
+        this much later.<span class="canon-tag">canon</span></li>
+        <li><strong>Her composition:</strong> possibly assembled from former girlfriends and rooms — red
+        hair from one person, laugh from another, posture from another, beach towel, kitchen, balcony,
+        borrowed couch, doorway, sand in sheets, late-afternoon light, cheap paperbacks beside a
+        mattress.<span class="canon-tag">canon</span></li>
+        <li><strong>Her function:</strong> a surrogate for the intimacy of being read; after Katita, Leif
+        needed to imagine another receiving presence.<span class="canon-tag">canon</span></li>
+        <li><strong>The bath (MS pp. 25–26):</strong> the paperback slips under; the letters lift from the
+        page — "an oily alphabet soup"; her right arm reads, by "a miracle of sequenced liquidity,"
+        <em>Their Most August Public Organ</em>.<span class="canon-tag">canon</span></li>
+        <li><strong>The Boxer's texture:</strong> green satin shorts with a white star; speaking "only ever
+        into the corners of the room"; letters exchanged during the Paperback summer, paragraphs transcribed
+        from pulp Australian novels.<span class="canon-tag">canon</span></li>
+        <li><strong>The last letter</strong> is rain-damaged and may belong to her, him, both or neither —
+        its scene is the next block; here it may only be sensed approaching.<span class="canon-tag">canon</span></li>
+        <li><strong>Katita ends the sequence.</strong> She is not another figure in the line of composite
+        women — the recognition must not retro-absorb her.<span class="canon-tag">canon</span></li>
+        <li><strong>Law:</strong> a redistribution of emotional truth, never a twist; the insight remains
+        incomplete.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>The prose may</h3>
+        <p>Let "say" — the Boxer world's old conjuring verb — resurface, and let Leif hear who the
+        sentences were being performed for. Rehearse remembered letter-fragments and allow their addressee
+        to drift mid-sentence. Reassign a single image to a new owner without announcing the transfer. Keep
+        the register warm, conjured, bodily — never diagnostic, never file-flavoured.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Catch himself mid-thought addressing her and lose the thought. Remember which summer owned the
+        laugh and not the name that went with it. Feel the recognition as relief and exposure at once —
+        being read was the thing he wanted, and here is who was doing it. Fail to hold the insight; have
+        it come back smaller; let it go.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Complete the thought — <em>"it was her all along"</em> is banned in every wording. Rule on
+        whether she existed, call her a fantasy, a composite, or a device on the page. Diminish the Boxer:
+        he loses the letters, not the body-channel; his weight stays. State the Katita connection —
+        <em>"after her, he needed…"</em> stays beneath the page. Repair the chronology of when she was
+        imagined. Moralise the young man's fantasy.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>Train frame: his face doubled over paddocks in the window; late light; the carriage's held
+        warmth; other passengers as soft, unfocused presences; the reverie's slow permission.</li>
+        <li>Her composite parts, each keeping its origin's furniture: red hair against a kitchen's yellow
+        wall; a laugh arriving through a doorway; a posture from a balcony rail; a beach towel on a line; a
+        borrowed couch's afternoon; sand in sheets; a cheap paperback splayed beside a mattress.</li>
+        <li>The bath, at most one glancing return: lamplight on an aluminium window frame; pages heavy and
+        blank underwater; letters afloat. Remembered as light on a ceiling, not replayed as scene.</li>
+        <li>Letter textures from the Paperback summer: paragraphs copied out of pulp Australian novels on
+        verandahs and beaches; envelopes softened by pockets; the pleasure of transcription as a way of
+        being read by proxy.</li>
+        <li>The Boxer's channel, kept distinct and intact: figure-eight tape; the star on green satin; a
+        stance corrected by two fingers; speech directed into the corners of rooms.</li>
+        <li>The register of the replies, remembered: literate, responsive, warm around the syntax — a
+        quality he never once matched against the taped and silent hands he pictured writing them.</li>
+        <li>A woman across the carriage reading a paperback, hair wet from somewhere — a mundane
+        coincidence for his attention to catch on (option; keep her entirely oblivious).</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The redirected correspondence, half-seen</td><td>The Last Letter in Water (p. 43): the
+          object whose authorship stands open four ways — this scene's feeling given paper and
+          damage.</td></tr>
+          <tr><td>Her assembly from girlfriends and rooms</td><td>Erring together: a presence built from
+          misrememberings still received him — dramatised here, never stated anywhere.</td></tr>
+          <tr><td>The bath's lifted alphabet, glanced once</td><td>The title's recurrence keeps its
+          mystery — her arm already carried the book's name; this scene must not cash that image, only
+          tilt it.</td></tr>
+          <tr><td>Katita exempted from the sequence</td><td>Her distinctness holds to the end: the
+          composite women blur; she never does. Protects her from symbol-status.</td></tr>
+          <tr><td>The need for a receiving presence</td><td>The Arrival: after every imagined reader, a
+          real one — Andrew, who receives without processing. <em>The book's quiet destination; never
+          pointed at.</em></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The twist.</strong> Any sentence with revelation's shape — "he saw now," "he finally
+        understood," "so it had been her" — converts redistribution into plot and destroys the block. The
+        recognition must be resumable and losable: it arrives, blurs, returns at a lower wattage, and is
+        allowed to go unformulated.</li>
+        <li><strong>Completing the diagram.</strong> The body-channel / language-channel division is the
+        writer's architecture. Leif may not think it as a scheme; the reader may assemble it later, from
+        residue.</li>
+        <li><strong>Demoting the Boxer.</strong> If he becomes merely a screen she stood behind, Movements
+        2–3 collapse retroactively. He keeps everything he ever carried except the authorship of the
+        replies — and even that is only <em>half</em>-reassigned.</li>
+        <li><strong>Certifying her.</strong> Naming which girlfriend contributed which part, or declaring
+        her invented, closes a figure whose power is exactly that "real was never the right category."</li>
+        <li><strong>Repairing the chronology.</strong> The letters seem to predate Katita; the need for a
+        receiving presence seems to follow her. Do not reconcile this on the page — the seam is ratified
+        policy, not an error. The recognition is allowed to scramble before and after.</li>
+        <li><strong>Texture drift.</strong> No file-language, no diagnostics, no ROOT vocabulary anywhere
+        near her. The moment she reads like an archive entry, the ontological separation the plan demands
+        is gone.</li>
+        <li><strong>Apology or verdict.</strong> Movement 4's tone is ratified: honest, sensuous,
+        reflective, not moralising. Neither indulgence nor self-flagellation about the fantasy.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Let it start with grammar: a remembered reply containing a semicolon the Boxer would never
+        use. The recognition entering through punctuation, not through a face — and stopping there for a
+        long moment, content to be about punctuation.</li>
+        <li>A woman across the carriage with wet hair, reading a paperback. Nothing about her is the
+        courtesan; everything about his attention is. She never looks up; the scene never uses her
+        again.</li>
+        <li>"Say" comes back: he catches his mind running its old conjuring verb — <em>say she rouses, say
+        the bath</em> — and hears, for the first time, that the performance always had an audience of one,
+        and that the audience was not the man in the green shorts.</li>
+        <li>Reassign one image only: the taped hands he addressed every letter to — and the hands he now
+        pictures holding a letter open are untaped, wet at the wrist. One transfer, no inventory.</li>
+        <li>The composite assembles in the window: hair from one summer, a posture from a balcony, a laugh
+        through a doorway — each part doubled over moving paddocks so that nothing can settle into a single
+        face. The glass does the compositing; the prose just watches.</li>
+        <li>He tries to remember the Boxer reading anything — a fight bill, a menu, one of Leif's own
+        letters — and can't. The absence is allowed to sit there, undrawn-from. No conclusion follows
+        it.</li>
+        <li>The bath returns as ceiling-light only: lamplight wobbling on a ceiling somewhere above
+        remembered water, the words afloat below it unread. Half a sentence, then the paddocks again.</li>
+        <li>Katita crosses the passage once — a thought of her hands, or the pamphlet — and the remembering
+        <em>swerves around her</em>: the prose enacting, in its grammar, that she is not part of this
+        sequence and never was.</li>
+        <li>The recognition as posture: he notices he is sitting the way a man sits when writing to someone
+        who is listening — the body knowing the letter's true address before the mind is allowed to.</li>
+        <li>End with recession: the train enters a cutting, the window goes solid and dark, both faces in
+        it his own — and the thing he half-held is left deliberately unfiled as the light comes back.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Two pages. The scene ends with the insight receding, not concluding — the paddocks resume, the
+      reverie moves on, and what remains is a faint redirection of warmth, as if mail long thought lost had
+      been quietly re-sorted in a back room. The reader should feel the correspondence change hands without
+      ever hearing the new address read aloud. Test it hard: if the scene can be summarised as "he realises
+      the courtesan was the real correspondent," soften it until it can only be summarised as "something
+      about the letters shifted." The Boxer must weigh exactly as much on the last line as on the
+      first.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Endgame Plan
+      (Movements 2–4), ✦ The Remainder Chronology, §9 recurring figures (the Boxer &amp; the courtesan) ·
+      notes/remainder-chronology.md §§4, 22 (ratified 2026-07-13) · manuscript pp. 25–26 (the bath), p. 5
+      (the Paperback letters) · the four warnings.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

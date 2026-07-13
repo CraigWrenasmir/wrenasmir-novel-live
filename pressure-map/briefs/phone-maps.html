@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Phone Box &amp; Old Maps | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for Phone Box & Old Maps — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Phone Box &amp; Old Maps</h1>
+    <p class="sc-meta">
+      <span>Rank: Origins &amp; Pleasure</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Band: Root</span>
+      <span>Plan §8: the road years</span>
+      <span class="hot">Two obsolete channels, one page</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>One page, two objects, two habits — and absolutely no synthesis. This fleck puts a pair of
+      obsolete channels into the reader's hand as road-trip colour and lets the joining happen
+      hundreds of pages later. Three loads:</p>
+      <ul>
+        <li><strong>The phone box.</strong> A working payphone outside a closed post office. Katita
+        photographs it; Leif memorises its ten digits. That's the whole event. The digits are the
+        cargo — later a poem for a bell in an empty street he could call but never does.</li>
+        <li><strong>The old maps.</strong> Leif deliberately buys outdated road maps at service
+        stations, and when the map disagrees with the landscape he sometimes follows the map. The
+        habit must land as charm and mild inconvenience, never as position.</li>
+        <li><strong>The characterisation smuggled underneath:</strong> Leif prefers the older
+        inscription — the vanished road, the demolished landmark, the world before continuous
+        updating. This is his side of the eventual split as a harmless quirk, and the page must not
+        know it.</li>
+      </ul>
+      <p>Fleck discipline: flash and vanish. The miniature is the strength; both objects together
+      shouldn't outweigh a good anecdote told at a bar.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 8 (≈ MS p. 60)</strong> — the last page of the Origins &amp;
+      Pleasure band; the Road band opens next with War-Dialling the Paddocks. The order can shift on
+      the Pressure Map, but as laid it works as a door: the band closes on two dead channels kept
+      alive, and the next block is Katita hunting live copper in the dark.</p>
+      <p><strong>Feeds directly into:</strong> war-dialling (she heard that dial tone too), the
+      vernacular-republic inventory (the payphone is one member of it, glimpsed early), and the
+      aftermath years — old maps as "research," the ten digits still known a decade on.
+      <strong>Pays off from:</strong> nothing explicit; it arrives as pure road texture.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The phone box:</strong> a working payphone outside a closed post office. Katita
+        photographs it. Leif memorises its number. Years later he still knows the ten digits — <em>a
+        poem for a bell in an empty street he could call but never does.</em><span class="canon-tag">canon</span></li>
+        <li><strong>The old maps:</strong> Leif deliberately chooses outdated road maps at service
+        stations. When the map disagrees with the landscape, he sometimes follows the map. He values
+        the older inscription, the vanished road, the demolished landmark, the world before
+        continuous updating.<span class="canon-tag">canon</span></li>
+        <li><strong>Ranking:</strong> phone-box number and old map at the service station are both
+        listed flecks — stronger miniature, flash and vanish.<span class="canon-tag">canon</span></li>
+        <li><strong>Downstream, ratified:</strong> maps disagreeing with roads is one of the
+        dramatisations of "erring together"; old maps are part of the aftermath decade's official
+        "research"; payphones belong to the vernacular republic's inventory of public
+        memory-organs (its own later block — don't stage the inventory here).<span class="canon-tag">canon</span></li>
+        <li><strong>War-dialling adjacency:</strong> Katita later dials rural numbers at night until
+        one answers with a modem handshake. The handshake sound belongs to that block, not this
+        one.<span class="canon-tag">canon</span></li>
+        <li><strong>States:</strong> both amused, neither reverent. He isn't nostalgic; he's
+        acquisitive — the number goes into him the way the photograph goes into her camera. No one
+        is troubled by anything on this page.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Photograph without explaining. Test him on the number once, out of order, days later.
+        Read the old map's margin ads aloud — motels that no longer exist, a tearooms with a
+        two-letter phone number. Tease him about navigating by ghosts, and lose the argument at the
+        next junction anyway. Not care who wins.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Lift the handset to check for a dial tone and hang up carefully — checking is not
+        calling. Learn the number aloud in the metre of a phone number: two, four, four. Buy the
+        faded map off the sunny side of the rack and say, at most, "this one's got character."
+        Follow a road the landscape no longer offers and be late and unrepentant.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Ring the phone box, or be rung by it — the possibility is the entire object. Use
+        <em>obsolete, archive, memory, preserve, update</em> in any thematic register. Say the
+        payphone is "waiting" or that anything is "still here." Explain why he prefers old maps
+        beyond a shrug. And above all: no one may notice that the two habits on this page are the
+        same habit.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The town: a closed post office with the lettering's shadow where the sign was; agency
+        stickers curling on the glass; a dog flat on warm concrete; awnings over nothing; either
+        the pub open or nothing open.</li>
+        <li>The phone box: door folded permanently back; glass gone milky with scratch-graffiti;
+        the phone book on its chain, swollen with old rain; hot aluminium, perished rubber; the
+        dial tone startlingly loud in the empty street, purring like a fridge.</li>
+        <li>The number itself: typed, off-centre, on a little card under yellowed plastic. Ten
+        digits with a country prefix like a growth ring.</li>
+        <li>Her camera: the framing ritual, one step left, the click; then a second frame of
+        something he can't identify the subject of.</li>
+        <li>The servo: map rack next to the pie warmer; new maps shrink-wrapped; the old one faded
+        on the sunny side of the rack, laminated fold-lines cracking, a $2 sticker over an older
+        price.</li>
+        <li>The map open on a hot bonnet: dashboard glare, the smell of warm paper and vinyl;
+        towns in 8-point type that are now three chimneys and a cemetery; a ferry symbol for a
+        ferry that stopped running; a red road that ends at a river where the bridge was never
+        rebuilt.</li>
+        <li>The disagreement, staged by the country itself: a Y-junction where the map offers a
+        road and the landscape offers a locked gate and two wheel ruts full of seed heads.</li>
+        <li>Sun through the windscreen while she navigates off signage and he navigates off paper —
+        two systems in one cab, both mostly right.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The ten digits</td><td>Still known a decade later, in the aftermath hotels — a
+          poem for a bell he could call but never does. The keeping is proven downstream, never
+          declared here.</td></tr>
+          <tr><td>Her photograph</td><td>Katita's lifelong attention to live infrastructure — the
+          same eye that later war-dials the paddocks; and one more image in the ecology of her
+          unsigned files.</td></tr>
+          <tr><td>The dial tone in an empty street</td><td>The modem handshake of the war-dialling
+          block: a live line saying <em>I'm here</em>. This page holds the human-audible version;
+          that page owns the payoff.</td></tr>
+          <tr><td>Old maps preferred</td><td>His fracture position in embryo — the source protected
+          from updating — worn here as a charming habit. Writer's note only; the page must stay
+          innocent. Also: the aftermath decade's "research."</td></tr>
+          <tr><td>Map versus landscape</td><td>"Erring together" (§23): maps disagreeing with roads
+          becomes one of the book's late dramatisations of contested truth. Here it's just a locked
+          gate and a good lunch spot.</td></tr>
+          <tr><td>The closed post office</td><td>The vernacular republic inventory — one public
+          memory-organ met in the flesh before the later block names the species. No comment.</td></tr>
+          <tr><td>She keeps the image, he keeps the number</td><td>Two organs of keeping, one
+          object — a silent asymmetry the split will eventually spend. Neither may notice it.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The essay in miniature.</strong> Two habits on one page beg to be joined. The
+        page must be two anecdotes and zero synthesis — the reader does the joining, possibly
+        hundreds of pages later. Any sentence that serves both objects at once is the enemy.</li>
+        <li><strong>Ringing the phone.</strong> If it rings, or is rung, the poem dies. Nobody
+        calls; nobody starts to dial and gets stopped, either — a prevented call is a call the page
+        knows about.</li>
+        <li><strong>The payphone op-ed.</strong> No lament for vanished infrastructure, no tenderness
+        toward "the old ways." Leif takes the number like a man pocketing a good stone — appetite,
+        not elegy.</li>
+        <li><strong>Scoring the map habit.</strong> Don't make it wise (the old map knows a
+        shortcut) or foolish (disaster by outdated bridge). The landscape wins some, the paper wins
+        some, and nobody keeps the score.</li>
+        <li><strong>Motif self-awareness.</strong> If Leif thinks anything resembling "the older
+        inscription" or "before updating," cut it. That language belongs to the scaffold and the
+        Bible, never to the page.</li>
+        <li><strong>Fleck bloat and date stamps.</strong> One page, and nothing that certifies the
+        year — the town should be undatable to within a decade, like the map.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the dial tone: he lifts the handset for no reason either of them could give,
+        and the tone is huge in the empty street. He hangs up carefully, like putting something
+        back to sleep.</li>
+        <li>He learns the number in phone-number metre — two, four, four — says it twice forward
+        and once backward. The backward pass is pure show-off, and she gives it the single nod it
+        deserves.</li>
+        <li>Her two frames: first the phone box, then an about-face to shoot the street the box
+        faces — the caller's view, what the bell would interrupt. Never explained, never mentioned
+        again.</li>
+        <li>The phone book on its chain, swollen to twice its thickness with rain, town names
+        halfway back to pulp. They look up nobody.</li>
+        <li>The map purchase: the attendant starts to say the map's old, looks at Leif, and decides
+        against it. The whole transaction is that decision.</li>
+        <li>The Y-junction: the map promises a road; the country offers a locked gate and seed
+        heads. They take the map's side, drive to where the road dies at a river with no bridge,
+        and have the best lunch in three days at the mistake.</li>
+        <li>Two navigators, one cab: she runs on signage, he runs on paper, they arrive at the same
+        pub by different arguments and both claim the win. The score is not kept.</li>
+        <li>The old map carries a previous owner's route in pressed biro, embossed through three
+        folds. He follows the stranger's line for an hour once, and doesn't tell her. One touch, no
+        comment.</li>
+        <li>Months later, at a different phone box — this one dead — he recites the ten digits
+        unprompted, just to prove they're still there. She looks at him for a moment longer than
+        usual and lets it go.</li>
+        <li>End with the number as cargo: the town shrinking in the mirror, the phone box gone from
+        view, and ten digits riding along in the cab, weighing nothing.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page. It ends leaving town, both objects filed by the reader as road-trip colour: a
+      photographed phone box, a man reading the wrong map on a hot bonnet. No line joins them; no
+      line looks forward. The page succeeds if, hundreds of pages later — the hotel research years,
+      the digits surfacing intact — the reader feels the click without being able to cite where the
+      spring was wound. If anyone closes this page thinking it was about anything, it was about too
+      much.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder
+      Chronology (spine §§8, 9, 18, 23; fleck ranking) · remainder-chronology.md §8 (payphone, old
+      maps), §9 (vernacular republic), §18 (aftermath research) · ratified guardrails
+      2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

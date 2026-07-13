@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Invented Big Thing | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for The Invented Big Thing — an abandoned roadside monument whose purpose has gone obscure.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Invented Big Thing</h1>
+    <p class="sc-meta">
+      <span>Rank: The Road Years Alive</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Plan §8</span>
+      <span>Band: Root</span>
+      <span class="hot">More than comic</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>One page, one object. An invented Australian roadside monument that lands first as roadside
+      comedy and stays as something heavier. Three loads:</p>
+      <ul>
+        <li><strong>Invent it properly.</strong> Not the Banana, not the Merino — a fictional Big Thing
+        with the true grammar of the genre (fibreglass or plate steel, a plinth, a car park, a plaque)
+        and one wrongness: <em>its original purpose has become obscure.</em> Nobody, including the town,
+        can quite say what it was for.</li>
+        <li><strong>Carry the metaphysical charge lightly.</strong> This is what remains of a town that
+        once tried to make itself legible from the highway. The dread and tenderness of that must come
+        off the object itself — rust, scale, birds — never off a sentence about towns or legibility.</li>
+        <li><strong>Stay a fleck.</strong> Flash and vanish. They pull over, they stand in its shadow,
+        they drive on. The page may be revisited later (Leif alone, in the aftermath decade) but this
+        block spends its single page in the road years, together.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 12 (≈ MS p. 64)</strong> — after the vernacular republic
+      inventory, before the heritage tour of the dead server. Strong hinge position: the failed civic
+      broadcast in steel on one page, the abandoned civic render in polygons on the next — the reader's
+      eye makes the rhyme, the book never does. The order can shift on the Pressure Map; the fleck is
+      portable anywhere in the road band.</p>
+      <p><strong>Feeds directly into:</strong> the heritage tour (obscured civic purpose, again), the
+      wren nest in the dead module (a big made thing repurposed by birds, again), Leif's aftermath decade
+      of returning to sites alone. <strong>Pays off from:</strong> the old maps fleck — if the Big Thing
+      is on the old map and off the new one, or vice versa, one of the maps is already wrong in the glove
+      box.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The object:</strong> a strange Australian roadside monument — an abandoned civic
+        object whose original purpose has become obscure. Rusting, enormous, perhaps
+        bird-filled.<span class="canon-tag">canon</span></li>
+        <li><strong>The charge:</strong> the metaphysical weight of a town that once tried to make itself
+        legible from the highway.<span class="canon-tag">canon</span></li>
+        <li><strong>The register:</strong> more than comic — it belongs to the road years as lived
+        pleasure (landscapes enjoyed for their own sake, roadside humour), so the comedy is real; it just
+        isn't the floor.<span class="canon-tag">canon</span></li>
+        <li><strong>Tier:</strong> fleck — flash and vanish, per the ratified scene-time
+        ranking.<span class="canon-tag">canon</span></li>
+        <li><strong>The four warnings apply:</strong> no character states what the monument means; the
+        object must not know it's a motif.<span class="canon-tag">canon</span></li>
+      </ul>
+      <p>Staging latitude (plan-level, not locked): they encounter it together during the road years;
+      Leif may later return to it alone. If both, the return belongs to the aftermath pages, not here.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Photograph it the way she photographed the working phone box — one frame, no ceremony. Pace
+        out its footprint. Read the plaque aloud and stop where the plaque stops. Ask at the servo what
+        it is and receive the answer with complete satisfaction, whatever it is.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Love it immediately and without analysis. Know, or half-know, one fact about it that
+        contradicts the servo's version. Touch the steel where the paint has gone and feel the day's heat
+        still in it. Want to stay ten minutes longer than the stop needed.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Compare it to the nodes, the archive, or anything they are building. Call it sad, or a
+        monument to anything. Use the words <em>legible, civic, memory, forgotten</em>. Solve it — the
+        answers they get must not converge, and neither Leif, Katita nor the narrator may adjudicate
+        between them.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>Visible for twenty minutes before arrival — a shape on the heat shimmer that keeps refusing
+        to resolve into anything, then does, and is worse.</li>
+        <li>Scale up close: bolt heads the size of fists; seams of rivets like sutures; a ladder inside
+        welded off at head height, decades ago, after some incident nobody names.</li>
+        <li>Rust streaking down from every fixing like tidelines; municipal paint in exactly two coats —
+        mission brown over council green — flaking to show both histories at once.</li>
+        <li>Birds inside: starlings or galahs, audible before visible, the whole object ticking and
+        rustling at dusk like something coming to a low idle. A white spatter-line below every opening.</li>
+        <li>Wind across an aperture producing one low note, sometimes, in a crosswind. <em>One touch, no
+        comment, and do not let it happen at a meaningful moment.</em></li>
+        <li>The car park: room for forty cars, holding one. A broken tap. A picnic table with its
+        centre plank gone. A bin chained to a post, the bin long stolen, the chain faithful.</li>
+        <li>The plaque: bronze, raised letters polished blank across the middle by forty years of
+        thumbs — the dates legible at the edges, the purpose worn away exactly where hands could reach.</li>
+        <li>The town beyond: off the bypass now, its welcome sign still doing arithmetic about how far
+        back the turn was.</li>
+        <li>The servo answers (keep them incompatible): it was for the scheme; it was for the centenary;
+        it was half of something bigger that never came from the foundry; a bloke built it and the
+        council took it over; it was always like that.</li>
+        <li>Smells: hot steel, dry grass gone to seed through the concrete apron, sunscreen, the pie
+        bought at the last town cooling on the dash.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>Birds living in the object</td><td>The wren nest in the dead module — a made thing
+          continuing by changing purpose. The Big Thing does it first, at highway scale, uncommented.</td></tr>
+          <tr><td>Incompatible accounts of its purpose</td><td>The ecology of unstable provenance —
+          Shore's plural names, the contaminated masthead. A whole town erring together about its own
+          monument.</td></tr>
+          <tr><td>The polished-blank plaque</td><td>Every worn record in the book — the microfiche bloom,
+          the rain-damaged letter: legibility lost precisely through use and touch, not neglect.</td></tr>
+          <tr><td>The bypass / the wrong map</td><td>The old maps fleck — the vanished road, the world
+          before continuous updating; and the dead-server tour one page later, where demolished things
+          still stand.</td></tr>
+          <tr><td>Standing in its shadow together</td><td>Leif's possible solo return in the aftermath
+          decade — the same shadow with one body in it. Plant nothing; the geometry does the work if the
+          return is written.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>Comedy only.</strong> If the page is a bit — quirky Australia, big dumb object — the
+        canon charge is lost. The comedy is the way in; the object must outstay the joke by one beat.</li>
+        <li><strong>Allegory.</strong> The Big Thing must never stand for ROOT, the archive, or the
+        novel. It is a thing by a road. The moment the prose angles it toward theme, cut the angle.</li>
+        <li><strong>The wrong invention.</strong> No Big Antenna, Big Ear, Big Book, Big Tree — anything
+        that rhymes with the book's machinery is a motif that knows itself. Pick something whose obscurity
+        is native to it: industrial, agricultural, commemorative, disputed.</li>
+        <li><strong>Solving it.</strong> Three answers at the servo that triangulate to a truth are a
+        puzzle, not a mystery. The accounts must be flatly incompatible and equally confident, and stay
+        that way.</li>
+        <li><strong>Overstaying.</strong> One page. If the scene grows a conversation about towns, the
+        highway, or what gets remembered, it has become a medium scene about theme — kill it back to the
+        object, the birds, the drive away.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li><strong>The Wheel:</strong> a riveted steel wheel ten metres across, upright on a plinth —
+        turbine? mill gear? memorial? The plaque says RESTORED 1968, which means it was already old and
+        already obscure by then.</li>
+        <li><strong>The Drop:</strong> a colossal sheet-metal water droplet, built for the opening of an
+        irrigation scheme that was cancelled between fabrication and unveiling. The town kept it. What
+        else do you do with a fifteen-metre drop of water.</li>
+        <li><strong>The Half:</strong> one half of something, cleanly flanged down its open face, waiting
+        for a second half the foundry never sent. Bolt-holes ready. Fifty years of birds using the open
+        side as a grandstand.</li>
+        <li><strong>The disputed animal:</strong> a concrete beast repainted so many times its species is
+        now a town argument — ram, working dog, something older. The servo sells postcards that hedge.</li>
+        <li><strong>The Gnomon:</strong> a sundial fin the size of a tennis court, casting accurate time
+        onto bare paddock — the dial plate with its numbers was stage two, and there was no stage two.</li>
+        <li>Open from the highway: the twenty-minute approach, the shape on the shimmer, Katita driving,
+        Leif watching it refuse to become anything — and the pull-over decision made by neither of them
+        aloud.</li>
+        <li>The bird beat: they arrive at dusk and the thing is <em>full</em> — starlings pouring into an
+        aperture like water finding a drain, the steel audibly alive. They eat the cooled pie on the one
+        good plank and watch it fill.</li>
+        <li>Katita's single photograph, and her refusal to take a second when the light improves. One
+        record. Leif, who would archive it from nine angles, says nothing and files the fact of her one
+        photograph somewhere deeper than the camera could reach. <em>Render as behaviour, not
+        cogitation.</em></li>
+        <li>The plaque read aloud in full, including the blank: she reads the raised edges and then the
+        worn middle — "erected by public subscription … to mark … " — and lets the gap stand as spoken
+        silence. Nobody fills it.</li>
+        <li>End driving away: the object in the mirrors for another twenty minutes, shrinking back into
+        shimmer, the radio finding a station, the day going on being a good day. The last look back is
+        Leif's, and the prose does not say so twice.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page. They stop, they stand in it, they leave — and the reader laughs somewhere in the first
+      third and can't fully account for their mood by the last line. Nothing is explained, nothing is
+      mourned aloud, nothing connects to anything the characters are building. If the town's attempt to be
+      seen from the highway registers as feeling rather than as observation, the fleck has done its work.
+      Flash and vanish; the birds keep the building.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder
+      Chronology (spine §8, scene-time ranking: fleck) · notes/remainder-chronology.md §8 · ratified
+      guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

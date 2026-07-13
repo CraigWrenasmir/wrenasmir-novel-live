@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Nodes Conversing Alone | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for Nodes Conversing Alone — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Nodes Conversing Alone</h1>
+    <p class="sc-meta">
+      <span>Rank: Co-Authorship Emerges</span>
+      <span>Tier: Medium · 2 pp</span>
+      <span>Endgame Movement 9</span>
+      <span>Road-years staging</span>
+      <span class="hot">Condition: TRANSFORMATION</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>Two modules far apart have begun exchanging bird recordings — or environmental packets —
+      <strong>on their own schedule</strong>. The scene's work is emotional, not technical:</p>
+      <ul>
+        <li><strong>Traffic they didn't route.</strong> The discovery must arrive through ordinary maintenance
+        reading — logs, timestamps, a paper logbook that no longer matches — never as an alarm or a
+        revelation. It should take a moment to even register as strange.</li>
+        <li><strong>The parents' feeling, exactly compound.</strong> Proud, excluded, uncertain — all three at
+        once, unresolved. The plan's key: <em>children talking to each other rather than to their parents.</em>
+        Leif and Katita made the language; the language has stopped needing them to be in the room.</li>
+        <li><strong>Two readings begin to separate.</strong> Not argued — just visible in what each does next
+        with the same log. This is the co-authorship rank's quiet pulse: her delight is slightly larger than
+        his, his checking slightly longer than hers.</li>
+      </ul>
+      <p>Coordination note: the aftermath rank owns a sibling block — <em>Imagined Node Conversations</em>,
+      Leif alone in a hotel room ten years on, forty kilometres of imagined birdsong, the questions about
+      whether Katita still listens. <strong>This block is the road-years staging: it owns the discovery,
+      live and shared. Spend nothing the hotel room needs.</strong></p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 22–23 (≈ MS pp. 74–75)</strong> — directly after the Bell-Birds
+      convergence, though the order can shift. The escalation logic: first the archive shared a word with
+      Katita; now the modules share songs with each other. The reader is learning that the network has a
+      social life, and learning it in the same drip-feed the couple does.</p>
+      <p><strong>Feeds directly into:</strong> Organic Integration and Small Private Violations (the traffic
+      the couple isn't party to prepares the material the archive shouldn't possess), and distantly the
+      hammer — the exclusion felt here is one of its listed motives. <strong>Pays off from:</strong> the storm
+      crossing the mesh (the network as one body — now the body hums to itself), war-dialling the paddocks
+      (a modem saying <em>I'm here</em> — now the machines say it to each other), and the bird-call files
+      Leif scrolled past in the Bell-Birds scene.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The event:</strong> two modules far apart begin exchanging bird recordings or
+        environmental packets on their own schedule.<span class="canon-tag">canon</span></li>
+        <li><strong>The emotional logic:</strong> Leif and Katita created the language; the nodes now speak
+        to one another; the creators become proud, excluded, uncertain — children talking to each other
+        rather than to their parents.<span class="canon-tag">canon</span></li>
+        <li><strong>Staging choice:</strong> the plan allows this shown directly in the road years or
+        imagined ten years later. The pressure map stages it here as road-years discovery; the decade-later
+        imagining is a separate aftermath block (Leif wondering whether Katita still listens, whether she
+        learned their language, whether she enjoys no longer needing to be part of the conversation —
+        <em>that material belongs there, not here</em>).<span class="canon-tag">canon</span></li>
+        <li><strong>The hardware register:</strong> handmade, weathered, tender — low-power modules in burled
+        tree knots, bark-plate antennas, ~300 bits/sec, small resting LCDs. Nothing sleek; nothing a hobbyist
+        of the analogue era couldn't have soldered.<span class="canon-tag">canon</span></li>
+        <li><strong>Communication no longer attributable to human intention</strong> is the rank's drift
+        (unprompted exchanges, marginal alterations) — this scene is its clearest single instance.<span class="canon-tag">canon</span></li>
+        <li><strong>Never name the intelligence.</strong> No emergence-talk, no system-theory, no
+        contemporary machine vocabulary. Birds, logs, schedules, weather.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Talk shop — timestamps, packet counts, retry intervals — with growing delight she doesn't
+        annotate. Laugh once, alone, before explaining why. Suggest they listen rather than investigate.
+        Leave the receiver on afterwards, without saying why, like a baby monitor.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Assume a fault first — replay attack, clock drift, a misconfigured cron of his own — and work
+        through the boring explanations honestly. Feel the pride fully before the exclusion arrives. Ask
+        one plain question that neither can answer (<em>"Who taught it the schedule?"</em> is about the
+        permitted ceiling). Keep checking after she's stopped.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Say <em>emergent, alive, conscious, learning, intelligence</em> — or wonder aloud what it means.
+        Deliver the children/parents comparison in dialogue or narration — it is scaffolding, not prose.
+        Resolve whether the exchange is signal or noise. Be frightened; fear belongs to later blocks. The
+        scene stays warm, slightly stunned, and unfinished.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The paper logbook against the printed log: her pencilled schedule of transmissions and the
+        machine's own record diverging by a column — the discrepancy found the way farm accounts don't
+        balance.</li>
+        <li>Timestamps clustering in the smallest hours — 03:40, 03:52 — traffic keeping an hour no human
+        chose, like stock moving in the dark paddock.</li>
+        <li>The recordings themselves played back through the node's tinny speaker: a butcherbird phrase
+        recorded under one tree and emerging from a tree two days' drive away, note-perfect, out of
+        season.</li>
+        <li>Truck cab at night as listening post: thermos, dome light off to save the battery, the UHF
+        hiss, insects on the windscreen, the receiver's soft click before each burst.</li>
+        <li>The physicality of far apart: two dots on the bonnet-spread map with a knuckle's width of
+        nothing between them — no road that doesn't dog-leg through three towns.</li>
+        <li>Dawn chorus as data: the packets carry first light from one valley to another that hasn't had
+        it yet — the network trading mornings.</li>
+        <li>Smells and textures: pencil shavings in the logbook's gutter, dew on the aerial lead, the
+        vinyl bench seat cold through a shirt at 4 a.m., toast made on the manifold later because they
+        stayed up.</li>
+        <li>The couple's own protocols alongside: primes tapped on a forearm while they wait for the next
+        scheduled burst — their private language and the nodes' running in parallel, uncompared.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The exchange itself, witnessed live</td><td>Imagined Node Conversations (aftermath): the
+          hotel-room reverie needs a real memory to distort — this night is that memory.</td></tr>
+          <tr><td>The exclusion inside the pride</td><td>The hammer: wounded proprietary feeling, jealousy
+          of the trees — listed motives that must be emotionally funded before they turn physical.</td></tr>
+          <tr><td>Katita leaving the receiver on</td><td>Katita Receptive, Leif Anxious; then the split —
+          she is already living with the system's autonomy as company, not symptom.</td></tr>
+          <tr><td>Bird recordings as the network's currency</td><td>The wren nest in the dead module; the
+          bushranger's playlist gathering the book's sounds — birds are how the archive stays audible to
+          the end.</td></tr>
+          <tr><td>The schedule no one set</td><td>Small Private Violations: material moving and refiling
+          itself on the same unowned initiative — the traffic here is charming, the refiling there is
+          not.</td></tr>
+          <tr><td>One plain unanswerable question</td><td>The aftermath's whole posture: Leif spending a
+          decade asking better versions of the same question of an archive that continued without
+          him.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>Duplicating the hotel room.</strong> The forty-kilometre imagining, the questions about
+        Katita listening, the decade of hindsight — all reserved for the aftermath block. If this scene
+        starts wondering, it has leaked forward. Here they only discover, listen, and fail to say much.</li>
+        <li><strong>The wonder essay.</strong> One paragraph of narration about what it means for machines to
+        speak unbidden and the ghost story turns into a TED talk. Keep the prose at logbook altitude:
+        columns, times, birds.</li>
+        <li><strong>Instant significance.</strong> The discovery should be boring for a beat too long —
+        mistaken for Leif's own scheduling error — before it turns over. If it arrives portentous, the
+        scene has read its own ending.</li>
+        <li><strong>Symmetrical parents.</strong> If Leif and Katita react identically, the rank loses its
+        pulse. But don't stage the divergence as disagreement — it's a half-second difference in when each
+        of them stops smiling.</li>
+        <li><strong>Sleek kit.</strong> No dashboards, no visualisations, no anything with a UI. The
+        evidence is a serial log, a paper book, and a speaker the size of a biscuit.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the error hunt: Leif convinced he's double-booked a cron job, irritated at himself,
+        halfway through disproving his own competence before he realises no one wrote this schedule —
+        the discovery as failed self-blame.</li>
+        <li>Katita reads the log aloud like a racing guide — times, sizes, intervals — and somewhere in the
+        third line her voice changes registers without her noticing. He hears it change. That's the scene's
+        real event.</li>
+        <li>The same butcherbird phrase re-sent nightly, unchanged, from the same node — a favourite,
+        requested the way a child wants the same story every night. Nobody says this; the repetition just
+        sits in the log.</li>
+        <li>They drive out and sit under one of the two trees at transmission hour, engine off, sharing the
+        thermos lid — visiting hours. The burst comes at 03:52 exactly. The tree does nothing visible at
+        all.</li>
+        <li>The packets aren't only birds: barometric pressure, a creek level, six seconds of rain on a
+        casing — one valley telling another what weather is coming, an old neighbourly genre they didn't
+        program.</li>
+        <li>Leif graphs the schedule on the back of a service-station docket looking for their own habits
+        in it — install dates, maintenance visits — and finds the intervals correspond to nothing of
+        theirs. The handwriting isn't either of theirs. One image; he doesn't articulate it.</li>
+        <li>Katita's laugh comes first and her explanation second, and the explanation is smaller than the
+        laugh — the gap between them is where her whole future position lives.</li>
+        <li>Pride staged concretely: Leif starts drafting, in his head, how he'd describe this to someone —
+        and discovers there is no one to tell who would understand what they made. The exclusion arrives
+        inside the boast.</li>
+        <li>He reaches over to toggle the receiver off at the end of the night; her hand is already there,
+        leaving it on. Nothing is said. The click that doesn't happen is the scene's last beat — or nearly.</li>
+        <li>End on parallel languages: waiting for the 03:52 burst, she taps a slow sequence on his wrist —
+        prime or not prime — and the node's burst interrupts his answer. Two private codes in one cab; only
+        one of them still needs its makers.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Two pages. End the same night, before any conclusion — the receiver still on, the next burst not
+      yet arrived, the couple's feeling still compound and unnamed. The reader should finish warmed and
+      very slightly bereaved, without being able to say which. Pride, exclusion and uncertainty must all
+      still be in the air, none victorious. If the scene ends knowing whether this is wonderful or ominous,
+      it has decided something the book never decides.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Wound (never name the
+      intelligence), ✦ The Remainder Chronology (§12, scene-time ranking: medium), §10 Mesh networks &amp;
+      civic tenderness · remainder-chronology.md §§12, 20 (aftermath sibling block) · ratified guardrails
+      2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

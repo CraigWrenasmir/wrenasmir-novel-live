@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Arrival | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for The Arrival — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Arrival</h1>
+    <p class="sc-meta">
+      <span>Rank: Return &amp; Arrival</span>
+      <span>Tier: FULL SCENE · 4 pp</span>
+      <span>Remainder pp. 46–49 ≈ MS pp. 98–101</span>
+      <span>Plan §§21 · 25–28 · Band: Train</span>
+      <span class="hot">Condition: ATTENTION</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>This is the end of the book's prose. One of the six ratified full scenes, and the fourth warning's
+      home ground: <strong>only the final-cluster elements are active</strong> — the ostinato in the slowing
+      train, the small tree and wren at the station, the uncertain human arrival, and then the silent ASCII
+      map that follows on its own page. Everything else the book has ever carried stays subterranean,
+      already vibrating underneath. Four loads:</p>
+      <ul>
+        <li><strong>Resolve the phrase in the body.</strong> The train's slowing rhythm aligns with Leif's
+        unconscious tapping and resolves it by <em>one added beat</em>. Page 1's ostinato, her prime game,
+        and a decade of motel-table drumming close in a single physical event — felt in the hand, never
+        named as arithmetic.</li>
+        <li><strong>Deliver the Adlestrop minute.</strong> A young tree growing in ballast or some other
+        inhospitable margin, the whole tree moving in the wind, perhaps a wren entering or leaving. Little
+        happens; the world becomes briefly receivable. <em>No explicit revelation.</em></li>
+        <li><strong>Keep the arrival uncertain without bleaching it.</strong> Signs of the friend — all the
+        emotional alternatives simultaneously available, none certified. The ambiguity means Leif can no
+        longer inhabit presence without residual uncertainty about authorship, projection and reception —
+        it does <em>not</em> mean nothing is real. The relief is real. The book does not adjudicate.</li>
+        <li><strong>End in motion.</strong> Alighting, breath, ballast, wind, a gate or first step, perhaps
+        a human figure, perhaps the space where one may appear. <strong>The last image of the book's prose
+        is the beginning of the walk.</strong> The closest thing to revelation is attention itself — as
+        compass, never as sentence.</li>
+      </ul>
+      <p>Underneath, unresolved and unargued: the double exposure. Human relief <em>and</em> the trees as
+      possible witnesses — the reunion's warmth carrying one degree of strangeness it never explains.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 46–49 (≈ MS pp. 98–101)</strong> — the last prose in the book. The
+      Bushranger's Playlist (p. 44) has cleared the soundstage; Wrens in the Dead Node (p. 45) has banked the
+      image the small tree will recall. Everything upstream can still shift; nothing may follow the first
+      step except the silent full-page ASCII map (p. 50), which is its own block and not this scene's to
+      caption.</p>
+      <p><strong>Feeds directly into:</strong> the map — the prose ends with Leif's attention; the map
+      belongs to the world that continues after him. <strong>Pays off from:</strong> page 1 (the pylon
+      ostinato, "on my way to see my friend"), the primes on skin, the wren nest, the bushwalk anticipation
+      already written ("we will park outside the bush as always...") — and, by subtraction, the entire
+      book: this scene keeps almost none of it on the surface, which is how it honours all of it.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>Scene-world:</strong> the present-tense train, Newcastle toward Lake Macquarie, morning;
+        Leif is 42, "on my way to see my friend"; the empty platform at Fassifern has already passed the
+        window earlier in the book. The final station itself is unnamed in canon — small, regional, on the
+        lake line.<span class="canon-tag">canon</span></li>
+        <li><strong>The ostinato</strong> is page 1: pylons like bar lines, phasing bass notes against the
+        carriage floor, "a known wobbly offbeat." The tapping is simultaneously Katita's prime game, bodily
+        memory, a protocol, and a musical phrase awaiting resolution; the slowing train aligns with it and
+        <strong>resolves by one added beat</strong>.<span class="canon-tag">canon</span></li>
+        <li><strong>The friend is never named in the prose.</strong> The narrator ratified it on the page:
+        <span class="q">"from herein, I'll always refer to as my friend."</span> Andrew exists backstage
+        only. They meet every six months and embrace "as brothers who survived the teenage years, the
+        courting years, the apprentice years."<span class="canon-tag">canon</span></li>
+        <li><strong>Meeting logistics:</strong> the friend collects him; "we will park outside the bush as
+        always and then my friend will drive us in his capable four-wheel drive across the first ridge of
+        the mountain that necklaces the region."<span class="canon-tag">canon</span></li>
+        <li><strong>The menu of uncertain signs</strong> (§27): a sign he has been there · a vehicle absent
+        or partly seen · a boot mark · a message · a figure near the trees · the suggestion he is around the
+        corner · a glimpse that may or may not resolve. The alternatives remain simultaneously available:
+        he is physically present; he is perceived through memory and expectation; he has been and may
+        return; the walk will occur; the walk is already occurring inside Leif's long rehearsal of it.
+        <strong>The book need not adjudicate.</strong><span class="canon-tag">canon</span></li>
+        <li><strong>The small tree</strong> (§26): growing in ballast, concrete, fencing or some other
+        inhospitable margin; the whole tree moves in the wind; perhaps a wren enters or leaves; the dead
+        node's nest is recalled <em>without explanation</em>; Adlestrop register — little happens, and the
+        world becomes briefly receivable.<span class="canon-tag">canon</span></li>
+        <li><strong>The double exposure</strong> (✦ The Wound): the relief of the friend is real, and the
+        trees around the meeting are no longer innocent scenery — possible witnesses, listening structurally.
+        Keep both; resolve neither.<span class="canon-tag">canon</span></li>
+        <li><strong>The older ending image survives as one option:</strong> Leif sees the friend before the
+        friend sees him — adjusting something, tying a shoe, looking away. Understated, slightly off-centre,
+        human. It is now one alternative on the §27 menu, not the certified outcome.<span class="canon-tag">canon</span></li>
+        <li><strong>Edward Thomas is already inside the book:</strong> "Edward Thomas for the Space Age" —
+        the Adlestrop register arrives as a return, not an import.<span class="canon-tag">canon</span></li>
+        <li><strong>States:</strong> Leif carried, not steering — movement without control. Recognition, not
+        resolution: <em>a person may not be knowable as an answer, but they can still be met.</em>
+        Philosophical condition: <em>Attention — the closest thing to revelation.</em><span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Leif (narration) may</h3>
+        <p>Feel the added beat as a physical event and look at his own hand. Leave the station unnamed and
+        know it by the length of its platform. Recall the wren nest in a single clause — warmth arriving in
+        his fingers — and let it go in the same sentence. Register the trees' attention as a temperature, a
+        pressure, a politeness, never as a claim. Breathe, and notice breathing.</p>
+      </div>
+      <div class="permit">
+        <h3>The world &amp; the friend may</h3>
+        <p>Supply a garbled announcement whose words never resolve. Provide crossing bells, the brake's long
+        exhale, a door chime, wind. Offer at most <em>two</em> signs from the §27 menu. The friend may appear
+        or not appear; if he appears, he may be mid-ordinary-task — adjusting a strap, tying a lace, looking
+        away — may raise a hand, and may say nothing, or one plain word half-taken by wind.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Summarise the philosophy, or utter any sentence that could be quoted as the book's thesis.
+        Explain the beat, the tree, or the trees. Name Katita, ROOT, the Boxer, the courtesan, Elias Shore,
+        or the title phrase — they are pressure here, not names. Say <em>witness, archive, AI, system</em>.
+        Adjudicate the friend's presence in either direction — no confirmation, no debunking, and no coy
+        winking at the uncertainty. Deliver a grand speech, or any speech.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The deceleration changing time signature: the long air-brake exhale, couplings taking up slack
+        carriage by carriage, the ostinato's offbeat stretching as the bar lines (pylons) space out.</li>
+        <li>Level-crossing bells rising and falling past the window; boom-gate counterweights; then no more
+        crossings — the quiet after the last one as its own event.</li>
+        <li>The platform: cracked concrete apron, yellow tactile studs, a galvanised mesh fence bellied by
+        decades of leaners, a WAY OUT sign to a car park of crushed white gravel.</li>
+        <li>Ballast up close for the first time in the book: blue metal, oil-dark near the rail, sun-pale at
+        the verge; the specific chock and give of a boot landing on it.</li>
+        <li>Lake air through the opening doors: brackish, casuarina resin, a distant two-stroke that could be
+        boat or mower and is never settled.</li>
+        <li>The small tree, margin-true: a eucalypt sapling out of the ballast shoulder, or an angophora
+        seedling in a fence-line crack, or a casuarina whip beside a drainage grate — juvenile leaves
+        oversized for the stem, <em>the whole tree moving as one thing</em> in the wind, not branch by
+        branch.</li>
+        <li>Wren traffic: a male's blue flag crossing the line low, tail vertical; the dive into the small
+        tree; the tree accepting it without pausing in its movement.</li>
+        <li>Heat shimmer down the rails southward; rails ticking as they warm; cicadas at mid-morning volume
+        cutting out all at once and restarting — just weather now, no longer a figure.</li>
+        <li>Signs of the friend, concrete and budgeted: the diesel tick of a recently parked engine; a 4WD's
+        snout half-visible past the pines; one boot print holding red ridge-clay in a puddle margin; a
+        folded paper under a wiper that may only be a parking notice; a figure at the tree line with exactly
+        his stillness.</li>
+        <li>The gate: pipe-and-chainmesh, council green, dragging a quarter-circle groove in the gravel —
+        the groove as the record of every previous opening, this opening entering the record.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The one added beat</td><td>Closes page 1's ostinato and the primes-on-skin game in a
+          single event — the phrase the book opened with, finished by the world from outside his body.
+          Rhythm on the page, arithmetic never.</td></tr>
+          <tr><td>The small tree</td><td>Recalls the dead node's nest without explanation, and hands the
+          silent ASCII map its central figure — a tree beside a line that continues beyond the page.</td></tr>
+          <tr><td>The wren entering or leaving</td><td>Wrens in the Dead Node, and the bushwalk's "clutter of
+          wrens" waiting past the first ridge — the book's fauna carrying the ending's motion.</td></tr>
+          <tr><td>Boot mark / half-seen vehicle</td><td>The "capable four-wheel drive" already written into
+          the anticipation pages — relief and uncertainty drawn from one canonical object.</td></tr>
+          <tr><td>The gate's gravel groove</td><td>The §27 alternative that the walk is already occurring
+          inside Leif's long rehearsal of it — every previous opening under this one, unremarked.</td></tr>
+          <tr><td>Breath at alighting</td><td>The breath thread — boxer, bushwalk climb, quiet carriage —
+          the one thing that persists across every layer of the book. Never stated; simply resumed.</td></tr>
+          <tr><td>The first step</td><td>The silent ASCII map (p. 50): the prose stops mid-motion and the map
+          takes the line onward. The map is a separate block; this scene only has to reach it.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The basket.</strong> The fourth warning is law here. Any second-tier motif surfacing by
+        name — Katita, ROOT, the Boxer, Shore, the pamphlet, amber, the masthead — turns the ending into a
+        curtain call. They are allowed only as unnameable pressure. If a callback asks to be recognised,
+        cut it.</li>
+        <li><strong>The summary sentence.</strong> Any line that could be quoted as wisdom ("truth is...",
+        "attention is...", "what remains is...") is the essay the whole endgame was built to avoid. If a
+        sentence explains, feed it to the wind.</li>
+        <li><strong>Adjudicating the friend.</strong> Confirming him kills the residue; debunking him kills
+        the relief; and the opposite trap — coyness, the was-he-ever-real game — kills both. The ambiguity
+        is Leif's changed relation to presence, not a puzzle set for the reader.</li>
+        <li><strong>Nothing-is-real drift.</strong> The uncertainty must not bleach the world. The ballast is
+        hard, the wren is a wren, the diesel tick is hot metal, the relief is real. Ambiguity lives in Leif,
+        not in the scenery.</li>
+        <li><strong>The epiphany at the tree.</strong> Adlestrop means little happens. No held breath, no
+        welling, no slow motion, no sentence leaning on the reader's sleeve. The tree is not looked at so
+        much as received — one unscheduled minute, then the doors.</li>
+        <li><strong>Counting the beat.</strong> If Leif does arithmetic on the page — primes, added units,
+        resolution theory — the protocol becomes a puzzle solved. The hand knows; the prose watches the
+        hand.</li>
+        <li><strong>Ending in the embrace.</strong> The embrace is canon as anticipation and may be allowed
+        to be imminent — but the last image is the <em>beginning of the walk</em>. End mid-motion, feet on
+        ground, not in arms.</li>
+        <li><strong>The trees as horror.</strong> The double exposure is one degree of temperature under the
+        relief, not a genre shift. If the trees menace, the book has adjudicated after all — in the wrong
+        direction.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the time-signature change: the ostinato's wobbly offbeat lengthening as the train brakes,
+        and Leif's knuckle already on the window frame — having kept time the whole book without him.</li>
+        <li>The added beat as a physical event: the final brake-lurch lands one knock his hand didn't make,
+        and the phrase closes from outside his body. He looks at his hand. Paragraph ends.</li>
+        <li>The announcement names the station in vowels only; he doesn't need it — his legs already know the
+        length of this platform. Named by body, not by sign.</li>
+        <li>The Adlestrop minute with its mechanics intact: an unscheduled pause before the doors release —
+        a held minute in which nothing happens except the tree, the wren in it, a whipbird further up the
+        ridge, and cicadas rising away over the whole catchment — one sentence widening outward like that,
+        and then the doors.</li>
+        <li>The wren enters the small tree and doesn't come out; Leif waits one beat longer than the waiting
+        needs — the added beat spent a second time, on a bird — then steps down. <em>Brake ready: if it
+        reads as cute, keep the wren and cut the wait.</em></li>
+        <li>Budget the signs to two: the diesel tick of a just-parked engine, and one boot print holding
+        ridge-clay from the mountain the friend would have crossed that morning. Everything else the reader
+        supplies, which is the point.</li>
+        <li>The figure option: someone at the tree line with exactly his stillness, mid-task — strap, lace,
+        looking away — seen before seeing, the Bible's oldest image of the ending. The prose leaves before
+        eye contact resolves it.</li>
+        <li>The space option: no figure at all — but the gate stands open at the angle of someone having
+        passed through, its groove in the gravel freshly darker. The walk begins into the space where a
+        person may appear.</li>
+        <li>The recall, spent in one clause: the gate's pipe is sun-hot under his palm and the warmth arrives
+        from two pages back — the heat sink, the eggs — unexplained, gone by the sentence's end.</li>
+        <li>The last sentence in present-tense motion: gravel, then clay, breath finding a walking rhythm —
+        a new time signature the book does not stay to learn — and the page ends before the track bends.
+        The silent map takes the line from there.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Four pages. The prose ends at the beginning of the walk — mid-motion, breath and ground, the friend
+      neither confirmed nor dissolved, nothing explained about the beat or the tree or the watching. The
+      reader should feel relief with a residue: met, and still unresolved; arrived, and already moving.
+      Test it both ways: if the last page can be quoted as wisdom, it isn't finished; if it can be walked,
+      it is. Then turn the page to the silent map, which is not this scene's to caption — the prose ends
+      with Leif's attention, and the map belongs to the world that continues after him.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Endgame Plan
+      (Movements 11–12), ✦ The Wound (the double exposure, the ending's shadow), ✦ The Remainder Chronology ·
+      remainder-chronology.md §§21, 25–28, ratified decisions &amp; fourth warning 2026-07-13 · manuscript
+      canon: p. 1 ostinato, "my friend" naming rule (p. 15), the four-wheel drive &amp; ridge (p. 16),
+      "Edward Thomas for the Space Age."</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

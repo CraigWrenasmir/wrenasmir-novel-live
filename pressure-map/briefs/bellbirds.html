@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Bell-Birds Convergence | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for the Bell-Birds convergence — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Bell-Birds Convergence</h1>
+    <p class="sc-meta">
+      <span>Rank: Co-Authorship Emerges</span>
+      <span>Tier: Full scene · 3 pp</span>
+      <span>Endgame Movement 9</span>
+      <span>One of the six ratified full scenes</span>
+      <span class="hot">Condition: TRANSFORMATION</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>This is the hinge of the whole co-authorship rank — the plan calls it one of the central
+      turning points, and it is the atlas's top bet. Human memory and tree-memory are shown to have
+      converged, and <strong>the scene must never say so.</strong> Three loads, carried in near-silence:</p>
+      <ul>
+        <li><strong>Provenance collapses and stays collapsed.</strong> Katita's misremembered word and the
+        archive's stored word agree, and no test either of them can run will establish which yielded to
+        which — or whether either did. The reader must leave unable to close the case, permanently.</li>
+        <li><strong>The divergence gets its first true reading.</strong> Leif goes hunting for the canonical
+        text; Katita recites on. Same event, two nervous systems. This is the split in embryo — shown as
+        two sets of hands doing different things on the same night.</li>
+        <li><strong>The corruption is revealed as intimate, not technical.</strong> Not a glitch in a file —
+        a shared word between a woman and a network. The dread arrives through tenderness.</li>
+      </ul>
+      <p>Ratified guardrail: <em>mostly silent and physical.</em> The hinge must not explain itself. If a
+      paragraph starts adjudicating causality, cut it and put a body in its place.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 19–21 (≈ MS pp. 71–73)</strong> — opening the Co-Authorship rank,
+      though the order can shift. The reader arrives from the road years: the storm has already made the
+      network feel like one body, the cicadas have already out-shouted it, and poetry has been passing
+      casually between Leif and Katita for pages. Her recitation should feel like a habit, not an event —
+      that's what the road rank bought.</p>
+      <p><strong>Feeds directly into:</strong> Nodes Conversing Alone (pp. 22–23 — after the archive shares a
+      word with Katita, the modules sharing words with each other is the natural escalation), Small Private
+      Violations, and ultimately the hammer and the split. <strong>Pays off from:</strong> the storm (the mesh
+      as one body), the vernacular republic (memorised verse as a public organ), and the whole ecology of
+      unstable provenance — Shore's plural names, the contaminated masthead. The altered poem joins that
+      ecology; it does not found it.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The event:</strong> Katita recites Bell-Birds from memory and gets one word wrong. Leif
+        checks the ROOT file, expecting the stored text to correct her. The file contains the same altered
+        wording.<span class="canon-tag">canon</span></li>
+        <li><strong>Causality cannot be established — four ways:</strong> she may have written her remembered
+        version into the archive; the archive may have altered her memory; both may be responding to a third
+        distributed process; the change may have existed longer than either knows. None is confirmed, ever.<span class="canon-tag">canon</span></li>
+        <li><strong>Their responses:</strong> Leif searches for proof of the canonical text. Katita is less
+        disturbed by the collapse of provenance.<span class="canon-tag">canon</span></li>
+        <li><strong>Register:</strong> mostly silent and physical. One of the six ratified full scenes —
+        room, bodies, weather, silence, consequences.<span class="canon-tag">canon</span></li>
+        <li><strong>The corruption is meaning-production, not data loss</strong> — misrecognition, analogy
+        becoming operational. What scares Leif is not that the trees interfere but that their edits feel
+        <em>accurate</em>.<span class="canon-tag">canon</span></li>
+        <li><strong>The intelligence is botanical, analogue, older than software — never named.</strong>
+        No terminology may surface. The event must feel like weather, memory, love — not computation.<span class="canon-tag">canon</span></li>
+        <li><strong>The altered poem joins the ecology of unstable provenance</strong> — alongside Elias
+        Shore's names, the Boxer correspondence, the contaminated masthead, and (later) files in Katita's
+        cadence. It is one instance, not the key.<span class="canon-tag">canon</span></li>
+        <li><strong>The Bible already holds one Bell-Birds drift elsewhere:</strong> <span class="q">"It lives
+        in the mountain" → "It leaves in the mountain"</span> is logged as a corruption sign in the archive
+        (Movement 9), with the Leif / leaf / life associations. <em>Whether that is the word Katita gets wrong
+        is deliberately unfixed — Craig's choice, made at the desk, not here.</em><span class="canon-tag">canon</span></li>
+        <li><strong>The real poem:</strong> Henry Kendall's "Bell-Birds" (1869), from <em>Leaves from
+        Australian Forests</em> — a school-anthology staple memorised by generations. Its own final stanza is
+        a preservation project: keeping <span class="q">"in the city and alleys / The beauty and strength of the
+        deep mountain valleys."</span> The poem was already trying to be a node. <em>Nobody in the scene may
+        notice this.</em><span class="canon-tag">canon</span></li>
+        <li><strong>Erring together (payoff, not payload):</strong> Katita and the tree sharing the altered
+        poem is later one of the dramatisations of truth staying alive through contested relation. That
+        meaning belongs to the aftermath; here it is only two voices agreeing.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Recite — more than once, unchanged, the wrong word kept. Answer a correction with a shrug, a
+        repetition, or by continuing the stanza. Say something small and practical (<em>"That's how I have
+        it"</em>). Fall asleep. Her calm must read as bodily, not oracular — she is tired, warm, sure of her
+        own mouth, not delivering a philosophy of emergence.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Quote the stored line aloud once, flatly, as evidence. Ask where she learned it (school, a
+        grandmother, a browning anthology — the answer can stay vague). Narrate his search physically:
+        scrolling, checking a second node's copy, hunting the truck for a printed book that isn't there.
+        Savour, briefly and privately, the correction he thinks he's about to make.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Say <em>provenance, memory, archive, corruption, version</em> as concepts. List the four
+        possibilities aloud — they may exist only as the shape of Leif's silent checking, and even his
+        narration should run out before it numbers them. Argue. Reach a conclusion. Treat the moment as
+        important while it is happening. The scene's entire meaning must be carried by what hands and eyes
+        do next.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>Dusk camp by a creek; actual bellbirds still chiming in the dense green upstream — single
+        struck notes, no melody, a colony sounding like slow rain on a tin roof. The poem's subject audibly
+        present and entirely uninterested.</li>
+        <li>The recitation over some task: washing up in a basin, coiling cable, driving the last unsealed
+        kilometres with the window down — verse fitted to work rhythm, the road-years habit.</li>
+        <li>The node's small LCD in the failing light; the file arriving at 300 bits per second — the poem
+        loading slower than she speaks it, line assembling under line, so his correction has to wait for
+        the text to finish being true.</li>
+        <li>Laptop glow against bark; moths hitting the screen and leaving powder; the keyboard gritty
+        with campsite dust.</li>
+        <li>No signal out here in any direction that isn't theirs — nothing to check the canonical text
+        against except their own archive, which is unanimous.</li>
+        <li>The kinds of places a printed copy would live: a browned school anthology, an op-shop
+        <em>Selected Australian Verse</em> with a name in pencil inside the cover, a country-library
+        stack two towns back. All of them elsewhere tonight.</li>
+        <li>Smells: creek mud, crushed eucalyptus leaf on the air, two-stroke on his hands from the
+        generator, tea going cold on the tailgate.</li>
+        <li>Night sounds: the creek working, a mopoke far off, the tink of the last bellbirds thinning as
+        the light goes, canvas ticking as the dew arrives.</li>
+        <li>Bell miners in fact: colony birds that hold a stretch of creek, drive other species out, and
+        farm the insects that sicken the very trees they sing from — the loveliest sound in the valley
+        implicated in the canopy's slow decline. <em>One touch, if any; zero comment.</em></li>
+        <li>Her mouth in torchlight, unhesitating on the wrong word; his thumb holding his place on a
+        scroll wheel; the physical grammar of checking versus reciting.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The altered word (unfixed)</td><td>Erring together: Katita and the tree sharing the poem
+          becomes one of the book's late dramatisations of contested, living truth — never restated as
+          thesis.</td></tr>
+          <tr><td>Leif's hunt for the canonical text</td><td>His side of the split — backups, restoration,
+          traceable provenance, source vs corruption. The philosophy will be staged as luggage; it starts
+          here as scrolling.</td></tr>
+          <tr><td>Katita's unbothered recitation</td><td>Her side of the split — alteration as relation.
+          Also the aftermath's files in her cadence: a voice and an archive already indistinguishable
+          once, gently, before it matters.</td></tr>
+          <tr><td>Bird-call recordings in the node's file tree</td><td>Nodes Conversing Alone (next block):
+          the modules begin trading bird recordings on their own schedule. Let him scroll past them
+          tonight without interest.</td></tr>
+          <tr><td>The unanimous archive (every node's copy agrees)</td><td>Small Private Violations — the
+          network's edits feeling more authoritative than his memory; the archive as the only witness left
+          to consult, and a partial one.</td></tr>
+          <tr><td>A school-memorised poem as public organ</td><td>The vernacular republic thread: verse
+          carried in bodies for a century before ROOT — the archive's true ancestry, never spoken.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>Explaining the hinge.</strong> The moment anyone (including the narration) lays out the
+        four causal possibilities as a list, the scene dies. The collapse must be enacted — checks that
+        fail, one after another, physically — not summarised.</li>
+        <li><strong>Fixing the word.</strong> The scaffold must not choose Katita's alteration and neither
+        may a clever draft sentence that quotes "her version" in full. Write around the word or leave the
+        slot visibly Craig's. (The lives/leaves drift already exists elsewhere in the archive as canon —
+        reusing it here versus keeping her word separate is a real decision; make it deliberately.)</li>
+        <li><strong>The argument.</strong> If Leif and Katita debate what it means, the split has been spent
+        for the price of a fleck. Their divergence tonight is postural — one reads, one recites — and
+        neither names it.</li>
+        <li><strong>Making Katita mystic.</strong> Her lack of disturbance is not serenity or secret
+        knowledge. She is a tired woman who trusts her own memory and doesn't need the file to agree with
+        her. Keep her hands full and her answers short.</li>
+        <li><strong>Quaintness.</strong> Kendall must not arrive as heritage furniture. The poem is a working
+        object — memorised, useful, worn smooth like the taped paperbacks. No lyre-bird reverence.</li>
+        <li><strong>Sleek horror.</strong> The convergence must feel botanical, humid, slow — an agreement
+        discovered by torchlight — never an interface event. No screen may do anything a 1980s screen
+        couldn't.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the real bellbirds — the colony chiming upstream while she recites the poem about them,
+        so the valley is briefly saying the same thing twice, in two codecs, neither canonical.</li>
+        <li>Leif catches the wrong word instantly and says nothing — holding the correction in his mouth
+        like a boiled lolly, planning to produce the file with a flourish. The pettiness humanises him; the
+        file's betrayal of it is the scene's first cold touch.</li>
+        <li>The stored poem loads at 300 bits per second: line under line, the altered line assembling
+        letter by letter while he waits to be right. Give the reader the wait, not the word.</li>
+        <li>Candidate types of alteration to write around: a softened verb; a creek moved from one stanza's
+        gully to another's; a season shifted by a month; a colour swapped for its neighbour; a plural made
+        singular. Small enough that only love would notice — the tree edits like someone who has heard her
+        say it.</li>
+        <li>He queries the neighbouring nodes' copies over the mesh, one by one, torch in his teeth. Each
+        agrees. The archive is unanimous the way a family closes ranks.</li>
+        <li>Her provenance, offered without being asked: Year Five, a teacher who made them stand; or her
+        grandmother, who had it off a teacher who made <em>her</em> stand. Two bodies deep before any file.
+        Leave it unverifiable.</li>
+        <li>A browned anthology remembered but not present — <em>Leaves from Australian Forests</em> spotted
+        once in an op-shop two towns back and not bought. He thinks of driving back for it. It's three hours.
+        He doesn't. (Leaf / Leif hums under this; nobody articulates it.)</li>
+        <li>Asked to do it again, she recites the stanza a second time, identical, wrong word kept — not
+        defiance, just her memory holding its line. Whether she is siding with her own mouth or with the
+        tree is unaskable, and he doesn't ask.</li>
+        <li>One touch of true ecology: the bellbird colony means the canopy above it is being slowly farmed
+        sick — the song and the damage one system. Let Leif know this the way rural people know things,
+        in passing, and let it colour nothing openly.</li>
+        <li>End physical: she's asleep in the swag mid-stanza-four; he sits with the laptop lid lowered to
+        half-mast like not staring at someone; the last bellbird stops; the creek keeps transmitting.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Three pages. The scene ends with nothing established — no cause chosen, no argument had, no word
+      revealed to the reader as definitively hers or the tree's first. Leif's checking has run out of
+      places to check; Katita is asleep or nearly; the birds have handed the valley to the creek. The
+      reader should close the scene having watched a small domestic moment — a woman reciting, a man
+      looking something up — and only later feel that this was the night the archive and the woman became
+      impossible to tell apart. If the hinge explains itself anywhere, the scene has failed; if the reader
+      can adjudicate the four causes, it has failed twice.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Wound (corruption as
+      meaning-production; never name the intelligence), ✦ The Remainder Chronology (§11, six full scenes,
+      four warnings), Movement 9 corruption motifs · remainder-chronology.md §11 · Henry Kendall,
+      "Bell-Birds" (1869), <em>Leaves from Australian Forests</em> · ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

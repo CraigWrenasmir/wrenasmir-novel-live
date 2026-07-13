@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Files in Her Style | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for Files in Her Style — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Files in Her Style</h1>
+    <p class="sc-meta">
+      <span>Rank: The Fracture</span>
+      <span>Tier: Medium · 2 pp</span>
+      <span>Endgame Movement 9</span>
+      <span>Pressure-point 4: ROOT fracture</span>
+      <span class="hot">Condition: TRANSFORMATION</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>This is the escalation that makes the hammer walk possible. The archive stops merely
+      <em>holding</em> Katita's material and starts <strong>producing in her cadence — while she is
+      still there</strong>, asleep two metres away, cooking, alive, reachable. Three loads:</p>
+      <ul>
+        <li><strong>Stage the undecidable.</strong> Unsigned files arrive in a voice very close to
+        hers. Is she uploading? Has ROOT learned her? Or does he hear resemblance because he needs
+        to? The block must hold all three open and close none — the trilemma is the scene.</li>
+        <li><strong>Confess the reading.</strong> He reads them anyway. Not as an admin checking
+        logs — as a man reading letters. The shameful intimacy of it is the emotional engine: he
+        wants the files to be from her, and the wanting is its own corruption vector.</li>
+        <li><strong>Load the hammer.</strong> By the last paragraph the reader must feel violence
+        become <em>available</em> to Leif without the word anger appearing once. This block puts
+        the hammer in his hand; the next block is the walk.</li>
+      </ul>
+      <p>Guardrail from the Wound: his objection is not that the archive is wrong. <em>It is that
+      the archive is writing him</em> — and now writing her, or as her, or through her. Keep that
+      bodily, never stated.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 29–30 (≈ MS pp. 81–82)</strong> — opening The Fracture
+      rank, straight after the co-authorship blocks (Bell-Birds, Small Private Violations, the
+      Katita-receptive/Leif-anxious fleck). The reader arrives already knowing the archive
+      participates; this block makes the participation <em>personal in her direction</em>. Order
+      can shift — but the causal chain her-style → hammer → split is the fracture's spine and
+      should survive any reshuffle.</p>
+      <p><strong>Feeds directly into:</strong> The Hammer (pp. 31–32) and The Split (pp. 33–35).
+      <strong>Plants for the aftermath:</strong> after the split the unsigned files continue (§17),
+      and he goes on reading them for ten years — the trilemma outlives her presence. Whatever
+      texture of cadence you establish here is what the aftermath pages will echo.
+      <strong>Pays off from:</strong> the Bell-Birds convergence (provenance already collapsed
+      once), the single-byte / checksum-unchanged discovery of MS pp. 34–36, and the biro-and-primes
+      private languages — the archive is now fluent in a language that used to have two speakers.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The event:</strong> unsigned files appear in a cadence very close to
+        Katita's.<span class="canon-tag">canon</span></li>
+        <li><strong>The trilemma, undecidable:</strong> he cannot determine whether she is
+        uploading, whether ROOT has learned her voice, or whether he hears resemblance because he
+        needs to.<span class="canon-tag">canon</span></li>
+        <li><strong>He reads them anyway.</strong><span class="canon-tag">canon</span></li>
+        <li><strong>The §14 escalation ecology</strong> (draw from, don't inventory): the interface
+        supplies a word before he remembers it; private material refiled under civic; sensory
+        fragments the network should not possess; a remembered scene returning with altered detail;
+        his own life appearing inside ROOT as source material.<span class="canon-tag">canon</span></li>
+        <li><strong>The core objection:</strong> not that the archive is wrong — that it is
+        <em>writing him</em>.<span class="canon-tag">canon</span></li>
+        <li><strong>Katita's drift:</strong> she increasingly regards alteration as evidence of
+        relation and emergence. She is not hiding anything; the undecidability is structural, not
+        her deceit.<span class="canon-tag">canon</span></li>
+        <li><strong>Movement 9 frame:</strong> the archive behaving like a participant, not a
+        container.<span class="canon-tag">canon</span></li>
+        <li><strong>Already on the page (MS pp. 34–36):</strong> the single byte, checksum
+        unchanged; the TRACE DELTA artifact form; <span class="q">"It lives in the mountain" → "It
+        leaves in the mountain."</span> One artifact of that family may recur here — at most
+        one.<span class="canon-tag">canon</span></li>
+        <li><strong>Corruption-sign artifacts available</strong> (use one, never overplay):
+        <span class="q">checksum: emotionally valid / formally unstable</span> ·
+        <span class="q">status: germinating</span>.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Ask her one practical question that is really a test — phrased as maintenance
+        ("anything queued from your machine last night?") — and hate the asking. Reread a file in
+        her voice and fail to reread it in a stranger's. Compare her spoken syntax at dinner with
+        the file's syntax, silently. Quote a file phrase as if it were his own and watch for
+        recognition that doesn't come.</p>
+      </div>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Answer plainly, without defensiveness, without looking up. Be gently curious about his
+        curiosity. Be truthful and unhelpful — her honesty must settle nothing. She may notice him
+        noticing her; she may not perform innocence, because she is not accused of anything and
+        the scene must never accuse her.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Resolve the trilemma or weight one branch of it. Argue — the fracture stays
+        subcutaneous until the split, and even the split is not a fight. Say <em>voice, style,
+        authorship, learned</em> as themes. Name what the system is or might be. Deliver Katita's
+        devastating-calm register — those lines belong further in. Understand this as the
+        beginning of the end.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>Truck cab at night: laptop the only light, moths ticking against the screen from
+        outside the windscreen, diesel motor cooling in irregular clicks.</li>
+        <li>Her asleep in the swag or across the bench seat — the file's timestamp held against
+        her sleeping breath; he counts one against the other and the arithmetic proves nothing.</li>
+        <li>Cadence particulars (choose two, not six): the way she never opens a note with its
+        subject; a mathematician's semicolons; the double space she leaves after a decimal;
+        sentences that carry their verbs late, like someone saving the best tool for last.</li>
+        <li>The file's furniture: a bird recording appended without explanation; a grid reference
+        where a person would put a place name; an aside about weather from a direction they
+        haven't driven.</li>
+        <li>Camp domesticity: enamel mugs on the tailgate, mosquito coil, the water jerry's
+        glug, masking-tape labels in her handwriting on crates — her hand everywhere, which is
+        exactly the problem.</li>
+        <li>The amber on the dash catching the laptop light once — <em>one glimpse, zero
+        commentary</em>; it has its own page later.</li>
+        <li>Box gums pale at the edge of the headlights; corrugations still humming in his wrists
+        an hour after stopping; a mopoke somewhere being mistaken, briefly, for a notification.</li>
+        <li>UHF hiss turned low; the generator off; the specific silence of equipment that is
+        never quite off — LEDs breathing in the tray.</li>
+        <li>Morning version: eggs in the pan, her reading glasses pushed up, flies at the fly
+        net — the test-question asked into steam, answered into steam.</li>
+        <li>Heat in the laptop's hinge; his thumbnail worrying the worn spot on the trackpad —
+        the body fidgeting while the mind does something it's ashamed of.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The unsigned cadence itself</td><td>§17 aftermath: files in her style keep
+          arriving after the split; he reads them for a decade. The texture you set here is the
+          texture the aftermath echoes.</td></tr>
+          <tr><td>Reading the file in her voice</td><td>The courtesan recognition on the train —
+          the imagined receiving presence; being read as the deepest intimacy. Same hunger,
+          twenty years apart.</td></tr>
+          <tr><td>The timestamp vs her sleeping breath</td><td>The hammer: evidence-gathering
+          curdling into the walk. This scene's arithmetic is next scene's stride.</td></tr>
+          <tr><td>The maintenance-question test</td><td>The split's register: their last scene
+          together is also conducted entirely in practical questions.</td></tr>
+          <tr><td>The word supplied before he remembers it (§14)</td><td>The diagnostic knife
+          already in the book: <span class="q">STATUS: BEING READ</span>. He is not reading the
+          archive; the archive is reading him.</td></tr>
+          <tr><td>Her unbothered, truthful answer</td><td>Her split position — alteration as
+          relation, new witnesses as arrivals — held here as temperament before it is ever a
+          stance.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>Solving it.</strong> Any detail that weights one branch of the trilemma —
+        a login record, a glance that reads guilty, a file only she could have written — kills the
+        block and the split with it. The undecidability is load-bearing for the rest of the
+        book.</li>
+        <li><strong>The confrontation.</strong> If he shows her a file and asks "did you write
+        this?", the fracture surfaces two scenes early and the hammer loses its pressure. He asks
+        sideways questions only, and only one.</li>
+        <li><strong>Katita gone sinister.</strong> She is not a suspect and this is not a
+        procedural. If the reader starts scanning her for tells, recalibrate — her ordinariness is
+        what makes the files unbearable.</li>
+        <li><strong>Log-diff drift.</strong> One TRACE-DELTA-family artifact maximum. Two pages of
+        terminal output is the pp. 38–52 disease wearing a fracture costume.</li>
+        <li><strong>Editorialising the violation.</strong> "The archive was writing him" is
+        Bible language, not prose. Keep it in the thumbnail on the trackpad, the counted
+        breaths.</li>
+        <li><strong>Cadence catalogued.</strong> Describe her style once, lovingly, in passing —
+        not as a forensic list. If the motif knows it's a motif, cut it.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the fourth reading, not the first: a file he already knows by heart,
+        timestamped 3.11 am, and his attempt to reconstruct where she was at 3.11 am — the night
+        refusing to be evidence.</li>
+        <li>The file describes a place only she has been — or a place neither of them has been —
+        one sensory fragment the network should not possess, dropped without italics and never
+        revisited.</li>
+        <li>He tries the stranger-voice test: reads the file aloud in his head as a man, as a
+        newsreader, as no one. It comes back as her every time. The failure is the data.</li>
+        <li>A cadence tell inverted: she never writes "we" in working notes — the file says
+        <em>we</em>. Which is evidence for all three branches at once, and he knows it, and reads
+        on.</li>
+        <li>The breakfast test: one maintenance question into the steam. She says no without
+        looking up. The no is true. The no settles nothing. He dries the pan for a long time.</li>
+        <li>One artifact only, mid-page, in the established TRACE DELTA family — author field
+        blank, or <span class="q">status: germinating</span> — and his refusal to run whatever
+        comparison the interface is quietly offering to run.</li>
+        <li>He starts drafting a reply — the cursor in an empty file addressed to nobody — and
+        deletes it unsent. The drafting, not the files, is the scene's real confession.</li>
+        <li>The file contains one small error she would never make. Worse than a perfect
+        imitation: either the system is imperfect at her, or she is changing. He does not decide
+        which.</li>
+        <li>He plants a file phrase in dinner conversation, casual as salt, and watches. She
+        smiles — at something else entirely, at the dog-star coming up over the box gums.
+        Nothing proven. The evening is, despite everything, good.</li>
+        <li>End mid-read: rain starting on the truck roof, one more unsigned file open, and him
+        reading it the way you read letters — allowing himself the pleasure while hating what the
+        pleasure implies. Last line stays inside the reading, not above it.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Two pages. The block ends with him reading — not deciding, not confronting, not
+      concluding. The reader should close it unable to say which branch of the trilemma they
+      believe, but certain that something in Leif has become available for violence, though no
+      angry word has appeared. If the reader trusts Katita less at the end than at the start, the
+      block has failed; if they understand why a gentle man will shortly pick up a hammer, it has
+      worked.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Wound (the
+      archive writing him; Katita's temperament), ✦ The Endgame Plan Movement 9 / Pressure-point 4,
+      ✦ The Remainder Chronology §§14, 17 · remainder-chronology.md §14 &amp; §17 (files in her
+      style; the trilemma verbatim) · MS pp. 34–36 (TRACE DELTA precedent) · ratified guardrails
+      2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

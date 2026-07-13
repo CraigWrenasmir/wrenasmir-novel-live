@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Split | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for The Split — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Split</h1>
+    <p class="sc-meta">
+      <span>Rank: The Fracture</span>
+      <span>Tier: FULL SCENE · 3 pp</span>
+      <span>Endgame Movement 10</span>
+      <span>Pressure-point 4: ROOT fracture</span>
+      <span class="hot">Condition: TRANSFORMATION</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>The emotional climax of the book, staged as sorting gear. One of the six ratified full
+      scenes, and the one carrying the heaviest law: <strong>not a breakup scene — a philosophical
+      divergence dividing possessions.</strong> Three loads:</p>
+      <ul>
+        <li><strong>The divergence stays in the objects.</strong> He wants backups, restoration,
+        traceable provenance, a line between source and corruption; she accepts distributed
+        authorship, organic alteration, new readers and writers, the system's right to become
+        something else. Neither position may be spoken as position — each must live entirely in
+        what its owner packs, keeps, copies, or lets go.</li>
+        <li><strong>The practical outcome lands.</strong> She keeps the truck. He leaves with much
+        less — the pamphlet among it. Amber stays on the dash. The reader watches a shared life
+        resolve into two accurate piles without one cruel word.</li>
+        <li><strong>Spend <span class="q">Blankets_Drying.tmp</span>.</strong> The corrupted
+        filename planted in the manuscript and re-sealed for this scene: the archive's
+        present-tense eye on their domestic life, finally allowed to land — quietly, without a
+        speech about what it means.</li>
+      </ul>
+      <p>Both of them are right. That is the good wound. If a reader finishes the scene able to
+      score a winner, the scene has failed the whole book.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 33–35 (≈ MS pp. 85–87)</strong> — closing The Fracture
+      rank, directly after The Hammer. The order can shift, but the hammer must precede this: his
+      gentleness here is the chosen kind, two pages old, and the scene's calm is only bearable
+      because the reader has seen what it replaced.</p>
+      <p><strong>Feeds directly into:</strong> the entire Aftermath rank — the motorbike decade,
+      the solitary hotels, the files in her style that keep arriving, the improved node as rumour,
+      the one signal check. The pamphlet leaves this scene loaded and travels ten years unopened
+      at its final chapter. <strong>Pays off from:</strong> the bedroom white-centre scene (her
+      plural frameworks come home to roost, silently), the road-years happiness (the fracture is
+      emotionally funded by river bathing and war-dialling — this scene withdraws from that
+      account), the amber fleck, and the hammer's renunciation.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The divergence, practical and embodied:</strong> Leif wants backups,
+        restoration, traceable provenance, controlled preservation, a distinction between source
+        and corruption. Katita accepts distributed authorship, organic alteration, new readers,
+        new writers, the system's right to become something else.<span class="canon-tag">canon</span></li>
+        <li><strong>She keeps the truck.</strong> Leif leaves with much less, later travelling by
+        motorbike (the motorbike need not appear on this page).<span class="canon-tag">canon</span></li>
+        <li><strong>The pamphlet goes with him:</strong> <em>On the Completion of White Centres by
+        Non-Mathematical Systems</em> — contents moving from topology through weather, botany and
+        tides, ending in a one-word chapter he cannot bring himself to read. <strong>The word is
+        never revealed, here or anywhere.</strong><span class="canon-tag">canon</span></li>
+        <li><strong>Amber on the dashboard becomes an absence-marker</strong> after the
+        split.<span class="canon-tag">canon</span></li>
+        <li><strong><span class="q">/unverified/Blankets_Drying.tmp</span></strong> — a
+        present-tense file showing the system observing or inferring the immediate world; its
+        reveal was re-sealed earlier to be spent here.<span class="canon-tag">canon</span></li>
+        <li><strong>The essences (permission-gated, see below):</strong> Leif's —
+        <span class="q">"Not like this."</span> Katita's, perhaps never stated so cleanly —
+        <span class="q">"There is no open system that lets you choose every
+        arrival."</span><span class="canon-tag">canon</span></li>
+        <li><strong>Her devastating-calm register exists</strong> (<span class="q">"It's not
+        corrupting the files, Leif. It's finding the joins."</span>) — one line maximum, said
+        kindly, hands busy; zero is safer.<span class="canon-tag">canon</span></li>
+        <li><strong>Do not moralise the divergence.</strong> He is not conservative or cowardly;
+        she is not reckless or futurist. Both care about truth; they differ over what kind of
+        openness truth requires. The book never decides.<span class="canon-tag">canon</span></li>
+        <li><strong>Never a fight.</strong> She sees revelation; he sees violation; the same event,
+        two accurate readings, one truck.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Talk logistics only: registration papers, which crates, the spare panel, who keeps
+        which tools. Ask one question of practical care about her route north. Run one last backup
+        and say nothing about what it is. Say <span class="q">"Not like this"</span> once at most —
+        and about a <em>thing</em> (a box, a file, a way of stacking), never about them.</p>
+      </div>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Be generous with objects and immovable in direction — offering him more than his share
+        of everything except the future. Answer his logistics precisely. Deliver at most one line
+        of her calm register, without heat, while doing something with her hands. Put the pamphlet
+        in his box without a word — or not; the scene may leave unwitnessed how it got there.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Debate. Say <em>archive, provenance, authorship, emergence, corruption</em> as themes.
+        Assign blame, apologise for a position, or deliver a goodbye speech. Explain why this is
+        happening — the reader has watched it happen for thirty pages. Cry on cue; grief may reach
+        the body (a mis-stacked crate, a long time drying a pan) but never a performance. And
+        nothing may name what the system is.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The division on a groundsheet: two piles that are really one pile and a small pile.
+        Crates, jerry cans, coax coils, cable ties, the soldering iron, spare solar panels, the
+        tool tray — the hammer in it, unremarked.</li>
+        <li>Her handwriting on masking-tape labels — her hand all over his pile too; provenance
+        going with him whether he packs it or not.</li>
+        <li>A real washing line strung truck-to-tree, real blankets drying on it in the morning
+        sun; the reader who remembers the filename does the arithmetic alone.</li>
+        <li>The last shared meal cooked in one pan; the progress bar of his final backup given the
+        same narrative weight as the eggs.</li>
+        <li>Fine indifferent weather — magpie morning, dew burning off, good light. Rain would be
+        a lie of convenience.</li>
+        <li>The truck's interior smell (diesel, sunscreen, old fruit) breathed once from the
+        passenger side, from a seat that has stopped being his; the bench's two worn dips.</li>
+        <li>The amber on the dash catching light as the doors open and close through the
+        packing.</li>
+        <li>The pamphlet as object: soft cover, foxed corners, tide tables annotated in her hand,
+        the weight of it at the bottom of a box — never opened on this page.</li>
+        <li>Registration papers signed on the warm bonnet; two signatures side by side; the
+        officialdom of tenderness.</li>
+        <li>Dust rectangles in the tray where his crates stood; the paddock's sounds carrying on
+        regardless — crow, distant road-train, a windmill needing oil.</li>
+        <li>His luggage at the road edge: how little it is; the specific posture of a man standing
+        beside everything he owns.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant / spend here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The pamphlet into his box</td><td>The pamphlet years: ten years of carrying it,
+          the one-word final chapter unread — the white-centre question of the bedroom, completed
+          by non-mathematical systems he cannot bring himself to meet.</td></tr>
+          <tr><td>Amber left on the dash</td><td>The absence-marker: every later imagining of the
+          truck — hotel rooms, imagined node conversations — includes it. It stays with her; its
+          weight travels with him.</td></tr>
+          <tr><td><span class="q">Blankets_Drying.tmp</span> spent</td><td>Movement 9's dread
+          lands and closes: the archive's present tense confirmed as domestic, intimate, theirs.
+          Funds the decade of feeling written (§18) without another word being needed.</td></tr>
+          <tr><td>She keeps the truck</td><td>Her continuation unresolvable: the improved node in
+          a fig tree in another state, the unsigned files, the rumour stronger than proof.</td></tr>
+          <tr><td>His drives / the last backup</td><td>The one signal check, ten years later,
+          once — the man who wanted restoration checking exactly one time whether anything
+          survived him.</td></tr>
+          <tr><td>Logistics as last language</td><td>The maintenance-question register planted in
+          Files in Her Style completes here: their love ends in the same grammar their work spoke
+          all along.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The breakup scene.</strong> Raised voices, tears, a door, an ultimatum, a
+        last-look-back shot. Absolute failure mode. This is two colleagues in love dividing a
+        laboratory that was also a marriage, and doing it well.</li>
+        <li><strong>The debate.</strong> Staging his five wants and her five acceptances as
+        dialogue turns the Bible into a script. The positions live in the piles, or nowhere.</li>
+        <li><strong>The verdict.</strong> Any sentence — any adjective — that lets the reader score
+        a winner. Watch the narrator's sympathy most of all: Leif focalises, so Katita's rightness
+        must survive his focalisation intact.</li>
+        <li><strong>Reading the word.</strong> Do not reveal, paraphrase, glimpse, or invent the
+        pamphlet's final chapter. And no trembling almost-reading either — he simply doesn't open
+        it, the way you don't open some doors.</li>
+        <li><strong>The farewell motif tour.</strong> The biro, the primes, the phone box, the Big
+        Thing lining up to wave goodbye. The objects present are the ones a working truck actually
+        carries. The blankets and the amber are already two motifs; that is plenty.</li>
+        <li><strong>Chronology surfacing.</strong> No "after the hammer, he had decided…" — no
+        summary of how they got here. The scene exists in its own morning.</li>
+        <li><strong>Explaining the .tmp file.</strong> If anyone says what it means that the
+        archive watched their washing dry, the spend is wasted. The filename, the line, the
+        blankets — the reader assembles it or doesn't.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open with the piles already mostly made — like the hammer, the decision predates the
+        page; the scene is the residue of a decision, and the first sentence is about rope.</li>
+        <li>The whole divergence in one exchange over a hard drive: he wants a copy of everything
+        <em>as it was</em>; she asks, mildly, what "was" means for a thing still growing — both of
+        them wrapping cables the entire time, neither raising their eyes.</li>
+        <li>The last backup pauses on one file. He opens it at last:
+        <span class="q">/unverified/Blankets_Drying.tmp</span> — a plain present-tense description
+        of a washing line, theirs, some ordinary morning, in a cadence he declines to identify.
+        He copies it with everything else. That is the whole event.</li>
+        <li>Division by function, not sentiment: she keeps what serves the network, he takes what
+        serves memory — and the soldering iron refuses the scheme. Both reach for it; both
+        withdraw; it stays on the groundsheet between them for a full page before anyone speaks.</li>
+        <li>The pamphlet discovered rather than given: he finds it at the bottom of his box, spine
+        down, tide tables annotated in her hand, and cannot remember packing it. Don't certify
+        which of them put it there.</li>
+        <li>Papers on the warm bonnet: her signature beside his — the most married they have ever
+        looked, in the act of unmarrying the project. The pen goes back behind whoever's ear the
+        rooftop reader would expect.</li>
+        <li>He picks the amber off the dash, holds it to the light — the cooked circuitry inside
+        it like an insect in a museum — and puts it back. The putting-back is this scene's
+        not-swinging.</li>
+        <li>The last thing divided is sound: she keeps the UHF, he takes the little AM radio —
+        each of them keeping a different way of hearing the country. No one comments.</li>
+        <li>One line of her calm register, if any, delivered into a crate she is packing, to the
+        crate: kind, final, unanswerable. He answers with logistics. Both answers are true.</li>
+        <li>End small and in motion: dust rectangles in the tray, her checking the oil, him at the
+        road edge beside everything he owns. The departure — hers or his — is heard, not watched.
+        Last touch is an object: the box's weight, the pamphlet somewhere inside it.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Three pages. No parting speech, no doorway silhouette, no tears witnessed. The reader
+      should be unable to quote either philosophy but able to reconstruct both, exactly, from the
+      piles — and unable to say who was wrong, then or ever. The ache must come from how
+      <em>smoothly</em> the logistics went: two people who still work perfectly together, dividing
+      the proof that they can't continue together. If it feels like an ending it has overplayed;
+      it should feel like a well-run job whose cost arrives later, in the aftermath pages, where
+      the amber isn't.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Wound (why
+      Katita leaves; both are right), ✦ The Endgame Plan Movement 10 / Pressure-point 4 (the
+      essences; do not moralise), Movement 9 (<span class="q">Blankets_Drying.tmp</span>), ✦ The
+      Remainder Chronology §§13, 16 · remainder-chronology.md §16 (truck, pamphlet, one-word
+      chapter) · pressure-map ratified note: "Spend Blankets_Drying.tmp here" · ratified guardrails
+      2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

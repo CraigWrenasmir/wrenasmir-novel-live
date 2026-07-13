@@ -647,14 +647,12 @@
       const beats = document.createElement("p");
       beats.className = "beats";
       beats.textContent = b.beats;
-      if (b.brief) {
-        const a = document.createElement("a");
-        a.className = "brief-link";
-        a.href = b.brief;
-        a.textContent = "Open the scaffold →";
-        beats.appendChild(document.createElement("br"));
-        beats.appendChild(a);
-      }
+      const a = document.createElement("a");
+      a.className = "brief-link";
+      a.href = b.brief || ("briefs/" + b.id + ".html");
+      a.textContent = "Open the scaffold →";
+      beats.appendChild(document.createElement("br"));
+      beats.appendChild(a);
       card.appendChild(beats);
 
       const foot = document.createElement("div");

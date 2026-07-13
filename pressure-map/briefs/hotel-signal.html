@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Solitary Hotel &amp; the Signal Check | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for the Solitary Hotel &amp; the Signal Check — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Solitary Hotel &amp; the Signal Check</h1>
+    <p class="sc-meta">
+      <span>Rank: Ten Years of Aftermath</span>
+      <span>Tier: Medium · 2 pp</span>
+      <span>Plan §§18–19</span>
+      <span>Band: train</span>
+      <span class="hot">Discipline: ONE CHECK ONLY</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>This is the aftermath rank's establishing shot: <strong>one hotel that stands for ten years.</strong>
+      The decade must arrive as texture, not exposition — a man, a motorbike, a room, a routine so worn it
+      no longer looks like waiting. Three loads, carried lightly:</p>
+      <ul>
+        <li><strong>The motorbike decade in miniature.</strong> Clifftop hotel, panniers, counter meal,
+        register, room. One location does the work of ten years of them; the reader should be able to
+        multiply it themselves.</li>
+        <li><strong>The research double-exposure.</strong> Officially he is researching Elias Shore, local
+        histories, old maps. Really he is attending to signs of continuation — <em>the shape her choice has
+        taken in the world</em>. Both objects must be present in every gesture; neither may be named as the
+        real one.</li>
+        <li><strong>The book's single signal check gets spent here.</strong> Device out of the luggage, one
+        reading, device wrapped and returned. Whatever he finds proves exactly one thing — <em>the system
+        continued without him</em> — and solves nothing else.</li>
+      </ul>
+      <p>Ratified guardrail: the chronology stays backstage. This scene is a room and a routine; the ten
+      years underneath it are never counted aloud.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 36–37 (≈ MS pp. 88–89)</strong> — first block of the Aftermath
+      rank. The reader has just left the split: Katita keeping the truck, Leif leaving with almost nothing.
+      This scene opens the far side of that silence — a decade later, mid-routine, no bridge passage. The
+      jump-cut <em>is</em> the information.</p>
+      <p><strong>Feeds directly into:</strong> the Improved Node as Rumour (p. 38 — the instrument gives
+      almost nothing here, then hearsay gives everything there; keep that order in mind), Imagined Node
+      Conversations (p. 39), and the whole aftermath band. <strong>Pays off from:</strong> the split, the
+      pamphlet, the napkin topology. The order of the aftermath blocks can still shift — but wherever the
+      check lands, it must remain the rank's only one.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The split's settlement:</strong> Katita keeps the truck; Leif leaves with much less,
+        later travelling by motorbike.<span class="canon-tag">canon</span></li>
+        <li><strong>Among his few belongings:</strong> Katita's pamphlet, <em>On the Completion of White
+        Centres by Non-Mathematical Systems</em> — topology through weather, botany and tides, ending in a
+        one-word chapter he cannot bring himself to read.<span class="canon-tag">canon</span></li>
+        <li><strong>The decade's geography:</strong> clifftop hotels, empty campsites, rural pubs, quiet
+        motels, hillside guesthouses, isolated bed-and-breakfasts.<span class="canon-tag">canon</span></li>
+        <li><strong>The research, official object:</strong> Elias Shore, local histories, <em>Fighters of
+        the North</em>, public archives, old maps, civic memory, forgotten digital worlds.<span class="canon-tag">canon</span></li>
+        <li><strong>The research, real object:</strong> signs of continuation — not Katita as a person, but
+        <em>the shape her choice has taken in the world</em>.<span class="canon-tag">canon</span></li>
+        <li><strong>The check:</strong> at one quiet location, Leif removes a device from the motorbike
+        luggage and checks for ROOT. <em>This should happen once.</em><span class="canon-tag">canon</span></li>
+        <li><strong>What he may find</strong> (choose one or two, never stack): an active module · an
+        altered protocol · a new timestamp · a design change · evidence of maintenance · a bird recording ·
+        an unsigned file. <em>The information should not solve the mystery.</em><span class="canon-tag">canon</span></li>
+        <li><strong>The emotional fact:</strong> the system continued without him.<span class="canon-tag">canon</span></li>
+        <li><strong>Adjacent (may glance in):</strong> unsigned files in a cadence very close to hers — he
+        cannot determine whether she uploads, whether ROOT learned her voice, or whether he hears resemblance
+        because he needs to. He reads them anyway.<span class="canon-tag">canon</span></li>
+        <li><strong>State:</strong> ten years living inside co-authorship — the sense of being written by
+        landscapes, systems, memory and other people. Instinctive now, not argued.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Give the official research answer to a publican or landlady and hear how thin it sounds in the
+        room. Be fluent about Elias Shore and evasive about everything after him. Ask a local one question
+        about a tree, a hall, an old repeater hut — and not the follow-up. Sign the register with his real
+        name. Order the schnitzel.</p>
+      </div>
+      <div class="permit">
+        <h3>The prose may</h3>
+        <p>Carry both objects of the research in a single gesture without ranking them. Report the check in
+        instrument language — protocol, timestamp, checksum — and stop one sentence short of interpretation.
+        Let the free indirect voice almost say what he is looking for, then let the room interrupt.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Say Katita's name aloud. Explain what ROOT was or is. Treat the finding as evidence in a case
+        that could be closed. Name the decade as grief, search, or penance. Think the sentence <em>the system
+        continued without me</em> — the reader assembles it; Leif never does. Philosophy stays silent.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The hotel: interwar brick and fibro on a headland, two storeys of long verandah, Norfolk Island
+        pines combing the wind, VACANCY in dead neon with one letter out for years.</li>
+        <li>The motorbike ticking as it cools by the side fence; panniers unclipped and carried up like
+        shopping; hot engine oil and brine in the same breath.</li>
+        <li>Counter meal alone at six: schnitzel wider than the plate, keno numbers cycling on a wall TV,
+        a laminated tide chart by the till, the barman's radio doing the trots.</li>
+        <li>The guest register on a chain, biro on a string — a vernacular organ he signs without noticing
+        he notices.</li>
+        <li>The room: candlewick bedspread, electric jug, UHT thimbles, venetians furred with salt, a
+        wardrobe that smells of other people's decades, lamplight the colour of weak tea.</li>
+        <li>The device: hand-soldered in a project box, coiled antenna, a toggle with the paint worn off,
+        crocodile clips to the bike battery — ten years old and looking older, wrapped in an old towel.</li>
+        <li>The check-site: the grass strip between hotel and cliff line at dusk; the sea moving its
+        freight below; a kestrel holding absolutely still in the updraft while everything else streams.</li>
+        <li>The reading itself: a held LED, a small resting LCD, a duration — three minutes that the scene
+        should spend on other things (the tide chart remembered, the pines, the cold coming up).</li>
+        <li>The pamphlet on the bedside table, softened at the corners, the last chapter still unread —
+        present as an object, not remarked.</li>
+        <li>Morning: kegs rolled somewhere below, a dog on a ute tray, magpies, mist off the paddocks
+        inland, the folded old map going back in the pannier last.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The single check, wrapped and returned</td><td>The Arrival: never checking again becomes
+          the shape of his acceptance — gentleness chosen, rhyming with the hammer that never swung.
+          <em>Never state the rhyme.</em></td></tr>
+          <tr><td>A bird recording (if chosen as the finding)</td><td>Imagined Node Conversations (p. 39);
+          distantly, the wren at the station. One playback, no replay.</td></tr>
+          <tr><td>An unsigned file (if chosen)</td><td>Files in her cadence — the unresolvable question of
+          who or what writes them. He reads it; he decides nothing.</td></tr>
+          <tr><td>The pamphlet's one-word chapter</td><td>Stays unread the whole book — a white centre
+          carried in a pannier. The not-reading is the payoff.</td></tr>
+          <tr><td>The official research (Shore, old maps, microfiche)</td><td>The ecology of unstable
+          provenance; erring together; the masthead ancestor's contaminated line.</td></tr>
+          <tr><td>Room, register, tide chart, radio</td><td>The vernacular republic — public memory-organs
+          he now lives inside without commentary.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The second check.</strong> Even an implied habit — "whenever he stopped somewhere
+        quiet…" — destroys the discipline. One location, one reading, and the grammar must make its
+        singularity felt without announcing it.</li>
+        <li><strong>The finding as verdict.</strong> A timestamp that proves Katita, a design change that
+        proves not-her, anything a reader could use to close the case. The mystery must leave the scene
+        exactly as open as it entered, only warmer.</li>
+        <li><strong>Detective drift.</strong> The research must not sprout leads, contacts, next towns. It
+        is attention wearing the costume of scholarship, not an investigation.</li>
+        <li><strong>The grief aria.</strong> No tears at the device, no throat tightening on cue. The
+        emotional fact arrives as fact — flat, load-bearing, unperformed.</li>
+        <li><strong>Tech-sheen.</strong> The device is hand-made, obsolete, unglamorous — closer to a
+        fencing tool than an instrument. If it reads as spy kit, rebuild it.</li>
+        <li><strong>Counting the decade.</strong> "Ten years" belongs to the writer's chronology, not the
+        page. The reader should feel the duration in the worn toggle and the register's routine, not be
+        told it.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open on the publican's question — "What is it you're researching, then?" — and let the true
+        answer arrive one beat behind the spoken one, in free indirect, before the beer lands.</li>
+        <li>The room chosen for its desk, not its view; he pays for the sea and sits facing the wallpaper —
+        a researcher's economy that says everything about which object is official.</li>
+        <li>The device comes out of the pannier wrapped in a towel, handled like something being declared
+        at a border — the care of a man carrying a thing he has promised himself about.</li>
+        <li>The check performed in the last usable light between hotel and cliff, the engine still ticking
+        behind him — no ceremony, the duration of a cigarette he doesn't smoke.</li>
+        <li>While the device listens, he reads the tide chart he memorised at dinner without meaning to —
+        the mind rehearsing a public timetable so as not to watch the LED.</li>
+        <li>The finding is maintenance: a log entry, months old, someone or something keeping the thing
+        alive — a tightened connection, a cleaned contact. Care, with no signature. He powers down before
+        the thought can complete.</li>
+        <li>The researcher who photographs every microfiche writes nothing down here. The absence of the
+        notebook is the scene's loudest object.</li>
+        <li>If the finding is the bird recording: half a second of a dawn from a catchment he has never
+        visited. He lets it play once. Not twice. The not-replaying is the whole character.</li>
+        <li>Frame through the guest register: the names above his, all elsewhere by now, the hotel holding
+        each brief signal in biro — he signs, and the book absorbs him into the column.</li>
+        <li>End on packing order, not feeling: towel-wrapped device at the bottom, then the maps, then the
+        pamphlet last, where a hand would find it first. Let the pannier's stratigraphy be the final
+        sentence's grammar.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Two pages. The check itself occupies less than half of one — the hotel, the meal, the register and
+      the room do the heavier lifting. End on departure or the night before it, mid-routine, nothing
+      resolved. The reader should come away knowing the decade's whole shape from one stay, and should feel
+      — without being told — that the check was the decade's single indulgence, and that it has now been
+      spent. If Leif seems to have learned anything, cut the sentence where he learned it.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder Chronology,
+      ✦ The Wound, ✦ The Endgame Plan (Movement 11 register) · notes/remainder-chronology.md §§16–19
+      (ratified 2026-07-13) · the four warnings.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

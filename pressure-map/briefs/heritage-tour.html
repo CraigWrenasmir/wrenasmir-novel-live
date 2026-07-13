@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Heritage Tour of the Dead Server | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for the Heritage Tour of the Dead Server — a local-history tour through an abandoned virtual Newcastle.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Heritage Tour of the Dead Server</h1>
+    <p class="sc-meta">
+      <span>Rank: The Road Years Alive</span>
+      <span>Tier: Medium · 2 pp</span>
+      <span>Plan §7 · staged here</span>
+      <span>Band: Vaporwave</span>
+      <span class="hot">The avatars stay unresolved</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>Two pages of shared digital pleasure with one cold current through it. The loads:</p>
+      <ul>
+        <li><strong>Play before mission, again.</strong> This is the §7 world — obsolete platforms,
+        low-poly Newcastle, hardware tiny and light enormous — staged during the road years as digital
+        play at night. The tour is a game they run for fun. ROOT's ancestry in pleasure, not
+        collapse-fear, gets its clearest single demonstration here.</li>
+        <li><strong>Leif as tour guide.</strong> He conducts an actual local-history tour through the
+        abandoned render — patter, dates, "on your left" — his obsessions given a civic, generous shape.
+        The reader sees what his aftermath decade of "research" will be built from, without being told.</li>
+        <li><strong>Three silent avatars begin following him.</strong> This is the scene's cold current
+        and its whole afterlife. They arrive, they follow, they never speak, and <em>who they are is
+        never resolved</em> — not in this scene, not in the book. The mystery must be handled so lightly
+        that a first reader could take them for set dressing and a second reader can't sleep about them.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 13–14 (≈ MS pp. 65–66)</strong> — after the Big Thing, before
+      the storm. The placement makes a quiet triptych of obscured civic objects: monument, render, mesh.
+      The order can shift on the Pressure Map; the plan allows this block to be staged here or revisited
+      later, so it also survives transplanting into the aftermath as memory.</p>
+      <p><strong>Feeds directly into:</strong> the storm (pp. 15–17 — from a dead virtual world to a
+      live physical one overnight); much later, the diagnostic render of the Wound — the misrendered
+      harbour and low-poly light return as ROOT's own interface, and this scene is why that interface
+      will feel like a homecoming. <strong>Pays off from:</strong> Play Before Mission (the origins
+      block), and the old maps fleck — the render is one more outdated inscription he prefers to the
+      updated world.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The event:</strong> Leif conducts a local-history tour through an abandoned virtual
+        Newcastle — low-poly wharf, silos, old light, vanished buildings, misrendered
+        harbour.<span class="canon-tag">canon</span></li>
+        <li><strong>The followers:</strong> three silent avatars begin following him. <em>Their
+        identities are never resolved.</em><span class="canon-tag">canon</span></li>
+        <li><strong>The world:</strong> shared digital spaces precede ROOT — obsolete games,
+        SecondLife-era Newcastle, abandoned servers, pixel-pastoral worlds where the hardware is tiny
+        and the light is enormous.<span class="canon-tag">canon</span></li>
+        <li><strong>ROOT arises from pleasure, play and curiosity</strong>, not simply fear of
+        collapse.<span class="canon-tag">canon</span></li>
+        <li><strong>Backstage only:</strong> the vaporwave layer later becomes ROOT's diagnostic render;
+        Katita will one day appear misrendered inside such a space. This scene must not know any of
+        that — no diagnostic grammar, no status lines, no ASCII here.<span class="canon-tag">canon</span></li>
+        <li><strong>The four warnings apply:</strong> especially the first — the reader may not learn
+        where this world sits in the book's ontology, and the seam stays unresolved.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Do full tour-guide voice — dates, provenance, "if you'll follow me." Deliver the history of a
+        demolished building in the present tense because here it is present. Get one date slightly wrong,
+        uncorrected. Address the avatars as a tour group with complete courtesy and no questions. Enjoy
+        himself without reservation.</p>
+      </div>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Drive her avatar badly and not care. Sit in geometry that isn't solid. Heckle the guide the
+        way locals heckle a tour about their own town. Notice the followers first and say only "you've
+        got customers." Log off before him, or fall asleep in the bunk while he finishes.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Speak <em>as</em> the avatars — they type nothing, emote nothing, and never resolve. Speculate
+        aloud about who or what they are; no candidate may be floated even to be dismissed. Say
+        <em>haunted, ghosts, watching, witnesses</em>. Turn the tour investigative — nobody inspects a
+        name tag up close, checks a profile, or follows a follower.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The frame: the truck at night, laptop on the fold-down, inverter whine, moths on the screen —
+        the enormous virtual light pouring out of hardware you could hold in two hands.</li>
+        <li>Old light: the server sun stuck at late afternoon forever, shadows baked into the ground
+        textures at an hour that never changes; everything gilded and slightly wrong.</li>
+        <li>Draw distance: fog eating the harbour at three hundred metres; the far crane assembling
+        itself out of nothing as you approach, faithful as a butler.</li>
+        <li>The water: a tiled texture sliding at one speed, seams visible on the diagonal; the tide a
+        setting somebody chose once and never revisited.</li>
+        <li>Vanished buildings standing: what the city lost to the earthquake and the demolition crews
+        still rendered here — a pub that fell, a tower that came down, tram sheds — the server never
+        told they were gone.</li>
+        <li>Low-poly silos: six-sided cylinders, untextured on the harbour face where nobody was expected
+        to look. The wharf planked with one plank, repeated.</li>
+        <li>Billboards advertising businesses dead twice over — once in the world, once when the last
+        player left.</li>
+        <li>Platform physics: name tags rendering before bodies; footsteps out of sync with feet;
+        walking through a wall into a shop interior that is one room deep and full of the same chair.</li>
+        <li>Teleport pads to deleted parcels: THIS LAND IS ABANDONED, in the platform's cheerful default
+        font.</li>
+        <li>The avatars: default skins or near-default, a beat behind, keeping formation the way things
+        keep formation when nobody has told them to stop. They arrive separately. They leave — or don't —
+        unobserved.</li>
+        <li>Sound: the platform's ambient loop, forty seconds of gulls and harbour wash, audibly a loop;
+        under it the real night outside the truck, which has better birds.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The misrendered harbour</td><td>The diagnostic render of the Wound — ROOT's low-poly
+          interface, and Katita misrendered inside it. The corruption will speak this scene's dialect.</td></tr>
+          <tr><td>Old light, permanent afternoon</td><td>The pixel-pastoral register of the whole
+          vaporwave band; the food court's enormous light; the book's habit of preserved wrong hours.</td></tr>
+          <tr><td>Vanished buildings still standing</td><td>The old maps thread — the vanished road, the
+          world before continuous updating; and the Big Thing's town, one page earlier, that the highway
+          stopped seeing.</td></tr>
+          <tr><td>Leif's tour patter</td><td>The aftermath decade of official "research" — local
+          histories, civic memory, forgotten digital worlds. The tour is the rehearsal he doesn't know
+          he's running.</td></tr>
+          <tr><td>The three silent followers</td><td>Nothing, ever — and that is the payoff. They join
+          the book's ecology of unverifiable presence (files in her cadence, the figure near the trees at
+          the end) as its earliest, purest member.</td></tr>
+          <tr><td>Being followed while narrating</td><td>The late knife of the diagnostic — being read
+          while reading. Planted here as a warmth on the back of the neck, never named.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>Solving the avatars.</strong> Any clue is a solution on layaway — a familiar gait, a
+        suggestive name tag, a meaningful log-off. Give the reader nothing that could ever be cashed.
+        The scene's discipline is that Leif doesn't investigate either.</li>
+        <li><strong>Horror drift.</strong> The followers are not menace. The scene is pleasure with a
+        cold current, not dread with jokes. If the prose's pulse rises when they appear, rewrite until
+        the tour simply continues.</li>
+        <li><strong>The nostalgia essay.</strong> No paragraph about dead platforms, old internets, or
+        what we lost. The render is loved the way the taped paperback is loved — in use, specifically,
+        without a eulogy.</li>
+        <li><strong>Leaking the diagnostic.</strong> No ASCII, no status lines, no system text beyond the
+        platform's own dumb signage. That grammar belongs to the corruption, later; borrowing it here
+        spends it and collapses the ontology early.</li>
+        <li><strong>The lecture, again.</strong> Tour patter is Leif's rooftop failure mode in a hat. Let
+        lag, a crash, Katita's heckling, or the arrival of a follower interrupt him at the worst moments;
+        the tour proves itself alive by surviving them.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open mid-patter, no establishment: "On your left, the wharf, which is still here —" and let
+        the reader work out which side of the screen they're on. The truck resolves around the laptop a
+        paragraph later.</li>
+        <li>The tour distinguishes, without flagging it, between what the render kept and what the city
+        kept: he walks the group through the doors of a building that fell in the earthquake and gives
+        its history in the present tense, because here the present tense is simply accurate.</li>
+        <li>The first follower arrives during the silo stretch — a name tag rendering out of the fog
+        before its body does, so that for four seconds the tour is being followed by a name.</li>
+        <li>They arrive one at a time over twenty minutes, spaced like an audience assembling for a
+        country hall meeting; by the wharf there are three, and the prose never counts them again.</li>
+        <li>Katita's avatar sits on a bollard that isn't solid and sinks to mid-thigh; she stays like
+        that for the rest of the tour, perfectly at ease inside the error. <em>One image of her whole
+        philosophy; no comment.</em></li>
+        <li>The tide is wrong: he knows the real harbour's tide tonight — knows it the way he knows the
+        payphone number — and the render's water is doing something else. He notices, says nothing, and
+        the tour moves on. This is what noticing is for.</li>
+        <li>Lag: mid-sentence the followers walk through him and reassemble behind, the way a wave passes
+        through weed. The platform's fault, entirely explicable, and nobody explains it.</li>
+        <li>He times the tour to end "at dusk" out of professional habit, though the server sun hasn't
+        moved in nine years. He wraps up facing the permanent afternoon: "and that concludes —" to three
+        default skins and a tiled sea.</li>
+        <li>Katita is asleep in the bunk by the end; the last third of the tour is delivered in a
+        whisper so as not to wake her — a heritage tour at whisper volume, for three strangers, in a
+        city that no longer exists twice.</li>
+        <li>Log-off order as the exit: he leaves first, deliberately, tipping an invisible hat — leaving
+        them standing on the wharf. What the render does when no one is watching is not shown, not
+        wondered about, not written.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Two pages. The scene ends in the truck's real dark — laptop lid, inverter off, actual birds —
+      with the tour having been, on its face, nothing but a good night. Nobody has wondered aloud. The
+      three avatars have not been explained, approached, or even counted twice, and the reader should
+      only notice on reflection that the scene declined every chance to look closer. If the followers
+      feel like a plot thread, tighten until they feel like weather. The mystery is not a debt the book
+      owes; it is a possession the book keeps.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder
+      Chronology (spine §7), ✦ The Wound (diagnostic render, backstage only), §2 vignette 6, §3 nested
+      ontology · notes/remainder-chronology.md §7 · ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

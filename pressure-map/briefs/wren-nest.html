@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: Wrens in the Dead Node | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for Wrens in the Dead Node — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>Wrens in the Dead Node</h1>
+    <p class="sc-meta">
+      <span>Rank: Return &amp; Arrival</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Remainder p. 45 ≈ MS p. 97</span>
+      <span>Plan §24 · Band: Root</span>
+      <span class="hot">Condition: CONTINUATION</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>One image, delivered whole and left alone: <strong>years after the ROOT years, a decommissioned
+      module with wrens nesting inside it</strong> — grass threaded through circuitry, eggs resting near
+      residual solar warmth. A fleck: flash and vanish. Three loads, all carried under the surface:</p>
+      <ul>
+        <li><strong>The archive becomes habitat.</strong> The node no longer performs its intended function
+        and has not become useless. Life continues by changing purpose; biology absorbs the technology that
+        absorbed the culture. This is the plan's thesis — and it must <em>never</em> appear in the prose,
+        in any phrasing, at any distance. The image does all the work or the page fails.</li>
+        <li><strong>The wrens come home.</strong> They are already the book's fauna — the bushwalk's "clutter
+        of wrens... wrens that seemingly rise out of wrens." Their arrival in the hardware must read as the
+        landscape's ordinary traffic, not as a new symbol reporting for duty.</li>
+        <li><strong>The recall is banked.</strong> At the small tree by the final platform (§26), this image
+        returns "without explanation." The page must therefore be vivid enough to be recalled in one clause,
+        two pages later, without the reader needing a footnote.</li>
+      </ul>
+      <p>Working note: this may not be a standalone stop at all — it can surface as a <em>remembered or
+      reported image during the train's final approach</em>. Choose whichever placement keeps it lighter.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 45 (≈ MS p. 97)</strong> — between the Bushranger's Playlist (p. 44)
+      and The Arrival (pp. 46–49). The order can shift, and this block floats more freely than most: it can
+      be its own page, or fold into the approach as memory or hearsay. Its one non-negotiable: it must land
+      <strong>before the small tree at the station</strong>, so the recall at §26 has something to recall.</p>
+      <p><strong>Feeds directly into:</strong> the arrival — the small tree recalls this image without
+      explanation; the wren entering or leaving the tree is the same species of motion. <strong>Pays off
+      from:</strong> the whole ROOT build — solar and batteries good for fifty years, casings in burled
+      knots, bark plates over antennas — and the bushwalk's wren-mirrored landscape. Distinct from the
+      improved-node rumour (§17): that fleck carries continuation-as-design; this one carries
+      continuation-as-habitat. <em>Do not merge them.</em></p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The image</strong> (plan §24): a decommissioned module found, years after the ROOT years,
+        with wrens nesting inside it; grass threads through circuitry; eggs rest near residual solar
+        warmth.<span class="canon-tag">canon</span></li>
+        <li><strong>The silent thesis</strong> (writer's compass only, never prose): the archive becomes
+        habitat; life continues by changing purpose; ideas remain alive not by remaining unchanged, but by
+        becoming useful to something new.<span class="canon-tag">canon</span></li>
+        <li><strong>Wrens are established fauna:</strong> the bushwalk's ASCII passage — "a clutter of wrens
+        as ever... wrens that seemingly rise out of wrens, trees out of the canopy of other trees."<span class="canon-tag">canon</span></li>
+        <li><strong>Node hardware:</strong> solar-powered casings hidden in the burled knots of trees; loose
+        bark plates shielding antennas; small resting LCD screens; ROOT downloads at ~300 bits/sec; solar +
+        batteries built to outlast the motels — fifty years.<span class="canon-tag">canon</span></li>
+        <li><strong>The recall:</strong> the dead node's nest is remembered at the small tree "without
+        explanation" (§26).<span class="canon-tag">canon</span></li>
+        <li><strong>Provenance stays light:</strong> the plan says only that the module "is found." By whom,
+        when exactly, which node — open, and better open.<span class="canon-tag">canon</span></li>
+        <li><strong>The signal check is spent:</strong> Leif checks ROOT for a signal once in the whole book
+        (§19), and that once has already happened upstream. This page cannot become a second check.<span class="canon-tag">canon</span></li>
+        <li><strong>State:</strong> tenderness without mourning; discovery without diagnosis. Philosophical
+        condition: <em>Continuation — the project persists by ceasing to be the project.</em><span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>The page may</h3>
+        <p>Arrive as report, memory, old photograph, or a roadside stop in the motorbike decade. Date itself
+        loosely ("years after"). Let the finder be Leif or an unnamed someone at second or third hand. Hold
+        one close-up — grass through a cable gland, an egg against the warm heat sink — and refuse a
+        second.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Recognise the hardware generation by feel, out of old habit, and not say so. Rest the backs of two
+        fingers on the heat sink and register warmth without interpreting it. Notice the breach in the casing
+        — storm, corella, thief — and decline to solve it. Leave everything exactly as found. Walk away
+        mid-observation.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>State the thesis or any cousin of it: <em>repurposed, still useful, life finds a way, nature takes
+        back</em>. Mourn the module or eulogise the project. Open the software: no diagnostics, no data
+        retrieval, no reading the archive — the one signal check is spent. Assign the wrens a meaning, a
+        family, or a name. Say <em>habitat, archive, AI</em>.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The casing lid hanging by one hinge, its rubber gasket perished into liquorice crumbs on the
+        board below.</li>
+        <li>The nest itself, fairy-wren true: a dome of dry grass and spider silk with a side entrance, low
+        and hidden, packed into the board cavity — lined with feather-down and one thread of blue tarp.</li>
+        <li>Eggs: three, matte white-pink, freckled at the blunt end, lying against the charge controller's
+        heat sink.</li>
+        <li>The male's flag of blue arriving on the casing lip; the alarm churr; the female slipping out the
+        side entrance low and fast, a handspan above the grass.</li>
+        <li>Grass grown up through a cable gland; seed heads leaning out of the antenna port and moving when
+        nothing else does.</li>
+        <li>The resting LCD's ghost: a sun-bleached rectangle where the screen used to hold its dim line of
+        status, dead pixels scattered like seed.</li>
+        <li>Lichen keyed to the solar panel's aluminium frame; the panel still ticking micro-watts into a
+        battery that holds nothing now but warmth.</li>
+        <li>Smells: hot dust, cured grass, the zinc of weathered aluminium, a faint electrolyte
+        sweetness.</li>
+        <li>The tree grown around its mounting strap, bark lipping over the buckle — the tree keeping the
+        strap the way it keeps fence wire.</li>
+        <li>Ants filing through a vent slot in single column, unbothered, using the conduit as conduit.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>Warmth at the heat sink</td><td>The small tree at the station: the image recalled "without
+          explanation" — warmth arriving again in the hand, two pages later, unglossed.</td></tr>
+          <tr><td>Grass through circuitry</td><td>The silent ASCII map: bush and network drawn as one figure,
+          routes and roots in the same line-weight.</td></tr>
+          <tr><td>The side entrance</td><td>The wren "entering or leaving" the small tree at arrival — the
+          same species of motion, the same refusal to pose.</td></tr>
+          <tr><td>The unexplained breach</td><td>The book's ecology of unresolved provenance, held to the
+          last pages: causes stay uncertified, and the world stays real anyway.</td></tr>
+          <tr><td>Residual solar charge</td><td>"Giving the vernacular republic a battery" — the battery's
+          last job is incubation. Compass only; the prose never says it.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>Stating the thesis.</strong> The named hazard. Any sentence that could caption a slide —
+        about purpose, adaptation, usefulness, continuity — dies here. If a line explains the image, the
+        image is stronger without the line.</li>
+        <li><strong>Elegy.</strong> Mourning the module makes the book adjudicate between Leif and Katita at
+        the last minute. The mood is discovery, not loss; the wrens are not a consolation prize.</li>
+        <li><strong>The second signal check.</strong> No laptop, no cable, no wondering-what-survived acted
+        upon. The moment anyone reads data, this becomes §19 again and both pages weaken.</li>
+        <li><strong>Cuteness.</strong> Wrens are busy, territorial, indifferent. Write them as fauna with
+        their own schedule, not as blessing, omen, or reward.</li>
+        <li><strong>Over-placing it.</strong> Pinning the who/when/which (node ID, finder's name, a date)
+        closes seams the book needs open. "Is found" is the whole chain of custody.</li>
+        <li><strong>Symbol inflation.</strong> One close-up, then out. A fleck that lingers becomes a stanza;
+        a stanza here becomes a fourth-warning violation two pages early.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Report form: three sentences of hearsay — a fencing contractor told a publican told someone on a
+        verandah — the book's folk network doing the finding, the image arriving already worn smooth by
+        retelling.</li>
+        <li>Photograph form: a picture taken years ago on a phone Leif rarely charges, surfacing as the train
+        slows — the page is him looking at it, and the image is sharper than the screen showing it.</li>
+        <li>The mounting strap's knot is his own half-hitch, and the tree has half-swallowed the evidence of
+        his hands. Recognition without a word about it — the closest the page comes to signature, and it
+        stays under the bark.</li>
+        <li>The two-fingers-on-the-heat-sink gesture, exactly the gesture of checking a sleeping forehead —
+        <em>and cut the simile, keep the gesture</em>. The hand knows; the sentence doesn't need to.</li>
+        <li>The male wren forages within arm's reach and dismisses him — being classified as weather by the
+        landscape, which he does not name as a benediction.</li>
+        <li>Inventory instinct arriving and being allowed to rest: three eggs, two cable glands, one hinge —
+        the count stopping there, refusing to become an audit.</li>
+        <li>The nest lining includes a strip of something printed, weathered past reading. He chooses not to
+        extract it. Provenance refused as a physical act, not a reflection.</li>
+        <li>He accidentally shades the eggs; the female churrs at him from the lantana until he steps back
+        out of the light. The machine's warm corner defended against its maker — shown as bird behaviour,
+        nothing more.</li>
+        <li>Fold it into the approach: one paragraph between two level crossings, unintroduced — surfacing
+        the way remembered images do at the ends of journeys, so that §26's recall becomes a recall of a
+        recall.</li>
+        <li>Exit through the ordinary: he registers the paddock's other trees, any of which may or may not
+        hold anything, and does not check — walking away as the page's last motion.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page or less — ideally less. It ends with the observer withdrawing and the wrens resuming;
+      nothing concluded, no data read, no meaning banked on the page. The test: a reader who quotes this
+      page should find themselves quoting an image, not an idea. If any sentence could stand alone as the
+      moral, the fleck has become an essay — cut the sentence and trust the eggs.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder Chronology
+      (§24, §26 recall, §17 kept distinct, §19 spent), §10 Mesh networks &amp; civic tenderness (hardware
+      canon) · remainder-chronology.md §24, ratified decisions &amp; fourth warning 2026-07-13 · manuscript
+      canon: the bushwalk wren passage (pp. 16–17), motel/node longevity (p. 8).</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

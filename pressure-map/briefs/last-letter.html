@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Last Letter in Water | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for the Last Letter in Water — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>The Last Letter in Water</h1>
+    <p class="sc-meta">
+      <span>Rank: Ten Years of Aftermath</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Plan §4 · form event</span>
+      <span>Band: boxer</span>
+      <span class="hot">Authorship: OPEN — FOUR WAYS</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>The recognition (pp. 41–42) gets its object: the last Boxer–courtesan letter, rain-damaged,
+      authorship standing open four ways. A fleck with a form event inside it. Three loads:</p>
+      <ul>
+        <li><strong>Stage water's final edit.</strong> Ink swims, syntax breaks apart, a few words remain
+        as islands. The bath lifted a whole paperback's letters off their pages once; this is that process
+        arriving at the correspondence itself — minor key, dry handling.</li>
+        <li><strong>Protect the four-way authorship.</strong> Him, her, both, neither. Every surviving word
+        must read true in all four attributions; the fleck must end with the question unasked as much as
+        unanswered.</li>
+        <li><strong>Solve the form problem.</strong> This is one of the book's shifting-text opportunities:
+        a water-damaged letter sitting on the page as partial lines and islands of legibility — a pressure
+        peak in the Bible's sense, not a typographic party trick.</li>
+      </ul>
+      <p>Ratified guardrail: the boxer band keeps its own ontological texture — conjured, warm, papery.
+      No file-language within reach of this letter.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder p. 43 (≈ MS p. 95)</strong> — the closing block of the Aftermath rank,
+      directly after the courtesan recognition, whose material afterimage it is: the feeling first, then
+      the artefact. The next block is the Bushranger's Playlist (p. 44), opening the Return and Arrival
+      rank — so this fleck is the last backward look before the book turns toward the station. The order
+      can shift, but it wants to sit close behind the recognition and must not open the rank.</p>
+      <p><strong>Pays off from:</strong> the bath (MS pp. 25–26), the Paperback summer's transcribed
+      letters, the recognition. <strong>Feeds, at a distance:</strong> the silent ASCII map (p. 50) — the
+      book's other page where text becomes terrain. <em>They must not resemble each other.</em></p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The object:</strong> the last Boxer–courtesan letter is
+        rain-damaged.<span class="canon-tag">canon</span></li>
+        <li><strong>The damage:</strong> ink swims, syntax breaks apart, a few words remain as
+        islands.<span class="canon-tag">canon</span></li>
+        <li><strong>Authorship:</strong> it is unclear who wrote it — him, her, both or neither. The
+        ambiguity is the artefact's content.<span class="canon-tag">canon</span></li>
+        <li><strong>Water's priors:</strong> in the bath, the letters of a whole paperback lifted from the
+        pages and floated — "an oily alphabet soup"; her arm carried the title by "a miracle of sequenced
+        liquidity." The final letter <em>returns to water</em>.<span class="canon-tag">canon</span></li>
+        <li><strong>Form doctrine:</strong> the text is a shifting medium; ASCII/format intrusions are
+        pressure peaks — moments where language can't hold itself and spills into form. Never decoration,
+        never illustration.<span class="canon-tag">canon</span></li>
+        <li><strong>The correspondence's fabric:</strong> letters from the Paperback summer carried
+        paragraphs transcribed from pulp Australian novels — borrowed language was always part of who was
+        writing.<span class="canon-tag">canon</span></li>
+        <li><strong>Ontological texture:</strong> Boxer/courtesan material stays distinct from ROOT
+        material — this letter is paper and weather, never a corrupted file.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>The surviving words may</h3>
+        <p>Be ordinary: a day of the week, half a verb, "the rain here," a request missing its object, a
+        second-person fragment — "when you," "you would" — that works in every direction. Ordinariness is
+        what lets four authors share them. Syntax may survive without words (a stranded comma, a dash into
+        blankness) — grammar as the letter's most durable material.</p>
+      </div>
+      <div class="permit">
+        <h3>The prose may</h3>
+        <p>Enter the letter mid-sentence and leave it the same way — frame prose flowing into the islands
+        and out again without a curator's throat-clearing. Read the damage itself as the most legible line:
+        tide-lines, migrated ink, the fold that survived. Leave the letter's custody open — held now,
+        remembered, or reconstructed; never certified.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Attribute it, date it, or paraphrase what was lost — "she must have written…" is banned. Let a
+        surviving word point: no names, no gendered endearments, no title fragment (the title's recurrence
+        is not spent here). Explain how the letter got wet, or how it reached him. Weep over it. Reconcile
+        it with the recognition in so many words.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The paper: unlined, gone soft and then stiff again, dried wavy; mineral tide-lines where the
+        water stopped advancing, brown-edged like weather maps.</li>
+        <li>The ink: swum outward and settled at the fibres' edges; blue-black gone to grey-violet; whole
+        words present only as pressure-grooves where a pen once argued with the paper.</li>
+        <li>The fold: intact where the paper was doubled and thickest — the crease as the letter's one
+        uncorrupted line; the sentence that crossed it missing its middle.</li>
+        <li>Custody options (choose one, certify none): pressed inside a taped paperback; between the
+        pages of <em>Fighters of the North</em>'s cheap successor; in an envelope whose address dissolved
+        first.</li>
+        <li>The islands, as physical fact: five to nine phrases riding wide white water, closer to flotsam
+        than to redaction.</li>
+        <li>The room around the reading: rain on an iron roof at the wrong tempo — the damage-event
+        re-running at the wrong speed outside; lamplight; the pannier open.</li>
+        <li>The bath's afterlight (one clause at most): letters that once floated free of a paperback,
+        remembered as a sheen, not a scene.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>Islands of legibility on white water</td><td>The silent ASCII map (p. 50): the book's
+          final page of text-becoming-terrain. This fleck is its smallest rehearsal — <em>and must not look
+          like a map</em>.</td></tr>
+          <tr><td>Water finishing what the bath began</td><td>The bath scene's promise kept in minor key —
+          the correspondence returning to the element that always carried it. <em>Backstage rhyme only;
+          the page never links them.</em></td></tr>
+          <tr><td>Authorship open four ways</td><td>The title's unstable "their" — whose letter, whose
+          organ — and Katita's unresolvable continuation: the book's discipline of never adjudicating,
+          practised on paper.</td></tr>
+          <tr><td>What survives is partial and shared</td><td>Erring together: transmission keeps what it
+          keeps; the islands are the correspondence's truest final state. Dramatised, never stated.</td></tr>
+          <tr><td>He does not transcribe the islands</td><td>The transcriber of paperbacks declining, once,
+          to copy — quiet kin to the single signal check. <em>Do not note the kinship.</em></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The gimmick.</strong> Wavy type, greyed letters, strikethrough, "[illegible]" — any
+        typographic mimicry of water damage. The damage lives in the setting (white space, ragged indents,
+        stranded phrases) and in the broken syntax, never in the font. No wave-shaped concrete poetry.</li>
+        <li><strong>Over-salvage.</strong> Too many islands and the letter becomes readable; the reader
+        must be unable to reconstruct its business. Five to nine survivals, a third of a page at most.</li>
+        <li><strong>The solving island.</strong> One surviving name, one gendered endearment, one title
+        fragment — and the four-way authorship collapses. Vet every island in all four attributions; if
+        one reading is clearly better, re-choose the words.</li>
+        <li><strong>Repetition.</strong> This form event happens once. No reprise, no second look later in
+        the book, no callback quotation of an island. A pressure peak repeated becomes wallpaper.</li>
+        <li><strong>The custody plot.</strong> Explaining how the letter got wet, where it has been for
+        ten years, or whether it exists outside memory turns a seam into backstory. It is here; that is
+        all the page knows.</li>
+        <li><strong>The forensic itch.</strong> Do not reconcile the pen (the swimming ink) with the
+        biros of the earlier books, or the rain with any dated storm. The letter's physics stay as open
+        as its authorship.</li>
+        <li><strong>The shore pun.</strong> The ink gathering at the paper's edges will beg to be called a
+        shoreline. Resist it — the pun does its work silently or not at all.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open with the paper as weather report: the tide-lines say how the rain came — from one edge, in
+        a single sitting — so that the only fully legible thing on the page is the damage itself.</li>
+        <li>Found pressed flat inside a taped paperback, the tape outliving the words — binding still doing
+        its work for a letter that no longer holds together.</li>
+        <li>He reads the islands in her voice, then in his own. The second reading changes none of the
+        words and all of the letter — the four-way authorship enacted as process, with no verdict allowed
+        to follow.</li>
+        <li>One island is only punctuation: a comma with nothing on either side, holding open a pause
+        between two things that no longer exist.</li>
+        <li>The fold as survivor: beginnings and endings of one sentence intact on either side of a missing
+        middle — the letter's grammar agreeing to differ with itself forever.</li>
+        <li>The form event entered mid-sentence: the frame prose runs out of ink at the same moment the
+        letter does, and the islands take over the page's weather until the prose resumes, slightly
+        wetter.</li>
+        <li>What he does after reading: refolds it along the same crease, exactly — care expressed as
+        respect for the one line the water couldn't reach.</li>
+        <li>Rain on the roof now, at the wrong tempo — the room re-running the damage-event at the wrong
+        speed. One clause, no comment, and the fleck's two weathers never introduced to each other.</li>
+        <li>He does not copy the islands into anything. The man who transcribed whole paragraphs of pulp
+        novels into letters declines, this once, to transcribe — and the not-copying is the fleck's
+        loudest act.</li>
+        <li>End on the object, not the meaning: held up to the lamp, the migration of ink visible as
+        pale country at the paper's edges — put away before any word arrives to name what it looks
+        like.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>One page, form event included — the islands taking a third of it at most, frame prose plain above
+      and below. It ends with the letter refolded or the memory releasing, authorship standing at exactly
+      four, custody uncertified, nothing transcribed. The reader should be unable to say who wrote it and —
+      this is the target — <em>unbothered</em>: the damaged letter should read as the correspondence's true
+      final state, not as a mystery awaiting better forensics. Test the islands aloud in all four
+      attributions before locking them. If the page looks beautiful before it reads broken, it's a gimmick;
+      start again from the tide-lines.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — §8 the text as shifting
+      medium, §9 recurring figures (the Boxer &amp; the courtesan), ✦ The Remainder Chronology ·
+      notes/remainder-chronology.md §4 (ratified 2026-07-13) · manuscript pp. 25–26 (the bath) · the four
+      warnings.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>

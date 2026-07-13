@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: River Bathing | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for River Bathing — everything the Bible knows, plus raw material to write from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span {
+      border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/progress" class="site-nav-link">Progress</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD</p>
+    <h1>River Bathing</h1>
+    <p class="sc-meta">
+      <span>Rank: Origins &amp; Pleasure</span>
+      <span>Tier: FULL SCENE · 2 pp</span>
+      <span>Band: Root</span>
+      <span>Plan §8: the road years</span>
+      <span class="hot">One of the six ratified full scenes</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>This is THE happy scene — the one genuinely happy road-years full scene the ranking
+      demands, and its job is brutally simple: <strong>the fracture must be emotionally funded, not
+      just intellectually legible.</strong> Twenty-odd pages from now the hammer and the split have
+      to hurt, and this is the deposit they draw against. Three loads:</p>
+      <ul>
+        <li><strong>Skin, water, light, laughter — zero philosophy.</strong> Two people washing in a
+        brown river at dusk, cattle watching, the current doing the rinsing. Nothing else is asked
+        of the page and nothing else is permitted on it.</li>
+        <li><strong>Full scene-time.</strong> This is one of the six blocks that get room, bodies,
+        weather, silence and consequences. Minutes pass at the pace of minutes. Let there be a long
+        stretch where nothing happens except water.</li>
+        <li><strong>The road years become actual life.</strong> Not a montage of quirk, not rural
+        Australia as a grid for infrastructure — a couple who enjoy inhabiting it, bad food and
+        excellent light, and this evening the light is very good.</li>
+      </ul>
+      <p>Ratified guardrail: the reader must feel what is lost <em>before</em> it is lost — and the
+      scene itself must never know it is that.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Currently remainder pp. 6–7 (≈ MS pp. 58–59)</strong> — the crown of the Origins
+      &amp; Pleasure band, after the digital worlds and before the Phone Box fleck closes the band.
+      The order can shift on the Pressure Map; the ranking also allows war-dialling to carry the
+      happy full scene instead — as currently laid, this page carries it.</p>
+      <p><strong>Feeds directly into:</strong> the whole Road band — this is the register the road
+      years are made of — and, at long range, the hammer and the split, which spend what this scene
+      banks. <strong>Pays off from:</strong> nothing it needs to acknowledge. The truck, the road,
+      the modules exist offstage; the scene arrives mid-life, mid-trip, mid-dusk.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The scene entire:</strong> they wash in a brown inland river at dusk, soap on
+        the bank, cattle watching, the current doing the rinsing.<span class="canon-tag">canon</span></li>
+        <li><strong>Road-years world available offstage:</strong> the truck, country pubs, cheap
+        motels, maps spread on bonnets, bad food and excellent light, tools dropped in grass, poetry
+        and mathematics passing casually between them.<span class="canon-tag">canon</span></li>
+        <li><strong>Ranking law:</strong> one genuinely happy road-years scene at full scene-time —
+        <em>the fracture must be emotionally funded</em>. Full scenes get room, bodies, weather,
+        silence, consequences.<span class="canon-tag">canon</span></li>
+        <li><strong>Deep lineage:</strong> the ancestor project <em>The Road</em> — poor lovers,
+        dodgy hotels, river bathing, landscape hacking; the Darling River sits in the motif bank.
+        A brown western-flowing river is home ground for this book.<span class="canon-tag">canon</span></li>
+        <li><strong>Era inflection (early ROOT years):</strong> the arc still reads <em>Leif
+        installs, Katita dreams</em> — she can rest here without it meaning anything yet; nothing on
+        the page may certify which year of the road this is.<span class="canon-tag">canon</span></li>
+        <li><strong>States:</strong> tired, dirty, solvent in each other's company. No one is
+        troubled. The philosophical condition of this page is that it has none.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions</h2>
+      <div class="permit">
+        <h3>Katita may</h3>
+        <p>Laugh, and be the cause of laughter. Issue practical instructions (hold this, mind the
+        snag, don't drop the soap). Address the cattle directly and give one of them a name. Wash
+        his hair badly, soap in his eyes, and accept no criticism. Be silent for a long stretch
+        without the silence meaning anything.</p>
+      </div>
+      <div class="permit">
+        <h3>Leif may</h3>
+        <p>Fuss — footing, leeches, the whereabouts of the soap — and be laughed out of it. Go under
+        and come up facing the wrong way and like it. Watch her with his whole attention and say
+        nothing about it. Make one bad joke that works. Be hungry.</p>
+      </div>
+      <div class="forbid">
+        <h3>No one may</h3>
+        <p>Mention the modules, the network, the mission, or the future in any tense. Have an
+        insight. Say anything about rivers, time, memory or change — the entire Heraclitus
+        neighbourhood is embargoed. Notice happiness as happiness ("I'm so happy" and all its
+        cousins are forbidden). Say anything a reader could underline as theme. The scene's
+        vocabulary is soap, mud, cow, dark, dinner.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The water: opaque brown, blood-warm at the surface with cold stripes at the knees; the
+        current a slow steady hand; footing of silt, sunken branches, one sudden hole.</li>
+        <li>The light: the west going the colour of the river; the water holding the sky better
+        than the sky holds it; river red gums going black against it.</li>
+        <li>The soap: one bar, gone gluey in its dish; lather taken downstream the instant it forms;
+        the ceremonial trudge back up the bank because somebody left it on the rock again.</li>
+        <li>The cattle: come down to drink and stay to watch; absolute absence of opinion; one cow
+        coughing like a door; hooves sucking in the mud when they shift.</li>
+        <li>Sounds: corellas going over in one long argument; the river's small talk against a
+        snag; something turning over once midstream; no highway anywhere.</li>
+        <li>Skin: sunburn lines glowing in the cool water; days of dust lifting off in a faint
+        halo; hair slicked to skulls making them both look younger and slightly criminal.</li>
+        <li>The bank: clothes on a branch, one towel between them, thongs abandoned at angles,
+        dung dodged barefoot, the mosquitoes arriving on schedule at last light.</li>
+        <li>The truck up the slope with both doors open, ticking as it cools; the plastic tub where
+        the clean shirts live, smelling of the tub.</li>
+        <li>After: wet footprints drying on dust, the tailgate as a bench, damp seats, driving the
+        last hour with wet hair and the windows down, insects in the headlights like static.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The whole scene</td><td>The hammer and the split. This page is the deposit those
+          scenes withdraw; its payoff is grief, not meaning. When a reader flips back looking for
+          what was lost, this is the page they find — and it must be innocent of knowing that.</td></tr>
+          <tr><td>The current doing the rinsing</td><td>Katita's ease, decades early: letting a
+          moving system carry something away and calling that cleaning. Writer's note only —
+          if this surfaces anywhere on the page, cut it.</td></tr>
+          <tr><td>Cattle watching</td><td>Nonhuman witnesses, comic and literal, long before the
+          trees earn the word. One glance held a beat too long is the maximum; no comment.</td></tr>
+          <tr><td>One towel, one bar of soap</td><td>The poor-lovers economy — paying into the
+          pamphlet years, when Leif owns almost nothing and what he kept matters.</td></tr>
+          <tr><td>Excellent light after bad food</td><td>The road-years keynote the aftermath
+          inverts: solitary hotels, the same inland light, no one left to be washed by.</td></tr>
+          <tr><td>Willing surrender to the current</td><td>Quiet rhyme with the tapping game's
+          willing failure — same pleasure, different water. Neither page may know it.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The elegy leak.</strong> The deadliest one. No future tense, no "they would
+        remember this," no shadow at the edge of the frame. The moment the prose knows this is THE
+        happy scene, it curdles into foreboding and the funding fails. The scene must be stupid with
+        the present.</li>
+        <li><strong>Philosophy in the water.</strong> Zero, including smuggled. If either character
+        observes anything about rivers, time or bodies, cut the sentence. The bushwalk and the
+        bedroom own ideas; this page owns soap.</li>
+        <li><strong>The postcard.</strong> Dusk-purple prose, golden light by the tin-full. The
+        scene earns its lyricism through accuracy: the water stays brown, the mud real, the cow
+        coughs. One beautiful sentence per page maximum, and it should be about something plain.</li>
+        <li><strong>Rapture over laughter.</strong> It's erotic, but the job is
+        intimacy-as-ordinariness. If it becomes a love scene the ordinary evening is lost, and the
+        ordinary evening is the asset.</li>
+        <li><strong>Certifying the year.</strong> Nothing may pin where in the road years this
+        sits — no module count, no anniversary, no "by then." Chronology stays backstage.</li>
+        <li><strong>Ending on a freeze-frame.</strong> Full scenes carry consequences. Don't end in
+        the water; end in motion — hunger, the dark drive, the next small thing. The evening
+        continues past the page.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open with the soap, not the river: one bar gone gluey in a dish since three towns back,
+        and the argument — conducted entirely in eyebrows — about whose turn it is to carry it
+        down the bank.</li>
+        <li>The cattle arrive one at a time, like an audience that heard late. Katita curtsies,
+        naked, formally. The cattle continue chewing. Nothing else in the scene needs to be funnier
+        than this.</li>
+        <li>The current game: lie flat, let it carry you down to the snag, wade back, again. And
+        again. No one wins, nothing is learned, the light goes while they're still playing.</li>
+        <li>She washes his hair with great confidence and no skill; soap in his eyes twice; he
+        trusts her less each time and keeps submitting. Wordless.</li>
+        <li>A sock, lost to the river, farewelled with full military honours from the bank.</li>
+        <li>The cold stripe: a spring feeding in somewhere below. They keep trying to stand exactly
+        in it and can't find it twice. Neither says a word about it — not one.</li>
+        <li>The mosquito bargain: the precise minute the river stops being worth it, announced by
+        Katita slapping her own shoulder mid-sentence and walking out of the water without finishing
+        the sentence.</li>
+        <li>The clean-shirt ceremony: last clean shirts each, saved for after washing, pulled from
+        the plastic tub and smelling of the tub — the road-years version of dressing for dinner.</li>
+        <li>Leif goes under, comes up facing the wrong way, spits brown, grins. The river has turned
+        him around and he liked it. Do not gloss it.</li>
+        <li>End in motion and appetite: her driving barefoot and wet, insects in the headlights,
+        somebody's stomach growling loud enough to be answered — end mid-laugh, or on the word for
+        whatever the next town might feed them.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>Two pages at full scene-time. It ends on appetite or laughter, in motion, nothing decided
+      and nothing noticed. No line of it should be quotable as meaning anything beyond its evening.
+      Its success is measured twenty-five pages away: the hammer and the split must hurt
+      <em>because of this page</em>. If the scene feels significant while it's happening, the
+      funding has leaked; if it feels like the best ordinary evening of somebody else's life, it's
+      done.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — ✦ The Remainder
+      Chronology (spine §8; scene-time ranking, ratified decisions), §17 (<em>The Road</em>
+      lineage), motif bank (Darling River, bathing in rivers, poor lovers) ·
+      remainder-chronology.md §8 · ratified guardrails 2026-07-13.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>
