@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-21",
+  "updated": "2026-07-22",
   "entries": [
+    {
+      "id": "withheld-name",
+      "date": "2026-07-22",
+      "title": "The Withheld Name",
+      "signal": "Shore's birth name exists — faint script on a certificate in the historian's shed, primary source long since taken to the dump — and Leif is its sole surviving carrier. He refuses to circulate it, and it never appears anywhere in the book, appendix included; its non-appearance is the payoff. The rooftop's hidden joint: he declares himself a single unrouted node while Katita's napkin diagram sits on the table.",
+      "bands": [
+        "boxer",
+        "paperback",
+        "root"
+      ],
+      "status": "folded",
+      "interference": "Born on the page, not in planning — drafted into the rooftop scene and ratified next day. Enforced by the Proof Room provenance test: any candidate name or strong hint is an automatic FAIL. Protection instead of display for the First Nations material.",
+      "note": "TMAPO-Bible.md → The Elias Shore thread → The withheld name"
+    },
     {
       "id": "module-appendix",
       "date": "2026-07-21",
