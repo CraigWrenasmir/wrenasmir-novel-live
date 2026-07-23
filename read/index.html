@@ -170,6 +170,21 @@
     .scan-wrap.p1 { aspect-ratio: 789 / 965; }
     .scan-wrap.p1 img { top: -65%; }
 
+    /* external program (the ROOT game) */
+    .game-wrap {
+      position: absolute;
+      inset: 0;
+      padding: 0.55rem 0.55rem 2.7rem;
+      z-index: 3;
+    }
+    .game-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 8px;
+      background: #000;
+    }
+
     /* command line */
     .cmdline {
       position: absolute; left: 0; right: 0; bottom: 0;
@@ -266,7 +281,7 @@
       document.body.classList.add("embed");
     }
 
-    const TOTAL_SCANS = 39;
+    const TOTAL_SCANS = 42;
     const scanSrc = n => "../progress/pages/Page%20" + n + ".png";
 
     /* Text layer: built from TMAPO-Manuscript.md by build-text.py (pages 1-31 so far).
@@ -283,7 +298,7 @@
       "CANOPY LINK .................................... INTERMITTENT",
       "CHECKSUM /text ................................. UNCHANGED*",
       "ARCHIVE: THEIR MOST AUGUST PUBLIC ORGAN",
-      "PAGES RECOVERED: 39",
+      "PAGES RECOVERED: 42",
       "",
       "STATUS: BEING READ",
       ""
@@ -351,6 +366,7 @@
         "  PAPER .............. scan mode: flip negative ↔ white paper",
         "  STEADY ............. calm the tube (scanlines/flicker off)",
         "  FIELD .............. take the node in / out of the paddock",
+        "  RUN ROOT ........... load the resident program; EJECT returns to the book",
         "  HELP ............... this",
         "",
         "The scans are the authoritative typesetting. The text layer is",
@@ -370,9 +386,23 @@
         .concat(["", "GOTO n TO OPEN."]));
     }
 
+    let gameActive = false;
+
+    function runRoot() {
+      gameActive = true;
+      display.innerHTML =
+        '<div class="page-head">— EXTERNAL PROGRAM: /ROOT/root.prg · TYPE EJECT TO RETURN —</div>' +
+        '<div class="game-wrap"><iframe src="https://root.wrenasmir.com" ' +
+        'title="ROOT — the game" allow="fullscreen"></iframe></div>';
+      display.scrollTop = 0;
+    }
+
     function run(raw) {
       const c = raw.trim().toUpperCase();
       if (!c) return;
+      if (c === "RUN ROOT" || c === "ROOT" || c === "PLAY") { runRoot(); return; }
+      if (c === "EJECT") { gameActive = false; showPage(); return; }
+      if (gameActive) { gameActive = false; }  // any other command ejects first
       const goto = c.match(/^(?:GOTO|G)\s+(\d+)$/);
       if (c === "NEXT" || c === "N") { page = Math.min(page + 1, TOTAL_SCANS); showPage(); }
       else if (c === "BACK" || c === "B" || c === "PREV") { page = Math.max(page - 1, 1); showPage(); }
@@ -424,6 +454,7 @@
     document.querySelectorAll(".key").forEach(k =>
       k.addEventListener("click", () => run(k.dataset.cmd)));
     document.addEventListener("keydown", e => {
+      if (gameActive) return;
       if (document.activeElement === cmd && cmd.value) return;
       if (e.key === "ArrowRight") run("NEXT");
       if (e.key === "ArrowLeft") run("BACK");

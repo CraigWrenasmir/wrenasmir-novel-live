@@ -43,6 +43,11 @@ for line in text.splitlines():
         current = m.group(1)
         pages[current] = []
         continue
+    if line.startswith("## ") and not in_fence:
+        # any other heading (e.g. "## Pages 32-39 (gap)") ends the current page
+        flush_paragraphs()
+        current = None
+        continue
     if current is None:
         continue  # preamble before Page 1
     if line.strip().startswith("```"):

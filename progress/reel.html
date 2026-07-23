@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMAPO — Reel Preview</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #0e0d0b;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        /* ── Title card ── */
+        #title-card {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            z-index: 100;
+            background: #0e0d0b;
+            opacity: 1;
+            transition: opacity 1.2s ease;
+            pointer-events: none;
+        }
+
+        #title-card.fade-out { opacity: 0; }
+
+        #title-card h1 {
+            color: #c8bfa8;
+            font-size: clamp(1rem, 3vw, 1.6rem);
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        #title-card p {
+            color: #5a5040;
+            font-size: clamp(0.65rem, 1.8vw, 0.85rem);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* ── Scene ── */
+        #scene {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.4rem;
+        }
+
+        /* ── Page container ── */
+        #page-container {
+            position: relative;
+            perspective: 2200px;
+            box-shadow:
+                0 28px 70px rgba(0,0,0,0.75),
+                0 4px 16px rgba(0,0,0,0.55);
+            border-radius: 2px;
+        }
+
+        /* The next page sits underneath — always visible, never transforms */
+        #next-page {
+            position: absolute;
+            inset: 0;
+            background: #f5f1eb;
+            border-radius: 2px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* The current page sits on top and rotates away during the flip */
+        #current-page {
+            position: absolute;
+            inset: 0;
+            background: #f5f1eb;
+            border-radius: 2px;
+            overflow: hidden;
+            z-index: 2;
+            transform-origin: left center;
+            transform: rotateY(0deg);
+            transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            /* Hide the back of this page once it rotates past 90° */
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        #current-page.flipping {
+            transform: rotateY(-180deg);
+        }
+
+        /* A subtle spine shadow that grows during the flip */
+        #spine-shadow {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            pointer-events: none;
+            border-radius: 2px;
+            background: linear-gradient(to right,
+                rgba(0,0,0,0.22) 0%,
+                rgba(0,0,0,0.06) 18%,
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.9s ease;
+        }
+
+        #spine-shadow.active { opacity: 1; }
+
+        #next-page img,
+        #current-page img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        /* ── Progress dots ── */
+        #dots {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 90vw;
+        }
+
+        .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #2a2820;
+            transition: background 0.4s;
+            flex-shrink: 0;
+        }
+
+        .dot.active { background: #9c8e74; }
+        .dot.done   { background: #4a4236; }
+
+        /* ── End card ── */
+        #end-card {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            background: #0e0d0b;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1.4s ease;
+            z-index: 90;
+        }
+
+        #end-card.show { opacity: 1; }
+
+        #end-card h2 {
+            color: #c8bfa8;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        #end-card p {
+            color: #5a5040;
+            font-size: clamp(0.65rem, 1.8vw, 0.85rem);
+            letter-spacing: 0.15em;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="title-card">
+        <h1>Their Most August Public Organ</h1>
+        <p>A novel in progress</p>
+    </div>
+
+    <div id="end-card">
+        <h2>Their Most August Public Organ</h2>
+        <p>Work in progress &mdash; 2026</p>
+    </div>
+
+    <div id="scene">
+        <div id="page-container">
+            <div id="next-page"><img id="img-next" src="" alt=""></div>
+            <div id="current-page"><img id="img-current" src="" alt=""></div>
+            <div id="spine-shadow"></div>
+        </div>
+        <div id="dots"></div>
+    </div>
+
+    <script>
+        const PAGES = Array.from({length: 23}, (_, i) => `pages/Page%20${i + 1}.png`);
+
+        const DWELL   = 2800;  // ms each page is visible before flip starts
+        const FLIP_MS = 900;   // must match CSS transition duration
+        const SETTLE  = 250;   // pause after flip before starting dwell on next
+
+        let current  = 0;
+        let running  = false;
+
+        const container  = document.getElementById('page-container');
+        const curDiv     = document.getElementById('current-page');
+        const nxtDiv     = document.getElementById('next-page');
+        const imgCurrent = document.getElementById('img-current');
+        const imgNext    = document.getElementById('img-next');
+        const spineShadow= document.getElementById('spine-shadow');
+        const dotsEl     = document.getElementById('dots');
+        const titleCard  = document.getElementById('title-card');
+        const endCard    = document.getElementById('end-card');
+
+        // ── Size the container to fill the viewport ──────────────────────────
+        function sizeContainer(ratio) {
+            const vw = window.innerWidth;
+            const vh = window.innerHeight;
+            const availH = vh - 60 - 24; // dots + breathing room
+            const availW = vw * 0.88;
+            let h = availH, w = h * ratio;
+            if (w > availW) { w = availW; h = w / ratio; }
+            w = Math.round(w); h = Math.round(h);
+            container.style.width  = w + 'px';
+            container.style.height = h + 'px';
+        }
+
+        // ── Build dots ───────────────────────────────────────────────────────
+        PAGES.forEach((_, i) => {
+            const d = document.createElement('div');
+            d.className = 'dot';
+            d.id = `dot-${i}`;
+            dotsEl.appendChild(d);
+        });
+
+        function setDot(idx) {
+            PAGES.forEach((_, i) => {
+                const d = document.getElementById(`dot-${i}`);
+                d.className = 'dot' + (i === idx ? ' active' : i < idx ? ' done' : '');
+            });
+        }
+
+        // ── Preload images into a cache ──────────────────────────────────────
+        const cache = {};
+        function preload(src) {
+            if (cache[src]) return cache[src];
+            const p = new Promise(resolve => {
+                const img = new Image();
+                img.onload = img.onerror = () => resolve(img);
+                img.src = src;
+            });
+            cache[src] = p;
+            return p;
+        }
+
+        function setImg(imgEl, src) {
+            return preload(src).then(loaded => {
+                imgEl.src = loaded.src || src;
+            });
+        }
+
+        // ── Flip to the next page ────────────────────────────────────────────
+        async function flipToNext() {
+            if (running) return;
+            const next = current + 1;
+            if (next >= PAGES.length) {
+                setTimeout(() => endCard.classList.add('show'), DWELL);
+                return;
+            }
+
+            running = true;
+
+            // Pre-load next page into the underneath div (invisible behind current)
+            await setImg(imgNext, PAGES[next]);
+
+            // Begin flip: current page rotates away from left edge
+            curDiv.classList.add('flipping');
+            spineShadow.classList.add('active');
+
+            // Wait for the flip to complete
+            await new Promise(r => setTimeout(r, FLIP_MS));
+
+            // Flip is done (current page is now invisible, rotated -180°).
+            // Snap current back to 0 without animation, update its image to the
+            // page we just revealed — it becomes the new top layer.
+            curDiv.style.transition = 'none';
+            curDiv.classList.remove('flipping');
+            spineShadow.classList.remove('active');
+
+            current = next;
+            setDot(current);
+
+            // Update current-page image to what's now showing
+            imgCurrent.src = imgNext.src;
+
+            // Pre-load the one after that into next-page for the subsequent flip
+            if (current + 1 < PAGES.length) {
+                preload(PAGES[current + 1]);
+                // (Don't set imgNext.src yet — do it just before the next flip)
+            }
+
+            // Re-enable transition after a frame so the snap-back isn't animated
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    curDiv.style.transition = '';
+                    running = false;
+                    setTimeout(scheduleNext, SETTLE);
+                });
+            });
+        }
+
+        function scheduleNext() {
+            if (current >= PAGES.length - 1) {
+                setTimeout(() => endCard.classList.add('show'), DWELL);
+                return;
+            }
+            setTimeout(flipToNext, DWELL);
+        }
+
+        // ── Init ─────────────────────────────────────────────────────────────
+        async function init() {
+            // Load first image to get real aspect ratio
+            const firstImg = await preload(PAGES[0]);
+            const ratio = firstImg.naturalWidth / firstImg.naturalHeight || 0.727;
+            sizeContainer(ratio);
+
+            imgCurrent.src = firstImg.src;
+
+            // Preload next several pages in background
+            PAGES.slice(0, 5).forEach(src => preload(src));
+
+            // Show title card, then begin
+            await new Promise(r => setTimeout(r, 2600));
+            titleCard.classList.add('fade-out');
+            await new Promise(r => setTimeout(r, 1200));
+
+            setDot(0);
+
+            // Pre-load page 2 into the next-page slot
+            if (PAGES.length > 1) {
+                await setImg(imgNext, PAGES[1]);
+            }
+
+            scheduleNext();
+        }
+
+        init();
+    </script>
+</body>
+</html>
