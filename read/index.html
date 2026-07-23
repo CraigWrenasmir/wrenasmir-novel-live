@@ -166,6 +166,9 @@
       filter: invert(0.94) sepia(0.9) saturate(2.6) hue-rotate(-12deg) brightness(1.18) contrast(1.12);
     }
     body.paper .scan-wrap img { filter: none; background: #fff; }
+    /* page 1 opens with a chapter-drop — crop it so the text starts at the top */
+    .scan-wrap.p1 { aspect-ratio: 789 / 965; }
+    .scan-wrap.p1 img { top: -65%; }
 
     /* command line */
     .cmdline {
@@ -312,7 +315,7 @@
       let html = '<div class="page-head">— PAGE ' + page + ' / ' + TOTAL_SCANS +
                  ' · MODE: ' + mode.toUpperCase() + ' —</div>';
       if (mode === "scan") {
-        html += '<div class="scan-wrap"><img src="' + scanSrc(page) +
+        html += '<div class="scan-wrap' + (page === 1 ? " p1" : "") + '"><img src="' + scanSrc(page) +
                 '" alt="Typeset page ' + page + ' of the manuscript"></div>';
       } else {
         const t = TEXT_PAGES[page];
