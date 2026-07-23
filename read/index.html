@@ -16,6 +16,13 @@
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; }
+    /* ?embed=1 — just the monitor, for iframing into Squarespace */
+    body.embed {
+      background: transparent;
+      padding: 0;
+      min-height: 100%;
+    }
+    html:has(body.embed) { background: transparent; }
     body {
       margin: 0;
       background: radial-gradient(circle at 50% 30%, #24201a 0%, #0c0a07 70%);
@@ -231,6 +238,10 @@
   </main>
 
   <script>
+    if (new URLSearchParams(location.search).has("embed")) {
+      document.body.classList.add("embed");
+    }
+
     const TOTAL_SCANS = 39;
     const scanSrc = n => "../progress/pages/Page%20" + n + ".png";
 
