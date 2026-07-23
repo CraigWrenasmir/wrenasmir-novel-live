@@ -125,11 +125,18 @@
     .display .err { color: #ff6a4d; text-shadow: 0 0 5px rgba(255,106,77,0.5); }
 
     /* scan mode */
-    .scan-wrap { text-align: center; }
+    /* crop the typeset page's blank margins (measured: L/R ~14%, T ~20%, B ~5%) */
+    .scan-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 789 / 1303;
+      border-radius: 3px;
+    }
     .scan-wrap img {
-      max-width: 100%;
-      display: block;
-      margin: 0 auto;
+      position: absolute;
+      width: 129.9%;
+      left: -14.9%;
+      top: -22.2%;
       filter: invert(0.94) sepia(0.9) saturate(2.6) hue-rotate(-12deg) brightness(1.18) contrast(1.12);
     }
     body.paper .scan-wrap img { filter: none; background: #fff; }
