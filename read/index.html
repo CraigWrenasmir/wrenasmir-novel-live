@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROOT Terminal | Their Most August Public Organ</title>
+  <meta name="description" content="Read Their Most August Public Organ through a surviving ROOT node session.">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --phos: #ffb000;
+      --phos-dim: #8a5f00;
+      --phos-glow: rgba(255, 176, 0, 0.55);
+      --tube: #050300;
+      --case: #1a1611;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 50% 30%, #24201a 0%, #0c0a07 70%);
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2vmin;
+    }
+
+    /* ---------- The monitor ---------- */
+    .crt {
+      width: min(760px, calc(100vw - 12px));
+      background: linear-gradient(160deg, #2b251d 0%, var(--case) 40%, #0f0d0a 100%);
+      border-radius: 26px;
+      padding: clamp(10px, 3vmin, 30px);
+      box-shadow:
+        inset 0 2px 2px rgba(255,255,255,0.08),
+        inset 0 -6px 14px rgba(0,0,0,0.6),
+        0 18px 50px rgba(0,0,0,0.7);
+    }
+    .screen-well {
+      background: #000;
+      border-radius: 18px;
+      padding: 10px;
+      box-shadow: inset 0 0 24px rgba(0,0,0,0.95);
+    }
+    .screen {
+      position: relative;
+      background: var(--tube);
+      border-radius: 14px;
+      overflow: hidden;
+      height: min(72vh, 560px);
+      color: var(--phos);
+      text-shadow: 0 0 5px var(--phos-glow);
+      font-size: clamp(11px, 2.5vw, 14.5px);
+      line-height: 1.5;
+    }
+    /* curvature vignette */
+    .screen::before {
+      content: "";
+      position: absolute; inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%);
+      z-index: 6;
+    }
+    /* scanlines */
+    .screen::after {
+      content: "";
+      position: absolute; inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.28) 0px, rgba(0,0,0,0.28) 1px,
+        transparent 2px, transparent 4px
+      );
+      z-index: 5;
+    }
+    .refresh-band {
+      position: absolute; left: 0; right: 0;
+      height: 90px;
+      background: linear-gradient(to bottom, transparent, rgba(255,200,80,0.05), transparent);
+      z-index: 4; pointer-events: none;
+      animation: sweep 7s linear infinite;
+    }
+    @keyframes sweep { from { top: -120px; } to { top: 110%; } }
+    .screen.flicker { animation: flick 4.3s infinite; }
+    @keyframes flick {
+      0%, 100% { opacity: 1; } 97.5% { opacity: 1; }
+      98% { opacity: 0.93; } 98.5% { opacity: 1; } 99.2% { opacity: 0.96; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .screen.flicker { animation: none; }
+      .refresh-band { animation: none; display: none; }
+    }
+    body.steady .screen.flicker { animation: none; }
+    body.steady .refresh-band { display: none; }
+    body.steady .screen::after { opacity: 0.4; }
+
+    /* ---------- Screen content ---------- */
+    .display {
+      position: absolute; inset: 0;
+      overflow-y: auto;
+      padding: 1.1rem 1.2rem 3.2rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--phos-dim) transparent;
+      z-index: 2;
+    }
+    .display p { margin: 0 0 0.9em; }
+    .display pre {
+      margin: 0.9em 0;
+      font-family: inherit;
+      font-size: clamp(7.5px, 2.1vw, 13px);
+      line-height: 1.35;
+      overflow-x: auto;
+      text-shadow: 0 0 4px var(--phos-glow);
+    }
+    .display .sys { color: var(--phos-dim); text-shadow: none; }
+    .display .page-head {
+      color: var(--phos-dim);
+      letter-spacing: 0.2em;
+      font-size: 0.72em;
+      margin-bottom: 1.2em;
+      text-shadow: none;
+    }
+    .display .err { color: #ff6a4d; text-shadow: 0 0 5px rgba(255,106,77,0.5); }
+
+    /* scan mode */
+    .scan-wrap { text-align: center; }
+    .scan-wrap img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+      filter: invert(0.94) sepia(0.9) saturate(2.6) hue-rotate(-12deg) brightness(1.18) contrast(1.12);
+    }
+    body.paper .scan-wrap img { filter: none; background: #fff; }
+
+    /* command line */
+    .cmdline {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      display: flex; align-items: center; gap: 0.4rem;
+      padding: 0.55rem 1.2rem;
+      background: linear-gradient(to top, rgba(5,3,0,0.96) 60%, transparent);
+      z-index: 7;
+      cursor: text;
+    }
+    .cmdline .prompt-char { color: var(--phos); }
+    .cmdline input {
+      flex: 1;
+      background: transparent; border: none; outline: none;
+      color: var(--phos);
+      font: inherit;
+      text-shadow: 0 0 5px var(--phos-glow);
+      caret-color: var(--phos);
+      text-transform: uppercase;
+    }
+
+    /* ---------- Controls under the glass ---------- */
+    .fascia {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding: 0.9rem 0.4rem 0.1rem;
+    }
+    .badge {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      color: #6b5f4c;
+      text-transform: uppercase;
+      user-select: none;
+    }
+    .keys { display: flex; gap: 0.45rem; }
+    .key {
+      font-family: inherit;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: #cdbfa4;
+      background: linear-gradient(180deg, #383126 0%, #211c15 100%);
+      border: 1px solid #0c0a07;
+      border-radius: 6px;
+      padding: 0.45rem 0.8rem;
+      cursor: pointer;
+      box-shadow: 0 2px 0 #0c0a07, inset 0 1px 0 rgba(255,255,255,0.09);
+    }
+    .key:active { transform: translateY(1px); box-shadow: 0 1px 0 #0c0a07; }
+    .key:focus-visible { outline: 2px solid var(--phos); outline-offset: 2px; }
+    .power-led {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--phos);
+      box-shadow: 0 0 8px var(--phos-glow);
+    }
+    @media (max-width: 520px) {
+      body { padding: 1vmin; }
+      .crt { border-radius: 16px; }
+      .screen { height: 74vh; }
+      .key { padding: 0.4rem 0.6rem; font-size: 0.66rem; }
+      .badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="crt" aria-label="ROOT terminal reader">
+    <div class="screen-well">
+      <div class="screen flicker" id="screen">
+        <div class="refresh-band" aria-hidden="true"></div>
+        <div class="display" id="display" aria-live="polite"></div>
+        <div class="cmdline" id="cmdline">
+          <span class="prompt-char" aria-hidden="true">&gt;</span>
+          <input id="cmd" type="text" autocomplete="off" autocapitalize="characters"
+                 spellcheck="false" aria-label="Terminal command input" placeholder="">
+        </div>
+      </div>
+    </div>
+    <div class="fascia">
+      <span class="power-led" aria-hidden="true"></span>
+      <span class="badge">ROOT · solar ok · canopy link intermittent</span>
+      <div class="keys">
+        <button class="key" data-cmd="BACK" aria-label="Previous page">◀</button>
+        <button class="key" data-cmd="NEXT" aria-label="Next page">▶</button>
+        <button class="key" data-cmd="MODE" aria-label="Toggle scan/text mode">MODE</button>
+        <button class="key" data-cmd="HELP" aria-label="Help">?</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const TOTAL_SCANS = 39;
+    const scanSrc = n => "../progress/pages/Page%20" + n + ".png";
+
+    /* Prototype text pages (from TMAPO-Manuscript.md transcription; PNGs stay authoritative). */
+    const TEXT_PAGES = {
+      1: [
+        "At meaning's edge the imagination still flickers. It is jigsaw daylight between any evergreen canopies. I am on my way to see my friend. The train is steady and the sky is both very far above us and lying flat against these knife grazed panels of pause. Through the window south of Newcastle over a river now I see iron matrices, long pylons like bar lines and they resonate a phasing of bass notes against the floor of the carriage in an ostinato that tinkers upwards and south on a known wobbly offbeat",
+        {pre: "|------o------------------------------------|\n|---------------o---------------------------|\n|------------------------------o------------|\n|----o------o-------o-----------------------|"},
+        "that I hummmm and start assigning words to."
+      ],
+      2: [
+        "Were the notation to be seen from above, like sideways music, flat beneath the feet, the notes could well be markers for a shifting of weight left and right like the Boxer used to write me in letters during a summer past. Knees slightly bent, light on the ball as you drop to the heel and pivot east and then west and back and repeat east on a hop like a hi hat paradiddle. The Boxer used to write me although I had no fixed address, nor did he for that matter. I'd get a sense of a pub on the regional plains that he was moving towards and I'd write the letter in that direction, I suppose. So too he'd intimate that I was sleeping on one or another couch of one or another girl who had taken me in over the summer, if not on a golf course or beachhead or rooftop during the balmy nights, of which they all were other than when loneliness dropped the degrees and sideways music could be heard all at once from one or another balcony before, during and after, present and ever, or so it seemed. I read so many paperbacks from the pulp of Australia's twentieth century output that summer, of which I transcribed paragraphs for the Boxer."
+      ],
+      3: [
+        "Some of the paragraphs were ones I later worked on with Katita to compress into text files on the mesh networks we set up across regional plains not dissimilar to those the Boxer traversed with the courtesan he invited on the road with him. In part what I was doing with Katita was fulfilling some ideology that came about through those letters the Boxer and I wrote to one another. At the time, that summer, when I was a layabout couch surfer, reclining everywhere my body could fall into be it fabric or sand, flesh or grass, being or time, I always had a paperback with me, bought with loose change from the Cooks Hill Bookstore. Often they were all Australian novels and almost all just skirting the era years, books anticipating a generational event for a country that perpetually feels outside of history and meaning, like we could just as well do nothing with our twenty million lives and the dominant narratives of the globe would not register our national declivity. And yet, outside of the front pages of the world's newspapers, we committed a lot of human acts that enlarged our collective imagination. How large and to what ratio is a fair question."
+      ],
+      4: [
+        "A fair question, if only because the weight of imagination feels like it occupies a lower frequency of mass than it once did, and I say this whilst looking out the window and projecting fictions onto the glass like a transparent comic strip panel with a backlit projection of outskirt tundra rushing past as a zoetrope would animate a galloping horse. The trinity of sensible subjectivity has been disrupted. What used to be a balance between the world experienced in real-time and the imagined world and the represented world has significantly tipped into cyberpastoralist data farms now where representations of the world as video have eclipsed any possibility of restoring equilibrium between the remaining angles of real-time life and daydreamed life. The surplus of the seen has taken all possible versions of the lived and imagined world and represented them through recreations that ensure we will never do anything ever again that can't be cross referenced as already done. This is what I told the Boxer, in letters, and what Katita later shrugged at, touching my face with her flower-dusted palm to confirm I was still maintaining adequate physical form."
+      ],
+      5: [
+        "She slept in fields of flannel and everlasting daisies and billy buttons and mulla mulla beneath variations of daylight and noon while I fed the data she prepared into solar powered memory casings. These devices transmitted a low-power signal that anyone with a wireless device from the past twenty years could log onto and download all manner of documents across three hundred bits per second, such as",
+        {pre: "/ROOT\n  index.html\n  README.txt\n  /audio\n    River_NSW_1500hrs_Late20thCent.mp3\n    AlfredHill_StringQuartet5_Allegro.mp3\n  /text\n    TomMaguire_Extracts.txt\n    Impressionism_BushStudies.txt\n    Graves_TimeAndDirection_1952_Notes.txt\n  /images\n    Photo_ServiceStation_Dusk_NSW_1993.jpg\n    Photo_MotelFan_Shadow_1987.jpg\n    Plate_EucalyptusLeaf_Study_BW.png\n    Spectrogram_RiverAnomaly.png"}
+      ]
+    };
+
+    const BOOT_LINES = [
+      "ROOT NODE 07 — POWER: SOLAR (trickle) .......... OK",
+      "MOUNT /ROOT .................................... OK",
+      "CANOPY LINK .................................... INTERMITTENT",
+      "CHECKSUM /text ................................. UNCHANGED*",
+      "ARCHIVE: THEIR MOST AUGUST PUBLIC ORGAN",
+      "PAGES RECOVERED: 39",
+      "",
+      "STATUS: BEING READ",
+      ""
+    ];
+
+    const state = JSON.parse(localStorage.getItem("tmapo-terminal") || "{}");
+    let page = Math.min(Math.max(state.page || 1, 1), TOTAL_SCANS);
+    let mode = state.mode === "text" ? "text" : "scan";
+    if (state.steady) document.body.classList.add("steady");
+    if (state.paper) document.body.classList.add("paper");
+    const save = () => localStorage.setItem("tmapo-terminal", JSON.stringify({
+      page, mode,
+      steady: document.body.classList.contains("steady"),
+      paper: document.body.classList.contains("paper")
+    }));
+
+    const display = document.getElementById("display");
+    const cmd = document.getElementById("cmd");
+
+    function esc(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    }
+
+    function showPage() {
+      let html = '<div class="page-head">— PAGE ' + page + ' / ' + TOTAL_SCANS +
+                 ' · MODE: ' + mode.toUpperCase() + ' —</div>';
+      if (mode === "scan") {
+        html += '<div class="scan-wrap"><img src="' + scanSrc(page) +
+                '" alt="Typeset page ' + page + ' of the manuscript"></div>';
+      } else {
+        const t = TEXT_PAGES[page];
+        if (!t) {
+          html += '<p class="sys">TEXT LAYER NOT YET RECOVERED FOR PAGE ' + page +
+                  ' — DISPLAYING SCAN.</p>' +
+                  '<div class="scan-wrap"><img src="' + scanSrc(page) +
+                  '" alt="Typeset page ' + page + ' of the manuscript"></div>';
+        } else {
+          t.forEach(part => {
+            if (typeof part === "string") html += "<p>" + esc(part) + "</p>";
+            else html += "<pre>" + esc(part.pre) + "</pre>";
+          });
+        }
+      }
+      display.innerHTML = html;
+      display.scrollTop = 0;
+      save();
+    }
+
+    function sysLines(lines) {
+      display.innerHTML = lines.map(l => '<p class="sys">' + esc(l) + "</p>").join("");
+      display.scrollTop = 0;
+    }
+
+    function help() {
+      sysLines([
+        "COMMANDS",
+        "  NEXT / BACK ........ turn the page (also ◀ ▶, arrow keys, swipe)",
+        "  GOTO n ............. jump to page n",
+        "  INDEX .............. list recovered pages",
+        "  MODE ............... toggle SCAN (microfiche) / TEXT (phosphor)",
+        "  PAPER .............. scan mode: flip negative ↔ white paper",
+        "  STEADY ............. calm the tube (scanlines/flicker off)",
+        "  HELP ............... this",
+        "",
+        "The scans are the authoritative typesetting. The text layer is",
+        "recovered progressively; pages without text fall back to scan.",
+        "",
+        "PRESS ANY PAGE COMMAND TO RESUME."
+      ]);
+    }
+
+    function index() {
+      const rows = [];
+      for (let i = 1; i <= TOTAL_SCANS; i += 10) {
+        rows.push(Array.from({length: Math.min(10, TOTAL_SCANS - i + 1)},
+          (_, k) => String(i + k).padStart(3, " ")).join(" "));
+      }
+      sysLines(["/ROOT/pages — " + TOTAL_SCANS + " recovered", ""].concat(rows)
+        .concat(["", "GOTO n TO OPEN."]));
+    }
+
+    function run(raw) {
+      const c = raw.trim().toUpperCase();
+      if (!c) return;
+      const goto = c.match(/^(?:GOTO|G)\s+(\d+)$/);
+      if (c === "NEXT" || c === "N") { page = Math.min(page + 1, TOTAL_SCANS); showPage(); }
+      else if (c === "BACK" || c === "B" || c === "PREV") { page = Math.max(page - 1, 1); showPage(); }
+      else if (goto) {
+        const n = parseInt(goto[1], 10);
+        if (n >= 1 && n <= TOTAL_SCANS) { page = n; showPage(); }
+        else display.insertAdjacentHTML("beforeend",
+          '<p class="err">NO SUCH PAGE. RECOVERED RANGE: 1–' + TOTAL_SCANS + '</p>');
+      }
+      else if (c === "MODE" || c === "MODE TEXT" || c === "MODE SCAN") {
+        mode = c === "MODE TEXT" ? "text" : c === "MODE SCAN" ? "scan"
+             : (mode === "scan" ? "text" : "scan");
+        showPage();
+      }
+      else if (c === "PAPER") { document.body.classList.toggle("paper"); save(); showPage(); }
+      else if (c === "STEADY") { document.body.classList.toggle("steady"); save(); showPage(); }
+      else if (c === "INDEX" || c === "LS") index();
+      else if (c === "HELP" || c === "?") help();
+      else display.insertAdjacentHTML("beforeend",
+        '<p class="err">UNRECOGNISED: ' + esc(c) + ' — TRY HELP</p>');
+    }
+
+    /* boot sequence */
+    function boot() {
+      let i = 0;
+      display.innerHTML = "";
+      const tick = () => {
+        if (i < BOOT_LINES.length) {
+          display.insertAdjacentHTML("beforeend",
+            '<p class="sys">' + esc(BOOT_LINES[i] || " ") + "</p>");
+          display.scrollTop = display.scrollHeight;
+          i++;
+          setTimeout(tick, BOOT_LINES[i - 1] === "" ? 120 : 240);
+        } else {
+          setTimeout(showPage, 500);
+        }
+      };
+      const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced || state.booted) { showPage(); }
+      else { tick(); state.booted = true; }
+    }
+
+    /* wiring */
+    cmd.addEventListener("keydown", e => {
+      if (e.key === "Enter") { run(cmd.value); cmd.value = ""; }
+    });
+    document.getElementById("cmdline").addEventListener("click", () => cmd.focus());
+    document.querySelectorAll(".key").forEach(k =>
+      k.addEventListener("click", () => run(k.dataset.cmd)));
+    document.addEventListener("keydown", e => {
+      if (document.activeElement === cmd && cmd.value) return;
+      if (e.key === "ArrowRight") run("NEXT");
+      if (e.key === "ArrowLeft") run("BACK");
+    });
+    let touchX = null;
+    display.addEventListener("touchstart", e => { touchX = e.touches[0].clientX; }, {passive: true});
+    display.addEventListener("touchend", e => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 60) run(dx < 0 ? "NEXT" : "BACK");
+      touchX = null;
+    }, {passive: true});
+
+    boot();
+  </script>
+</body>
+</html>
