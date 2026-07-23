@@ -23,6 +23,28 @@
       min-height: 100%;
     }
     html:has(body.embed) { background: transparent; }
+
+    /* ---------- The paddock (FIELD mode) ---------- */
+    .field-bg, .field-veil { position: fixed; inset: 0; display: none; pointer-events: none; }
+    body.field .field-bg, body.field .field-veil { display: block; }
+    .field-bg {
+      background: url("field.jpg") 62% 32% / cover no-repeat;
+      filter: brightness(0.58) saturate(0.78) contrast(1.06) sepia(0.12);
+      z-index: -2;
+    }
+    .field-veil {
+      background:
+        radial-gradient(ellipse at 50% 42%, transparent 22%, rgba(5, 3, 0, 0.74) 100%),
+        linear-gradient(to bottom, rgba(10, 6, 0, 0.28), rgba(5, 3, 0, 0.5));
+      z-index: -1;
+    }
+    body.field .crt {
+      transform: rotate(-1.1deg);
+      box-shadow:
+        inset 0 2px 2px rgba(255,255,255,0.08),
+        inset 0 -6px 14px rgba(0,0,0,0.6),
+        0 30px 70px rgba(0,0,0,0.85);
+    }
     body {
       margin: 0;
       background: radial-gradient(circle at 50% 30%, #24201a 0%, #0c0a07 70%);
@@ -213,6 +235,8 @@
   </style>
 </head>
 <body>
+  <div class="field-bg" aria-hidden="true"></div>
+  <div class="field-veil" aria-hidden="true"></div>
   <main class="crt" aria-label="ROOT terminal reader">
     <div class="screen-well">
       <div class="screen flicker" id="screen">
@@ -270,10 +294,14 @@
     let mode = state.mode === "text" ? "text" : "scan";
     if (state.steady) document.body.classList.add("steady");
     if (state.paper) document.body.classList.add("paper");
+    if (state.field !== false && !document.body.classList.contains("embed")) {
+      document.body.classList.add("field");
+    }
     const save = () => localStorage.setItem("tmapo-terminal", JSON.stringify({
       page, mode,
       steady: document.body.classList.contains("steady"),
-      paper: document.body.classList.contains("paper")
+      paper: document.body.classList.contains("paper"),
+      field: document.body.classList.contains("field")
     }));
 
     const display = document.getElementById("display");
@@ -322,6 +350,7 @@
         "  MODE ............... toggle SCAN (microfiche) / TEXT (phosphor)",
         "  PAPER .............. scan mode: flip negative ↔ white paper",
         "  STEADY ............. calm the tube (scanlines/flicker off)",
+        "  FIELD .............. take the node in / out of the paddock",
         "  HELP ............... this",
         "",
         "The scans are the authoritative typesetting. The text layer is",
@@ -360,6 +389,7 @@
       }
       else if (c === "PAPER") { document.body.classList.toggle("paper"); save(); showPage(); }
       else if (c === "STEADY") { document.body.classList.toggle("steady"); save(); showPage(); }
+      else if (c === "FIELD") { document.body.classList.toggle("field"); save(); showPage(); }
       else if (c === "INDEX" || c === "LS") index();
       else if (c === "HELP" || c === "?") help();
       else display.insertAdjacentHTML("beforeend",
