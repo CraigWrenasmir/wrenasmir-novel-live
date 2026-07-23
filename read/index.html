@@ -245,27 +245,13 @@
     const TOTAL_SCANS = 39;
     const scanSrc = n => "../progress/pages/Page%20" + n + ".png";
 
-    /* Prototype text pages (from TMAPO-Manuscript.md transcription; PNGs stay authoritative). */
-    const TEXT_PAGES = {
-      1: [
-        "At meaning's edge the imagination still flickers. It is jigsaw daylight between any evergreen canopies. I am on my way to see my friend. The train is steady and the sky is both very far above us and lying flat against these knife grazed panels of pause. Through the window south of Newcastle over a river now I see iron matrices, long pylons like bar lines and they resonate a phasing of bass notes against the floor of the carriage in an ostinato that tinkers upwards and south on a known wobbly offbeat",
-        {pre: "|------o------------------------------------|\n|---------------o---------------------------|\n|------------------------------o------------|\n|----o------o-------o-----------------------|"},
-        "that I hummmm and start assigning words to."
-      ],
-      2: [
-        "Were the notation to be seen from above, like sideways music, flat beneath the feet, the notes could well be markers for a shifting of weight left and right like the Boxer used to write me in letters during a summer past. Knees slightly bent, light on the ball as you drop to the heel and pivot east and then west and back and repeat east on a hop like a hi hat paradiddle. The Boxer used to write me although I had no fixed address, nor did he for that matter. I'd get a sense of a pub on the regional plains that he was moving towards and I'd write the letter in that direction, I suppose. So too he'd intimate that I was sleeping on one or another couch of one or another girl who had taken me in over the summer, if not on a golf course or beachhead or rooftop during the balmy nights, of which they all were other than when loneliness dropped the degrees and sideways music could be heard all at once from one or another balcony before, during and after, present and ever, or so it seemed. I read so many paperbacks from the pulp of Australia's twentieth century output that summer, of which I transcribed paragraphs for the Boxer."
-      ],
-      3: [
-        "Some of the paragraphs were ones I later worked on with Katita to compress into text files on the mesh networks we set up across regional plains not dissimilar to those the Boxer traversed with the courtesan he invited on the road with him. In part what I was doing with Katita was fulfilling some ideology that came about through those letters the Boxer and I wrote to one another. At the time, that summer, when I was a layabout couch surfer, reclining everywhere my body could fall into be it fabric or sand, flesh or grass, being or time, I always had a paperback with me, bought with loose change from the Cooks Hill Bookstore. Often they were all Australian novels and almost all just skirting the era years, books anticipating a generational event for a country that perpetually feels outside of history and meaning, like we could just as well do nothing with our twenty million lives and the dominant narratives of the globe would not register our national declivity. And yet, outside of the front pages of the world's newspapers, we committed a lot of human acts that enlarged our collective imagination. How large and to what ratio is a fair question."
-      ],
-      4: [
-        "A fair question, if only because the weight of imagination feels like it occupies a lower frequency of mass than it once did, and I say this whilst looking out the window and projecting fictions onto the glass like a transparent comic strip panel with a backlit projection of outskirt tundra rushing past as a zoetrope would animate a galloping horse. The trinity of sensible subjectivity has been disrupted. What used to be a balance between the world experienced in real-time and the imagined world and the represented world has significantly tipped into cyberpastoralist data farms now where representations of the world as video have eclipsed any possibility of restoring equilibrium between the remaining angles of real-time life and daydreamed life. The surplus of the seen has taken all possible versions of the lived and imagined world and represented them through recreations that ensure we will never do anything ever again that can't be cross referenced as already done. This is what I told the Boxer, in letters, and what Katita later shrugged at, touching my face with her flower-dusted palm to confirm I was still maintaining adequate physical form."
-      ],
-      5: [
-        "She slept in fields of flannel and everlasting daisies and billy buttons and mulla mulla beneath variations of daylight and noon while I fed the data she prepared into solar powered memory casings. These devices transmitted a low-power signal that anyone with a wireless device from the past twenty years could log onto and download all manner of documents across three hundred bits per second, such as",
-        {pre: "/ROOT\n  index.html\n  README.txt\n  /audio\n    River_NSW_1500hrs_Late20thCent.mp3\n    AlfredHill_StringQuartet5_Allegro.mp3\n  /text\n    TomMaguire_Extracts.txt\n    Impressionism_BushStudies.txt\n    Graves_TimeAndDirection_1952_Notes.txt\n  /images\n    Photo_ServiceStation_Dusk_NSW_1993.jpg\n    Photo_MotelFan_Shadow_1987.jpg\n    Plate_EucalyptusLeaf_Study_BW.png\n    Spectrogram_RiverAnomaly.png"}
-      ]
-    };
+    /* Text layer: built from TMAPO-Manuscript.md by build-text.py (pages 1-31 so far).
+       The page PNGs remain authoritative for exact ASCII layout. */
+    let TEXT_PAGES = {};
+    fetch("pages.json")
+      .then(r => r.ok ? r.json() : {})
+      .then(d => { TEXT_PAGES = d; if (mode === "text") showPage(); })
+      .catch(() => {});
 
     const BOOT_LINES = [
       "ROOT NODE 07 — POWER: SOLAR (trickle) .......... OK",
