@@ -2,6 +2,20 @@
   "updated": "2026-07-24",
   "entries": [
     {
+      "id": "ashen-return",
+      "date": "2026-07-24",
+      "title": "The Ashen Server Return",
+      "signal": "Ten years on, Leif revisits the dead-server Newcastle and finds quiet ashes — not vines through concrete but absence: unloaded textures, grey placeholder geometry, draw-distance fog closed in, the harbour a hole in the render, name tags floating over nothing. Digital ruin is not organic ruin: code does not green over; only the living world reclaims.",
+      "bands": [
+        "vaporwave",
+        "train",
+        "theme"
+      ],
+      "status": "folded",
+      "interference": "Completes the three-world system: overgrown sim (authored fantasy of reclamation) / dead server toured (the past intact) / dead server returned-to (real digital death as subtraction). Silently explains why ROOT survives and the server doesn't — never stated. The avatars' absence goes unremarked; the mystery stays whole. Seat: a beat in the Solitary Hotel research fabric, against the one ROOT check.",
+      "note": "notes/overgrown-newcastle-sim.md addendum · heritage-tour + hotel-signal scaffolds"
+    },
+    {
       "id": "overgrown-sim",
       "date": "2026-07-24",
       "title": "The Overgrown Newcastle Sim",
