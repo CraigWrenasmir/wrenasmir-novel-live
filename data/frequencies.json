@@ -1,6 +1,20 @@
 {
-  "updated": "2026-07-22",
+  "updated": "2026-07-24",
   "entries": [
+    {
+      "id": "overgrown-sim",
+      "date": "2026-07-24",
+      "title": "The Overgrown Newcastle Sim",
+      "signal": "Play Before Mission redirected: Leif and Katita explore an abandoned, possibly fan-made sim of Newcastle a thousand years on — vines swallowing Civic, ferns in the mall escalators, the Ocean Baths full of reeds, a Hungry Jacks sign absurdly standing. A beautiful ruined future entered as play, never as disaster: she probes what the renderer chose to preserve, he recognises ghosts. The built world quietly repossessed by other forms of life, found delightful.",
+      "bands": [
+        "vaporwave",
+        "root",
+        "theme"
+      ],
+      "status": "tuning",
+      "interference": "Coordination ruled with the Heritage Tour: two virtual Newcastles as mirrors — this one future/overgrown/together, that one period/dead-server/avatars; no vines in the tour, no future there, neither scene acknowledges the other. The vines' prophecy (sim → ROOT → wren-nest) is reader-only; no one may notice the sim came true. Still lands on the first module as a toy.",
+      "note": "notes/overgrown-newcastle-sim.md · both sim scaffolds amended"
+    },
     {
       "id": "withheld-name",
       "date": "2026-07-22",
