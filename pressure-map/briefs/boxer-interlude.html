@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaffold: The Thinning Letter | The Pressure Map</title>
+  <meta name="description" content="Scene scaffold for the Boxer interlude — the first reproduced letter, and the beginning of the dissipation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .sc-hero { padding: 3rem 0 0.8rem; }
+    .sc-hero .back { font-size: 0.7rem; color: var(--muted); text-decoration: none; }
+    .sc-hero .back:hover { color: var(--accent); }
+    .sc-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sc-meta span { border: 1px solid var(--line); border-radius: 4px; padding: 0.2rem 0.5rem; }
+    .sc-meta .hot { color: var(--accent); border-color: rgba(255,213,79,0.4); }
+    .sc-wrap { width: min(860px, 94vw); margin: 1.6rem auto 4rem; }
+    .sc-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+    .sc-section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sc-section p { margin: 0 0 0.7rem; }
+    .sc-section p:last-child { margin-bottom: 0; }
+    .sc-section ul { margin: 0 0 0.7rem; padding-left: 1.2rem; }
+    .sc-section li { margin-bottom: 0.35rem; }
+    .sc-section em { color: var(--ink); }
+    .sc-section strong { color: var(--ink); }
+    .sc-section .q { color: var(--accent); }
+    .canon-tag {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255,213,79,0.4);
+      border-radius: 4px; padding: 0.05rem 0.3rem; margin-left: 0.4rem; vertical-align: 1px;
+      white-space: nowrap;
+    }
+    table.plants { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .plants th {
+      text-align: left; font-family: "Chakra Petch", sans-serif; font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--line);
+    }
+    .plants td { padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .plants tr:last-child td { border-bottom: none; }
+    .plants td:first-child { color: var(--ink); white-space: nowrap; }
+    .permit { border-left: 3px solid #7ddba3; padding-left: 0.8rem; margin-bottom: 0.8rem; }
+    .forbid { border-left: 3px solid #ff8585; padding-left: 0.8rem; }
+    .permit h3, .forbid h3 {
+      margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: "Chakra Petch", sans-serif;
+    }
+    .permit h3 { color: #7ddba3; }
+    .forbid h3 { color: #ff8585; }
+    .sparks { counter-reset: spark; list-style: none; padding-left: 0; }
+    .sparks li { counter-increment: spark; padding-left: 2rem; position: relative; margin-bottom: 0.55rem; }
+    .sparks li::before {
+      content: counter(spark, decimal-leading-zero);
+      position: absolute; left: 0; top: 0.1em;
+      font-size: 0.66rem; color: var(--accent); letter-spacing: 0.05em;
+    }
+    @media print {
+      .screen-noise, .site-nav { display: none; }
+      body { background: #fff; color: #111; }
+      .sc-section { border-color: #ccc; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="TMAPO sites">
+    <span class="site-nav-brand">TMAPO</span>
+    <span class="site-nav-sep"></span>
+    <a href="https://novel.wrenasmir.com" class="site-nav-link">Writing Log</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/" class="site-nav-link">Planning</a>
+    <a href="https://craigwrenasmir.github.io/TMAPO-Planning/signal.html" class="site-nav-link">Signal</a>
+    <a href="/frequencies/" class="site-nav-link">Frequencies</a>
+    <a href="/pressure-map/" class="site-nav-link active">Pressure Map</a>
+    <a href="/read/" class="site-nav-link">Read</a>
+  </nav>
+
+  <header class="hero sc-hero">
+    <a class="back" href="/pressure-map/">← back to the Pressure Map</a>
+    <p class="eyebrow" style="margin-top:0.8rem">SCENE SCAFFOLD · SEATED 2026-07-26</p>
+    <h1>The Thinning Letter — Boxer Interlude</h1>
+    <p class="sc-meta">
+      <span>Rank: The Road Years Alive</span>
+      <span>Tier: Fleck · 1 p</span>
+      <span>Band: Boxer</span>
+      <span>Epistolary — the book's first reproduced letter</span>
+      <span class="hot">Condition: ELEGY</span>
+    </p>
+  </header>
+
+  <div class="sc-wrap">
+
+    <section class="sc-section">
+      <h2>The job — what this scene must accomplish</h2>
+      <p>One page that <em>is</em> a letter from the Boxer — the first letter the book has ever
+      reproduced rather than recounted. Three loads:</p>
+      <ul>
+        <li><strong>Restore the braid.</strong> The book has been continuously in the Katita era
+        since page 40. A hard band-switch — no narratorial frame, or one line at most — re-tunes
+        the dial and protects the nested ontology from Root becoming "the story." The reader drops
+        into the Boxer band cold, mid-voice.</li>
+        <li><strong>Begin the dissipation — as diction, not damage.</strong> The letter is intact,
+        legible, ordinary in subject. What thins is the <em>voice</em>: somewhere in it, the man
+        starts sounding like his own documents — a sentence with caption cadence, a fight reported
+        as if from a clipping, himself in the third person once. The reader watches a person
+        becoming paper from the inside. First symptoms only; the full distributed-archive reveal is
+        late-book.</li>
+        <li><strong>Channel succession (reader-only).</strong> Seated directly after the storm and
+        cicadas — the pages where the actual network becomes a body — the human network-of-one
+        begins dissolving. The imagined correspondent thins as the real mesh thickens. No one may
+        ever remark it; the adjacency does all the work.</li>
+      </ul>
+      <p>Tonal ladder position: storm (wonder) → cicadas (comedy) → <strong>this page (elegy)</strong>
+      → Bell-Birds (the hinge). The elegy must not know it's an elegy — it's just a letter from a
+      mate, slightly off in a way the reader can't immediately name.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Where it sits</h2>
+      <p><strong>Seated after Cicada Denial-of-Service, before Bell-Birds Convergence</strong> —
+      likely ≈ MS p. 51 at current pace (storm ≈ 47–49, cicadas ≈ 50). Funded from the three pages
+      the fusion freed; two remain banked for the Module/appendix.</p>
+      <p><strong>Pays off from:</strong> the letters established on MS pp. 2–3 (no fixed address
+      either side; letters aimed at towns); the bath scene (pp. 25–26); the rooftop's boxing-name
+      flinch. <strong>Feeds:</strong> the courtesan recognition (p. 41–42), the last letter in
+      water (p. 43 — which reads, after this page, as the final stage of a long thinning), and the
+      Boxer's late dissipation into graffiti, posters and misprinted names.</p>
+    </section>
+
+    <section class="sc-section">
+      <h2>Canon — locked in the Bible</h2>
+      <ul>
+        <li><strong>The Boxer's voice:</strong> physical instruction and non sequitur — never
+        conclusions, never philosophy. "The only thing that matters is learning how to be the
+        loser" is his register (and Leif has already quoted it at the rooftop).<span class="canon-tag">canon</span></li>
+        <li><strong>The Boxer is not one person.</strong> He is what unresolved local histories
+        become when Leif's imagination keeps speaking with them — gathering force from Elias
+        Shore, <em>Fighters of the North</em>, pub radios, the father's quiet presence. This page
+        may let that truth flicker (a misprint, a poster) but never state or resolve it.<span class="canon-tag">canon</span></li>
+        <li><strong>The correspondence:</strong> both men without fixed addresses; Leif writes
+        toward pubs the Boxer is moving toward; the Boxer intuits Leif's couches and rooftops.<span class="canon-tag">canon</span></li>
+        <li><strong>The courtesan receives through language</strong> — paperbacks, letters,
+        bathwater, response. Her role as the true reader is a LATE recognition (the train's);
+        here she may appear only in logistics.<span class="canon-tag">canon</span></li>
+        <li><strong>The dissipation (Endgame M3):</strong> graffiti, posters, clippings,
+        misprinted names — a distributed archive of unresolved male histories. This page is its
+        first symptom, not its statement.<span class="canon-tag">canon</span></li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Dialogue permissions — what the letter may and may not do</h2>
+      <div class="permit">
+        <h3>The letter may</h3>
+        <p>Report fights, purses, pub names, weather, dogs, injuries, the road. Give physical
+        instruction apropos of nothing (<span class="q">"keep the elbow in when you carry
+        anything heavy, it's all the same movement"</span>). Veer into non sequitur and not come
+        back. Mention the courtesan in pure logistics (she drove, she bought stamps, she checked
+        his spelling). Ask after Leif's couches, his reading, his girl — imprecisely. End without
+        warning, the way letters do.</p>
+      </div>
+      <div class="forbid">
+        <h3>The letter may not</h3>
+        <p>Philosophise about reading or meaning (the bushwalk's recounted letter owns that
+        entirely). Be damaged, rain-marked, or typographically broken (p. 43 owns damage; this
+        page owns <em>drift</em>). Reveal or half-reveal the courtesan as the true reader. Know
+        it is thinning, or be sad about anything. Contain the masthead phrase or any Shore name.
+        And the narration may not comment on it — if there's a frame at all, it's one line of
+        arrival, not one word of interpretation.</p>
+      </div>
+    </section>
+
+    <section class="sc-section">
+      <h2>Sensory bank — raw material, take what serves</h2>
+      <ul>
+        <li>The object: pub letterhead from one town, postmark from another; fold-marks that
+        don't match the envelope; pencil pressure changing mid-page where he evidently stopped
+        and came back days later.</li>
+        <li>His world: dressing-room lino, liniment and hessian, a dog at the weigh-in that
+        wouldn't leave, rain on a tin roof heard from a room like a cell, the courtesan's coat
+        over the window for a curtain.</li>
+        <li>Fight cargo: a purse quoted precisely to the dollar; the other man's style described
+        with respect ("he jabs like closing a drawer"); the crowd counted in shearers and
+        apprentices.</li>
+        <li>The thinning textures: a sentence that scans like a caption; a paragraph that reads
+        like the write-up rather than the night; dates off by a season; the sign-off shrinking
+        (full name → first name → initials, across the book's letters — this one mid-stage).</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Plants &amp; payoffs</h2>
+      <table class="plants">
+        <thead><tr><th>Plant here</th><th>Pays off</th></tr></thead>
+        <tbody>
+          <tr><td>The voice thinning into document-register</td><td>The full dissipation —
+          graffiti, posters, clippings — arrives late-book as the destination of a drift the
+          reader has already heard begin.</td></tr>
+          <tr><td>Courtesan checking his spelling (logistics only)</td><td>The train's courtesan
+          recognition: she was in the letters' loop all along, as handler of language. Never
+          lit here.</td></tr>
+          <tr><td>One misprint or poster discrepancy</td><td>The Shore names ecology — men
+          survived by wrong records. One touch, no comment.</td></tr>
+          <tr><td>This letter intact</td><td>The last letter (p. 43) in water — damage lands as
+          the end of a thinning the reader watched start, not as an isolated device.</td></tr>
+          <tr><td>The band-switch itself</td><td>The nested ontology's health: the reader
+          re-learns, right before Bell-Birds, that no layer is the story.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sc-section">
+      <h2>Traps — the known failure modes</h2>
+      <ul>
+        <li><strong>The elegy knowing itself.</strong> No melancholy vocabulary, no farewell
+        cadence, nothing valedictory. The letter is cheerful, practical, thinning. The sadness is
+        the reader's job.</li>
+        <li><strong>Damage creep.</strong> No gaps, no water, no illegibility, no typographic
+        play. Drift lives in diction only. If a single word is missing, p. 43 has been robbed.</li>
+        <li><strong>The reading-philosophy leak.</strong> One sentence about what books do and
+        the bushwalk letter is spent in the wrong place.</li>
+        <li><strong>Recognition leak.</strong> If the courtesan does anything with language
+        beyond logistics, the train's redistribution is pre-cashed.</li>
+        <li><strong>Misprint overload.</strong> One discrepancy. Two is a puzzle; three is a
+        theme announcing itself.</li>
+        <li><strong>Frame commentary.</strong> Leif may introduce the letter in one line; he may
+        not react to it afterward on this page. The reader closes the page inside the Boxer's
+        world, not inside Leif's response.</li>
+      </ul>
+    </section>
+
+    <section class="sc-section">
+      <h2>Ten sparks — optional ways in, steal freely</h2>
+      <ol class="sparks">
+        <li>Open mid-instruction, no salutation: <span class="q">"— and keep the elbow in when
+        you carry anything heavy, it's all the same movement."</span> The letter arrives already
+        talking, like the band was never away.</li>
+        <li>He reports Tuesday's fight twice without noticing: once as the night ("I could smell
+        the rain through the roof between rounds"), once, a paragraph later, in perfect
+        write-up cadence ("the visitor absorbed heavy punishment in the seventh"). The drift,
+        enacted, unremarked.</li>
+        <li>He refers to himself in the third person exactly once — inside the write-up sentence
+        — and returns to "I" without a seam.</li>
+        <li>The poster discrepancy: he passed a poster for his own fight in the next town and
+        describes the man on it as a stranger — approvingly ("good reach on him").</li>
+        <li>A clipping enclosed that isn't about him — different weight class, different decade —
+        which he includes as if it obviously is. No explanation offered or needed.</li>
+        <li>The courtesan in logistics only: she bought the stamps, she knows the publican's
+        sister, she checked his spelling of "liniment." One clause each, scattered.</li>
+        <li>He asks after Leif's world imprecisely — the wrong beach, a couch Leif left years
+        ago, "your girl with the numbers" (the closest the letter comes to Katita, and it should
+        be exactly that close).</li>
+        <li>The purse quoted to the dollar, twice, different amounts. He corrects neither.</li>
+        <li>A dog at the weigh-in follows him for three sentences and is never resolved — the
+        letter's one piece of pure non sequitur, and its warmest.</li>
+        <li>End without warning on cargo, not feeling: the next town's name, a request for
+        nothing, initials. The white space after the initials is the page's last event.</li>
+      </ol>
+    </section>
+
+    <section class="sc-section">
+      <h2>Exit condition</h2>
+      <p>The letter just stops, the way letters do — cargo, town name, initials, white space. No
+      frame returns; Leif does not react; the page's silence after the sign-off is the
+      dissipation made visible as typography's absence. The reader should feel they heard an old
+      friend's voice and only later — pages later, maybe chapters — realise part of it was
+      already quotation. If anything on the page mourns, cut it. The letter is alive; that's what
+      makes the thinning terrible.</p>
+      <p style="color:var(--muted); font-size:0.72rem">Sources: TMAPO-Bible.md — §9 recurring
+      figures (Boxer &amp; courtesan), ✦ Endgame Movements 2–3, the Elias Shore thread (Boxer as
+      distributed archive), ✦ Remainder Chronology §4 + amendment 2026-07-26 (freed pages) ·
+      MS pp. 2–3, 25–26 · ratified guards: last-letter owns damage, bushwalk owns reading,
+      recognition owns the courtesan.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer"></footer>
+</body>
+</html>
