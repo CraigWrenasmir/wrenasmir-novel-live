@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Storm — Night Companion</title>
+  <meta name="description" content="A one-beat-at-a-time companion for writing the storm pages.">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080c14;
+      --ink: #c5d9ff;
+      --muted: #6d82a6;
+      --accent: #ffd54f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 50% 20%, #101a2e 0%, var(--bg) 65%);
+      color: var(--ink);
+      font-family: "Space Mono", monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    a { color: var(--muted); }
+
+    .mantra {
+      width: min(640px, 92vw);
+      text-align: center;
+      padding: 2.2rem 0 0.8rem;
+    }
+    .mantra .label {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.9rem;
+    }
+    .mantra p {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: clamp(1rem, 2.6vw, 1.25rem);
+      line-height: 1.6;
+      color: var(--accent);
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .stage {
+      width: min(640px, 92vw);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem 0 0.5rem;
+    }
+    .where {
+      font-size: 0.66rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+    }
+    .where strong { color: var(--ink); font-weight: 400; }
+    .beat {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: clamp(1.35rem, 4.2vw, 2rem);
+      line-height: 1.55;
+      min-height: 7.5em;
+      margin: 0;
+    }
+    .beat em { color: var(--accent); font-style: normal; }
+    @media (prefers-reduced-motion: no-preference) {
+      .beat.fade { animation: in 0.35s ease; }
+      @keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; } }
+    }
+
+    .whisper-zone { min-height: 5.2em; margin-top: 1.4rem; }
+    .whisper-btn {
+      background: none;
+      border: 1px solid #1c2c49;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      padding: 0.5rem 0.9rem;
+      cursor: pointer;
+    }
+    .whisper-btn:hover { color: var(--ink); }
+    .whisper {
+      display: none;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0.4rem 0 0;
+    }
+    .whisper.shown { display: block; }
+
+    .controls {
+      width: min(640px, 92vw);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0 2.4rem;
+    }
+    .nav-btn {
+      font: inherit;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      background: #101a2e;
+      border: 1px solid #1c2c49;
+      border-radius: 8px;
+      padding: 0.8rem 1.6rem;
+      cursor: pointer;
+    }
+    .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-btn:disabled { opacity: 0.25; cursor: default; }
+    .dots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; max-width: 50%; }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #1c2c49;
+    }
+    .dot.here { background: var(--accent); }
+    .dot.past { background: #3d5378; }
+
+    .foot {
+      font-size: 0.62rem;
+      color: #45577a;
+      padding-bottom: 1.2rem;
+      text-align: center;
+      width: min(640px, 92vw);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <header class="mantra">
+    <span class="label">the storm · ms 47–49 · one sentence to keep</span>
+    <p>The storm crosses the mesh the way a shiver crosses a body —<br>and the screen feels it before the skin does.</p>
+  </header>
+
+  <main class="stage">
+    <p class="where" id="where"></p>
+    <p class="beat fade" id="beat"></p>
+    <div class="whisper-zone">
+      <button class="whisper-btn" id="whisper-btn" type="button">if stuck…</button>
+      <p class="whisper" id="whisper"></p>
+    </div>
+  </main>
+
+  <div class="controls">
+    <button class="nav-btn" id="prev" type="button">← back</button>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+    <button class="nav-btn" id="next" type="button">next →</button>
+  </div>
+
+  <p class="foot">
+    arrows or buttons to move · your place is remembered ·
+    <a href="/pressure-map/briefs/storm.html">full scaffold</a> · lean drafts are allowed; the bench only judges cooled pages
+  </p>
+
+  <script>
+    const BEATS = [
+      // PAGE 1
+      { w: "Page 1 · beat 1 of 5 — the news arrives before the weather",
+        b: "Cab, evening, ordinary. Tea. Logs as a chore. The radio request show.",
+        h: "Write the boredom warmly. Two bodies, small tasks, months of routine behind them. The equipment has been dull for a long time — that's what makes tonight land." },
+      { w: "Page 1 · beat 2 of 5",
+        b: "Static under the radio — lightning somewhere. The sky here still clear.",
+        h: "The storm's first appearance is interference, not weather. Let the dedication to the fifty-years couple carry on underneath it, oblivious." },
+      { w: "Page 1 · beat 3 of 5",
+        b: "The far node reports rain. <em>9:41.</em> Then the next node. Then the next. In order, coming their way.",
+        h: "Let the timestamps do the poetry — numbers can be tender. They are reading rain that hasn't arrived. The future at three hundred bits per second, slower than the wind that carries it." },
+      { w: "Page 1 · beat 4 of 5",
+        b: "Katita's game: she calls the arrival time, thermos lid down as stopwatch. <em>Wrong by ninety seconds — delighted.</em>",
+        h: "Her delight at being wrong is her entire future philosophy in one beat. Don't look at it. Just let her laugh at the sky for beating her number." },
+      { w: "Page 1 · beat 5 of 5 — end the page here",
+        b: "First wind in the real trees. The two worlds about to touch.",
+        h: "Stop before the rain. The page ends inside the interval — screen ahead, skin catching up. The page turn is the front arriving." },
+      // PAGE 2
+      { w: "Page 2 · beat 1 of 6 — it arrives",
+        b: "Rain hits the cab. Now alternate, sentence by sentence: screen, skin, screen, skin.",
+        h: "Let the reader start to lose track of which world a detail belongs to. That confusion is the scene working — don't tidy it." },
+      { w: "Page 2 · beat 2 of 6",
+        b: "Hail, one minute. Too loud to talk. Tea passed at the right moment anyway. Primes tapped on her knee — <em>once</em>.",
+        h: "The private languages doing their work under pressure. Glances instead of speech. One touch of the tapping, unconscious, and move on." },
+      { w: "Page 2 · beat 3 of 6 — the centre of everything",
+        b: "The close strike: both duck, both laugh — then both lean to the screen <em>without a word</em> to see if the ridge felt it too. It did. Two seconds early.",
+        h: "Play it entirely as a glance. They check on the mesh the way you'd check on a child after thunder — and neither notices that's what they did. Say nothing about it, ever." },
+      { w: "Page 2 · beat 4 of 6",
+        b: "A node goes dark <em>mid-word</em>. The screen holds the half-word. He lists causes aloud: battery, connector, water. She says the node's name, and turns the radio down.",
+        h: "First time the hardware is a creature. His list is a man naming worries to shrink them. Her turning the radio down — as if that would help it — is the tenderest thing on the page." },
+      { w: "Page 2 · beat 5 of 6",
+        b: "He wants to go out into it. She says wait. He waits.",
+        h: "One exchange, no meaning attached. Custody and patience in miniature — but only the reader may ever know that." },
+      { w: "Page 2 · beat 6 of 6 — end the page here",
+        b: "The node still dark. The valley one noise.",
+        h: "Leave the small death unresolved across the page turn. The reader waits through the white space with them." },
+      // PAGE 3
+      { w: "Page 3 · beat 1 of 5 — it leaves the way it came",
+        b: "The screen shows the storm leaving — the same sequence, reversed, downvalley. The mesh hears the storm's back.",
+        h: "The shiver exits the body. Same poetry as page one, run backwards, quieter." },
+      { w: "Page 3 · beat 2 of 5",
+        b: "Katita asleep. He watches the tail cross off the eastern edge alone, and turns the screen brightness down.",
+        h: "Like closing a door on a sleeping house. Two sleeping things in his care now, and he dims the light for both." },
+      { w: "Page 3 · beat 3 of 5",
+        b: "The backlog: the dark node returns — twenty minutes of faithful recording into nothing, delivered all at once. He says only: <em>“seated the plate wrong.”</em>",
+        h: "He reads it the way you'd listen to someone tell you where they'd been. Maintenance vocabulary carries everything. Relief is one breath — don't dwell. (If an ASCII log block wants to happen, it happens here, and only if the sentence breaks first.)" },
+      { w: "Page 3 · beat 4 of 5",
+        b: "Out into the dripping dark. Bare feet in wet grass. Frogs. The creek. A paragraph with no talking in it.",
+        h: "Stand them inside the fact of the report having been right. The silence should be audible — write the sounds that fill it instead of thoughts." },
+      { w: "Page 3 · beat 5 of 5 — end the scene here",
+        b: "First light. Ordinary maintenance. The bark plate re-tied, resin smell, ants back at the housing. Hands working.",
+        h: "Consequences as chores. Nothing said, nothing decided, nothing ranked. The best night of their lives ends with a knot tied properly this time." },
+      // LAWS
+      { w: "before you start — the three laws",
+        b: "They never know it's a body. Nothing breaks but one plate he seated wrong. Best night of their lives — and nobody inside it says so.",
+        h: "If Leif or Katita visibly understand the night, cut the lines where they show it. Every later horror points back here and must find only weather, wonder, and two people warm in a cab." },
+    ];
+
+    let i = parseInt(localStorage.getItem("storm-tonight") || "0", 10);
+    if (isNaN(i) || i < 0 || i >= BEATS.length) i = 0;
+
+    const beatEl = document.getElementById("beat");
+    const whereEl = document.getElementById("where");
+    const whisperEl = document.getElementById("whisper");
+    const whisperBtn = document.getElementById("whisper-btn");
+    const dotsEl = document.getElementById("dots");
+
+    for (let k = 0; k < BEATS.length; k++) {
+      const d = document.createElement("span");
+      d.className = "dot";
+      dotsEl.appendChild(d);
+    }
+
+    function show() {
+      const x = BEATS[i];
+      whereEl.innerHTML = "<strong>" + x.w + "</strong>";
+      beatEl.classList.remove("fade");
+      void beatEl.offsetWidth;
+      beatEl.classList.add("fade");
+      beatEl.innerHTML = x.b;
+      whisperEl.textContent = x.h;
+      whisperEl.classList.remove("shown");
+      whisperBtn.style.display = "";
+      document.getElementById("prev").disabled = i === 0;
+      document.getElementById("next").disabled = i === BEATS.length - 1;
+      [...dotsEl.children].forEach((d, k) => {
+        d.className = "dot" + (k === i ? " here" : k < i ? " past" : "");
+      });
+      localStorage.setItem("storm-tonight", String(i));
+    }
+
+    document.getElementById("next").addEventListener("click", () => { if (i < BEATS.length - 1) { i++; show(); } });
+    document.getElementById("prev").addEventListener("click", () => { if (i > 0) { i--; show(); } });
+    whisperBtn.addEventListener("click", () => {
+      whisperEl.classList.add("shown");
+      whisperBtn.style.display = "none";
+    });
+    document.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight") { if (i < BEATS.length - 1) { i++; show(); } }
+      if (e.key === "ArrowLeft") { if (i > 0) { i--; show(); } }
+      if (e.key === "ArrowDown") { whisperEl.classList.add("shown"); whisperBtn.style.display = "none"; }
+    });
+
+    show();
+  </script>
+</body>
+</html>
