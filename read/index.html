@@ -326,18 +326,47 @@
       return s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
     }
 
+    /* Some pages carry a taller text block that starts above the usual 20% top margin
+       (e.g. 68–69). Measure where the ink begins and open the crop upwards to fit. */
+    function fitScan(img) {
+      const wrap = img.parentElement;
+      if (!wrap || wrap.classList.contains("p1")) return;
+      try {
+        const w = 205, h = 330, c = document.createElement("canvas");
+        c.width = w; c.height = h;
+        const ctx = c.getContext("2d", { willReadFrequently: true });
+        ctx.drawImage(img, 0, 0, w, h);
+        const px = ctx.getImageData(0, 0, w, h).data;
+        let first = -1;
+        for (let y = 0; y < h / 2 && first < 0; y++) {
+          for (let x = Math.round(w * 0.1); x < w * 0.9; x++) {
+            const i = (y * w + x) * 4;
+            if (px[i + 3] > 128 && px[i] + px[i + 1] + px[i + 2] < 384) { first = y; break; }
+          }
+        }
+        if (first < 0) return;
+        const inkTop = first / h * 1650;            /* in page-scan pixels (1025 × 1650) */
+        if (inkTop >= 310) return;                  /* the usual layout — CSS default is right */
+        const start = Math.max(0, inkTop - 43);     /* same headroom the default crop leaves */
+        const height = 1592 - start;                /* same bottom edge as the default crop */
+        wrap.style.aspectRatio = "789 / " + height.toFixed(0);
+        img.style.top = (-start / height * 100).toFixed(2) + "%";
+      } catch (e) { /* canvas unavailable (e.g. file://) — keep the default crop */ }
+    }
+    window.fitScan = fitScan;
+
     function showPage() {
       let html = '<div class="page-head">— PAGE ' + page + ' / ' + TOTAL_SCANS +
                  ' · MODE: ' + mode.toUpperCase() + ' —</div>';
       if (mode === "scan") {
-        html += '<div class="scan-wrap' + (page === 1 ? " p1" : "") + '"><img src="' + scanSrc(page) +
+        html += '<div class="scan-wrap' + (page === 1 ? " p1" : "") + '"><img onload="fitScan(this)" src="' + scanSrc(page) +
                 '" alt="Typeset page ' + page + ' of the manuscript"></div>';
       } else {
         const t = TEXT_PAGES[page];
         if (!t) {
           html += '<p class="sys">TEXT LAYER NOT YET RECOVERED FOR PAGE ' + page +
                   ' — DISPLAYING SCAN.</p>' +
-                  '<div class="scan-wrap"><img src="' + scanSrc(page) +
+                  '<div class="scan-wrap"><img onload="fitScan(this)" src="' + scanSrc(page) +
                   '" alt="Typeset page ' + page + ' of the manuscript"></div>';
         } else {
           t.forEach(part => {
