@@ -157,6 +157,7 @@
     const ENTRIES = [
       { id: "about", path: null,     name: "README.txt",    what: "about the novel" },
       { id: "read",  path: "/text",  name: FILE + ".txt",   what: "read the novel",       href: "/read/" },
+      { id: "pdf",   path: "/text",  name: FILE + ".pdf",   what: "download the PDF",     href: "/text/" + FILE + ".pdf", newTab: true },
       VIDEO_ID
         ? { id: "watch", path: "/video",      name: "Unabridged_Recording", what: "listen to the novel" }
         : { id: "watch", path: "/unverified", name: "Unabridged_Recording.tmp", what: "recording in progress", off: true },
@@ -238,7 +239,7 @@
                  '<p class="dir-by">CRAIG WARREN SMITH</p>' +
                  '<ul class="dir" role="list"><li class="path">/ROOT</li>';
       ENTRIES.forEach((e, i) => {
-        if (e.path) html += '<li class="path">  ' + esc(e.path) + '</li>';
+        if (e.path && !(i && ENTRIES[i - 1].path === e.path)) html += '<li class="path">  ' + esc(e.path) + '</li>';
         const indent = e.path ? "  " : "";
         const inner = '<span class="name"><span class="cur" aria-hidden="true">▮</span>' + indent + esc(e.name) + '</span>' +
                       '<span class="what">' + esc(e.what) + ' <span class="num" aria-hidden="true">[' + (i + 1) + ']</span></span>';
@@ -246,7 +247,7 @@
         html += '<li>' + (e.off
           ? '<div class="' + cls + '" data-i="' + i + '" aria-disabled="true">' + inner + '</div>'
           : e.href
-            ? '<a class="' + cls + '" data-i="' + i + '" href="' + e.href + '">' + inner + '</a>'
+            ? '<a class="' + cls + '" data-i="' + i + '" href="' + e.href + '"' + (e.newTab ? ' target="_blank" rel="noopener"' : '') + '>' + inner + '</a>'
             : '<button type="button" class="' + cls + '" data-i="' + i + '">' + inner + '</button>') + '</li>';
       });
       html += '</ul><p class="sys dir-hint">↑ ↓ TO MOVE · ENTER TO OPEN · OR TAP A LINE</p>';
@@ -305,6 +306,7 @@
       const e = ENTRIES[i];
       if (e.off) { say("/unverified/" + e.name + " · RECORDING IN PROGRESS. NOT YET READABLE."); return; }
       current = i;
+      if (e.href && e.newTab) { mark(); window.open(e.href, "_blank", "noopener"); return; }
       if (e.href) { location.href = e.href; return; }
       if (id === "about") { showReadme(); return; }
       if (id === "watch") {
@@ -324,6 +326,7 @@
       display.innerHTML = [
         "COMMANDS",
         "  READ ............... open the novel in this terminal",
+        "  PDF ................ download the novel as a PDF",
         "  ABOUT .............. README.txt: about the novel and its author",
         "  WATCH .............. listen to the novel: the unabridged recording" + (VIDEO_ID ? "" : " (in progress)"),
         "  PLAY ............... load ROOT, the resident program",
@@ -333,7 +336,7 @@
         "  FIELD .............. take the node in / out of the paddock",
         "  HELP ............... this",
         "",
-        "Or use the arrow keys and ENTER, the numbers 1 to 4, or tap a line.",
+        "Or use the arrow keys and ENTER, the numbers 1 to 5, or tap a line.",
         "",
         "PRESS ENTER TO RETURN TO /ROOT."
       ].map(l => '<p class="sys" style="white-space:pre-wrap">' + esc(l || " ") + "</p>").join("");
@@ -346,8 +349,9 @@
       if (c === "UP") return move(-1);
       if (c === "DOWN") return move(1);
       if (c === "OPEN") return (!menuShown || running || doc) ? showMenu() : openEntry(ENTRIES[current].id);
-      if (/^[1-4]$/.test(c)) return openEntry(ENTRIES[+c - 1].id);
+      if (/^[1-5]$/.test(c)) return openEntry(ENTRIES[+c - 1].id);
       if (c === "READ" || c === "TEXT" || c === "BOOK") return openEntry("read");
+      if (c === "PDF" || c === "DOWNLOAD") return openEntry("pdf");
       if (c === "ABOUT" || c === "README" || c === "README.TXT") return openEntry("about");
       if (c === "WATCH" || c === "LISTEN" || c === "AUDIO") return openEntry("watch");
       if (c === "PLAY" || c === "ROOT" || c === "RUN ROOT") return openEntry("play");
@@ -414,7 +418,7 @@
         if (e.target.closest && e.target.closest("button.key, .readme button, .readme a")) return;   // the key or link handles it itself
         e.preventDefault(); run("OPEN");
       }
-      else if (/^[1-4]$/.test(e.key) && menuShown && !running) { e.preventDefault(); run(e.key); }
+      else if (/^[1-5]$/.test(e.key) && menuShown && !running) { e.preventDefault(); run(e.key); }
       else if (e.key.length === 1 && /[a-z?]/i.test(e.key) && document.activeElement !== cmd) cmd.focus();
     });
 
