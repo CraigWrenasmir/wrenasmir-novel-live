@@ -1,3 +1,273 @@
-<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><title>Their Most August Public Organ</title>
-<script>location.replace("/" + location.search + location.hash);</script>
-<meta http-equiv="refresh" content="0;url=/"></head><body></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROOT Terminal | Their Most August Public Organ</title>
+  <meta name="description" content="Read Their Most August Public Organ through a surviving ROOT node session.">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/terminal.css">
+</head>
+<body>
+  <div class="field-bg" aria-hidden="true"></div>
+  <div class="field-veil" aria-hidden="true"></div>
+  <main class="crt" aria-label="ROOT terminal reader">
+    <div class="screen-well">
+      <div class="screen flicker" id="screen">
+        <div class="refresh-band" aria-hidden="true"></div>
+        <div class="display" id="display" aria-live="polite"></div>
+        <div class="cmdline" id="cmdline">
+          <span class="prompt-char" aria-hidden="true">&gt;</span>
+          <input id="cmd" type="text" autocomplete="off" autocapitalize="characters"
+                 spellcheck="false" aria-label="Terminal command input" placeholder="">
+        </div>
+      </div>
+    </div>
+    <div class="fascia">
+      <span class="power-led" aria-hidden="true"></span>
+      <span class="badge">ROOT · solar ok · canopy link intermittent</span>
+      <div class="keys">
+        <button class="key" data-cmd="BACK" aria-label="Previous page">◀</button>
+        <button class="key" data-cmd="NEXT" aria-label="Next page">▶</button>
+        <button class="key" data-cmd="MODE" aria-label="Toggle scan/text mode">MODE</button>
+        <button class="key" data-cmd="HELP" aria-label="Help">?</button>
+        <button class="key key-home" data-cmd="HOME" aria-label="Back to the ROOT directory">/ROOT</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    if (new URLSearchParams(location.search).has("embed")) {
+      document.body.classList.add("embed");
+    }
+
+    const TOTAL_SCANS = 82;
+    const scanSrc = n => "/pages/Page%20" + n + ".png";
+
+    /* Text layer: built from TMAPO-Manuscript.md by build-text.py, later pages added by hand (full text layer 1-82).
+       The page PNGs remain authoritative for exact ASCII layout. */
+    let TEXT_PAGES = {};
+    fetch("/pages.json")
+      .then(r => r.ok ? r.json() : {})
+      .then(d => { TEXT_PAGES = d; if (mode === "text") showPage(); })
+      .catch(() => {});
+
+    const BOOT_LINES = [
+      "ROOT NODE 07 — POWER: SOLAR (trickle) .......... OK",
+      "MOUNT /ROOT .................................... OK",
+      "CANOPY LINK .................................... INTERMITTENT",
+      "CHECKSUM /text ................................. UNCHANGED*",
+      "ARCHIVE: THEIR MOST AUGUST PUBLIC ORGAN",
+      "PAGES RECOVERED: 82",
+      "",
+      "STATUS: BEING READ",
+      ""
+    ];
+
+    const state = JSON.parse(localStorage.getItem("tmapo-terminal") || "{}");
+    let page = Math.min(Math.max(state.page || 1, 1), TOTAL_SCANS);
+    let mode = state.mode === "text" ? "text" : "scan";
+    if (state.steady) document.body.classList.add("steady");
+    if (state.paper) document.body.classList.add("paper");
+    if (state.field !== false && !document.body.classList.contains("embed")) {
+      document.body.classList.add("field");
+    }
+    const save = () => localStorage.setItem("tmapo-terminal", JSON.stringify({
+      page, mode,
+      steady: document.body.classList.contains("steady"),
+      paper: document.body.classList.contains("paper"),
+      field: document.body.classList.contains("field")
+    }));
+
+    const display = document.getElementById("display");
+    const cmd = document.getElementById("cmd");
+
+    function esc(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    }
+
+    /* Some pages carry a taller text block that starts above the usual 20% top margin
+       (e.g. 68–69). Measure where the ink begins and open the crop upwards to fit. */
+    function fitScan(img) {
+      const wrap = img.parentElement;
+      if (!wrap || wrap.classList.contains("p1")) return;
+      try {
+        const w = 205, h = 330, c = document.createElement("canvas");
+        c.width = w; c.height = h;
+        const ctx = c.getContext("2d", { willReadFrequently: true });
+        ctx.drawImage(img, 0, 0, w, h);
+        const px = ctx.getImageData(0, 0, w, h).data;
+        let first = -1;
+        for (let y = 0; y < h / 2 && first < 0; y++) {
+          for (let x = Math.round(w * 0.1); x < w * 0.9; x++) {
+            const i = (y * w + x) * 4;
+            if (px[i + 3] > 128 && px[i] + px[i + 1] + px[i + 2] < 384) { first = y; break; }
+          }
+        }
+        if (first < 0) return;
+        const inkTop = first / h * 1650;            /* in page-scan pixels (1025 × 1650) */
+        if (inkTop >= 310) return;                  /* the usual layout — CSS default is right */
+        const start = Math.max(0, inkTop - 43);     /* same headroom the default crop leaves */
+        const height = 1592 - start;                /* same bottom edge as the default crop */
+        wrap.style.aspectRatio = "789 / " + height.toFixed(0);
+        img.style.top = (-start / height * 100).toFixed(2) + "%";
+      } catch (e) { /* canvas unavailable (e.g. file://) — keep the default crop */ }
+    }
+    window.fitScan = fitScan;
+
+    function showPage() {
+      let html = '<div class="page-head">— PAGE ' + page + ' / ' + TOTAL_SCANS +
+                 ' · MODE: ' + mode.toUpperCase() + ' —</div>';
+      if (mode === "scan") {
+        html += '<div class="scan-wrap' + (page === 1 ? " p1" : "") + '"><img onload="fitScan(this)" src="' + scanSrc(page) +
+                '" alt="Typeset page ' + page + ' of the manuscript"></div>';
+      } else {
+        const t = TEXT_PAGES[page];
+        if (!t) {
+          html += '<p class="sys">TEXT LAYER NOT YET RECOVERED FOR PAGE ' + page +
+                  ' — DISPLAYING SCAN.</p>' +
+                  '<div class="scan-wrap"><img onload="fitScan(this)" src="' + scanSrc(page) +
+                  '" alt="Typeset page ' + page + ' of the manuscript"></div>';
+        } else {
+          t.forEach(part => {
+            if (typeof part === "string") html += "<p>" + esc(part) + "</p>";
+            else html += "<pre>" + esc(part.pre) + "</pre>";
+          });
+        }
+      }
+      display.innerHTML = html;
+      display.scrollTop = 0;
+      save();
+    }
+
+    function sysLines(lines) {
+      display.innerHTML = lines.map(l => '<p class="sys">' + esc(l) + "</p>").join("");
+      display.scrollTop = 0;
+    }
+
+    function help() {
+      sysLines([
+        "COMMANDS",
+        "  NEXT / BACK ........ turn the page (also ◀ ▶, arrow keys, swipe)",
+        "  GOTO n ............. jump to page n",
+        "  INDEX .............. list recovered pages",
+        "  MODE ............... toggle SCAN (microfiche) / TEXT (phosphor)",
+        "  PAPER .............. scan mode: flip negative ↔ white paper",
+        "  STEADY ............. calm the tube (scanlines/flicker off)",
+        "  FIELD .............. take the node in / out of the paddock",
+        "  RUN ROOT ........... load the resident program; EJECT returns to the book",
+        "  HOME ............... back to the /ROOT directory",
+        "  HELP ............... this",
+        "",
+        "The scans are the authoritative typesetting. The text layer is",
+        "recovered progressively; pages without text fall back to scan.",
+        "",
+        "PRESS ANY PAGE COMMAND TO RESUME."
+      ]);
+    }
+
+    function index() {
+      const rows = [];
+      for (let i = 1; i <= TOTAL_SCANS; i += 10) {
+        rows.push(Array.from({length: Math.min(10, TOTAL_SCANS - i + 1)},
+          (_, k) => String(i + k).padStart(3, " ")).join(" "));
+      }
+      sysLines(["/ROOT/pages — " + TOTAL_SCANS + " recovered", ""].concat(rows)
+        .concat(["", "GOTO n TO OPEN."]));
+    }
+
+    let gameActive = false;
+
+    /* Back to the /ROOT directory. Inside the Squarespace iframe the directory opens in its own tab. */
+    function goHome() {
+      if (document.body.classList.contains("embed")) window.open("/", "_blank", "noopener");
+      else location.href = "/";
+    }
+
+    function runRoot() {
+      gameActive = true;
+      display.innerHTML =
+        '<div class="page-head">— EXTERNAL PROGRAM: /ROOT/root.prg · TYPE EJECT TO RETURN —</div>' +
+        '<div class="game-wrap"><iframe src="https://root.wrenasmir.com" ' +
+        'title="ROOT — the game" allow="fullscreen"></iframe></div>';
+      display.scrollTop = 0;
+    }
+
+    function run(raw) {
+      const c = raw.trim().toUpperCase();
+      if (!c) return;
+      if (c === "RUN ROOT" || c === "ROOT" || c === "PLAY") { runRoot(); return; }
+      if (c === "EJECT") { gameActive = false; showPage(); return; }
+      if (c === "HOME" || c === "CD /" || c === "CD /ROOT" || c === "EXIT") { goHome(); return; }
+      if (gameActive) { gameActive = false; }  // any other command ejects first
+      const goto = c.match(/^(?:GOTO|G)\s+(\d+)$/);
+      if (c === "NEXT" || c === "N") { page = Math.min(page + 1, TOTAL_SCANS); showPage(); }
+      else if (c === "BACK" || c === "B" || c === "PREV") { page = Math.max(page - 1, 1); showPage(); }
+      else if (goto) {
+        const n = parseInt(goto[1], 10);
+        if (n >= 1 && n <= TOTAL_SCANS) { page = n; showPage(); }
+        else display.insertAdjacentHTML("beforeend",
+          '<p class="err">NO SUCH PAGE. RECOVERED RANGE: 1–' + TOTAL_SCANS + '</p>');
+      }
+      else if (c === "MODE" || c === "MODE TEXT" || c === "MODE SCAN") {
+        mode = c === "MODE TEXT" ? "text" : c === "MODE SCAN" ? "scan"
+             : (mode === "scan" ? "text" : "scan");
+        showPage();
+      }
+      else if (c === "PAPER") { document.body.classList.toggle("paper"); save(); showPage(); }
+      else if (c === "STEADY") { document.body.classList.toggle("steady"); save(); showPage(); }
+      else if (c === "FIELD") { document.body.classList.toggle("field"); save(); showPage(); }
+      else if (c === "INDEX" || c === "LS") index();
+      else if (c === "HELP" || c === "?") help();
+      else display.insertAdjacentHTML("beforeend",
+        '<p class="err">UNRECOGNISED: ' + esc(c) + ' — TRY HELP</p>');
+    }
+
+    /* boot sequence */
+    function boot() {
+      let i = 0;
+      display.innerHTML = "";
+      const tick = () => {
+        if (i < BOOT_LINES.length) {
+          display.insertAdjacentHTML("beforeend",
+            '<p class="sys">' + esc(BOOT_LINES[i] || " ") + "</p>");
+          display.scrollTop = display.scrollHeight;
+          i++;
+          setTimeout(tick, BOOT_LINES[i - 1] === "" ? 120 : 240);
+        } else {
+          setTimeout(showPage, 500);
+        }
+      };
+      const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let seen = false;
+      try { seen = sessionStorage.getItem("tmapo-booted") === "1"; sessionStorage.setItem("tmapo-booted", "1"); } catch (e) {}
+      if (reduced || state.booted || seen) { showPage(); }
+      else { tick(); state.booted = true; }
+    }
+
+    /* wiring */
+    cmd.addEventListener("keydown", e => {
+      if (e.key === "Enter") { run(cmd.value); cmd.value = ""; }
+    });
+    document.getElementById("cmdline").addEventListener("click", () => cmd.focus());
+    document.querySelectorAll(".key").forEach(k =>
+      k.addEventListener("click", () => run(k.dataset.cmd)));
+    document.addEventListener("keydown", e => {
+      if (gameActive) return;
+      if (document.activeElement === cmd && cmd.value) return;
+      if (e.key === "ArrowRight") run("NEXT");
+      if (e.key === "ArrowLeft") run("BACK");
+    });
+    let touchX = null;
+    display.addEventListener("touchstart", e => { touchX = e.touches[0].clientX; }, {passive: true});
+    display.addEventListener("touchend", e => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 60) run(dx < 0 ? "NEXT" : "BACK");
+      touchX = null;
+    }, {passive: true});
+
+    boot();
+  </script>
+</body>
+</html>

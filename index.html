@@ -1,262 +1,89 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ROOT Terminal | Their Most August Public Organ</title>
-  <meta name="description" content="Read Their Most August Public Organ through a surviving ROOT node session.">
+  <title>Their Most August Public Organ | Craig Warren Smith</title>
+  <meta name="description" content="Their Most August Public Organ, a novel by Craig Warren Smith. Read it, hear it read, or play ROOT, from a surviving ROOT node.">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/terminal.css">
   <style>
-    :root {
-      --phos: #ffb000;
-      --phos-dim: #8a5f00;
-      --phos-glow: rgba(255, 176, 0, 0.55);
-      --tube: #050300;
-      --case: #1a1611;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    /* ?embed=1 — just the monitor, for iframing into Squarespace */
-    body.embed {
-      background: transparent;
-      padding: 0;
-      min-height: 100%;
-    }
-    html:has(body.embed) { background: transparent; }
-
-    /* ---------- The paddock (FIELD mode) ---------- */
-    .field-bg, .field-veil { position: fixed; inset: 0; display: none; pointer-events: none; }
-    body.field .field-bg, body.field .field-veil { display: block; }
-    .field-bg {
-      background: url("field.jpg") center 48% / cover no-repeat;
-      filter: saturate(1.06);
-      z-index: -2;
-    }
-    .field-veil {
-      background: radial-gradient(ellipse at 50% 45%, transparent 45%, rgba(5, 3, 0, 0.42) 100%);
-      z-index: -1;
-    }
-    body.field .crt {
-      box-shadow:
-        inset 0 2px 2px rgba(255,255,255,0.08),
-        inset 0 -6px 14px rgba(0,0,0,0.6),
-        0 30px 70px rgba(0,0,0,0.85);
-    }
-    body {
-      margin: 0;
-      background: radial-gradient(circle at 50% 30%, #24201a 0%, #0c0a07 70%);
-      font-family: "IBM Plex Mono", ui-monospace, monospace;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2vmin;
-    }
-
-    /* ---------- The monitor ---------- */
-    .crt {
-      width: min(760px, calc(100vw - 12px));
-      background: linear-gradient(160deg, #2b251d 0%, var(--case) 40%, #0f0d0a 100%);
-      border-radius: 26px;
-      padding: clamp(10px, 3vmin, 30px);
-      box-shadow:
-        inset 0 2px 2px rgba(255,255,255,0.08),
-        inset 0 -6px 14px rgba(0,0,0,0.6),
-        0 18px 50px rgba(0,0,0,0.7);
-    }
-    .screen-well {
-      background: #000;
-      border-radius: 18px;
-      padding: 10px;
-      box-shadow: inset 0 0 24px rgba(0,0,0,0.95);
-    }
-    .screen {
-      position: relative;
-      background: var(--tube);
-      border-radius: 14px;
-      overflow: hidden;
-      height: min(72vh, 560px);
-      color: var(--phos);
-      text-shadow: 0 0 5px var(--phos-glow);
-      font-size: clamp(11px, 2.5vw, 14.5px);
-      line-height: 1.5;
-    }
-    /* curvature vignette */
-    .screen::before {
-      content: "";
-      position: absolute; inset: 0;
-      pointer-events: none;
-      background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%);
-      z-index: 6;
-    }
-    /* scanlines */
-    .screen::after {
-      content: "";
-      position: absolute; inset: 0;
-      pointer-events: none;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.28) 0px, rgba(0,0,0,0.28) 1px,
-        transparent 2px, transparent 4px
-      );
-      z-index: 5;
-    }
-    .refresh-band {
-      position: absolute; left: 0; right: 0;
-      height: 90px;
-      background: linear-gradient(to bottom, transparent, rgba(255,200,80,0.05), transparent);
-      z-index: 4; pointer-events: none;
-      animation: sweep 7s linear infinite;
-    }
-    @keyframes sweep { from { top: -120px; } to { top: 110%; } }
-    .screen.flicker { animation: flick 4.3s infinite; }
-    @keyframes flick {
-      0%, 100% { opacity: 1; } 97.5% { opacity: 1; }
-      98% { opacity: 0.93; } 98.5% { opacity: 1; } 99.2% { opacity: 0.96; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .screen.flicker { animation: none; }
-      .refresh-band { animation: none; display: none; }
-    }
-    body.steady .screen.flicker { animation: none; }
-    body.steady .refresh-band { display: none; }
-    body.steady .screen::after { opacity: 0.4; }
-
-    /* ---------- Screen content ---------- */
-    .display {
-      position: absolute; inset: 0;
-      overflow-y: auto;
-      padding: 1.1rem 1.2rem 3.2rem;
-      scrollbar-width: thin;
-      scrollbar-color: var(--phos-dim) transparent;
-      z-index: 2;
-    }
-    .display p { margin: 0 0 0.9em; }
-    .display pre {
-      margin: 0.9em 0;
-      font-family: inherit;
-      font-size: clamp(7.5px, 2.1vw, 13px);
-      line-height: 1.35;
-      overflow-x: auto;
-      text-shadow: 0 0 4px var(--phos-glow);
-    }
-    .display .sys { color: var(--phos-dim); text-shadow: none; }
-    .display .page-head {
-      color: var(--phos-dim);
-      letter-spacing: 0.2em;
-      font-size: 0.72em;
-      margin-bottom: 1.2em;
-      text-shadow: none;
-    }
-    .display .err { color: #ff6a4d; text-shadow: 0 0 5px rgba(255,106,77,0.5); }
-
-    /* scan mode */
-    /* crop the typeset page's blank margins (measured: L/R ~14%, T ~20%, B ~5%) */
-    .scan-wrap {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 789 / 1303;
-      border-radius: 3px;
-    }
-    .scan-wrap img {
-      position: absolute;
-      width: 129.9%;
-      left: -14.9%;
-      top: -22.2%;
-      filter: invert(0.94) sepia(0.9) saturate(2.6) hue-rotate(-12deg) brightness(1.18) contrast(1.12);
-    }
-    body.paper .scan-wrap img { filter: none; background: #fff; }
-    /* page 1 opens with a chapter-drop — crop it so the text starts at the top */
-    .scan-wrap.p1 { aspect-ratio: 789 / 965; }
-    .scan-wrap.p1 img { top: -65%; }
-
-    /* external program (the ROOT game) */
-    .game-wrap {
-      position: absolute;
-      inset: 0;
-      padding: 0.55rem 0.55rem 2.7rem;
-      z-index: 3;
-    }
-    .game-wrap iframe {
+    /* ---------- The /ROOT directory ---------- */
+    .display .dir-title { margin: 0 0 0.15em; letter-spacing: 0.08em; }
+    .display .dir-by { margin: 0 0 1.4em; color: var(--phos-dim); text-shadow: none; letter-spacing: 0.2em; font-size: 0.72em; }
+    .dir { margin: 0; padding: 0; list-style: none; white-space: pre; }
+    .dir .path { color: var(--phos-dim); text-shadow: none; }
+    .dir .row {
+      display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+      column-gap: 1.5em;
       width: 100%;
-      height: 100%;
-      border: 0;
-      border-radius: 8px;
-      background: #000;
-    }
-
-    /* command line */
-    .cmdline {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      display: flex; align-items: center; gap: 0.4rem;
-      padding: 0.55rem 1.2rem;
-      background: linear-gradient(to top, rgba(5,3,0,0.96) 60%, transparent);
-      z-index: 7;
-      cursor: text;
-    }
-    .cmdline .prompt-char { color: var(--phos); }
-    .cmdline input {
-      flex: 1;
-      background: transparent; border: none; outline: none;
-      color: var(--phos);
-      font: inherit;
-      text-shadow: 0 0 5px var(--phos-glow);
-      caret-color: var(--phos);
-      text-transform: uppercase;
-    }
-
-    /* ---------- Controls under the glass ---------- */
-    .fascia {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.6rem;
-      padding: 0.9rem 0.4rem 0.1rem;
-    }
-    .badge {
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      color: #6b5f4c;
-      text-transform: uppercase;
-      user-select: none;
-    }
-    .keys { display: flex; gap: 0.45rem; }
-    .key {
-      font-family: inherit;
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      color: #cdbfa4;
-      background: linear-gradient(180deg, #383126 0%, #211c15 100%);
-      border: 1px solid #0c0a07;
-      border-radius: 6px;
-      padding: 0.45rem 0.8rem;
+      padding: 0.3em 0.2em;
+      margin: 0;
+      background: none; border: 0; border-radius: 2px;
+      color: inherit; font: inherit; text-align: left; text-decoration: none; text-shadow: inherit;
       cursor: pointer;
-      box-shadow: 0 2px 0 #0c0a07, inset 0 1px 0 rgba(255,255,255,0.09);
+      -webkit-tap-highlight-color: transparent;
     }
-    .key:active { transform: translateY(1px); box-shadow: 0 1px 0 #0c0a07; }
-    .key:focus-visible { outline: 2px solid var(--phos); outline-offset: 2px; }
-    .power-led {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--phos);
-      box-shadow: 0 0 8px var(--phos-glow);
+    .dir .row .name { white-space: pre; }
+    .dir .row .what { margin-left: auto; color: var(--phos-dim); text-shadow: none; }
+    .dir .row .num { color: var(--phos-dim); text-shadow: none; }
+    .dir .row .cur { display: inline-block; width: 1.2em; visibility: hidden; }
+    .dir .row.on { background: rgba(255, 176, 0, 0.09); }
+    .dir .row.on .name { text-decoration: underline; text-underline-offset: 0.25em; }
+    .dir .row.on .what { color: var(--phos); }
+    .dir .row.on .cur { visibility: visible; animation: blink 1.05s steps(1) infinite; }
+    .dir .row:focus-visible { outline: 1px solid var(--phos); outline-offset: 1px; }
+    .dir .row.off { cursor: default; color: var(--phos-dim); text-shadow: none; }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .dir .row.on .cur { animation: none; } }
+    body.steady .dir .row.on .cur { animation: none; }
+    .display .dir-hint { margin-top: 1.5em; }
+
+    /* ---------- README.txt, read in the tube ---------- */
+    .readme { max-width: 62ch; }
+    .readme p { margin: 0 0 1em; }
+    .readme em { font-style: italic; }
+    .readme figure { margin: 0 0 1.8em; }
+    .readme .links { margin-top: 2em; }
+    .readme .links p { margin: 0 0 0.45em; }
+    .readme a { color: var(--phos); text-underline-offset: 0.25em; }
+    .readme a:focus-visible { outline: 1px solid var(--phos); outline-offset: 2px; }
+    .readme .frames { margin-top: 2.2em; }
+    .readme .frame {
+      position: relative; display: block; width: 100%; aspect-ratio: 4 / 3;
+      padding: 0; background: #000; border: 1px solid var(--phos-dim); border-radius: 3px;
+      overflow: hidden; cursor: pointer; -webkit-tap-highlight-color: transparent;
     }
-    @media (max-width: 520px) {
-      body { padding: 1vmin; }
-      .crt { border-radius: 16px; }
-      .screen { height: 74vh; }
-      .key { padding: 0.4rem 0.6rem; font-size: 0.66rem; }
-      .badge { display: none; }
+    .readme .frame:focus-visible { outline: 1px solid var(--phos); outline-offset: 2px; }
+    .readme .frame img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+      opacity: 0; transition: opacity 1.1s ease;
     }
+    .readme .frame img.show { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) { .readme .frame img { transition: none; } }
+    body.steady .readme .frame img { transition: none; }
+    .readme figcaption { margin-top: 0.6em; letter-spacing: 0.2em; font-size: 0.72em; }
+
+    /* fascia: directory keys, or program keys while something is loaded in the tube */
+    .keys-run { display: none; }
+    body.running .keys-dir, body.doc .keys-dir { display: none; }
+    body.running .keys-run, body.doc .keys-run { display: flex; }
+    body.doc .keys-run [data-cmd="FULL"] { display: none; }
   </style>
 </head>
 <body>
   <div class="field-bg" aria-hidden="true"></div>
   <div class="field-veil" aria-hidden="true"></div>
-  <main class="crt" aria-label="ROOT terminal reader">
+  <main class="crt" aria-label="ROOT terminal">
     <div class="screen-well">
       <div class="screen flicker" id="screen">
         <div class="refresh-band" aria-hidden="true"></div>
-        <div class="display" id="display" aria-live="polite"></div>
+        <div class="display" id="display">
+          <noscript>
+            <p>THEIR MOST AUGUST PUBLIC ORGAN</p>
+            <p><a href="/read/" style="color:inherit">Read the novel</a> · <a href="https://root.wrenasmir.com" style="color:inherit">Play ROOT</a></p>
+          </noscript>
+        </div>
         <div class="cmdline" id="cmdline">
           <span class="prompt-char" aria-hidden="true">&gt;</span>
           <input id="cmd" type="text" autocomplete="off" autocapitalize="characters"
@@ -267,30 +94,52 @@
     <div class="fascia">
       <span class="power-led" aria-hidden="true"></span>
       <span class="badge">ROOT · solar ok · canopy link intermittent</span>
-      <div class="keys">
-        <button class="key" data-cmd="BACK" aria-label="Previous page">◀</button>
-        <button class="key" data-cmd="NEXT" aria-label="Next page">▶</button>
-        <button class="key" data-cmd="MODE" aria-label="Toggle scan/text mode">MODE</button>
+      <div class="keys keys-dir">
+        <button class="key" data-cmd="UP" aria-label="Previous entry">▲</button>
+        <button class="key" data-cmd="DOWN" aria-label="Next entry">▼</button>
+        <button class="key" data-cmd="OPEN" aria-label="Open the selected entry">OPEN</button>
         <button class="key" data-cmd="HELP" aria-label="Help">?</button>
+      </div>
+      <div class="keys keys-run">
+        <button class="key" data-cmd="FULL" aria-label="Open in a new tab">FULL</button>
+        <button class="key" data-cmd="EJECT" aria-label="Back to the directory">EJECT</button>
       </div>
     </div>
   </main>
 
+  <!-- README.txt: everything on the about screen. Edit the words here. -->
+  <template id="readme">
+    <p>I have looked out the window for untold hours while travelling on trains. The opening line of the novel, <em>At meaning's edge the imagination still flickers</em>, came to me, like most things, on a walk one evening with my dog. It felt like it represented something of the state of play in our age regarding the role of the mind - when cognition is being increasingly outsourced, when a cavalcade of media is being positioned in front of our eyes at every possible instance, what does/can the mind do when it is left by itself, to daydream whilst looking out the window? For me, the imagination still flickers: in the face of everything, it still maintains light.</p>
+    <p>Listening to an interview with Adam Curtis earlier this year, he said something about how serious contemporary stories should be ghost stories about AI. This felt right to me, and that to ignore the technological machinations of today, to say nothing of wars of nationalism and genocide, would be a moral failing. I understand that this book may not seem like it directly deals with any of those things, but perhaps, without giving too much away, I would say that for me, the critical gesture was to unpack the epistemological impact of G&ouml;del's incompleteness theorems: how much are we ever a solo author of our work and ourselves, within a closed system, and how much are we always being authored and authoring the world around us in a recursive loop of subjectivity? How much of that interfaces between the natural and the synthetic? And how does all this relate to a man in his forties, still trying to get his imagination to flicker whilst taking the train to see his friend?</p>
+    <p>As always, I am indebted to my forefathers, Les Murray and Gerald Murnane, and hope that this work sits in dialogue with the preceding book, <em>Everyone I Love Is Alive In The Unlimited Present of the City and its Waters</em>, and the book I am working on to complete the trilogy, <em>Surplus of the Seen</em>.</p>
+    <p>Thank you.</p>
+    <p>Craig, 04/10/26.</p>
+
+    <!-- The photographs: /about/photos/01.jpg to NN.jpg, shown in a fresh random order on each visit. -->
+    <figure class="frames">
+      <button type="button" class="frame" aria-label="Next photograph">
+        <img class="a" alt="" decoding="async"><img class="b" alt="" decoding="async">
+      </button>
+      <figcaption class="sys"><span class="count"></span> · TAP FOR THE NEXT</figcaption>
+    </figure>
+
+    <div class="links">
+      <p><a href="/read/">&gt; Read the novel</a></p>
+      <p><a href="/" data-home>&gt; Back to /ROOT</a></p>
+    </div>
+  </template>
+
   <script>
+    /* The unabridged recording. Paste the YouTube video ID here once it is uploaded
+       (the part after watch?v=). While this is empty the recording is listed under
+       /unverified/ as a .tmp file and cannot be selected. */
+    const VIDEO_ID = "";
+
+    const ROOT_URL = "https://root.wrenasmir.com";
+
     if (new URLSearchParams(location.search).has("embed")) {
       document.body.classList.add("embed");
     }
-
-    const TOTAL_SCANS = 82;
-    const scanSrc = n => "pages/Page%20" + n + ".png";
-
-    /* Text layer: built from TMAPO-Manuscript.md by build-text.py, later pages added by hand (full text layer 1-82).
-       The page PNGs remain authoritative for exact ASCII layout. */
-    let TEXT_PAGES = {};
-    fetch("pages.json")
-      .then(r => r.ok ? r.json() : {})
-      .then(d => { TEXT_PAGES = d; if (mode === "text") showPage(); })
-      .catch(() => {});
 
     const BOOT_LINES = [
       "ROOT NODE 07 — POWER: SOLAR (trickle) .......... OK",
@@ -304,198 +153,273 @@
       ""
     ];
 
-    const state = JSON.parse(localStorage.getItem("tmapo-terminal") || "{}");
-    let page = Math.min(Math.max(state.page || 1, 1), TOTAL_SCANS);
-    let mode = state.mode === "text" ? "text" : "scan";
+    const FILE = "Their_Most_August_Public_Organ";
+    const ENTRIES = [
+      { id: "about", path: null,     name: "README.txt",    what: "about the novel" },
+      { id: "read",  path: "/text",  name: FILE + ".txt",   what: "read the novel",       href: "/read/" },
+      VIDEO_ID
+        ? { id: "watch", path: "/audio",      name: FILE + ".mp4",     what: "unabridged recording" }
+        : { id: "watch", path: "/unverified", name: FILE + ".mp4.tmp", what: "recording in progress", off: true },
+      { id: "play",  path: "/games", name: "ROOT",          what: "play" }
+    ];
+
+    /* shares the reader's settings (STEADY, FIELD) without touching its page or mode */
+    const readState = () => { try { return JSON.parse(localStorage.getItem("tmapo-terminal") || "{}"); } catch (e) { return {}; } };
+    const state = readState();
     if (state.steady) document.body.classList.add("steady");
-    if (state.paper) document.body.classList.add("paper");
     if (state.field !== false && !document.body.classList.contains("embed")) {
       document.body.classList.add("field");
     }
-    const save = () => localStorage.setItem("tmapo-terminal", JSON.stringify({
-      page, mode,
-      steady: document.body.classList.contains("steady"),
-      paper: document.body.classList.contains("paper"),
-      field: document.body.classList.contains("field")
-    }));
+    const save = () => {
+      try {
+        localStorage.setItem("tmapo-terminal", JSON.stringify(Object.assign(readState(), {
+          steady: document.body.classList.contains("steady"),
+          field: document.body.classList.contains("field")
+        })));
+      } catch (e) {}
+    };
 
     const display = document.getElementById("display");
     const cmd = document.getElementById("cmd");
+    const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
-    function esc(s) {
-      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
-    }
+    let current = 0;       // index into ENTRIES
+    let running = null;    // URL to open with FULL while a program is in the tube
+    let menuShown = false;
+    let doc = false;       // README.txt is open in the tube
 
-    /* Some pages carry a taller text block that starts above the usual 20% top margin
-       (e.g. 68–69). Measure where the ink begins and open the crop upwards to fit. */
-    function fitScan(img) {
-      const wrap = img.parentElement;
-      if (!wrap || wrap.classList.contains("p1")) return;
-      try {
-        const w = 205, h = 330, c = document.createElement("canvas");
-        c.width = w; c.height = h;
-        const ctx = c.getContext("2d", { willReadFrequently: true });
-        ctx.drawImage(img, 0, 0, w, h);
-        const px = ctx.getImageData(0, 0, w, h).data;
-        let first = -1;
-        for (let y = 0; y < h / 2 && first < 0; y++) {
-          for (let x = Math.round(w * 0.1); x < w * 0.9; x++) {
-            const i = (y * w + x) * 4;
-            if (px[i + 3] > 128 && px[i] + px[i + 1] + px[i + 2] < 384) { first = y; break; }
-          }
-        }
-        if (first < 0) return;
-        const inkTop = first / h * 1650;            /* in page-scan pixels (1025 × 1650) */
-        if (inkTop >= 310) return;                  /* the usual layout — CSS default is right */
-        const start = Math.max(0, inkTop - 43);     /* same headroom the default crop leaves */
-        const height = 1592 - start;                /* same bottom edge as the default crop */
-        wrap.style.aspectRatio = "789 / " + height.toFixed(0);
-        img.style.top = (-start / height * 100).toFixed(2) + "%";
-      } catch (e) { /* canvas unavailable (e.g. file://) — keep the default crop */ }
-    }
-    window.fitScan = fitScan;
+    const PHOTO_COUNT = 42;                      // /about/photos/01.jpg ... 42.jpg
+    const PHOTO_SECONDS = 7;
+    const photoSrc = n => "/about/photos/" + String(n).padStart(2, "0") + ".jpg";
+    let frameTimer = null;
 
-    function showPage() {
-      let html = '<div class="page-head">— PAGE ' + page + ' / ' + TOTAL_SCANS +
-                 ' · MODE: ' + mode.toUpperCase() + ' —</div>';
-      if (mode === "scan") {
-        html += '<div class="scan-wrap' + (page === 1 ? " p1" : "") + '"><img onload="fitScan(this)" src="' + scanSrc(page) +
-                '" alt="Typeset page ' + page + ' of the manuscript"></div>';
-      } else {
-        const t = TEXT_PAGES[page];
-        if (!t) {
-          html += '<p class="sys">TEXT LAYER NOT YET RECOVERED FOR PAGE ' + page +
-                  ' — DISPLAYING SCAN.</p>' +
-                  '<div class="scan-wrap"><img onload="fitScan(this)" src="' + scanSrc(page) +
-                  '" alt="Typeset page ' + page + ' of the manuscript"></div>';
-        } else {
-          t.forEach(part => {
-            if (typeof part === "string") html += "<p>" + esc(part) + "</p>";
-            else html += "<pre>" + esc(part.pre) + "</pre>";
-          });
-        }
+    /* the photographs under the README: shuffled afresh on each visit, crossfading in one frame */
+    function startFrames() {
+      clearInterval(frameTimer);
+      const frame = display.querySelector(".frame");
+      if (!frame) return;
+      const order = Array.from({ length: PHOTO_COUNT }, (_, i) => i + 1);
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
       }
+      const imgs = frame.querySelectorAll("img"), count = display.querySelector(".frames .count");
+      let k = -1, top = 1;
+      const step = () => {
+        k = (k + 1) % order.length;
+        top = 1 - top;
+        const img = imgs[top], other = imgs[1 - top];
+        img.onload = () => { img.classList.add("show"); other.classList.remove("show"); };
+        img.src = photoSrc(order[k]);
+        count.textContent = "FRAME " + String(k + 1).padStart(2, "0") + " / " + order.length;
+        new Image().src = photoSrc(order[(k + 1) % order.length]);   // have the next one ready
+      };
+      const auto = () => {
+        clearInterval(frameTimer);
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;   // then it only moves on a tap
+        frameTimer = setInterval(() => {
+          if (!frame.isConnected) { clearInterval(frameTimer); return; }
+          if (!document.hidden && !document.body.classList.contains("steady")) step();
+        }, PHOTO_SECONDS * 1000);
+      };
+      frame.addEventListener("click", () => { step(); auto(); });
+      step(); auto();
+    }
+
+    const setHash = h => { try { history.replaceState(null, "", h ? "#" + h : location.pathname + location.search); } catch (e) {} };
+
+    function showMenu() {
+      running = null;
+      menuShown = true;
+      if (doc) setHash("");
+      doc = false;
+      document.body.classList.remove("running", "doc");
+      let html = '<p class="dir-title">THEIR MOST AUGUST PUBLIC ORGAN</p>' +
+                 '<p class="dir-by">CRAIG WARREN SMITH</p>' +
+                 '<ul class="dir" role="list"><li class="path">/ROOT</li>';
+      ENTRIES.forEach((e, i) => {
+        if (e.path) html += '<li class="path">  ' + esc(e.path) + '</li>';
+        const indent = e.path ? "  " : "";
+        const inner = '<span class="name"><span class="cur" aria-hidden="true">▮</span>' + indent + esc(e.name) + '</span>' +
+                      '<span class="what">' + esc(e.what) + ' <span class="num" aria-hidden="true">[' + (i + 1) + ']</span></span>';
+        const cls = 'row' + (e.off ? ' off' : '');
+        html += '<li>' + (e.off
+          ? '<div class="' + cls + '" data-i="' + i + '" aria-disabled="true">' + inner + '</div>'
+          : e.href
+            ? '<a class="' + cls + '" data-i="' + i + '" href="' + e.href + '">' + inner + '</a>'
+            : '<button type="button" class="' + cls + '" data-i="' + i + '">' + inner + '</button>') + '</li>';
+      });
+      html += '</ul><p class="sys dir-hint">↑ ↓ TO MOVE · ENTER TO OPEN · OR TAP A LINE</p>';
       display.innerHTML = html;
       display.scrollTop = 0;
-      save();
+      mark();
     }
 
-    function sysLines(lines) {
-      display.innerHTML = lines.map(l => '<p class="sys">' + esc(l) + "</p>").join("");
+    function mark() {
+      display.querySelectorAll(".row").forEach(r =>
+        r.classList.toggle("on", +r.dataset.i === current));
+    }
+
+    function move(d) {
+      if (doc) { display.scrollBy({ top: d * display.clientHeight * 0.6 }); return; }
+      if (!menuShown || running) { showMenu(); return; }
+      let i = current;
+      do { i = (i + d + ENTRIES.length) % ENTRIES.length; } while (ENTRIES[i].off);
+      current = i;
+      mark();
+    }
+
+    function say(line, cls) {
+      if (running || doc || !menuShown) showMenu();
+      display.querySelectorAll(".said").forEach(n => n.remove());
+      display.insertAdjacentHTML("beforeend", '<p class="said ' + (cls || "sys") + '">' + esc(line) + '</p>');
+      display.scrollTop = display.scrollHeight;
+    }
+
+    /* README.txt: about the novel. The words are in the README template below the script's markup. */
+    function showReadme() {
+      running = null; menuShown = false; doc = true;
+      document.body.classList.remove("running");
+      document.body.classList.add("doc");
+      display.innerHTML = '<div class="page-head">/ROOT/README.txt · TYPE EJECT TO RETURN</div>' +
+                          '<article class="readme">' + document.getElementById("readme").innerHTML + '</article>';
       display.scrollTop = 0;
+      setHash("about");
+      startFrames();
+    }
+
+    function tube(head, src, title, full) {
+      if (doc) setHash("");
+      running = full; doc = false;
+      document.body.classList.remove("doc");
+      document.body.classList.add("running");
+      display.innerHTML =
+        '<div class="page-head">' + esc(head) + ' · TYPE EJECT TO RETURN</div>' +
+        '<div class="game-wrap"><iframe src="' + src + '" title="' + esc(title) + '" ' +
+        'allow="fullscreen; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>';
+      display.scrollTop = 0;
+    }
+
+    function openEntry(id) {
+      const i = ENTRIES.findIndex(e => e.id === id);
+      const e = ENTRIES[i];
+      if (e.off) { say("/unverified/" + e.name + " · RECORDING IN PROGRESS. NOT YET READABLE."); return; }
+      current = i;
+      if (e.href) { location.href = e.href; return; }
+      if (id === "about") { showReadme(); return; }
+      if (id === "watch") {
+        tube("/audio/" + e.name, "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(VIDEO_ID) + "?rel=0",
+             "Their Most August Public Organ, the unabridged recording",
+             "https://www.youtube.com/watch?v=" + encodeURIComponent(VIDEO_ID));
+      } else if (id === "play") {
+        tube("EXTERNAL PROGRAM: /games/ROOT", ROOT_URL, "ROOT, the game", ROOT_URL);
+      }
     }
 
     function help() {
-      sysLines([
+      running = null; menuShown = false;
+      if (doc) setHash("");
+      doc = false;
+      document.body.classList.remove("running", "doc");
+      display.innerHTML = [
         "COMMANDS",
-        "  NEXT / BACK ........ turn the page (also ◀ ▶, arrow keys, swipe)",
-        "  GOTO n ............. jump to page n",
-        "  INDEX .............. list recovered pages",
-        "  MODE ............... toggle SCAN (microfiche) / TEXT (phosphor)",
-        "  PAPER .............. scan mode: flip negative ↔ white paper",
+        "  READ ............... open the novel in this terminal",
+        "  ABOUT .............. README.txt: about the novel and its author",
+        "  WATCH .............. the unabridged recording" + (VIDEO_ID ? "" : " (in progress)"),
+        "  PLAY ............... load ROOT, the resident program",
+        "  FULL ............... open the loaded program in its own tab",
+        "  EJECT .............. back to the directory",
         "  STEADY ............. calm the tube (scanlines/flicker off)",
         "  FIELD .............. take the node in / out of the paddock",
-        "  RUN ROOT ........... load the resident program; EJECT returns to the book",
         "  HELP ............... this",
         "",
-        "The scans are the authoritative typesetting. The text layer is",
-        "recovered progressively; pages without text fall back to scan.",
+        "Or use the arrow keys and ENTER, the numbers 1 to 4, or tap a line.",
         "",
-        "PRESS ANY PAGE COMMAND TO RESUME."
-      ]);
-    }
-
-    function index() {
-      const rows = [];
-      for (let i = 1; i <= TOTAL_SCANS; i += 10) {
-        rows.push(Array.from({length: Math.min(10, TOTAL_SCANS - i + 1)},
-          (_, k) => String(i + k).padStart(3, " ")).join(" "));
-      }
-      sysLines(["/ROOT/pages — " + TOTAL_SCANS + " recovered", ""].concat(rows)
-        .concat(["", "GOTO n TO OPEN."]));
-    }
-
-    let gameActive = false;
-
-    function runRoot() {
-      gameActive = true;
-      display.innerHTML =
-        '<div class="page-head">— EXTERNAL PROGRAM: /ROOT/root.prg · TYPE EJECT TO RETURN —</div>' +
-        '<div class="game-wrap"><iframe src="https://root.wrenasmir.com" ' +
-        'title="ROOT — the game" allow="fullscreen"></iframe></div>';
+        "PRESS ENTER TO RETURN TO /ROOT."
+      ].map(l => '<p class="sys" style="white-space:pre-wrap">' + esc(l || " ") + "</p>").join("");
       display.scrollTop = 0;
     }
 
     function run(raw) {
       const c = raw.trim().toUpperCase();
       if (!c) return;
-      if (c === "RUN ROOT" || c === "ROOT" || c === "PLAY") { runRoot(); return; }
-      if (c === "EJECT") { gameActive = false; showPage(); return; }
-      if (gameActive) { gameActive = false; }  // any other command ejects first
-      const goto = c.match(/^(?:GOTO|G)\s+(\d+)$/);
-      if (c === "NEXT" || c === "N") { page = Math.min(page + 1, TOTAL_SCANS); showPage(); }
-      else if (c === "BACK" || c === "B" || c === "PREV") { page = Math.max(page - 1, 1); showPage(); }
-      else if (goto) {
-        const n = parseInt(goto[1], 10);
-        if (n >= 1 && n <= TOTAL_SCANS) { page = n; showPage(); }
-        else display.insertAdjacentHTML("beforeend",
-          '<p class="err">NO SUCH PAGE. RECOVERED RANGE: 1–' + TOTAL_SCANS + '</p>');
-      }
-      else if (c === "MODE" || c === "MODE TEXT" || c === "MODE SCAN") {
-        mode = c === "MODE TEXT" ? "text" : c === "MODE SCAN" ? "scan"
-             : (mode === "scan" ? "text" : "scan");
-        showPage();
-      }
-      else if (c === "PAPER") { document.body.classList.toggle("paper"); save(); showPage(); }
-      else if (c === "STEADY") { document.body.classList.toggle("steady"); save(); showPage(); }
-      else if (c === "FIELD") { document.body.classList.toggle("field"); save(); showPage(); }
-      else if (c === "INDEX" || c === "LS") index();
-      else if (c === "HELP" || c === "?") help();
-      else display.insertAdjacentHTML("beforeend",
-        '<p class="err">UNRECOGNISED: ' + esc(c) + ' — TRY HELP</p>');
+      if (c === "UP") return move(-1);
+      if (c === "DOWN") return move(1);
+      if (c === "OPEN") return (!menuShown || running || doc) ? showMenu() : openEntry(ENTRIES[current].id);
+      if (/^[1-4]$/.test(c)) return openEntry(ENTRIES[+c - 1].id);
+      if (c === "READ" || c === "TEXT" || c === "BOOK") return openEntry("read");
+      if (c === "ABOUT" || c === "README" || c === "README.TXT") return openEntry("about");
+      if (c === "WATCH" || c === "LISTEN" || c === "AUDIO") return openEntry("watch");
+      if (c === "PLAY" || c === "ROOT" || c === "RUN ROOT") return openEntry("play");
+      if (c === "FULL") { if (running) window.open(running, "_blank", "noopener"); else say("NOTHING LOADED. TRY PLAY."); return; }
+      if (c === "EJECT" || c === "HOME" || c === "LS" || c === "MENU" || c === "INDEX" || c === "BACK") return showMenu();
+      if (c === "HELP" || c === "?") return help();
+      if (c === "STEADY") { document.body.classList.toggle("steady"); save(); return; }
+      if (c === "FIELD") { document.body.classList.toggle("field"); save(); return; }
+      say("UNRECOGNISED: " + c + " · TRY HELP", "err");
     }
 
-    /* boot sequence */
+    /* boot sequence, once per visit */
     function boot() {
+      let seen = false;
+      try { seen = sessionStorage.getItem("tmapo-booted") === "1"; sessionStorage.setItem("tmapo-booted", "1"); } catch (e) {}
+      if (location.hash === "#about") { showReadme(); return; }
+      if (seen || matchMedia("(prefers-reduced-motion: reduce)").matches) { showMenu(); return; }
       let i = 0;
       display.innerHTML = "";
       const tick = () => {
+        if (menuShown) return;   // a key or tap skipped the boot
         if (i < BOOT_LINES.length) {
-          display.insertAdjacentHTML("beforeend",
-            '<p class="sys">' + esc(BOOT_LINES[i] || " ") + "</p>");
-          display.scrollTop = display.scrollHeight;
+          display.insertAdjacentHTML("beforeend", '<p class="sys">' + esc(BOOT_LINES[i] || " ") + "</p>");
           i++;
           setTimeout(tick, BOOT_LINES[i - 1] === "" ? 120 : 240);
         } else {
-          setTimeout(showPage, 500);
+          setTimeout(() => { if (!menuShown) showMenu(); }, 500);
         }
       };
-      const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduced || state.booted) { showPage(); }
-      else { tick(); state.booted = true; }
+      tick();
     }
 
     /* wiring */
     cmd.addEventListener("keydown", e => {
-      if (e.key === "Enter") { run(cmd.value); cmd.value = ""; }
+      if (e.key === "Enter" && cmd.value) { run(cmd.value); cmd.value = ""; e.stopPropagation(); }
     });
     document.getElementById("cmdline").addEventListener("click", () => cmd.focus());
     document.querySelectorAll(".key").forEach(k =>
       k.addEventListener("click", () => run(k.dataset.cmd)));
-    document.addEventListener("keydown", e => {
-      if (gameActive) return;
-      if (document.activeElement === cmd && cmd.value) return;
-      if (e.key === "ArrowRight") run("NEXT");
-      if (e.key === "ArrowLeft") run("BACK");
+
+    display.addEventListener("click", e => {
+      if (e.target.closest("[data-home]")) { e.preventDefault(); showMenu(); return; }
+      const row = e.target.closest(".row");
+      if (!row) { if (!menuShown && !running && !doc) showMenu(); return; }
+      e.preventDefault();
+      openEntry(ENTRIES[+row.dataset.i].id);
     });
-    let touchX = null;
-    display.addEventListener("touchstart", e => { touchX = e.touches[0].clientX; }, {passive: true});
-    display.addEventListener("touchend", e => {
-      if (touchX === null) return;
-      const dx = e.changedTouches[0].clientX - touchX;
-      if (Math.abs(dx) > 60) run(dx < 0 ? "NEXT" : "BACK");
-      touchX = null;
-    }, {passive: true});
+    display.addEventListener("mouseover", e => {
+      const row = e.target.closest(".row");
+      if (row && !row.classList.contains("off")) { current = +row.dataset.i; mark(); }
+    });
+    display.addEventListener("focusin", e => {
+      const row = e.target.closest(".row");
+      if (row) { current = +row.dataset.i; mark(); }
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === "Escape") { cmd.value = ""; showMenu(); return; }
+      if (cmd.value) return;                       // a command is being typed
+      if (e.key === "ArrowDown") { e.preventDefault(); run("DOWN"); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); run("UP"); }
+      else if (e.key === "Enter") {
+        if (e.target.closest && e.target.closest("button.key, .readme button, .readme a")) return;   // the key or link handles it itself
+        e.preventDefault(); run("OPEN");
+      }
+      else if (/^[1-4]$/.test(e.key) && menuShown && !running) { e.preventDefault(); run(e.key); }
+      else if (e.key.length === 1 && /[a-z?]/i.test(e.key) && document.activeElement !== cmd) cmd.focus();
+    });
+
+    /* coming back with the browser's Back button: land on the directory, not a stale tube */
+    addEventListener("pageshow", e => { if (e.persisted) showMenu(); });
 
     boot();
   </script>
