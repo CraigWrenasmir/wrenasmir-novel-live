@@ -242,3 +242,10 @@ body.paper .scan-wrap img { filter: none; background: #fff; }
 
 /* the /ROOT key is no use inside the Squarespace iframe */
 body.embed .key-home { display: none; }
+
+/* iOS Safari: no double-tap zoom (pinch still works), and no zoom-in when the command line is tapped
+   (Safari zooms on any input whose text is under 16px) */
+* { touch-action: manipulation; }
+@supports (-webkit-touch-callout: none) {
+  .cmdline input { font-size: 16px; }
+}
