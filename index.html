@@ -56,7 +56,7 @@
     }
     .readme .frame:focus-visible { outline: 1px solid var(--phos); outline-offset: 2px; }
     .readme .frame img {
-      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
       opacity: 0; transition: opacity 1.1s ease;
     }
     .readme .frame img.show { opacity: 1; }
@@ -160,7 +160,7 @@
       VIDEO_ID
         ? { id: "watch", path: "/audio",      name: FILE + ".mp4",     what: "unabridged recording" }
         : { id: "watch", path: "/unverified", name: FILE + ".mp4.tmp", what: "recording in progress", off: true },
-      { id: "play",  path: "/games", name: "ROOT",          what: "play" }
+      { id: "play",  path: "/game", name: "ROOT",          what: "play" }
     ];
 
     /* shares the reader's settings (STEADY, FIELD) without touching its page or mode */
@@ -312,7 +312,7 @@
              "Their Most August Public Organ, the unabridged recording",
              "https://www.youtube.com/watch?v=" + encodeURIComponent(VIDEO_ID));
       } else if (id === "play") {
-        tube("EXTERNAL PROGRAM: /games/ROOT", ROOT_URL, "ROOT, the game", ROOT_URL);
+        tube("EXTERNAL PROGRAM: /game/ROOT", ROOT_URL, "ROOT, the game", ROOT_URL);
       }
     }
 
