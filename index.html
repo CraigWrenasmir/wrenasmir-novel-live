@@ -158,8 +158,8 @@
       { id: "about", path: null,     name: "README.txt",    what: "about the novel" },
       { id: "read",  path: "/text",  name: FILE + ".txt",   what: "read the novel",       href: "/read/" },
       VIDEO_ID
-        ? { id: "watch", path: "/audio",      name: FILE + ".mp4",     what: "unabridged recording" }
-        : { id: "watch", path: "/unverified", name: FILE + ".mp4.tmp", what: "recording in progress", off: true },
+        ? { id: "watch", path: "/video",      name: "Unabridged_Recording", what: "listen to the novel" }
+        : { id: "watch", path: "/unverified", name: "Unabridged_Recording.tmp", what: "recording in progress", off: true },
       { id: "play",  path: "/game", name: "ROOT",          what: "play" }
     ];
 
@@ -308,7 +308,7 @@
       if (e.href) { location.href = e.href; return; }
       if (id === "about") { showReadme(); return; }
       if (id === "watch") {
-        tube("/audio/" + e.name, "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(VIDEO_ID) + "?rel=0",
+        tube("/video/" + e.name, "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(VIDEO_ID) + "?rel=0",
              "Their Most August Public Organ, the unabridged recording",
              "https://www.youtube.com/watch?v=" + encodeURIComponent(VIDEO_ID));
       } else if (id === "play") {
@@ -325,7 +325,7 @@
         "COMMANDS",
         "  READ ............... open the novel in this terminal",
         "  ABOUT .............. README.txt: about the novel and its author",
-        "  WATCH .............. the unabridged recording" + (VIDEO_ID ? "" : " (in progress)"),
+        "  WATCH .............. listen to the novel: the unabridged recording" + (VIDEO_ID ? "" : " (in progress)"),
         "  PLAY ............... load ROOT, the resident program",
         "  FULL ............... open the loaded program in its own tab",
         "  EJECT .............. back to the directory",
