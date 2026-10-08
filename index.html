@@ -64,6 +64,29 @@
     body.steady .readme .frame img { transition: none; }
     .readme figcaption { margin-top: 0.6em; letter-spacing: 0.2em; font-size: 0.72em; }
 
+    /* ---------- the podcast, playing in the tube ---------- */
+    .player { max-width: 62ch; }
+    .player p { margin: 0 0 0.9em; }
+    .player .bar {
+      display: block; width: 100%; padding: 0.3em 0; margin: 0.4em 0 0.2em;
+      background: none; border: 0; color: var(--phos-dim); text-shadow: none;
+      font: inherit; text-align: left; letter-spacing: 0; white-space: pre; overflow: hidden;
+      cursor: pointer; -webkit-tap-highlight-color: transparent;
+    }
+    .player .bar b { font-weight: 400; color: var(--phos); text-shadow: 0 0 5px var(--phos-glow); }
+    .player .bar:focus-visible { outline: 1px solid var(--phos); outline-offset: 2px; }
+    .player .time { letter-spacing: 0.1em; }
+    .player .ctl { display: flex; flex-wrap: wrap; gap: 0.5em 1.2em; margin: 1em 0 1.4em; }
+    .player .ctl button {
+      background: none; border: 1px solid var(--phos-dim); border-radius: 3px;
+      color: var(--phos); font: inherit; text-shadow: inherit; padding: 0.35em 0.8em; cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .player .ctl button:focus-visible { outline: 1px solid var(--phos); outline-offset: 2px; }
+    .player a { color: var(--phos); text-underline-offset: 0.25em; }
+    .keys-run [data-cmd="PAUSE"] { display: none; }
+    body.audio .keys-run [data-cmd="PAUSE"] { display: inline-block; }
+
     /* fascia: directory keys, or program keys while something is loaded in the tube */
     .keys-run { display: none; }
     body.running .keys-dir, body.doc .keys-dir { display: none; }
@@ -101,6 +124,7 @@
         <button class="key" data-cmd="HELP" aria-label="Help">?</button>
       </div>
       <div class="keys keys-run">
+        <button class="key" data-cmd="PAUSE" aria-label="Play or pause">PLAY/PAUSE</button>
         <button class="key" data-cmd="FULL" aria-label="Open in a new tab">FULL</button>
         <button class="key" data-cmd="EJECT" aria-label="Back to the directory">EJECT</button>
       </div>
@@ -137,6 +161,11 @@
 
     const ROOT_URL = "https://root.wrenasmir.com";
 
+    /* The podcast episode: the MP3 from the Pastoral Scanlines feed plays in the tube;
+       FULL opens the episode on Apple Podcasts. */
+    const AUDIO_URL = "https://static1.squarespace.com/static/594f10aeebbd1a615c90526e/t/6ac2f2663ea36934962238c1/1791160978537/TMAPO-Podcast.mp3";
+    const PODCAST_URL = "https://podcasts.apple.com/au/podcast/pastoral-scanlines/id1726917174?i=1000793161391";
+
     if (new URLSearchParams(location.search).has("embed")) {
       document.body.classList.add("embed");
     }
@@ -158,6 +187,7 @@
       { id: "about", path: null,     name: "README.txt",    what: "about the novel" },
       { id: "read",  path: "/text",  name: FILE + ".txt",   what: "read the novel",       href: "/read/" },
       { id: "pdf",   path: "/text",  name: FILE + ".pdf",   what: "download the PDF",     href: "/text/" + FILE + ".pdf", newTab: true },
+      { id: "audio", path: "/audio", name: FILE + ".mp3",   what: "the podcast episode" },
       VIDEO_ID
         ? { id: "watch", path: "/video",      name: "Unabridged_Recording", what: "listen to the novel" }
         : { id: "watch", path: "/unverified", name: "Unabridged_Recording.tmp", what: "recording in progress", off: true },
@@ -230,6 +260,7 @@
     const setHash = h => { try { history.replaceState(null, "", h ? "#" + h : location.pathname + location.search); } catch (e) {} };
 
     function showMenu() {
+      stopAudio();
       running = null;
       menuShown = true;
       if (doc) setHash("");
@@ -279,6 +310,7 @@
 
     /* README.txt: about the novel. The words are in the README template below the script's markup. */
     function showReadme() {
+      stopAudio();
       running = null; menuShown = false; doc = true;
       document.body.classList.remove("running");
       document.body.classList.add("doc");
@@ -289,7 +321,68 @@
       startFrames();
     }
 
+    const clock = t => {
+      t = Math.max(0, Math.floor(t || 0));
+      const h = Math.floor(t / 3600), m = Math.floor(t % 3600 / 60), sec = t % 60;
+      return (h ? h + ":" : "") + String(m).padStart(h ? 2 : 1, "0") + ":" + String(sec).padStart(2, "0");
+    };
+    let player = null;
+
+    function tubeAudio() {
+      if (doc) setHash("");
+      running = PODCAST_URL; doc = false; menuShown = false;
+      document.body.classList.remove("doc");
+      document.body.classList.add("running", "audio");
+      display.innerHTML =
+        '<div class="page-head">/audio/' + esc(FILE) + '.mp3 · TYPE EJECT TO RETURN</div>' +
+        '<div class="player">' +
+        '<p>THEIR MOST AUGUST PUBLIC ORGAN</p>' +
+        '<p class="sys">Read by the author. The complete novel, 1 hr 51 min.</p>' +
+        '<button type="button" class="bar" aria-label="Seek"></button>' +
+        '<p class="time sys"><span class="now">0:00</span> / <span class="len">1:50:51</span> <span class="state"></span></p>' +
+        '<div class="ctl">' +
+        '<button type="button" data-act="back">◀◀ 30s</button>' +
+        '<button type="button" data-act="toggle">▶ PLAY</button>' +
+        '<button type="button" data-act="fwd">30s ▶▶</button>' +
+        '</div>' +
+        '<p class="sys">Also on <a href="' + PODCAST_URL + '" target="_blank" rel="noopener">Apple Podcasts</a> ' +
+        'and wherever you get podcasts: search for Pastoral Scanlines.</p>' +
+        '</div>';
+      display.scrollTop = 0;
+      const el = new Audio(AUDIO_URL); el.preload = "metadata"; player = el;
+      const bar = display.querySelector(".bar"), now = display.querySelector(".now"), len = display.querySelector(".len"),
+            state = display.querySelector(".state"), toggle = display.querySelector('[data-act="toggle"]');
+      const cols = () => Math.max(10, Math.floor(bar.clientWidth / (parseFloat(getComputedStyle(bar).fontSize) * 0.6)) - 2);
+      const draw = () => {
+        if (!bar.isConnected) { el.pause(); if (player === el) player = null; return; }
+        const n = cols(), f = el.duration ? el.currentTime / el.duration : 0, k = Math.round(f * n);
+        bar.innerHTML = "[<b>" + "▮".repeat(k) + "</b>" + "·".repeat(n - k) + "]";
+        now.textContent = clock(el.currentTime);
+        if (el.duration) len.textContent = clock(el.duration);
+        toggle.textContent = el.paused ? "▶ PLAY" : "❚❚ PAUSE";
+        state.textContent = el.error ? "· STREAM FAILED, TRY FULL" : (el.paused && !el.currentTime) ? "" : el.paused ? "· PAUSED" : (el.readyState < 3 ? "· BUFFERING" : "· PLAYING");
+      };
+      ["timeupdate", "play", "pause", "waiting", "playing", "durationchange", "error", "ended"].forEach(ev => el.addEventListener(ev, draw));
+      bar.addEventListener("click", e => {
+        if (!el.duration) return;
+        const r = bar.getBoundingClientRect(); el.currentTime = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1) * el.duration;
+      });
+      display.querySelector(".ctl").addEventListener("click", e => {
+        const b = e.target.closest("button"); if (!b) return;
+        if (b.dataset.act === "toggle") el.paused ? el.play() : el.pause();
+        else el.currentTime = Math.max(0, el.currentTime + (b.dataset.act === "fwd" ? 30 : -30));
+      });
+      addEventListener("resize", draw);
+      draw();
+    }
+
+    function stopAudio() {
+      if (player) { player.pause(); player = null; }
+      document.body.classList.remove("audio");
+    }
+
     function tube(head, src, title, full) {
+      stopAudio();
       if (doc) setHash("");
       running = full; doc = false;
       document.body.classList.remove("doc");
@@ -309,6 +402,7 @@
       if (e.href && e.newTab) { mark(); window.open(e.href, "_blank", "noopener"); return; }
       if (e.href) { location.href = e.href; return; }
       if (id === "about") { showReadme(); return; }
+      if (id === "audio") { tubeAudio(); return; }
       if (id === "watch") {
         tube("/video/" + e.name, "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(VIDEO_ID) + "?rel=0",
              "Their Most August Public Organ, the unabridged recording",
@@ -319,6 +413,7 @@
     }
 
     function help() {
+      stopAudio();
       running = null; menuShown = false;
       if (doc) setHash("");
       doc = false;
@@ -328,7 +423,9 @@
         "  READ ............... open the novel in this terminal",
         "  PDF ................ download the novel as a PDF",
         "  ABOUT .............. README.txt: about the novel and its author",
+        "  AUDIO .............. the podcast episode, read by the author",
         "  WATCH .............. listen to the novel: the unabridged recording" + (VIDEO_ID ? "" : " (in progress)"),
+        "  PAUSE .............. pause / resume the podcast",
         "  PLAY ............... load ROOT, the resident program",
         "  FULL ............... open the loaded program in its own tab",
         "  EJECT .............. back to the directory",
@@ -336,7 +433,7 @@
         "  FIELD .............. take the node in / out of the paddock",
         "  HELP ............... this",
         "",
-        "Or use the arrow keys and ENTER, the numbers 1 to 5, or tap a line.",
+        "Or use the arrow keys and ENTER, the numbers 1 to 6, or tap a line.",
         "",
         "PRESS ENTER TO RETURN TO /ROOT."
       ].map(l => '<p class="sys" style="white-space:pre-wrap">' + esc(l || " ") + "</p>").join("");
@@ -349,11 +446,13 @@
       if (c === "UP") return move(-1);
       if (c === "DOWN") return move(1);
       if (c === "OPEN") return (!menuShown || running || doc) ? showMenu() : openEntry(ENTRIES[current].id);
-      if (/^[1-5]$/.test(c)) return openEntry(ENTRIES[+c - 1].id);
+      if (/^[1-6]$/.test(c)) return openEntry(ENTRIES[+c - 1].id);
       if (c === "READ" || c === "TEXT" || c === "BOOK") return openEntry("read");
       if (c === "PDF" || c === "DOWNLOAD") return openEntry("pdf");
       if (c === "ABOUT" || c === "README" || c === "README.TXT") return openEntry("about");
-      if (c === "WATCH" || c === "LISTEN" || c === "AUDIO") return openEntry("watch");
+      if (c === "WATCH" || c === "VIDEO") return openEntry("watch");
+      if (c === "AUDIO" || c === "PODCAST" || c === "LISTEN" || c === "MP3") return openEntry("audio");
+      if (c === "PAUSE" || c === "RESUME" || c === "STOP") { if (player) player.paused ? player.play() : player.pause(); else say("NOTHING PLAYING. TRY AUDIO."); return; }
       if (c === "PLAY" || c === "ROOT" || c === "RUN ROOT") return openEntry("play");
       if (c === "FULL") { if (running) window.open(running, "_blank", "noopener"); else say("NOTHING LOADED. TRY PLAY."); return; }
       if (c === "EJECT" || c === "HOME" || c === "LS" || c === "MENU" || c === "INDEX" || c === "BACK") return showMenu();
@@ -411,6 +510,7 @@
     document.addEventListener("keydown", e => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (e.key === "Escape") { cmd.value = ""; showMenu(); return; }
+      if (e.key === " " && player && !cmd.value && !(e.target.closest && e.target.closest("button, a"))) { e.preventDefault(); run("PAUSE"); return; }
       if (cmd.value) return;                       // a command is being typed
       if (e.key === "ArrowDown") { e.preventDefault(); run("DOWN"); }
       else if (e.key === "ArrowUp") { e.preventDefault(); run("UP"); }
@@ -418,7 +518,7 @@
         if (e.target.closest && e.target.closest("button.key, .readme button, .readme a")) return;   // the key or link handles it itself
         e.preventDefault(); run("OPEN");
       }
-      else if (/^[1-5]$/.test(e.key) && menuShown && !running) { e.preventDefault(); run(e.key); }
+      else if (/^[1-6]$/.test(e.key) && menuShown && !running) { e.preventDefault(); run(e.key); }
       else if (e.key.length === 1 && /[a-z?]/i.test(e.key) && document.activeElement !== cmd) cmd.focus();
     });
 
