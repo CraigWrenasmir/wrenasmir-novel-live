@@ -149,6 +149,8 @@
 
     <div class="links">
       <p><a href="/read/">&gt; Read the novel</a></p>
+      <p><a href="/text/Their_Most_August_Public_Organ.pdf" target="_blank" rel="noopener">&gt; Download the PDF</a></p>
+      <p><a href="/text/Their_Most_August_Public_Organ.epub">&gt; Download the ePub</a></p>
       <p><a href="/" data-home>&gt; Back to /ROOT</a></p>
     </div>
   </template>
@@ -187,6 +189,7 @@
       { id: "about", path: null,     name: "README.txt",    what: "about the novel" },
       { id: "read",  path: "/text",  name: FILE + ".txt",   what: "read the novel",       href: "/read/" },
       { id: "pdf",   path: "/text",  name: FILE + ".pdf",   what: "download the PDF",     href: "/text/" + FILE + ".pdf", newTab: true },
+      { id: "epub",  path: "/text",  name: FILE + ".epub",  what: "download the ePub",    href: "/text/" + FILE + ".epub", newTab: true },
       { id: "audio", path: "/audio", name: FILE + ".mp3",   what: "podcast audio" },
       VIDEO_ID
         ? { id: "watch", path: "/video",      name: "Unabridged_Recording", what: "listen to the novel" }
@@ -422,6 +425,7 @@
         "COMMANDS",
         "  READ ............... open the novel in this terminal",
         "  PDF ................ download the novel as a PDF",
+        "  EPUB ............... download the novel as an ePub",
         "  ABOUT .............. README.txt: about the novel and its author",
         "  AUDIO .............. the podcast episode, read by the author",
         "  WATCH .............. listen to the novel: the unabridged recording" + (VIDEO_ID ? "" : " (in progress)"),
@@ -433,7 +437,7 @@
         "  FIELD .............. take the node in / out of the paddock",
         "  HELP ............... this",
         "",
-        "Or use the arrow keys and ENTER, the numbers 1 to 6, or tap a line.",
+        "Or use the arrow keys and ENTER, the numbers 1 to 7, or tap a line.",
         "",
         "PRESS ENTER TO RETURN TO /ROOT."
       ].map(l => '<p class="sys" style="white-space:pre-wrap">' + esc(l || " ") + "</p>").join("");
@@ -446,9 +450,10 @@
       if (c === "UP") return move(-1);
       if (c === "DOWN") return move(1);
       if (c === "OPEN") return (!menuShown || running || doc) ? showMenu() : openEntry(ENTRIES[current].id);
-      if (/^[1-6]$/.test(c)) return openEntry(ENTRIES[+c - 1].id);
+      if (/^[1-7]$/.test(c)) return openEntry(ENTRIES[+c - 1].id);
       if (c === "READ" || c === "TEXT" || c === "BOOK") return openEntry("read");
       if (c === "PDF" || c === "DOWNLOAD") return openEntry("pdf");
+      if (c === "EPUB" || c === "EBOOK") return openEntry("epub");
       if (c === "ABOUT" || c === "README" || c === "README.TXT") return openEntry("about");
       if (c === "WATCH" || c === "VIDEO") return openEntry("watch");
       if (c === "AUDIO" || c === "PODCAST" || c === "LISTEN" || c === "MP3") return openEntry("audio");
@@ -518,7 +523,7 @@
         if (e.target.closest && e.target.closest("button.key, .readme button, .readme a")) return;   // the key or link handles it itself
         e.preventDefault(); run("OPEN");
       }
-      else if (/^[1-6]$/.test(e.key) && menuShown && !running) { e.preventDefault(); run(e.key); }
+      else if (/^[1-7]$/.test(e.key) && menuShown && !running) { e.preventDefault(); run(e.key); }
       else if (e.key.length === 1 && /[a-z?]/i.test(e.key) && document.activeElement !== cmd) cmd.focus();
     });
 
