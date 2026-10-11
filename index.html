@@ -163,6 +163,9 @@
 
     const ROOT_URL = "https://root.wrenasmir.com";
 
+    /* The ROOT module, built for real: the YouTube video ID of the build film. */
+    const BUILD_VIDEO_ID = "tIWGVxhrD3Y";
+
     /* The podcast episode: the MP3 from the Pastoral Scanlines feed plays in the tube;
        FULL opens the episode on Apple Podcasts. */
     const AUDIO_URL = "https://static1.squarespace.com/static/594f10aeebbd1a615c90526e/t/6ac2f2663ea36934962238c1/1791160978537/TMAPO-Podcast.mp3";
@@ -194,7 +197,8 @@
       VIDEO_ID
         ? { id: "watch", path: "/video",      name: "Unabridged_Recording", what: "listen to the novel" }
         : { id: "watch", path: "/unverified", name: "Unabridged_Recording.tmp", what: "recording in progress", off: true },
-      { id: "play",  path: "/game", name: "ROOT",          what: "play" }
+      { id: "play",  path: "/interact", name: "PLAY",      what: "ROOT, the game" },
+      { id: "build", path: "/interact", name: "BUILD",     what: "the ROOT module, on film" }
     ];
 
     /* shares the reader's settings (STEADY, FIELD) without touching its page or mode */
@@ -411,7 +415,11 @@
              "Their Most August Public Organ, the unabridged recording",
              "https://www.youtube.com/watch?v=" + encodeURIComponent(VIDEO_ID));
       } else if (id === "play") {
-        tube("EXTERNAL PROGRAM: /game/ROOT", ROOT_URL, "ROOT, the game", ROOT_URL);
+        tube("EXTERNAL PROGRAM: /interact/PLAY", ROOT_URL, "ROOT, the game", ROOT_URL);
+      } else if (id === "build") {
+        tube("/interact/BUILD", "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(BUILD_VIDEO_ID) + "?rel=0",
+             "ROOT Module from Their Most August Public Organ",
+             "https://www.youtube.com/watch?v=" + encodeURIComponent(BUILD_VIDEO_ID));
       }
     }
 
@@ -431,13 +439,14 @@
         "  WATCH .............. listen to the novel: the unabridged recording" + (VIDEO_ID ? "" : " (in progress)"),
         "  PAUSE .............. pause / resume the podcast",
         "  PLAY ............... load ROOT, the resident program",
+        "  BUILD .............. the ROOT module, built for real: the film",
         "  FULL ............... open the loaded program in its own tab",
         "  EJECT .............. back to the directory",
         "  STEADY ............. calm the tube (scanlines/flicker off)",
         "  FIELD .............. take the node in / out of the paddock",
         "  HELP ............... this",
         "",
-        "Or use the arrow keys and ENTER, the numbers 1 to 7, or tap a line.",
+        "Or use the arrow keys and ENTER, the numbers 1 to 8, or tap a line.",
         "",
         "PRESS ENTER TO RETURN TO /ROOT."
       ].map(l => '<p class="sys" style="white-space:pre-wrap">' + esc(l || " ") + "</p>").join("");
@@ -450,7 +459,7 @@
       if (c === "UP") return move(-1);
       if (c === "DOWN") return move(1);
       if (c === "OPEN") return (!menuShown || running || doc) ? showMenu() : openEntry(ENTRIES[current].id);
-      if (/^[1-7]$/.test(c)) return openEntry(ENTRIES[+c - 1].id);
+      if (/^[1-8]$/.test(c)) return openEntry(ENTRIES[+c - 1].id);
       if (c === "READ" || c === "TEXT" || c === "BOOK") return openEntry("read");
       if (c === "PDF" || c === "DOWNLOAD") return openEntry("pdf");
       if (c === "EPUB" || c === "EBOOK") return openEntry("epub");
@@ -459,6 +468,7 @@
       if (c === "AUDIO" || c === "PODCAST" || c === "LISTEN" || c === "MP3") return openEntry("audio");
       if (c === "PAUSE" || c === "RESUME" || c === "STOP") { if (player) player.paused ? player.play() : player.pause(); else say("NOTHING PLAYING. TRY AUDIO."); return; }
       if (c === "PLAY" || c === "ROOT" || c === "RUN ROOT") return openEntry("play");
+      if (c === "BUILD" || c === "MODULE") return openEntry("build");
       if (c === "FULL") { if (running) window.open(running, "_blank", "noopener"); else say("NOTHING LOADED. TRY PLAY."); return; }
       if (c === "EJECT" || c === "HOME" || c === "LS" || c === "MENU" || c === "INDEX" || c === "BACK") return showMenu();
       if (c === "HELP" || c === "?") return help();
@@ -523,7 +533,7 @@
         if (e.target.closest && e.target.closest("button.key, .readme button, .readme a")) return;   // the key or link handles it itself
         e.preventDefault(); run("OPEN");
       }
-      else if (/^[1-7]$/.test(e.key) && menuShown && !running) { e.preventDefault(); run(e.key); }
+      else if (/^[1-8]$/.test(e.key) && menuShown && !running) { e.preventDefault(); run(e.key); }
       else if (e.key.length === 1 && /[a-z?]/i.test(e.key) && document.activeElement !== cmd) cmd.focus();
     });
 
